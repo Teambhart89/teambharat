@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 output/
-reports/
+reports/*.md
+!reports/competitor_analysis_*.md
 .venv/
 venv/
