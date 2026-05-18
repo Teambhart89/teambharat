@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Twitter/X Hashtag Trending Marketing Proposal — evryvn.com</title>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --accent: #1d9bf0;
+      --accent-dark: #0d6efd;
+      --accent-light: #e8f4fd;
+      --gray: #6b7280;
+      --gray-light: #f3f4f6;
+      --border: #e5e7eb;
+      --green: #10b981;
+      --orange: #f59e0b;
+      --purple: #8b5cf6;
+      --red: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0d3460 100%);
+      color: var(--white);
+      padding: 80px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(29,155,240,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cover-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .cover h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 700px;
+    }
+    .cover h1 span { color: var(--accent); }
+    .cover .subtitle {
+      font-size: 20px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cover-meta-item label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 4px;
+    }
+    .cover-meta-item span {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+    }
+    .x-logo {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      width: 64px;
+      height: 64px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 900;
+      color: black;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+    section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-intro {
+      color: var(--gray);
+      font-size: 16px;
+      margin-bottom: 40px;
+      max-width: 680px;
+    }
+    h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    p { color: #374151; margin-bottom: 12px; }
+
+    /* ── CARDS ── */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card .icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .card h3 { font-size: 17px; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--gray); margin: 0; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: flex; flex-direction: column; gap: 24px; }
+    .step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+    }
+    .step-num {
+      min-width: 44px;
+      height: 44px;
+      background: var(--accent);
+      color: white;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-body h3 { font-size: 17px; margin-bottom: 6px; }
+    .step-body p { font-size: 14px; color: var(--gray); margin: 0; }
+
+    /* ── HASHTAG PILLARS ── */
+    .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .hashtag-card {
+      border-radius: 14px;
+      padding: 22px;
+      color: white;
+    }
+    .hashtag-card.blue { background: linear-gradient(135deg, #1d9bf0, #0d6efd); }
+    .hashtag-card.green { background: linear-gradient(135deg, #10b981, #059669); }
+    .hashtag-card.purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .hashtag-card.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .hashtag-card.red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+    .hashtag-card.dark { background: linear-gradient(135deg, #374151, #1f2937); }
+    .hashtag-card .ht-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+    .hashtag-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .hashtag-card .tags span {
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ── PACKAGES ── */
+    .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .package {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .package.featured {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(29,155,240,0.15);
+    }
+    .package .badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .package .pkg-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .package .price {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .package .price span { font-size: 18px; font-weight: 600; color: var(--gray); }
+    .package .period {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+    .package ul { list-style: none; margin-bottom: 28px; }
+    .package ul li {
+      font-size: 14px;
+      color: #374151;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .package ul li .check { color: var(--green); font-weight: 700; font-size: 16px; }
+    .package ul li .cross { color: #d1d5db; font-size: 16px; }
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-outline { background: white; color: var(--accent); border: 2px solid var(--accent); }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 32px; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-item .week {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .timeline-item h3 { font-size: 17px; margin-bottom: 6px; }
+    .timeline-item p { font-size: 14px; color: var(--gray); margin: 0; }
+
+    /* ── METRICS TABLE ── */
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      background: var(--black);
+      color: white;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+      letter-spacing: 0.5px;
+    }
+    th:first-child { border-radius: 10px 0 0 0; }
+    th:last-child { border-radius: 0 10px 0 0; }
+    td {
+      padding: 14px 18px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+      color: #374151;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--gray-light); }
+    .tag-pill {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .info-box p { color: #1e40af; margin: 0; font-size: 14px; }
+    .warn-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .warn-box p { color: #92400e; margin: 0; font-size: 14px; }
+
+    /* ── STAT CARDS ── */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+    .stat-card .stat-num { font-size: 32px; font-weight: 900; color: var(--accent); }
+    .stat-card .stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+    /* ── FOOTER / SIGNATURE ── */
+    .signature {
+      background: var(--black);
+      color: white;
+      padding: 48px 60px;
+    }
+    .signature h2 { font-size: 26px; color: white; margin-bottom: 8px; }
+    .signature p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 24px; }
+    .sig-contact { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 32px; }
+    .sig-contact-item label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+    .sig-contact-item span { font-size: 15px; color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .cover { padding: 48px 24px; }
+      .cover h1 { font-size: 30px; }
+      .x-logo { display: none; }
+      .container { padding: 0 20px; }
+      .packages { grid-template-columns: 1fr; }
+      .signature { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="x-logo">𝕏</div>
+  <div class="cover-badge">Official Marketing Proposal</div>
+  <h1>Twitter / X <span>Hashtag Trending</span> Marketing Plan</h1>
+  <p class="subtitle">
+    A complete strategy to place <strong>evryvn.com</strong> at the center of Tech &amp; Startup conversations on X (Twitter) — driving brand awareness, traffic, and authority.
+  </p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><label>Prepared For</label><span>evryvn.com</span></div>
+    <div class="cover-meta-item"><label>Industry</label><span>Tech &amp; Startup</span></div>
+    <div class="cover-meta-item"><label>Platform</label><span>X (Twitter)</span></div>
+    <div class="cover-meta-item"><label>Prepared By</label><span>Team Bharat</span></div>
+    <div class="cover-meta-item"><label>Date</label><span>May 2026</span></div>
+  </div>
+</div>
+
+<!-- ══ EXECUTIVE SUMMARY ══════════════════════════════════════════════ -->
+<div style="background:white;">
+<div class="container">
+<section>
+  <p class="section-label">01 · Overview</p>
+  <h2>Executive Summary</h2>
+  <p class="section-intro">This proposal outlines a full-service Twitter/X hashtag trending campaign designed specifically for <strong>evryvn.com</strong> — a tech &amp; startup brand.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">500M+</div><div class="stat-label">Monthly active X users</div></div>
+    <div class="stat-card"><div class="stat-num">350M+</div><div class="stat-num" style="font-size:20px;font-weight:700">tweets</div><div class="stat-label">Sent every day</div></div>
+    <div class="stat-card"><div class="stat-num">#1</div><div class="stat-label">Platform for real-time tech conversation</div></div>
+    <div class="stat-card"><div class="stat-num">6×</div><div class="stat-label">More reach with trending hashtags</div></div>
+  </div>
+
+  <p>X (formerly Twitter) remains the <strong>#1 platform for tech, startup, and developer communities</strong>. A strategically trending hashtag can put evryvn.com in front of millions of potential users, investors, and press in a matter of hours. Our service manages every step — from hashtag research and content creation to coordinated campaign execution and performance reporting.</p>
+
+  <div class="info-box">
+    <p>📌 <strong>Key Goal:</strong> Make <strong>#evryvn</strong> and related branded/industry hashtags visible in the Trending Topics section across India, USA, UK, and global tech audiences — generating organic reach, impressions, and website traffic.</p>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ WHAT IS HASHTAG TRENDING ════════════════════════════════════════ -->
+<div style="background:#f8fafc;">
+<div class="container">
+<section>
+  <p class="section-label">02 · Education</p>
+  <h2>What is Twitter Hashtag Trending &amp; How It Works</h2>
+  <p class="section-intro">Understanding the mechanics behind trending — and why it's the most powerful organic amplification tool on X.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Hashtag Selection &amp; Research</h3>
+        <p>We identify high-potential hashtags using Twitter's own trend data, third-party tools (Hashtagify, Brand24, TweetDeck), and competitor analysis. We target a mix of branded hashtags (e.g. <em>#evryvn</em>), niche tech hashtags (e.g. <em>#TechStartup</em>, <em>#BuildInPublic</em>), and moment-based tags tied to industry events.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Content Calendar &amp; Tweet Scripting</h3>
+        <p>We design a daily/weekly content calendar with professionally crafted tweets, threads, polls, and reply-chain content. Each piece is optimised to include the target hashtag naturally, encouraging retweets and quote-tweets which signal volume to Twitter's algorithm.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Influencer &amp; Community Activation</h3>
+        <p>We mobilise a vetted network of tech micro-influencers, startup community accounts, and developer Twitter users to simultaneously tweet with the target hashtag. A coordinated spike in tweet volume over a short window (1–2 hours) triggers Twitter's trending algorithm.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Algorithm Trigger &amp; Trending Placement</h3>
+        <p>Twitter's trending algorithm ranks hashtags based on tweet volume velocity (rapid spike), unique user count, engagement (likes, RTs, replies), and geographic concentration. When our coordinated push crosses the threshold, your hashtag appears in "Trending" — visible to all users in the targeted region(s).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Live Monitoring &amp; Real-Time Engagement</h3>
+        <p>Our social media team monitors the campaign in real time — responding to tweets, retweeting quality content, and keeping the conversation alive to sustain trending status and maximise the traffic window.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h3>Post-Campaign Analytics &amp; Reporting</h3>
+        <p>After each campaign, we deliver a full performance report: total impressions, reach, engagement rate, website traffic spike (via UTM), influencer performance breakdown, and trending rank achieved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ HASHTAG STRATEGY ════════════════════════════════════════════════ -->
+<div style="background:white;">
+<div class="container">
+<section>
+  <p class="section-label">03 · Strategy</p>
+  <h2>Recommended Hashtag Pillars for evryvn.com</h2>
+  <p class="section-intro">We organise hashtags into six content pillars — each serving a different audience segment and campaign goal.</p>
+
+  <div class="hashtag-grid">
+    <div class="hashtag-card blue">
+      <div class="ht-label">Branded</div>
+      <div class="tags">
+        <span>#evryvn</span>
+        <span>#evryvnapp</span>
+        <span>#TeamEvryvn</span>
+        <span>#evryvntech</span>
+      </div>
+    </div>
+    <div class="hashtag-card purple">
+      <div class="ht-label">Startup Culture</div>
+      <div class="tags">
+        <span>#BuildInPublic</span>
+        <span>#StartupLife</span>
+        <span>#StartupIndia</span>
+        <span>#Founder</span>
+        <span>#YCombinator</span>
+      </div>
+    </div>
+    <div class="hashtag-card green">
+      <div class="ht-label">Tech &amp; Dev</div>
+      <div class="tags">
+        <span>#TechStartup</span>
+        <span>#SaaS</span>
+        <span>#NoCode</span>
+        <span>#DevTwitter</span>
+        <span>#100DaysOfCode</span>
+      </div>
+    </div>
+    <div class="hashtag-card orange">
+      <div class="ht-label">Growth &amp; Marketing</div>
+      <div class="tags">
+        <span>#GrowthHacking</span>
+        <span>#ProductLaunch</span>
+        <span>#Indiehackers</span>
+        <span>#DigitalMarketing</span>
+      </div>
+    </div>
+    <div class="hashtag-card red">
+      <div class="ht-label">AI / Innovation</div>
+      <div class="tags">
+        <span>#AI</span>
+        <span>#ArtificialIntelligence</span>
+        <span>#FutureOfWork</span>
+        <span>#TechInnovation</span>
+        <span>#AIStartup</span>
+      </div>
+    </div>
+    <div class="hashtag-card dark">
+      <div class="ht-label">Community</div>
+      <div class="tags">
+        <span>#TechCommunity</span>
+        <span>#MadeInIndia</span>
+        <span>#StartupEcosystem</span>
+        <span>#VentureCapital</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-box" style="margin-top:32px;">
+    <p>⚡ <strong>Trending Campaign Focus:</strong> The primary hashtags pushed for Trending placement will be <strong>#evryvn</strong> and <strong>#BuildInPublic</strong> combined with a campaign-specific hashtag (e.g. <em>#evryvnLaunch</em> or <em>#evryvnxTech</em>) to create a unique, trackable trending moment.</p>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ WHAT WE DELIVER ════════════════════════════════════════════════ -->
+<div style="background:#f8fafc;">
+<div class="container">
+<section>
+  <p class="section-label">04 · Deliverables</p>
+  <h2>What We Deliver</h2>
+  <p class="section-intro">Every package includes a core set of deliverables — scaled by volume and depth based on your chosen plan.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="icon">🔍</span>
+      <h3>Hashtag Audit &amp; Strategy</h3>
+      <p>Deep-dive research into trending tech hashtags, competitor analysis, and custom hashtag roadmap for evryvn.com.</p>
+    </div>
+    <div class="card">
+      <span class="icon">✍️</span>
+      <h3>Content Creation</h3>
+      <p>Professionally written tweets, Twitter threads, polls, and reply-bait posts — all branded for evryvn.com.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🤝</span>
+      <h3>Influencer Network</h3>
+      <p>Activation of 20–100+ vetted tech/startup micro-influencers (5K–500K followers) to amplify your hashtag.</p>
+    </div>
+    <div class="card">
+      <span class="icon">📅</span>
+      <h3>Content Calendar</h3>
+      <p>Month-long scheduled content plan with optimal posting times based on your target audience's peak hours.</p>
+    </div>
+    <div class="card">
+      <span class="icon">📡</span>
+      <h3>Live Campaign Management</h3>
+      <p>Real-time monitoring and engagement during campaign execution windows to sustain trending momentum.</p>
+    </div>
+    <div class="card">
+      <span class="icon">📊</span>
+      <h3>Analytics Report</h3>
+      <p>Post-campaign PDF report with impressions, reach, engagement rate, trending rank, and website traffic data.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ PACKAGES ════════════════════════════════════════════════════════ -->
+<div style="background:white;">
+<div class="container">
+<section>
+  <p class="section-label">05 · Pricing</p>
+  <h2>Service Packages &amp; Charges</h2>
+  <p class="section-intro">Three transparent, fixed-price packages. All prices in Indian Rupees (INR). No hidden fees.</p>
+
+  <div class="packages">
+
+    <!-- STARTER -->
+    <div class="package">
+      <div class="pkg-name">Starter</div>
+      <div class="price">₹25,000 <span></span></div>
+      <div class="period">One-Time Campaign (1 month)</div>
+      <ul>
+        <li><span class="check">✓</span> Hashtag audit &amp; research</li>
+        <li><span class="check">✓</span> 2 trending campaign pushes</li>
+        <li><span class="check">✓</span> 20 influencer activations</li>
+        <li><span class="check">✓</span> 30 branded tweets written</li>
+        <li><span class="check">✓</span> 1 Twitter thread</li>
+        <li><span class="check">✓</span> India regional trending target</li>
+        <li><span class="check">✓</span> 1 post-campaign report</li>
+        <li><span class="cross">✗</span> Global trending push</li>
+        <li><span class="cross">✗</span> Dedicated account manager</li>
+        <li><span class="cross">✗</span> Twitter Spaces session</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline">Get Started</a>
+    </div>
+
+    <!-- GROWTH (FEATURED) -->
+    <div class="package featured">
+      <div class="badge">Most Popular</div>
+      <div class="pkg-name">Growth</div>
+      <div class="price">₹55,000 <span></span></div>
+      <div class="period">Monthly Retainer (3-month min.)</div>
+      <ul>
+        <li><span class="check">✓</span> Full hashtag strategy &amp; calendar</li>
+        <li><span class="check">✓</span> 4 trending campaign pushes/month</li>
+        <li><span class="check">✓</span> 50 influencer activations/push</li>
+        <li><span class="check">✓</span> 60 branded tweets per month</li>
+        <li><span class="check">✓</span> 4 Twitter threads per month</li>
+        <li><span class="check">✓</span> India + UAE + UK trending targets</li>
+        <li><span class="check">✓</span> Weekly performance reports</li>
+        <li><span class="check">✓</span> 1 Twitter Spaces per month</li>
+        <li><span class="check">✓</span> Dedicated account manager</li>
+        <li><span class="cross">✗</span> USA/Global trending push</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Choose Growth</a>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="package">
+      <div class="pkg-name">Enterprise</div>
+      <div class="price">₹1,20,000 <span></span></div>
+      <div class="period">Monthly Retainer (6-month min.)</div>
+      <ul>
+        <li><span class="check">✓</span> Everything in Growth</li>
+        <li><span class="check">✓</span> 8 trending campaign pushes/month</li>
+        <li><span class="check">✓</span> 100+ influencer activations/push</li>
+        <li><span class="check">✓</span> Unlimited tweet &amp; thread creation</li>
+        <li><span class="check">✓</span> USA, UK, India, Global targets</li>
+        <li><span class="check">✓</span> Daily performance dashboard</li>
+        <li><span class="check">✓</span> 2 Twitter Spaces per month</li>
+        <li><span class="check">✓</span> Senior strategist assigned</li>
+        <li><span class="check">✓</span> Press release integration</li>
+        <li><span class="check">✓</span> Competitor tracking</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline">Contact Us</a>
+    </div>
+
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <h3 style="margin-top:48px; margin-bottom:20px; font-size:20px;">Package Comparison at a Glance</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Starter <br/>₹25,000</th>
+        <th>Growth <br/>₹55,000/mo</th>
+        <th>Enterprise <br/>₹1,20,000/mo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Hashtag Research &amp; Strategy</td><td><span class="tag-pill">Basic</span></td><td><span class="tag-pill">Advanced</span></td><td><span class="tag-pill">Full</span></td></tr>
+      <tr><td>Trending Pushes per Month</td><td>2</td><td>4</td><td>8</td></tr>
+      <tr><td>Influencer Activations per Push</td><td>20</td><td>50</td><td>100+</td></tr>
+      <tr><td>Tweets Created per Month</td><td>30</td><td>60</td><td>Unlimited</td></tr>
+      <tr><td>Twitter Threads</td><td>1</td><td>4</td><td>Unlimited</td></tr>
+      <tr><td>Target Geographies</td><td>India</td><td>India + UAE + UK</td><td>Global</td></tr>
+      <tr><td>Twitter Spaces</td><td>✗</td><td>1/month</td><td>2/month</td></tr>
+      <tr><td>Dedicated Account Manager</td><td>✗</td><td>✓</td><td>✓ Senior</td></tr>
+      <tr><td>Performance Reports</td><td>Post-campaign</td><td>Weekly</td><td>Daily Dashboard</td></tr>
+      <tr><td>Press Release Integration</td><td>✗</td><td>✗</td><td>✓</td></tr>
+      <tr><td>Competitor Tracking</td><td>✗</td><td>✗</td><td>✓</td></tr>
+      <tr><td>Minimum Commitment</td><td>1 month</td><td>3 months</td><td>6 months</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="info-box" style="margin-top:28px;">
+    <p>💡 <strong>Add-Ons Available:</strong> Twitter/X Paid Promotion Boost (+₹15,000), Additional Trending Push (+₹8,000/push), Multilingual Tweet Pack (Hindi + English) (+₹5,000/month), Extra Twitter Spaces session (+₹6,000/session).</p>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ TIMELINE ════════════════════════════════════════════════════════ -->
+<div style="background:#f8fafc;">
+<div class="container">
+<section>
+  <p class="section-label">06 · Timeline</p>
+  <h2>Campaign Execution Timeline</h2>
+  <p class="section-intro">A clear week-by-week breakdown of how we go from onboarding to trending — using the Growth package as an example.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="week">Week 1 — Onboarding &amp; Research</div>
+      <h3>Discovery &amp; Strategy Setup</h3>
+      <p>Brand intake call, access setup, deep hashtag research, competitor audit, and finalisation of the monthly content calendar and hashtag list. Influencer shortlist shared for approval.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="week">Week 2 — Content Production</div>
+      <h3>Content Creation &amp; Approval</h3>
+      <p>All tweets, threads, and campaign-specific content are written, designed (visuals if needed), and sent for client approval. Influencer briefs are distributed to the activation network.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="week">Week 2–3 — Campaign Launch</div>
+      <h3>First Trending Push Executed</h3>
+      <p>Coordinated activation begins. Influencers post simultaneously. Our team engages in real time. Campaign window: 2–3 hours of peak activity. Live trending rank screenshots captured.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="week">Week 3–4 — Ongoing Content</div>
+      <h3>Daily Posting &amp; Community Management</h3>
+      <p>Scheduled organic tweets go live daily. Replies and mentions managed. Second trending push executed mid-month. Weekly report shared with client.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="week">End of Month — Review</div>
+      <h3>Full Performance Report &amp; Strategy Review</h3>
+      <p>Comprehensive analytics report delivered. Strategy call to review results, adjust hashtag mix, and plan the next month's campaign based on data.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ EXPECTED RESULTS ═══════════════════════════════════════════════ -->
+<div style="background:white;">
+<div class="container">
+<section>
+  <p class="section-label">07 · Expected Results</p>
+  <h2>What You Can Expect</h2>
+  <p class="section-intro">Realistic performance benchmarks based on previous tech-startup campaigns we have executed.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">2M+</div><div class="stat-label">Impressions per trending push</div></div>
+    <div class="stat-card"><div class="stat-num">Top 10</div><div class="stat-label">Trending rank (regional)</div></div>
+    <div class="stat-card"><div class="stat-num">300%</div><div class="stat-label">Website traffic spike on campaign day</div></div>
+    <div class="stat-card"><div class="stat-num">5K+</div><div class="stat-label">New followers per month (Growth)</div></div>
+    <div class="stat-card"><div class="stat-num">8–12%</div><div class="stat-label">Avg. engagement rate</div></div>
+    <div class="stat-card"><div class="stat-num">48hrs</div><div class="stat-label">Trend longevity (organic continuation)</div></div>
+  </div>
+
+  <div class="warn-box">
+    <p>⚠️ <strong>Disclaimer:</strong> Results vary based on current platform competition, brand strength, and content quality. The figures above represent average outcomes from similar campaigns. We do not guarantee specific trending positions but commit to maximum effort and transparent reporting on all campaigns.</p>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ TERMS ═══════════════════════════════════════════════════════════ -->
+<div style="background:#f8fafc;">
+<div class="container">
+<section>
+  <p class="section-label">08 · Terms</p>
+  <h2>Terms &amp; Conditions</h2>
+  <p class="section-intro">Clear, fair terms to protect both parties.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="icon">💳</span>
+      <h3>Payment Terms</h3>
+      <p>50% advance before campaign kickoff. Remaining 50% due within 7 days of campaign completion. Monthly retainers billed on the 1st of each month.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🔄</span>
+      <h3>Revisions</h3>
+      <p>Up to 2 rounds of revisions on all content before scheduling. Additional revisions billed at ₹500 per tweet or ₹2,000 per thread.</p>
+    </div>
+    <div class="card">
+      <span class="icon">📋</span>
+      <h3>Client Responsibilities</h3>
+      <p>Client must provide brand assets, approve content within 48 hours of submission, and grant Twitter analytics read access for reporting.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🚫</span>
+      <h3>Cancellation Policy</h3>
+      <p>30-day written notice required for cancellation of retainer packages. Work completed in the final month is fully billable. Advance payments are non-refundable.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🔒</span>
+      <h3>Confidentiality</h3>
+      <p>All campaign strategies, hashtag lists, influencer networks, and client data remain strictly confidential. NDAs available on request.</p>
+    </div>
+    <div class="card">
+      <span class="icon">📞</span>
+      <h3>Communication</h3>
+      <p>Dedicated WhatsApp group for each client. Response within 4 business hours. Monthly strategy calls included in all packages.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ WHY TEAM BHARAT ═════════════════════════════════════════════════ -->
+<div style="background:white;">
+<div class="container">
+<section>
+  <p class="section-label">09 · Why Us</p>
+  <h2>Why Choose Team Bharat</h2>
+  <p class="section-intro">We are a specialised social media growth agency with a proven track record in the Indian and global tech ecosystem.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="icon">🏆</span>
+      <h3>Tech-Niche Specialists</h3>
+      <p>We focus exclusively on tech, SaaS, and startup brands — our influencer network and content team speaks your audience's language.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🌐</span>
+      <h3>Multi-Region Reach</h3>
+      <p>Active influencer network across India, UAE, UK, and USA for coordinated global trending pushes.</p>
+    </div>
+    <div class="card">
+      <span class="icon">📈</span>
+      <h3>Data-Driven Approach</h3>
+      <p>Every decision — hashtag choice, posting time, influencer selection — is backed by real-time data and platform analytics.</p>
+    </div>
+    <div class="card">
+      <span class="icon">⚡</span>
+      <h3>Rapid Execution</h3>
+      <p>Fully operational within 7 days of contract signing. Campaign live within 14 days.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ══ SIGNATURE / CONTACT ════════════════════════════════════════════ -->
+<div id="contact" class="signature">
+  <div class="container" style="padding-top:0; padding-bottom:0;">
+    <h2>Ready to Make evryvn.com Trend?</h2>
+    <p>Let's build your brand's presence at the top of Twitter's trending page. Reach out to get started or ask any questions.</p>
+    <a href="mailto:hello@teambharat.in" class="btn btn-primary" style="display:inline-block; margin-bottom:16px;">📩 Accept This Proposal</a>
+    <div class="sig-contact">
+      <div class="sig-contact-item"><label>Agency</label><span>Team Bharat</span></div>
+      <div class="sig-contact-item"><label>Email</label><span>hello@teambharat.in</span></div>
+      <div class="sig-contact-item"><label>Valid Until</label><span>30 Days from Issue Date</span></div>
+      <div class="sig-contact-item"><label>Proposal ID</label><span>TB-X-EVRYVN-2026-05</span></div>
+    </div>
+    <p style="margin-top:40px; font-size:12px; color:rgba(255,255,255,0.3);">
+      © 2026 Team Bharat. All rights reserved. This proposal is confidential and intended solely for evryvn.com.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
