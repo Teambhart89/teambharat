@@ -1,5 +1,6 @@
 // agent.ts — Claude Agents SDK + Composio
 
+import "dotenv/config";
 import { query } from "@anthropic-ai/claude-agent-sdk";
 import { Composio } from "@composio/core";
 
