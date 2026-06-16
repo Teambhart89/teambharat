@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Gifting Plants | OnlinePlantsCart.in</title>
+  <meta name="description" content="Corporate & bulk gifting plants from OnlinePlantsCart.in. Choose from 20 curated indoor and air-purifying plants for employees, clients, weddings and events. Custom branding & pan-India delivery." />
+  <style>
+    :root {
+      --green-900: #14532d;
+      --green-700: #16794a;
+      --green-500: #22a06b;
+      --green-50: #ecfdf5;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f8faf9;
+      --card: #ffffff;
+      --amber: #f59e0b;
+      --radius: 16px;
+      --shadow: 0 6px 24px rgba(16, 24, 40, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    .topbar {
+      background: var(--green-900);
+      color: #fff;
+      font-size: 13px;
+      text-align: center;
+      padding: 8px 12px;
+    }
+
+    header.site {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    header.site .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green-700);
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--amber); }
+    nav.site a {
+      margin-left: 22px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    nav.site a:hover { color: var(--green-700); }
+    .nav-toggle { display: none; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(120deg, var(--green-900), var(--green-700));
+      color: #fff;
+      padding: 64px 0;
+    }
+    .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+    .hero h1 { font-size: 42px; line-height: 1.1; margin-bottom: 16px; letter-spacing: -1px; }
+    .hero p { font-size: 18px; opacity: 0.92; margin-bottom: 26px; max-width: 540px; }
+    .hero .cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--amber); color: #1f2937; }
+    .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius);
+      padding: 26px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-card h3 { font-size: 17px; margin-bottom: 14px; }
+    .hero-card ul { list-style: none; }
+    .hero-card li { padding: 7px 0; font-size: 15px; opacity: 0.95; }
+    .hero-card li::before { content: "✓"; color: var(--amber); font-weight: 800; margin-right: 10px; }
+
+    /* Trust strip */
+    .trust { background: var(--green-50); border-bottom: 1px solid var(--line); }
+    .trust .container { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 16px; padding: 22px 20px; text-align: center; }
+    .trust .item strong { display: block; font-size: 24px; color: var(--green-700); }
+    .trust .item span { font-size: 13px; color: var(--muted); }
+
+    /* Section */
+    section.products { padding: 56px 0 72px; }
+    .section-head { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+    .section-head .eyebrow { color: var(--green-500); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 13px; }
+    .section-head h2 { font-size: 34px; margin: 10px 0; letter-spacing: -0.5px; }
+    .section-head p { color: var(--muted); font-size: 17px; }
+
+    /* Filter chips */
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 34px; }
+    .chip {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .chip.active, .chip:hover { background: var(--green-700); color: #fff; border-color: var(--green-700); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(16,24,40,0.14); }
+
+    .thumb {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      position: relative;
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--amber);
+      color: #1f2937;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .card .body { padding: 16px 16px 18px; display: flex; flex-direction: column; flex: 1; }
+    .card h3 { font-size: 17px; margin-bottom: 6px; color: var(--green-900); }
+    .card .latin { font-size: 12px; font-style: italic; color: var(--muted); margin-bottom: 10px; }
+    .card p { font-size: 13.5px; color: #4b5563; flex: 1; }
+    .card .meta { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .card .price { font-weight: 800; color: var(--green-700); font-size: 16px; }
+    .card .price small { font-weight: 500; color: var(--muted); font-size: 12px; }
+    .card .moq { font-size: 11px; color: var(--muted); background: var(--green-50); padding: 4px 9px; border-radius: 999px; }
+    .card .enquire {
+      margin-top: 14px;
+      width: 100%;
+      text-align: center;
+      padding: 11px;
+      background: var(--green-700);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .card .enquire:hover { background: var(--green-900); }
+
+    /* How it works */
+    .how { background: #fff; border-top: 1px solid var(--line); padding: 60px 0; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 34px; }
+    .step { text-align: center; padding: 0 10px; }
+    .step .num {
+      width: 48px; height: 48px; line-height: 48px; margin: 0 auto 14px;
+      border-radius: 50%; background: var(--green-50); color: var(--green-700);
+      font-weight: 800; font-size: 20px;
+    }
+    .step h4 { font-size: 17px; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    /* CTA band */
+    .cta-band {
+      background: linear-gradient(120deg, var(--green-700), var(--green-500));
+      color: #fff;
+      text-align: center;
+      padding: 56px 20px;
+    }
+    .cta-band h2 { font-size: 30px; margin-bottom: 12px; }
+    .cta-band p { opacity: 0.92; margin-bottom: 24px; font-size: 17px; }
+
+    /* Footer */
+    footer.site { background: var(--green-900); color: #cbe9d8; padding: 40px 0 28px; font-size: 14px; }
+    footer.site .cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+    footer.site h4 { color: #fff; margin-bottom: 12px; font-size: 16px; }
+    footer.site a { display: block; padding: 4px 0; color: #cbe9d8; }
+    footer.site a:hover { color: #fff; }
+    footer.site .copy { border-top: 1px solid rgba(255,255,255,0.15); margin-top: 28px; padding-top: 18px; text-align: center; opacity: 0.8; }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .hero .container { grid-template-columns: 1fr; }
+      footer.site .cols { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 32px; }
+      nav.site { display: none; }
+      .section-head h2 { font-size: 26px; }
+    }
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">🎁 Corporate &amp; Bulk Gifting — Custom branding, eco-friendly packaging &amp; Pan-India delivery. Min. order 25 units.</div>
+
+  <header class="site">
+    <div class="inner">
+      <a class="logo" href="/">Online<span>Plants</span>Cart</a>
+      <nav class="site">
+        <a href="/">Home</a>
+        <a href="#products">Bulk Gifting</a>
+        <a href="#how">How It Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1>Bulk &amp; Corporate Plant Gifting</h1>
+        <p>Make a lasting, green impression. Gift live plants to your employees, clients, partners and guests — with your logo on the pot, a personalised message card, and reliable delivery anywhere in India.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#products">Browse 20 Gifting Plants</a>
+          <a class="btn btn-ghost" href="#contact">Get a Bulk Quote</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Perfect for</h3>
+        <ul>
+          <li>Employee onboarding &amp; work anniversaries</li>
+          <li>Diwali, New Year &amp; festival gifting</li>
+          <li>Client &amp; investor appreciation</li>
+          <li>Conferences, expos &amp; return gifts</li>
+          <li>Weddings &amp; wellness hampers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="container">
+      <div class="item"><strong>20+</strong><span>Curated gifting plants</span></div>
+      <div class="item"><strong>25</strong><span>Minimum order quantity</span></div>
+      <div class="item"><strong>Pan-India</strong><span>Doorstep delivery</span></div>
+      <div class="item"><strong>Free</strong><span>Logo &amp; message branding*</span></div>
+      <div class="item"><strong>100%</strong><span>Live, healthy plants</span></div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Bulk Gifting Catalogue</div>
+        <h2>20 Plants Your People Will Love</h2>
+        <p>Low-maintenance, air-purifying and desk-friendly plants — each available in branded ceramic, jute or eco pots. Prices are indicative and reduce further at higher quantities.</p>
+      </div>
+
+      <div class="filters">
+        <span class="chip active">All</span>
+        <span class="chip">Air Purifying</span>
+        <span class="chip">Low Maintenance</span>
+        <span class="chip">Desk &amp; Tabletop</span>
+        <span class="chip">Lucky / Vastu</span>
+      </div>
+
+      <div class="grid">
+
+        <!-- 1 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌿<span class="badge">Bestseller</span></div>
+          <div class="body">
+            <h3>Money Plant</h3>
+            <div class="latin">Epipremnum aureum</div>
+            <p>The classic good-luck gift. Trails beautifully, purifies air and thrives in low light — almost impossible to kill, ideal for busy desks.</p>
+            <div class="meta"><span class="price">₹249 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🪴<span class="badge">Air Purifier</span></div>
+          <div class="body">
+            <h3>Snake Plant</h3>
+            <div class="latin">Sansevieria trifasciata</div>
+            <p>Releases oxygen at night and tolerates neglect. Architectural upright leaves make it a premium, modern corporate gift.</p>
+            <div class="meta"><span class="price">₹349 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🍀<span class="badge">Lucky</span></div>
+          <div class="body">
+            <h3>Lucky Bamboo</h3>
+            <div class="latin">Dracaena sanderiana</div>
+            <p>Grows in just water and symbolises prosperity. A favourite festive and Vastu-friendly gift that needs zero soil and minimal care.</p>
+            <div class="meta"><span class="price">₹299 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌱<span class="badge">Easy Care</span></div>
+          <div class="body">
+            <h3>Jade Plant</h3>
+            <div class="latin">Crassula ovata</div>
+            <p>The "money tree" succulent that signifies wealth and growth. Plump leaves, slow-growing and perfect for sunny office windows.</p>
+            <div class="meta"><span class="price">₹279 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌾<span class="badge">Air Purifier</span></div>
+          <div class="body">
+            <h3>ZZ Plant</h3>
+            <div class="latin">Zamioculcas zamiifolia</div>
+            <p>Glossy, waxy foliage that survives weeks without water and low light — the ultimate fuss-free gift for first-time plant parents.</p>
+            <div class="meta"><span class="price">₹399 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🕊️<span class="badge">Air Purifier</span></div>
+          <div class="body">
+            <h3>Peace Lily</h3>
+            <div class="latin">Spathiphyllum wallisii</div>
+            <p>Elegant white blooms and NASA-listed air-cleaning power. A graceful, premium gift that brings calm to any cabin or desk.</p>
+            <div class="meta"><span class="price">₹429 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌵<span class="badge">Desk Size</span></div>
+          <div class="body">
+            <h3>Aloe Vera</h3>
+            <div class="latin">Aloe barbadensis</div>
+            <p>A healing succulent that doubles as a wellness gift. Soothes skin, purifies air and needs watering only once a fortnight.</p>
+            <div class="meta"><span class="price">₹269 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌿<span class="badge">Premium</span></div>
+          <div class="body">
+            <h3>Areca Palm</h3>
+            <div class="latin">Dypsis lutescens</div>
+            <p>Feathery, tropical fronds that humidify and purify large spaces. A statement gift for senior leadership and reception areas.</p>
+            <div class="meta"><span class="price">₹549 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌴<span class="badge">Low Light</span></div>
+          <div class="body">
+            <h3>Spider Plant</h3>
+            <div class="latin">Chlorophytum comosum</div>
+            <p>Arching striped leaves and baby "spiderettes" make it lively and fun. Removes indoor toxins and forgives missed waterings.</p>
+            <div class="meta"><span class="price">₹239 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🍃<span class="badge">Trailing</span></div>
+          <div class="body">
+            <h3>English Ivy</h3>
+            <div class="latin">Hedera helix</div>
+            <p>Lush trailing vines that soften shelves and partitions. A top air-purifier that adds instant greenery to any workspace.</p>
+            <div class="meta"><span class="price">₹289 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌿<span class="badge">Easy Care</span></div>
+          <div class="body">
+            <h3>Philodendron</h3>
+            <div class="latin">Philodendron hederaceum</div>
+            <p>Heart-shaped leaves on graceful vines. Adaptable, fast-growing and welcoming — a warm, affordable gift for any team.</p>
+            <div class="meta"><span class="price">₹259 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌳<span class="badge">Bonsai</span></div>
+          <div class="body">
+            <h3>Ficus Bonsai</h3>
+            <div class="latin">Ficus microcarpa</div>
+            <p>A miniature living tree that signals patience and prestige. A high-perceived-value gift for clients and milestone awards.</p>
+            <div class="meta"><span class="price">₹699 <small>/ unit</small></span><span class="moq">MOQ 15</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌿<span class="badge">Trending</span></div>
+          <div class="body">
+            <h3>Syngonium</h3>
+            <div class="latin">Syngonium podophyllum</div>
+            <p>Soft arrowhead leaves in pink and green. Compact, photogenic and easy — a trendy desk gift the whole office will admire.</p>
+            <div class="meta"><span class="price">₹249 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌱<span class="badge">Hardy</span></div>
+          <div class="body">
+            <h3>Rubber Plant</h3>
+            <div class="latin">Ficus elastica</div>
+            <p>Bold, glossy burgundy-green leaves that make a striking statement. Robust and air-purifying — great for cabins and lobbies.</p>
+            <div class="meta"><span class="price">₹459 <small>/ unit</small></span><span class="moq">MOQ 20</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🌿<span class="badge">Aromatic</span></div>
+          <div class="body">
+            <h3>Tulsi (Holy Basil)</h3>
+            <div class="latin">Ocimum sanctum</div>
+            <p>Sacred, fragrant and immunity-boosting. A meaningful, wellness-led gift especially loved for festive and housewarming gifting.</p>
+            <div class="meta"><span class="price">₹199 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌵<span class="badge">Mini</span></div>
+          <div class="body">
+            <h3>Succulent Trio</h3>
+            <div class="latin">Echeveria &amp; mixed</div>
+            <p>A charming set of three rosette succulents in mini pots. Compact, colourful and ultra-low-care — ideal high-volume return gifts.</p>
+            <div class="meta"><span class="price">₹329 <small>/ set</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🎍<span class="badge">Statement</span></div>
+          <div class="body">
+            <h3>Fiddle Leaf Fig</h3>
+            <div class="latin">Ficus lyrata</div>
+            <p>Large violin-shaped leaves and designer appeal. A luxe, Instagram-famous gift for executives and premium client hampers.</p>
+            <div class="meta"><span class="price">₹799 <small>/ unit</small></span><span class="moq">MOQ 15</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌿<span class="badge">Low Light</span></div>
+          <div class="body">
+            <h3>Boston Fern</h3>
+            <div class="latin">Nephrolepis exaltata</div>
+            <p>Feathery cascading fronds that add freshness and humidity. A soft, natural accent gift perfect for shelves and hampers.</p>
+            <div class="meta"><span class="price">₹319 <small>/ unit</small></span><span class="moq">MOQ 25</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="card">
+          <div class="thumb" style="background:#e7f5ec;">🪴<span class="badge">Air Purifier</span></div>
+          <div class="body">
+            <h3>Dracaena Marginata</h3>
+            <div class="latin">Dracaena marginata</div>
+            <p>Slender stems crowned with spiky red-edged leaves. A sleek, modern air-purifier that elevates desks and meeting rooms.</p>
+            <div class="meta"><span class="price">₹479 <small>/ unit</small></span><span class="moq">MOQ 20</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+        <!-- 20 -->
+        <div class="card">
+          <div class="thumb" style="background:#eef7e9;">🌿<span class="badge">Premium</span></div>
+          <div class="body">
+            <h3>Monstera Deliciosa</h3>
+            <div class="latin">Monstera deliciosa</div>
+            <p>The iconic split-leaf "Swiss cheese" plant. Bold, tropical and highly desirable — a show-stopping gift for special recipients.</p>
+            <div class="meta"><span class="price">₹649 <small>/ unit</small></span><span class="moq">MOQ 15</span></div>
+            <a class="enquire" href="#contact">Enquire for Bulk</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Simple Process</div>
+        <h2>How Bulk Gifting Works</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h4>Choose Plants</h4>
+          <p>Pick from our 20 curated gifting plants and tell us your quantity.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h4>Personalise</h4>
+          <p>Add your logo, brand colours and a custom message card or e-card.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h4>We Pack</h4>
+          <p>Each plant is hand-packed in eco-friendly, breakage-safe packaging.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h4>We Deliver</h4>
+          <p>Bulk dispatch to a single office or to individual addresses pan-India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" id="contact">
+    <h2>Ready to place a bulk gifting order?</h2>
+    <p>Tell us your occasion, quantity and budget — we'll send a custom quote within 24 hours.</p>
+    <a class="btn btn-primary" href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20a%20bulk%20gifting%20quote">Chat on WhatsApp</a>
+    &nbsp;
+    <a class="btn btn-ghost" href="mailto:hello@onlineplantscart.in?subject=Bulk%20Gifting%20Enquiry">Email Us</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site">
+    <div class="container">
+      <div class="cols">
+        <div>
+          <div class="logo" style="color:#fff;">Online<span>Plants</span>Cart</div>
+          <p style="margin-top:10px;max-width:320px;">India's green gifting partner. Live, healthy, hand-picked plants for homes, offices and large-scale corporate gifting.</p>
+        </div>
+        <div>
+          <h4>Bulk Gifting</h4>
+          <a href="#products">Gifting Catalogue</a>
+          <a href="#how">How It Works</a>
+          <a href="#contact">Get a Quote</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:hello@onlineplantscart.in">hello@onlineplantscart.in</a>
+          <a href="tel:+910000000000">+91 00000 00000</a>
+          <a href="https://onlineplantscart.in">onlineplantscart.in</a>
+        </div>
+      </div>
+      <div class="copy">© <span id="year"></span> OnlinePlantsCart.in — All rights reserved. *Branding free above minimum quantities; prices indicative and subject to season &amp; volume.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Filter chip active toggle (visual). Cards use data later if categorised.
+    document.querySelectorAll('.chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        document.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
