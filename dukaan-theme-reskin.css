@@ -1,0 +1,150 @@
+/* ============================================================
+   ONLINEPLANTSCART.IN — Global Theme Re-skin
+   Matches the "Bulk Gifting" design: deep green + amber accent,
+   rounded pill buttons, soft card shadows, clean sans-serif.
+   ------------------------------------------------------------
+   HOW TO APPLY (Dukaan code editor):
+   1. Open  public/layout.html
+   2. Find the <head> ... </head> section (or the {% block head %}).
+   3. Just before </head>, paste:
+          <style>
+          ...paste THIS ENTIRE FILE here...
+          </style>
+   4. Save  ->  click "Preview store" to check.
+   Because layout.html wraps every page, this restyles the WHOLE store.
+
+   NOTE: Dukaan theme class names vary. If a button or card isn't
+   picked up, right-click it in your browser -> "Inspect", copy its
+   class name, and add it to the matching rule below. Nothing here is
+   destructive — to revert, just remove the <style> block.
+   ============================================================ */
+
+/* ---- Brand fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --opc-green-900: #14532d;
+  --opc-green-700: #16794a;
+  --opc-green-500: #22a06b;
+  --opc-green-50:  #ecfdf5;
+  --opc-amber:     #f59e0b;
+  --opc-ink:       #1f2937;
+  --opc-line:      #e5e7eb;
+  --opc-radius:    14px;
+  --opc-shadow:    0 6px 24px rgba(16,24,40,0.08);
+}
+
+/* ---- Base typography ---- */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--opc-ink);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif !important;
+  color: var(--opc-green-900);
+  letter-spacing: -0.3px;
+}
+
+/* ---- Links & price / accent text ---- */
+a:hover { color: var(--opc-green-700); }
+
+[class*="price"],
+[class*="Price"],
+[class*="amount"] {
+  color: var(--opc-green-700) !important;
+}
+
+/* ---- Primary buttons (Add to cart, Buy now, Checkout, etc.) ----
+   Broad selectors so most Dukaan button variants are caught. */
+button,
+.btn,
+[class*="button"]:not(a[class*="icon"]),
+[class*="Button"],
+[class*="addToCart"],
+[class*="add-to-cart"],
+[class*="buyNow"],
+[class*="checkout"] {
+  background-color: var(--opc-green-700) !important;
+  border-color: var(--opc-green-700) !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  transition: transform .15s ease, background-color .15s ease;
+}
+
+button:hover,
+.btn:hover,
+[class*="button"]:hover,
+[class*="Button"]:hover,
+[class*="addToCart"]:hover,
+[class*="buyNow"]:hover,
+[class*="checkout"]:hover {
+  background-color: var(--opc-green-900) !important;
+  transform: translateY(-1px);
+}
+
+/* ---- Amber accent / secondary call-to-action ----
+   Add the class  opc-amber-btn  to any element you want in amber. */
+.opc-amber-btn {
+  background-color: var(--opc-amber) !important;
+  border-color: var(--opc-amber) !important;
+  color: #1f2937 !important;
+}
+
+/* ---- Product cards: rounded corners, soft shadow, hover lift ---- */
+[class*="productCard"],
+[class*="product-card"],
+[class*="ProductCard"],
+[class*="catalogItem"],
+[class*="product-item"] {
+  border-radius: var(--opc-radius) !important;
+  box-shadow: var(--opc-shadow) !important;
+  border: 1px solid var(--opc-line) !important;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+[class*="productCard"]:hover,
+[class*="product-card"]:hover,
+[class*="ProductCard"]:hover,
+[class*="catalogItem"]:hover,
+[class*="product-item"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(16,24,40,0.14) !important;
+}
+
+/* ---- Header / navigation polish ---- */
+header,
+[class*="header"],
+[class*="Header"],
+[class*="navbar"] {
+  border-bottom: 1px solid var(--opc-line);
+}
+
+/* ---- Category / section headings underline accent ---- */
+[class*="sectionTitle"],
+[class*="section-title"],
+[class*="categoryTitle"] {
+  position: relative;
+}
+
+/* ---- Badges / tags in amber ---- */
+[class*="badge"],
+[class*="tag"],
+[class*="label"] {
+  border-radius: 999px !important;
+}
+
+/* ---- Promotional top bar (optional) ----
+   Add a div with class "opc-topbar" at the top of layout.html body. */
+.opc-topbar {
+  background: var(--opc-green-900);
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  padding: 8px 12px;
+}
