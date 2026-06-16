@@ -1,0 +1,88 @@
+<!--
+  ============================================================
+  DUKAAN THEME SNIPPET — "Bulk Gifting" homepage promo section
+  ============================================================
+  WHERE TO PASTE:
+    Open public/index.html in the Dukaan code editor.
+    Paste this block INSIDE {% block content %} ... {% endblock %}
+    (e.g. right after the scrollable-theme-banners include, around line 24).
+
+  IMPORTANT — set your real link:
+    Replace  /products/bulk-gifting  below with the actual URL of your
+    Bulk Gifting CATEGORY page (create the category first, then copy its
+    link from the store). On most Dukaan stores it looks like
+    /products/<category-slug>  or  /category/<category-slug>.
+  ============================================================
+-->
+<section class="bg-gift-promo">
+  <div class="bg-gift-inner">
+    <div class="bg-gift-text">
+      <span class="bg-gift-eyebrow">New Service</span>
+      <h2>Bulk &amp; Corporate Plant Gifting</h2>
+      <p>Gift live, air-purifying plants to employees, clients and guests — with custom branding and Pan-India delivery. 20+ curated plants to choose from.</p>
+      <a class="bg-gift-btn" href="/products/bulk-gifting">Explore Bulk Gifting →</a>
+    </div>
+    <div class="bg-gift-badges">
+      <div><strong>20+</strong><span>Gifting plants</span></div>
+      <div><strong>Pan-India</strong><span>Delivery</span></div>
+      <div><strong>Custom</strong><span>Branding</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-gift-promo {
+    margin: 24px 16px;
+    border-radius: 16px;
+    background: linear-gradient(120deg, #14532d, #16794a);
+    color: #fff;
+    overflow: hidden;
+  }
+  .bg-gift-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 32px 28px;
+    flex-wrap: wrap;
+  }
+  .bg-gift-text { max-width: 560px; }
+  .bg-gift-eyebrow {
+    display: inline-block;
+    background: #f59e0b;
+    color: #1f2937;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .bg-gift-text h2 { font-size: 28px; margin: 0 0 10px; line-height: 1.15; }
+  .bg-gift-text p { font-size: 16px; opacity: 0.92; margin: 0 0 20px; }
+  .bg-gift-btn {
+    display: inline-block;
+    background: #f59e0b;
+    color: #1f2937;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .bg-gift-badges { display: flex; gap: 18px; flex-wrap: wrap; }
+  .bg-gift-badges div {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .bg-gift-badges strong { display: block; font-size: 20px; }
+  .bg-gift-badges span { font-size: 12px; opacity: 0.9; }
+  @media (max-width: 640px) {
+    .bg-gift-text h2 { font-size: 22px; }
+    .bg-gift-inner { padding: 24px 18px; }
+  }
+</style>
