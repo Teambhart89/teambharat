@@ -148,3 +148,41 @@ header,
   font-size: 13px;
   padding: 8px 12px;
 }
+
+/* ============================================================
+   GREEN MENU BAR WITH WHITE TEXT
+   Colors the navigation row (Wishlist, Plants Categories,
+   New Arrivals, ...) into a green bar with white links.
+   ============================================================ */
+[class*="navbar"],
+[class*="mainHeader"],
+[class*="headerMenu"],
+[class*="navbarMenu"],
+[class*="menuBar"] {
+  background: var(--opc-green-700) !important;
+}
+
+[class*="navbar"] a,
+[class*="mainHeader"] a,
+[class*="headerMenu"] a,
+[class*="navbarMenu"] a,
+[class*="menuBar"] a,
+[class*="navbar"] p,
+[class*="mainHeader"] span {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+[class*="navbar"] a:hover,
+[class*="mainHeader"] a:hover,
+[class*="headerMenu"] a:hover,
+[class*="navbarMenu"] a:hover {
+  color: var(--opc-amber) !important;
+}
+
+[class*="navbar"] svg,
+[class*="mainHeader"] svg,
+[class*="headerMenu"] svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
