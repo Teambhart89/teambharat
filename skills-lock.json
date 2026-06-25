@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "skills": {
+    "amazon-a-plus-content": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-a-plus-content/SKILL.md",
+      "computedHash": "c184b8e9395292b540d9d07443a80cecef9c8a8ad34eda82500177cbc9b8a061"
+    },
+    "amazon-advertising-strategy": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-advertising-strategy/SKILL.md",
+      "computedHash": "12b1914a3b90ebe30b52546f9a984ced846cea0389927d70008a0122be0d33f5"
+    },
+    "amazon-backend-keywords": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-backend-keywords/SKILL.md",
+      "computedHash": "de43435908319aa3fe156d106d4f169d642743d1428e9d90bb0aeb9d1215550f"
+    },
+    "amazon-brand-analytics": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-brand-analytics/SKILL.md",
+      "computedHash": "00acb495c6cc879b130cb4434f6c2fe9cbe70a8433537961bb9c180be9f50ba8"
+    },
+    "amazon-brand-registry": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-brand-registry/SKILL.md",
+      "computedHash": "e67d53fa1e3d02936cb306e3f36fc01cb37b9ee8cfd56cfa14d17e9c1d666e88"
+    },
+    "amazon-brand-tailored-promotions": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-brand-tailored-promotions/SKILL.md",
+      "computedHash": "c85df5339ed1b5c085da51f8f0dadfa23cf898e0bb639bb5d4839adb73eed930"
+    },
+    "amazon-buy-box": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-buy-box/SKILL.md",
+      "computedHash": "8f7d584cab9b91ebf15d83b884be3e5ba765e7223cc8e1b78e5fc0803e32da56"
+    },
+    "amazon-category-ungating": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-category-ungating/SKILL.md",
+      "computedHash": "58f655ed5583009e9a35009b71277511bc17a86d7562e9af798f3318681ca99d"
+    },
+    "amazon-competitor-analysis": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-competitor-analysis/SKILL.md",
+      "computedHash": "d41528b98fa33916f6875811fd49b8df4a20a0841c2b4385b5997ac2f7907976"
+    },
+    "amazon-competitor-monitoring": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-competitor-monitoring/SKILL.md",
+      "computedHash": "12f37fa48f3a3e5ce7749ae2e0e3b2fedaf0716250636d3070f66e3e0587f1af"
+    },
+    "amazon-coupon-strategy": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-coupon-strategy/SKILL.md",
+      "computedHash": "3f94ab6e419ab0c9e334560e15c5909bc91dae1c7a772a9326bb88c48881d25c"
+    },
+    "amazon-dayparting-strategy": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-dayparting-strategy/SKILL.md",
+      "computedHash": "6497a55bd272d7d96b40320ab715f6398a860c0df3861d99e79ee6c9b1c68698"
+    },
+    "amazon-deal-finder": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-deal-finder/SKILL.md",
+      "computedHash": "7bde1e5f98e9955138abda6ebfc6c5cfd9ba335492ae4bfa2598c043b7faf174"
+    },
+    "amazon-display-ads": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-display-ads/SKILL.md",
+      "computedHash": "65b0d7b5e3941e489db6d2a762cd7101e1e46317f4170980532638fa48bd27c9"
+    },
+    "amazon-enhanced-brand-content": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-enhanced-brand-content/SKILL.md",
+      "computedHash": "cfe86863c4d2df8ca7eeb189d594a48a4ec5e0794ecbc20f94dd24c07e9e7ee4"
+    },
+    "amazon-fba-calculator": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-fba-calculator/SKILL.md",
+      "computedHash": "5dc72213df5a42307952eb5ecd6913a6be55c2118c4cd978aa49c6f60308702f"
+    },
+    "amazon-fba-prep": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-fba-prep/SKILL.md",
+      "computedHash": "64d9ffa3b6bbdda321c53f4da14a6d2fb5ff4f00365a7fcd2f02e6df48e99c81"
+    },
+    "amazon-global-selling": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-global-selling/SKILL.md",
+      "computedHash": "9786edd13dcdffbce76b181caae9f0e2618601c2fa22e76c4b212c2d5aa1e139"
+    },
+    "amazon-international-listings": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-international-listings/SKILL.md",
+      "computedHash": "2c29a1ae000d8acbc542e6e798a2068fd20baba1001c4c2afa6c13f79612991f"
+    },
+    "amazon-inventory-management": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-inventory-management/SKILL.md",
+      "computedHash": "88a58a8f4fd4604d4cdfbc077bddd7b2b1976685ea9b4b483661efd732397e07"
+    },
+    "amazon-keyword-research": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-keyword-research/SKILL.md",
+      "computedHash": "ee8da03f233a75639b75ba8ec4d91b5bdf31f7b2296fa118ff9040147f4a4ed3"
+    },
+    "amazon-keyword-tracker": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-keyword-tracker/SKILL.md",
+      "computedHash": "784faa17e35a5a7ef725984b4aad11d55b2c28caf52fbf2bd6312313d7e4b31a"
+    },
+    "amazon-listing-images": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-listing-images/SKILL.md",
+      "computedHash": "65d021680440cfe4591d9c53e1e21c352002b9795eb9095133cd351f780a4925"
+    },
+    "amazon-listing-optimization": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-listing-optimization/SKILL.md",
+      "computedHash": "06367ff241a0dac92c79523a9c35fe86f53fb5b76fbaf6cea50d3512bb9e767d"
+    },
+    "amazon-negative-keywords": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-negative-keywords/SKILL.md",
+      "computedHash": "a3dfcb45099d603c76a1a5505ee37a25f54407fe91bab300881ad61b963b5fb6"
+    },
+    "amazon-niche-finder": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-niche-finder/SKILL.md",
+      "computedHash": "6514899038398a3266976b87cad65c25dfea39cecdac3bb94a1d3ad8bd7ba5c8"
+    },
+    "amazon-ppc-campaign": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-ppc-campaign/SKILL.md",
+      "computedHash": "6d228182ecc4e264917d951253391cbe0c64f7d00dd828745fd559c718b2971b"
+    },
+    "amazon-price-tracker": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-price-tracker/SKILL.md",
+      "computedHash": "a02ad7b991831aa910912791f26644f403228ead7ff7d9a4434a4657978cc46f"
+    },
+    "amazon-private-label": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-private-label/SKILL.md",
+      "computedHash": "da14410fb8262be83916acd0845817e4f09b54ff0bea9d90dc90d56641d68afa"
+    },
+    "amazon-product-bundling": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-product-bundling/SKILL.md",
+      "computedHash": "b4b6ca40362100c53df82e1b451cc042c7224ca9e6613911f0171a47a4d62524"
+    },
+    "amazon-product-compliance": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-product-compliance/SKILL.md",
+      "computedHash": "b4f70daa12763219fff8a6503879cdd722087542cb5e08ec2401c5d1e7e1ab4e"
+    },
+    "amazon-product-photography": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-product-photography/SKILL.md",
+      "computedHash": "7ada1c4e49020e6f2f9eebfa69f7539942ecd91cf68507893a196e8dd66da403"
+    },
+    "amazon-product-research": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-product-research/SKILL.md",
+      "computedHash": "78f5372b5ee5040d014256f9c39af8e71dce3271140da221ce12adf842fd71ad"
+    },
+    "amazon-profit-analyzer": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-profit-analyzer/SKILL.md",
+      "computedHash": "d389af761f5fddde64f6247c6d9d92940d5f5c44e7224d4223870fb836143ee3"
+    },
+    "amazon-rank-tracker": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-rank-tracker/SKILL.md",
+      "computedHash": "4af6a50bb1dc43a171bf7945851b4d29070dcda193c124f87806e91808a2b57f"
+    },
+    "amazon-repricing-strategy": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-repricing-strategy/SKILL.md",
+      "computedHash": "16d29914f2f3f2bf553ecf9366c9139433c4414b98490b39f76df18345639cf7"
+    },
+    "amazon-return-reduction": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-return-reduction/SKILL.md",
+      "computedHash": "14bb47b51acad45f91f2cbdc15a9121ee7c4bcfa9f052e80a73f6eb68908dd99"
+    },
+    "amazon-review-analyzer": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-review-analyzer/SKILL.md",
+      "computedHash": "99a9c55595ae038aee1b8540ac74240c26a25e68ab1da90428abfca479e830cc"
+    },
+    "amazon-review-strategy": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-review-strategy/SKILL.md",
+      "computedHash": "5e129fcf4937b7a5c1ef727a417c8a579ec1416041a2c7d05e5f55df9b125b62"
+    },
+    "amazon-sales-estimator": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-sales-estimator/SKILL.md",
+      "computedHash": "310300fda59fa883c31821c141c5b59f0dc93fef5d5ba11cd959c0e9e343bc6a"
+    },
+    "amazon-search-optimization": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-search-optimization/SKILL.md",
+      "computedHash": "de9341eff01b71e7358b18da139446748d619fef25daf907083de13915f0ac3b"
+    },
+    "amazon-seasonal-planning": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-seasonal-planning/SKILL.md",
+      "computedHash": "d2783539976dcd248e051f4c37c40b6646244788142aa5f3513a3ab9f65db4e9"
+    },
+    "amazon-seller-analytics": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-seller-analytics/SKILL.md",
+      "computedHash": "96f1dc4d3d818586ccbd2093eb6be15103a22c487c2cef4021155da6327c9d96"
+    },
+    "amazon-shipping-calculator": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-shipping-calculator/SKILL.md",
+      "computedHash": "b32462346ee4a2303aac24ddb830c0c5a9aa229187419717d4eaf62ad2f93618"
+    },
+    "amazon-storefront-design": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-storefront-design/SKILL.md",
+      "computedHash": "115e79f1c611503d5f383cc1771d0eab1e52a659e523a3afc6b66ff568ba599f"
+    },
+    "amazon-subscribe-save": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-subscribe-save/SKILL.md",
+      "computedHash": "f982fad323b93614c62599e0334014f8846945224fe137110e88d0c8816c4677"
+    },
+    "amazon-suspension-appeal": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-suspension-appeal/SKILL.md",
+      "computedHash": "968898037b3bdbd37c5849f1373d5ac36a8b4e3a8cb7ad81a172f50d82e75921"
+    },
+    "amazon-trending-products": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-trending-products/SKILL.md",
+      "computedHash": "8f4a61891ddf342caa8ba671e7258ed7a6921cbc386ba58cd769fdd21cdddf96"
+    },
+    "amazon-variation-strategy": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-variation-strategy/SKILL.md",
+      "computedHash": "01cff860ca83b5df00f62bdd98b4aed06fab140a3ee440826a0ecf80ef5a936e"
+    },
+    "amazon-vine-program": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-vine-program/SKILL.md",
+      "computedHash": "286325051092930b2ba5b5f438947f3b0c12092a1e1ccb8a4efaf2e165d29bbc"
+    },
+    "amazon-wholesale-sourcing": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "amazon-wholesale-sourcing/SKILL.md",
+      "computedHash": "7861e4f43365b1a7476d699d585cbc328695eff50d99f1a9c9e3330130d9814f"
+    },
+    "tariff-calculator-amazon": {
+      "source": "nexscope-ai/Amazon-Skills",
+      "sourceType": "github",
+      "skillPath": "tariff-calculator-amazon/SKILL.md",
+      "computedHash": "6ba7ace209207b3121778c3f9d5c66b5b4928791b9c1ee1df78fdb29c6d559a5"
+    }
+  }
+}
