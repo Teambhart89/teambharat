@@ -152,9 +152,12 @@ img { max-width: 100%; height: auto; }
 .section-head p { margin-top: var(--space-3); color: var(--color-disabled-text); }
 
 .hero {
-  background:
-    radial-gradient(1200px 400px at 80% -10%, rgba(79,113,52,0.35), transparent 60%),
-    linear-gradient(160deg, #1f2b14 0%, #2f4420 55%, #4f7134 100%);
+  background-color: #2f4420;
+  background-size: cover;
+  background-position: center;
+  background-image:
+    linear-gradient(160deg, rgba(31,43,20,0.92) 0%, rgba(47,68,32,0.82) 55%, rgba(79,113,52,0.78) 100%),
+    url('images/hero.jpg');
   color: var(--color-text-on-dark);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-2);
   padding: 56px var(--space-8); text-align: center;
@@ -181,14 +184,18 @@ img { max-width: 100%; height: auto; }
 .tile-body ul { padding-left: var(--space-7); font-size: var(--font-size-md); }
 .tile-body .btn { justify-self: start; margin-top: auto; }
 
-.m-golf   { background: linear-gradient(160deg, #3c5522, #6d9440); }
-.m-s39    { background: linear-gradient(160deg, #24371a, #4f7134); }
-.m-mg     { background: linear-gradient(160deg, #574a25, #8a7a3d); }
-.m-cyber  { background: linear-gradient(160deg, #23343f, #46656f); }
-.m-studio { background: linear-gradient(160deg, #4f7134, #86ab5b); }
-.m-1bhk   { background: linear-gradient(160deg, #405c2a, #6d9440); }
-.m-2bhk   { background: linear-gradient(160deg, #344b22, #587f34); }
-.m-premium{ background: linear-gradient(160deg, #1f2b14, #4f7134); }
+/* Drop real photos into the theme's images/ folder using these file names
+   and they replace the gradients automatically (gradient = fallback). */
+.tile-media { background-size: cover; background-position: center; }
+.m-express { background-image: url('images/express.jpg'), linear-gradient(160deg, #3c5522, #6d9440); }
+.m-select  { background-image: url('images/select.jpg'), linear-gradient(160deg, #24371a, #4f7134); }
+.m-prem42  { background-image: url('images/premier-sector42.jpg'), linear-gradient(160deg, #574a25, #8a7a3d); }
+.m-premext { background-image: url('images/premier-extension.jpg'), linear-gradient(160deg, #23343f, #46656f); }
+.m-sohna   { background-image: url('images/sohna.jpg'), linear-gradient(160deg, #1f2b14, #4f7134); }
+.m-deluxe  { background-image: url('images/deluxe-room.jpg'), linear-gradient(160deg, #4f7134, #86ab5b); }
+.m-studio  { background-image: url('images/executive-studio.jpg'), linear-gradient(160deg, #405c2a, #6d9440); }
+.m-1bhk    { background-image: url('images/1bhk.jpg'), linear-gradient(160deg, #344b22, #587f34); }
+.m-premium { background-image: url('images/premium-suite.jpg'), linear-gradient(160deg, #1f2b14, #4f7134); }
 
 .amenities { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-6); }
 .amenity {

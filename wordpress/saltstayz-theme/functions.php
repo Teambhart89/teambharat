@@ -24,11 +24,17 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 function ssz_properties() {
-	return array( 'Golf Course Road', 'Sector 39', 'MG Road', 'Cyber City' );
+	return array(
+		'Saltstayz Express — Golf Course Road & DLF Phase-1',
+		'Saltstayz Select — Galleria Market & Golf Course Road',
+		'Saltstayz Premier — Golf Course Road & Sector 42',
+		'Saltstayz Premier — Golf Course Extension Road',
+		'Saltstayz Studio Apartment — Sohna Road',
+	);
 }
 
 function ssz_apartments() {
-	return array( 'Studio Apartment', '1 BHK Apartment', '2 BHK Apartment', 'Premium Suite' );
+	return array( 'Deluxe Room', 'Executive Studio', '1 BHK Serviced Apartment', 'Premium Suite' );
 }
 
 /* -------------------------------------------------------------

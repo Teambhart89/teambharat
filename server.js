@@ -42,8 +42,14 @@ app.post("/api/admin/logout", requireAdmin, (req, res) => {
 });
 
 /* ---------- validation helpers ---------- */
-const PROPERTIES = ["Golf Course Road", "Sector 39", "MG Road", "Cyber City"];
-const APARTMENTS = ["Studio Apartment", "1 BHK Apartment", "2 BHK Apartment", "Premium Suite"];
+const PROPERTIES = [
+  "Saltstayz Express — Golf Course Road & DLF Phase-1",
+  "Saltstayz Select — Galleria Market & Golf Course Road",
+  "Saltstayz Premier — Golf Course Road & Sector 42",
+  "Saltstayz Premier — Golf Course Extension Road",
+  "Saltstayz Studio Apartment — Sohna Road",
+];
+const APARTMENTS = ["Deluxe Room", "Executive Studio", "1 BHK Serviced Apartment", "Premium Suite"];
 
 function validateBooking(body) {
   const errors = [];

@@ -12,10 +12,11 @@ get_header();
 
 	<!-- HERO -->
 	<section class="hero" aria-labelledby="hero-title">
-		<span class="eyebrow">Serviced Apartments &amp; Studios · Gurgaon</span>
-		<h1 id="hero-title">Stays that feel like home, run like a hotel</h1>
-		<p>Fully furnished studios and apartments with housekeeping, high-speed Wi-Fi and a
-		24×7 front desk — for a night, a week, or as long as work keeps you in town.</p>
+		<span class="eyebrow">Budget &amp; Luxury Hotels · Studios · Serviced Apartments · Gurgaon</span>
+		<h1 id="hero-title">Your address in Gurgaon, from ₹1,256 a night</h1>
+		<p>15+ properties and 700+ rooms across Golf Course Road, Sector 42, Golf Course
+		Extension Road and Sohna Road — with housekeeping, high-speed Wi-Fi and a 24×7
+		front desk, whether you stay a night or a quarter.</p>
 		<div class="hero-cta">
 			<a class="btn btn-primary" href="#book">Book your stay</a>
 			<a class="btn btn-ghost" href="#apartments">Explore apartments</a>
@@ -26,38 +27,40 @@ get_header();
 	<section id="apartments" aria-labelledby="apartments-title">
 		<div class="section-head">
 			<h2 id="apartments-title">Choose your space</h2>
-			<p>Every apartment is fully furnished with a kitchenette, workspace and hotel-grade linen.</p>
+			<p>Every room is fully furnished with hotel-grade linen; studios and apartments add
+			a kitchen and workspace. Starting rates below are indicative — the exact tariff is
+			confirmed on your booking email.</p>
 		</div>
 		<div class="grid-3">
 			<article class="tile">
-				<div class="tile-media m-studio">Studio Apartment</div>
+				<div class="tile-media m-deluxe">Deluxe Room</div>
 				<div class="tile-body">
-					<span class="price">From ₹2,499 / night</span>
-					<ul><li>Queen bed + work desk</li><li>Kitchenette &amp; smart TV</li><li>Ideal for solo travellers</li></ul>
+					<span class="price">From ₹1,256 / night</span>
+					<ul><li>Queen bed + work desk</li><li>Smart TV &amp; high-speed Wi-Fi</li><li>Best-value business stay</li></ul>
+					<a class="btn btn-secondary btn-sm" href="#book">Book Deluxe</a>
+				</div>
+			</article>
+			<article class="tile">
+				<div class="tile-media m-studio">Executive Studio</div>
+				<div class="tile-body">
+					<span class="price">From ₹1,799 / night</span>
+					<ul><li>Kitchenette &amp; dining nook</li><li>Balcony in select units</li><li>Ideal for solo travellers</li></ul>
 					<a class="btn btn-secondary btn-sm" href="#book">Book Studio</a>
 				</div>
 			</article>
 			<article class="tile">
-				<div class="tile-media m-1bhk">1 BHK Apartment</div>
+				<div class="tile-media m-1bhk">1 BHK Serviced Apartment</div>
 				<div class="tile-body">
-					<span class="price">From ₹3,499 / night</span>
-					<ul><li>Separate living room</li><li>Full kitchen &amp; dining</li><li>Great for couples &amp; long stays</li></ul>
+					<span class="price">From ₹2,499 / night</span>
+					<ul><li>Separate living room</li><li>Fully equipped kitchen</li><li>Great for couples &amp; long stays</li></ul>
 					<a class="btn btn-secondary btn-sm" href="#book">Book 1 BHK</a>
-				</div>
-			</article>
-			<article class="tile">
-				<div class="tile-media m-2bhk">2 BHK Apartment</div>
-				<div class="tile-body">
-					<span class="price">From ₹5,499 / night</span>
-					<ul><li>Two bedrooms, two baths</li><li>Full kitchen &amp; living area</li><li>Perfect for families &amp; teams</li></ul>
-					<a class="btn btn-secondary btn-sm" href="#book">Book 2 BHK</a>
 				</div>
 			</article>
 			<article class="tile">
 				<div class="tile-media m-premium">Premium Suite</div>
 				<div class="tile-body">
-					<span class="price">From ₹7,999 / night</span>
-					<ul><li>Top-floor city views</li><li>Premium furnishings</li><li>Complimentary breakfast</li></ul>
+					<span class="price">From ₹3,499 / night</span>
+					<ul><li>Premium furnishings &amp; views</li><li>Buffet breakfast included</li><li>Extra bed ₹1,500–2,000 / night</li></ul>
 					<a class="btn btn-secondary btn-sm" href="#book">Book Suite</a>
 				</div>
 			</article>
@@ -67,35 +70,48 @@ get_header();
 	<!-- LOCATIONS -->
 	<section id="locations" aria-labelledby="locations-title">
 		<div class="section-head">
-			<h2 id="locations-title">Four addresses across Gurgaon</h2>
-			<p>Minutes from business hubs, metro stations and the city's best food.</p>
+			<h2 id="locations-title">Our properties across Gurgaon</h2>
+			<p>From budget-friendly Express stays to Premier serviced apartments — minutes from
+			business hubs, hospitals, metro stations and the city's best food.</p>
 		</div>
 		<div class="grid-3">
 			<article class="tile">
-				<div class="tile-media m-golf">Golf Course Road</div>
+				<div class="tile-media m-express">Saltstayz Express</div>
 				<div class="tile-body">
-					<span>Premium tower next to fine dining, malls and rapid metro.</span>
+					<span class="price">From ₹1,256 / night</span>
+					<span>Golf Course Road &amp; DLF Phase-1 — budget rooms on the city's liveliest strip.</span>
 					<a class="btn btn-secondary btn-sm" href="#book">Stay here</a>
 				</div>
 			</article>
 			<article class="tile">
-				<div class="tile-media m-s39">Sector 39</div>
+				<div class="tile-media m-select">Saltstayz Select</div>
 				<div class="tile-body">
-					<span>Quiet residential block near Medanta and Subhash Chowk.</span>
+					<span class="price">From ₹1,999 / night</span>
+					<span>Galleria Market &amp; Golf Course Road — steps from shopping and cafés.</span>
 					<a class="btn btn-secondary btn-sm" href="#book">Stay here</a>
 				</div>
 			</article>
 			<article class="tile">
-				<div class="tile-media m-mg">MG Road</div>
+				<div class="tile-media m-prem42">Saltstayz Premier</div>
 				<div class="tile-body">
-					<span>Steps from the metro and Gurgaon's classic high street.</span>
+					<span class="price">From ₹2,499 / night</span>
+					<span>Golf Course Road &amp; Sector 42 — next to the DLF Sector 42–43 Rapid Metro station.</span>
 					<a class="btn btn-secondary btn-sm" href="#book">Stay here</a>
 				</div>
 			</article>
 			<article class="tile">
-				<div class="tile-media m-cyber">Cyber City</div>
+				<div class="tile-media m-premext">Saltstayz Premier</div>
 				<div class="tile-body">
-					<span>Walk to work — right beside the DLF Cyber City offices.</span>
+					<span class="price">From ₹2,799 / night</span>
+					<span>Golf Course Extension Road (Sector 39) — near Unitech Cyber Park, built for business stays.</span>
+					<a class="btn btn-secondary btn-sm" href="#book">Stay here</a>
+				</div>
+			</article>
+			<article class="tile">
+				<div class="tile-media m-sohna">Saltstayz Studio Apartment</div>
+				<div class="tile-body">
+					<span class="price">From ₹1,799 / night</span>
+					<span>Sohna Road — minutes from Medanta and Artemis hospitals, with kitchens for long stays.</span>
 					<a class="btn btn-secondary btn-sm" href="#book">Stay here</a>
 				</div>
 			</article>
@@ -121,15 +137,15 @@ get_header();
 		<div class="quotes">
 			<blockquote>
 				<p>"Stayed a full month for a project — the apartment was cleaner than my own flat and the Wi-Fi never dropped once."</p>
-				<footer>— Corporate guest, Cyber City</footer>
+				<footer>— Corporate guest, Saltstayz Premier (Golf Course Extension Road)</footer>
 			</blockquote>
 			<blockquote>
 				<p>"Booked a 2 BHK for my parents' visit. Check-in took two minutes and the team remembered my mother's tea preference."</p>
-				<footer>— Family stay, Golf Course Road</footer>
+				<footer>— Family stay, Saltstayz Select (Galleria Market)</footer>
 			</blockquote>
 			<blockquote>
 				<p>"Feels like a hotel where you're allowed to live. The kitchen and laundry made a two-week stay effortless."</p>
-				<footer>— Extended stay, Sector 39</footer>
+				<footer>— Extended stay, Saltstayz Studio Apartment (Sohna Road)</footer>
 			</blockquote>
 		</div>
 	</section>
