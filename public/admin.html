@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SaltStayz — Booking Panel</title>
+<meta name="robots" content="noindex" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.login-wrap { max-width: 420px; margin: 8vh auto; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-6); }
+.stat-card { background: var(--color-surface-base); border-radius: var(--radius-md); box-shadow: var(--shadow-2); padding: var(--space-6) var(--space-8); }
+.stat-card .stat-label { font-size: var(--font-size-sm); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-secondary); }
+.stat-card .stat-value { font-size: var(--font-size-2xl); font-weight: 700; line-height: 1.15; }
+.actions-cell { display: flex; gap: var(--space-3); }
+.tabs { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.tab-btn { border-radius: var(--radius-xl); }
+.tab-btn[aria-selected="true"] { background: var(--color-brand); color: var(--color-text-on-dark); border-color: transparent; }
+.stars { color: #7a5200; letter-spacing: 2px; }
+.mail-note { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+td.wrap-cell { white-space: normal; min-width: 240px; }
+.empty-state { text-align: center; padding: var(--space-8); color: var(--color-text-secondary); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="SaltStayz home">
+      <span class="brand-mark" aria-hidden="true">S</span> SaltStayz <span style="font-weight:400;opacity:.8;">· Booking Panel</span>
+    </a>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="index.html">View guest site</a>
+      <button type="button" class="btn btn-ghost" id="logout-btn" hidden>Log out</button>
+    </div>
+  </div>
+</header>
+
+<!-- LOGIN -->
+<div class="login-wrap card" id="login-view">
+  <h2>Operator login</h2>
+  <div class="alert alert-error" id="login-error" role="alert"></div>
+  <form class="form-grid" id="login-form">
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" required />
+      <span class="hint">Default is <code>saltstayz123</code> — change it with the <code>ADMIN_PASSWORD</code> env var.</span>
+    </div>
+    <button type="submit" class="btn btn-primary" id="login-btn">Log in</button>
+  </form>
+</div>
+
+<!-- PANEL -->
+<main id="main" class="page" tabindex="-1" hidden>
+
+  <section class="stats" aria-label="Booking metrics">
+    <div class="stat-card"><span class="stat-label">Pending</span><br><span class="stat-value" id="stat-pending">0</span></div>
+    <div class="stat-card"><span class="stat-label">Confirmed</span><br><span class="stat-value" id="stat-confirmed">0</span></div>
+    <div class="stat-card"><span class="stat-label">Checked out</span><br><span class="stat-value" id="stat-checked">0</span></div>
+    <div class="stat-card"><span class="stat-label">Avg. rating</span><br><span class="stat-value" id="stat-rating">—</span></div>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Panel sections">
+    <button class="btn btn-secondary tab-btn" role="tab" id="tab-bookings" aria-selected="true" aria-controls="panel-bookings">Bookings</button>
+    <button class="btn btn-secondary tab-btn" role="tab" id="tab-feedback" aria-selected="false" aria-controls="panel-feedback">Guest feedback</button>
+    <button class="btn btn-secondary" type="button" id="refresh-btn" style="margin-left:auto;">Refresh</button>
+  </div>
+
+  <section class="card" id="panel-bookings" role="tabpanel" aria-labelledby="tab-bookings">
+    <h2>Bookings</h2>
+    <p class="mail-note" id="mail-mode"></p>
+    <div class="table-wrap" tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Guest</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Stay</th>
+            <th scope="col">Dates</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="bookings-body"></tbody>
+      </table>
+    </div>
+    <p class="empty-state" id="bookings-empty" hidden>No bookings yet — requests from the guest site will appear here.</p>
+  </section>
+
+  <section class="card" id="panel-feedback" role="tabpanel" aria-labelledby="tab-feedback" hidden>
+    <h2>Guest feedback</h2>
+    <div class="table-wrap" tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Booking</th>
+            <th scope="col">Guest</th>
+            <th scope="col">Property</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Comments</th>
+            <th scope="col">Received</th>
+          </tr>
+        </thead>
+        <tbody id="feedback-body"></tbody>
+      </table>
+    </div>
+    <p class="empty-state" id="feedback-empty" hidden>No feedback yet — guests get a feedback link in the thank-you email after check-out.</p>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var token = sessionStorage.getItem("ssz-admin-token") || "";
+  var loginView = document.getElementById("login-view");
+  var panel = document.getElementById("main");
+  var logoutBtn = document.getElementById("logout-btn");
+
+  var toast = document.getElementById("toast"), toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("is-visible"); }, 4200);
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  async function api(path, options) {
+    options = options || {};
+    options.headers = Object.assign({ "Content-Type": "application/json", Authorization: "Bearer " + token }, options.headers);
+    var res = await fetch(path, options);
+    var data = await res.json().catch(function () { return {}; });
+    if (res.status === 401) { setLoggedIn(false); throw new Error(data.error || "Session expired — log in again."); }
+    if (!res.ok) throw new Error(data.error || "Request failed.");
+    return data;
+  }
+
+  function setLoggedIn(on) {
+    loginView.hidden = on;
+    panel.hidden = !on;
+    logoutBtn.hidden = !on;
+    if (!on) { token = ""; sessionStorage.removeItem("ssz-admin-token"); }
+  }
+
+  /* ---- login ---- */
+  var loginForm = document.getElementById("login-form");
+  var loginErr = document.getElementById("login-error");
+  loginForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    loginErr.classList.remove("is-visible");
+    var btn = document.getElementById("login-btn");
+    btn.classList.add("is-loading");
+    try {
+      var res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: document.getElementById("password").value }),
+      });
+      var data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Login failed.");
+      token = data.token;
+      sessionStorage.setItem("ssz-admin-token", token);
+      setLoggedIn(true);
+      loadAll();
+    } catch (e) {
+      loginErr.textContent = e.message;
+      loginErr.classList.add("is-visible");
+    } finally {
+      btn.classList.remove("is-loading");
+    }
+  });
+
+  logoutBtn.addEventListener("click", function () {
+    api("/api/admin/logout", { method: "POST" }).catch(function () {});
+    setLoggedIn(false);
+  });
+
+  /* ---- tabs ---- */
+  var tabB = document.getElementById("tab-bookings"), tabF = document.getElementById("tab-feedback");
+  var panB = document.getElementById("panel-bookings"), panF = document.getElementById("panel-feedback");
+  function selectTab(which) {
+    var bookings = which === "bookings";
+    tabB.setAttribute("aria-selected", bookings);
+    tabF.setAttribute("aria-selected", !bookings);
+    panB.hidden = !bookings;
+    panF.hidden = bookings;
+  }
+  tabB.addEventListener("click", function () { selectTab("bookings"); });
+  tabF.addEventListener("click", function () { selectTab("feedback"); });
+
+  /* ---- data ---- */
+  var STATUS_LABEL = { pending: "Pending", confirmed: "Confirmed", checked_out: "Checked out", cancelled: "Cancelled" };
+
+  function fmtDate(iso) {
+    var d = new Date(iso + "T00:00:00");
+    return isNaN(d) ? iso : d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+  }
+
+  function renderBookings(bookings) {
+    var body = document.getElementById("bookings-body");
+    document.getElementById("bookings-empty").hidden = bookings.length > 0;
+    body.innerHTML = bookings.map(function (b) {
+      var actions = "";
+      if (b.status === "pending") {
+        actions = '<button class="btn btn-primary btn-sm" data-act="confirm" data-id="' + esc(b.id) + '">Confirm ✉</button>' +
+                  '<button class="btn btn-danger btn-sm" data-act="cancel" data-id="' + esc(b.id) + '">Cancel</button>';
+      } else if (b.status === "confirmed") {
+        actions = '<button class="btn btn-primary btn-sm" data-act="checkout" data-id="' + esc(b.id) + '">Check out ✉✉</button>' +
+                  '<button class="btn btn-danger btn-sm" data-act="cancel" data-id="' + esc(b.id) + '">Cancel</button>';
+      } else {
+        actions = '<span class="mail-note">No actions</span>';
+      }
+      return "<tr>" +
+        "<td><strong>" + esc(b.id) + "</strong></td>" +
+        "<td>" + esc(b.name) + "<br><span class='mail-note'>" + esc(b.guests) + " guest(s)</span></td>" +
+        "<td>" + esc(b.email) + "<br><span class='mail-note'>" + esc(b.phone) + "</span></td>" +
+        "<td>" + esc(b.property) + "<br><span class='mail-note'>" + esc(b.apartmentType) + "</span></td>" +
+        "<td>" + fmtDate(b.checkIn) + " → " + fmtDate(b.checkOut) + "</td>" +
+        "<td><span class='badge badge-" + esc(b.status) + "'>" + (STATUS_LABEL[b.status] || esc(b.status)) + "</span></td>" +
+        "<td><div class='actions-cell'>" + actions + "</div></td>" +
+        "</tr>";
+    }).join("");
+  }
+
+  function renderFeedback(feedback) {
+    var body = document.getElementById("feedback-body");
+    document.getElementById("feedback-empty").hidden = feedback.length > 0;
+    body.innerHTML = feedback.map(function (f) {
+      return "<tr>" +
+        "<td><strong>" + esc(f.bookingId) + "</strong></td>" +
+        "<td>" + esc(f.guest) + "</td>" +
+        "<td>" + esc(f.property) + "</td>" +
+        "<td><span class='stars' aria-label='" + f.rating + " out of 5 stars'>" + "★".repeat(f.rating) + "☆".repeat(5 - f.rating) + "</span></td>" +
+        "<td class='wrap-cell'>" + esc(f.comments || "—") + "</td>" +
+        "<td>" + new Date(f.createdAt).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) + "</td>" +
+        "</tr>";
+    }).join("");
+    if (feedback.length) {
+      var avg = feedback.reduce(function (s, f) { return s + f.rating; }, 0) / feedback.length;
+      document.getElementById("stat-rating").textContent = avg.toFixed(1) + "★";
+    } else {
+      document.getElementById("stat-rating").textContent = "—";
+    }
+  }
+
+  async function loadAll() {
+    try {
+      var meta = await fetch("/api/meta").then(function (r) { return r.json(); });
+      document.getElementById("mail-mode").textContent = meta.mailMode === "smtp"
+        ? "✉ SMTP configured — guest emails are delivered for real."
+        : "✉ Demo mail mode — emails are saved to the server's ./outbox folder (set SMTP_* env vars to send real email).";
+
+      var b = await api("/api/admin/bookings");
+      renderBookings(b.bookings);
+      document.getElementById("stat-pending").textContent = b.bookings.filter(function (x) { return x.status === "pending"; }).length;
+      document.getElementById("stat-confirmed").textContent = b.bookings.filter(function (x) { return x.status === "confirmed"; }).length;
+      document.getElementById("stat-checked").textContent = b.bookings.filter(function (x) { return x.status === "checked_out"; }).length;
+
+      var f = await api("/api/admin/feedback");
+      renderFeedback(f.feedback);
+    } catch (e) {
+      showToast(e.message);
+    }
+  }
+
+  document.getElementById("refresh-btn").addEventListener("click", loadAll);
+
+  /* ---- booking actions ---- */
+  document.getElementById("bookings-body").addEventListener("click", async function (event) {
+    var btn = event.target.closest("button[data-act]");
+    if (!btn) return;
+    var id = btn.getAttribute("data-id"), act = btn.getAttribute("data-act");
+    if (act === "cancel" && !window.confirm("Cancel booking " + id + "? This cannot be undone.")) return;
+    btn.classList.add("is-loading");
+    try {
+      var data = await api("/api/admin/bookings/" + id + "/" + act, { method: "POST" });
+      if (act === "confirm") showToast("Booking " + id + " confirmed — confirmation email sent to guest.");
+      if (act === "checkout") showToast("Guest checked out — check-out + thank-you/feedback emails sent.");
+      if (act === "cancel") showToast("Booking " + id + " cancelled.");
+      loadAll();
+    } catch (e) {
+      showToast(e.message);
+      btn.classList.remove("is-loading");
+    }
+  });
+
+  /* ---- boot ---- */
+  if (token) {
+    setLoggedIn(true);
+    loadAll();
+  } else {
+    setLoggedIn(false);
+  }
+})();
+</script>
+
+</body>
+</html>

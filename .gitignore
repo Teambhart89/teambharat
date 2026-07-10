@@ -6,3 +6,8 @@ output/
 reports/
 .venv/
 venv/
+
+node_modules/
+data/
+outbox/
+.env

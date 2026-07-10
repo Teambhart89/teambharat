@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SaltStayz — Serviced Apartments &amp; Studios in Gurgaon</title>
+<meta name="description" content="Fully furnished serviced apartments and studio stays in Gurgaon. Book studios, 1 BHK and 2 BHK apartments with housekeeping, Wi-Fi and 24×7 support." />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* page-specific */
+.hero {
+  background:
+    radial-gradient(1200px 400px at 80% -10%, rgba(79,113,52,0.35), transparent 60%),
+    linear-gradient(160deg, #1f2b14 0%, #2f4420 55%, #4f7134 100%);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  padding: 56px var(--space-8);
+  text-align: center;
+}
+.hero h1 { font-size: clamp(32px, 5vw, var(--font-size-3xl)); line-height: 1.1; font-weight: 700; max-width: 18ch; margin: 0 auto; }
+.hero p { max-width: 54ch; margin: var(--space-6) auto; font-size: var(--font-size-xl); color: #eef2e6; }
+.hero .eyebrow { color: #cfe0b8; }
+.hero-cta { display: flex; gap: var(--space-5); justify-content: center; flex-wrap: wrap; margin-top: var(--space-7); }
+
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); }
+.tile { background: var(--color-surface-base); border-radius: var(--radius-md); box-shadow: var(--shadow-2); overflow: hidden; display: flex; flex-direction: column; transition: transform var(--motion-normal) ease, box-shadow var(--motion-normal) ease; }
+.tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-1); }
+.tile-media { height: 150px; display: flex; align-items: flex-end; padding: var(--space-5); color: #fff; font-weight: 700; font-size: var(--font-size-lg); letter-spacing: 0.04em; text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
+.tile-body { padding: var(--space-6); display: grid; gap: var(--space-3); flex: 1; }
+.tile-body .price { font-weight: 700; color: var(--color-text-secondary); }
+.tile-body ul { padding-left: var(--space-7); font-size: var(--font-size-md); }
+.tile-body .btn { justify-self: start; margin-top: auto; }
+
+.m-golf  { background: linear-gradient(160deg, #3c5522, #6d9440), repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 12px, transparent 12px 24px); }
+.m-s39   { background: linear-gradient(160deg, #24371a, #4f7134); }
+.m-mg    { background: linear-gradient(160deg, #574a25, #8a7a3d); }
+.m-cyber { background: linear-gradient(160deg, #23343f, #46656f); }
+.m-studio  { background: linear-gradient(160deg, #4f7134, #86ab5b); }
+.m-1bhk    { background: linear-gradient(160deg, #405c2a, #6d9440); }
+.m-2bhk    { background: linear-gradient(160deg, #344b22, #587f34); }
+.m-premium { background: linear-gradient(160deg, #1f2b14, #4f7134); }
+
+.amenities { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-6); }
+.amenity { display: flex; gap: var(--space-4); align-items: flex-start; background: var(--color-surface-strong); padding: var(--space-5) var(--space-6); border-radius: var(--radius-md); }
+.amenity .icon {
+  flex: none; width: 40px; height: 40px; border-radius: var(--radius-xl);
+  background: var(--color-brand); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.amenity strong { display: block; }
+.amenity span { font-size: var(--font-size-md); color: var(--color-disabled-text); }
+
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); }
+blockquote { background: var(--color-surface-strong); border-left: 4px solid var(--color-brand); border-radius: var(--radius-sm); padding: var(--space-6); font-size: var(--font-size-lg); }
+blockquote footer { margin-top: var(--space-4); font-size: var(--font-size-md); color: var(--color-text-secondary); font-weight: 600; }
+
+.section-head { text-align: center; max-width: 60ch; margin: 0 auto var(--space-8); }
+.section-head h2 { font-size: var(--font-size-2xl); line-height: 1.2; font-weight: 700; }
+.section-head p { margin-top: var(--space-3); color: var(--color-disabled-text); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#main" aria-label="SaltStayz home">
+      <span class="brand-mark" aria-hidden="true">S</span> SaltStayz
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#main" aria-current="page">Home</a></li>
+        <li><a href="#apartments">Apartments</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#book">Book Now</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="admin.html">Operator login</a>
+      <a class="btn btn-primary" href="#book">Book your stay</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page" tabindex="-1">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <span class="eyebrow">Serviced Apartments &amp; Studios · Gurgaon</span>
+    <h1 id="hero-title">Stays that feel like home, run like a hotel</h1>
+    <p>Fully furnished studios and apartments with housekeeping, high-speed Wi-Fi and a
+    24×7 front desk — for a night, a week, or as long as work keeps you in town.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#book">Book your stay</a>
+      <a class="btn btn-ghost" href="#apartments">Explore apartments</a>
+    </div>
+  </section>
+
+  <!-- APARTMENTS -->
+  <section id="apartments" aria-labelledby="apartments-title">
+    <div class="section-head">
+      <h2 id="apartments-title">Choose your space</h2>
+      <p>Every apartment is fully furnished with a kitchenette, workspace and hotel-grade linen.</p>
+    </div>
+    <div class="grid-3">
+      <article class="tile">
+        <div class="tile-media m-studio">Studio Apartment</div>
+        <div class="tile-body">
+          <span class="price">From ₹2,499 / night</span>
+          <ul>
+            <li>Queen bed + work desk</li>
+            <li>Kitchenette &amp; smart TV</li>
+            <li>Ideal for solo travellers</li>
+          </ul>
+          <a class="btn btn-secondary btn-sm" href="#book" data-apartment="Studio Apartment">Book Studio</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="tile-media m-1bhk">1 BHK Apartment</div>
+        <div class="tile-body">
+          <span class="price">From ₹3,499 / night</span>
+          <ul>
+            <li>Separate living room</li>
+            <li>Full kitchen &amp; dining</li>
+            <li>Great for couples &amp; long stays</li>
+          </ul>
+          <a class="btn btn-secondary btn-sm" href="#book" data-apartment="1 BHK Apartment">Book 1 BHK</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="tile-media m-2bhk">2 BHK Apartment</div>
+        <div class="tile-body">
+          <span class="price">From ₹5,499 / night</span>
+          <ul>
+            <li>Two bedrooms, two baths</li>
+            <li>Full kitchen &amp; living area</li>
+            <li>Perfect for families &amp; teams</li>
+          </ul>
+          <a class="btn btn-secondary btn-sm" href="#book" data-apartment="2 BHK Apartment">Book 2 BHK</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="tile-media m-premium">Premium Suite</div>
+        <div class="tile-body">
+          <span class="price">From ₹7,999 / night</span>
+          <ul>
+            <li>Top-floor city views</li>
+            <li>Premium furnishings</li>
+            <li>Complimentary breakfast</li>
+          </ul>
+          <a class="btn btn-secondary btn-sm" href="#book" data-apartment="Premium Suite">Book Suite</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section id="locations" aria-labelledby="locations-title">
+    <div class="section-head">
+      <h2 id="locations-title">Four addresses across Gurgaon</h2>
+      <p>Minutes from business hubs, metro stations and the city's best food.</p>
+    </div>
+    <div class="grid-3">
+      <article class="tile">
+        <div class="tile-media m-golf">Golf Course Road</div>
+        <div class="tile-body">
+          <span>Premium tower next to fine dining, malls and rapid metro.</span>
+          <a class="btn btn-secondary btn-sm" href="#book" data-property="Golf Course Road">Stay here</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="tile-media m-s39">Sector 39</div>
+        <div class="tile-body">
+          <span>Quiet residential block near Medanta and Subhash Chowk.</span>
+          <a class="btn btn-secondary btn-sm" href="#book" data-property="Sector 39">Stay here</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="tile-media m-mg">MG Road</div>
+        <div class="tile-body">
+          <span>Steps from the metro and Gurgaon's classic high street.</span>
+          <a class="btn btn-secondary btn-sm" href="#book" data-property="MG Road">Stay here</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="tile-media m-cyber">Cyber City</div>
+        <div class="tile-body">
+          <span>Walk to work — right beside the DLF Cyber City offices.</span>
+          <a class="btn btn-secondary btn-sm" href="#book" data-property="Cyber City">Stay here</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section id="amenities" class="card" aria-labelledby="amenities-title">
+    <div class="section-head">
+      <h2 id="amenities-title">Everything included, nothing to arrange</h2>
+    </div>
+    <div class="amenities">
+      <div class="amenity"><span class="icon" aria-hidden="true">⌂</span><div><strong>Fully furnished</strong><span>Move in with just your suitcase</span></div></div>
+      <div class="amenity"><span class="icon" aria-hidden="true">⇡</span><div><strong>High-speed Wi-Fi</strong><span>Work-from-stay ready internet</span></div></div>
+      <div class="amenity"><span class="icon" aria-hidden="true">✦</span><div><strong>Daily housekeeping</strong><span>Fresh linen and spotless rooms</span></div></div>
+      <div class="amenity"><span class="icon" aria-hidden="true">☏</span><div><strong>24×7 front desk</strong><span>Real humans, any hour</span></div></div>
+      <div class="amenity"><span class="icon" aria-hidden="true">♨</span><div><strong>Kitchen &amp; laundry</strong><span>Cook and wash on your schedule</span></div></div>
+      <div class="amenity"><span class="icon" aria-hidden="true">⛨</span><div><strong>Secure access</strong><span>CCTV and keycard entry</span></div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section aria-labelledby="quotes-title">
+    <div class="section-head"><h2 id="quotes-title">Guests keep coming back</h2></div>
+    <div class="quotes">
+      <blockquote>
+        <p>"Stayed a full month for a project — the apartment was cleaner than my own flat and the Wi-Fi never dropped once."</p>
+        <footer>— Corporate guest, Cyber City</footer>
+      </blockquote>
+      <blockquote>
+        <p>"Booked a 2 BHK for my parents' visit. Check-in took two minutes and the team remembered my mother's tea preference."</p>
+        <footer>— Family stay, Golf Course Road</footer>
+      </blockquote>
+      <blockquote>
+        <p>"Feels like a hotel where you're allowed to live. The kitchen and laundry made a two-week stay effortless."</p>
+        <footer>— Extended stay, Sector 39</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="card" aria-labelledby="book-title">
+    <h2 id="book-title">Book your stay</h2>
+    <p style="margin-bottom: var(--space-6);">Send us a booking request — our team confirms availability by email, usually within the hour.</p>
+
+    <div class="alert alert-error" id="book-error" role="alert"></div>
+    <div class="alert alert-success" id="book-success" role="status"></div>
+
+    <form class="form-grid" id="booking-form" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">Full name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+          <span class="hint">Booking confirmation is sent to this address.</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" required />
+        </div>
+        <div class="field">
+          <label for="f-guests">Guests</label>
+          <select id="f-guests" name="guests">
+            <option value="1">1 guest</option>
+            <option value="2" selected>2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+            <option value="5">5 guests</option>
+            <option value="6">6 guests</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-property">Property</label>
+          <select id="f-property" name="property">
+            <option>Golf Course Road</option>
+            <option>Sector 39</option>
+            <option>MG Road</option>
+            <option>Cyber City</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-apartment">Apartment type</label>
+          <select id="f-apartment" name="apartmentType">
+            <option>Studio Apartment</option>
+            <option>1 BHK Apartment</option>
+            <option>2 BHK Apartment</option>
+            <option>Premium Suite</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-checkin">Check-in</label>
+          <input id="f-checkin" name="checkIn" type="date" required />
+        </div>
+        <div class="field">
+          <label for="f-checkout">Check-out</label>
+          <input id="f-checkout" name="checkOut" type="date" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-notes">Special requests <span style="font-weight:400;">(optional)</span></label>
+        <textarea id="f-notes" name="notes" maxlength="500" placeholder="Early check-in, extra bed, airport pickup…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="book-btn">Request booking</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p><strong>SaltStayz</strong> — Serviced apartments &amp; studios, Gurgaon</p>
+      <p>hello@saltstayz.com · +91 90000 00000</p>
+    </div>
+    <div>
+      <p><a href="#book">Book a stay</a> · <a href="admin.html">Operator login</a></p>
+      <p>© 2026 SaltStayz. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var toast = document.getElementById("toast"), toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("is-visible"); }, 3200);
+  }
+
+  /* default dates: today + 2 nights */
+  function iso(d) { return d.toISOString().slice(0, 10); }
+  var today = new Date(), out = new Date(Date.now() + 2 * 86400000);
+  var inEl = document.getElementById("f-checkin"), outEl = document.getElementById("f-checkout");
+  inEl.value = iso(today); inEl.min = iso(today);
+  outEl.value = iso(out); outEl.min = iso(today);
+
+  /* tile buttons pre-select property/apartment */
+  document.querySelectorAll("[data-property]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      document.getElementById("f-property").value = a.getAttribute("data-property");
+    });
+  });
+  document.querySelectorAll("[data-apartment]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      document.getElementById("f-apartment").value = a.getAttribute("data-apartment");
+    });
+  });
+
+  /* submit booking */
+  var form = document.getElementById("booking-form");
+  var btn = document.getElementById("book-btn");
+  var errBox = document.getElementById("book-error");
+  var okBox = document.getElementById("book-success");
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    errBox.classList.remove("is-visible");
+    okBox.classList.remove("is-visible");
+
+    var payload = Object.fromEntries(new FormData(form).entries());
+    btn.classList.add("is-loading");
+    btn.setAttribute("aria-busy", "true");
+    try {
+      var res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      var data = await res.json();
+      if (!res.ok) {
+        errBox.textContent = (data.errors || [data.error || "Something went wrong."]).join(" ");
+        errBox.classList.add("is-visible");
+        errBox.scrollIntoView({ block: "center", behavior: "smooth" });
+        return;
+      }
+      okBox.innerHTML = "🎉 Booking request <strong>" + data.id + "</strong> received! " +
+        "A confirmation email is on its way to your inbox.";
+      okBox.classList.add("is-visible");
+      okBox.scrollIntoView({ block: "center", behavior: "smooth" });
+      form.reset();
+      inEl.value = iso(today); outEl.value = iso(out);
+      showToast("Request " + data.id + " sent — check your email.");
+    } catch (e) {
+      errBox.textContent = "Could not reach the server. Please try again.";
+      errBox.classList.add("is-visible");
+    } finally {
+      btn.classList.remove("is-loading");
+      btn.removeAttribute("aria-busy");
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
