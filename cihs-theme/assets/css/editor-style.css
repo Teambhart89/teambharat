@@ -1,0 +1,26 @@
+/* Block editor styles so the admin editing view matches the front end. */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 1.7;
+	color: #232733;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: Georgia, "Times New Roman", serif;
+	color: #14213d;
+	line-height: 1.25;
+}
+a { color: #14213d; }
+blockquote, .wp-block-quote {
+	border-left: 4px solid #e8963a;
+	background: #faf7f0;
+	padding: .5em 0 .5em 1.25em;
+	font-style: italic;
+	color: #5b6272;
+}
+.wp-block-button__link {
+	background: #e8963a;
+	color: #0c1730;
+	border-radius: 999px;
+	font-weight: 700;
+}
