@@ -3,7 +3,7 @@ Contributors: cihs
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,10 +15,12 @@ a non-partisan independent think tank headquartered in New Delhi, India.
 Upload, activate, done. On activation the theme automatically creates the
 entire website:
 
-* PAGES — Home, About CIHS, Mission & Vision, Our Team, Careers & Internships,
-  Research & Focus Areas (with 5 focus-area sub-pages: Geopolitics & Security,
-  Policy & Governance, Economy & Technology, Culture & Civilisation,
-  Diaspora & Global Engagement), Analysis & Commentary (blog), Media & Press,
+* PAGES — Home, About CIHS, Mission & Vision, Our Team, Careers & Internships
+  (with live job-openings grid + application form), Support CIHS (donation
+  page with preset amounts, pledge form and bank/UPI details), Research &
+  Focus Areas (with 5 focus-area sub-pages: Geopolitics & Security, Policy &
+  Governance, Economy & Technology, Culture & Civilisation, Diaspora &
+  Global Engagement), Analysis & Commentary (blog), Media & Press,
   Contact Us, Privacy Policy, Terms of Use.
 * MENUS — Primary menu (with About and Research drop-downs), Footer quick
   links and Legal menu, all created and assigned automatically.
@@ -30,10 +32,21 @@ entire website:
 Features:
 
 * Custom post types: Publications (with Publication Type + Focus Area
-  taxonomies), Events (with date/time/venue/registration fields), Team.
-* Homepage hero slider (3 slides, editable in the Customizer), focus-area
-  grid, latest publications, stats band, events list, newsletter signup and
-  call-to-action band.
+  taxonomies), Events (with date/time/venue/registration fields + featured
+  thumbnail image), Team, Job Openings (location/type/deadline fields) and
+  Impact Gallery (image + caption items shown on the homepage).
+* Homepage: hero slider (3 slides with optional banner IMAGES, editable in
+  the Customizer), focus-area grid, "Our Latest Reports" — 4 newest
+  publications with thumbnails, event cards with image + date ribbon +
+  venue + Event Details button, stats band, "Our Impact" image gallery,
+  latest commentary, newsletter signup and call-to-action band.
+* Header: search toggle with slide-down search bar, and a Donate button.
+* Careers: openings grid, single opening pages, and a plugin-free
+  application form (CV link, portfolio, statement of interest) emailed to
+  your inbox.
+* Donations: pledge form with preset ₹ amounts, PAN field for receipts,
+  payment-mode selection, automatic thank-you email to the donor, and a
+  bank/UPI details card managed from the Customizer.
 * Built-in contact form (shortcode [cihs_contact_form]) with honeypot and
   nonce protection — no plugin needed.
 * Customizer panels for contact details, social links and hero slides.
@@ -52,21 +65,49 @@ Features:
    automatically (a few seconds).
 4. Visit the site — the full website is live.
 
-== After activation (5-minute checklist) ==
+== After activation (10-minute checklist) ==
 
 1. Appearance → Customize → Site Identity: upload the CIHS logo.
 2. Appearance → Customize → CIHS: Contact Details / Social Links: confirm
    phone, email and addresses.
-3. Team → edit the four placeholder members with real names, photos and bios.
-4. Publications / Events / Posts: replace the sample entries with real
+3. Appearance → Customize → CIHS: Homepage Hero Slides: upload a banner
+   image for each slide (recommended 1920×800px).
+4. Appearance → Customize → CIHS: Donation Details: enter the real bank
+   account, IFSC and UPI ID for the Support CIHS page.
+5. Events → set a Featured Image on each event (shown as the card
+   thumbnail with the date ribbon).
+6. Impact Gallery → add items with a Featured Image; they appear in the
+   "Our Impact" section on the homepage automatically.
+7. Job Openings → replace the three sample openings with real vacancies.
+8. Team / Publications / Posts: replace the sample entries with real
    content (each sample is clearly marked).
-5. Settings → General: confirm site title and tagline.
+
+== Updating from version 1.0 ==
+
+Upload the new zip via Appearance → Themes → Add New → Upload Theme and
+choose "Replace active with uploaded". The 1.1 upgrade routine runs
+automatically: it creates the Support CIHS page, upgrades the Careers page
+with the openings grid + application form, seeds sample job openings and
+adds Donate links to your menus — without touching any content you have
+already edited.
 
 Re-activating the theme never duplicates content (guarded by the
 cihs_setup_done option). To re-run the setup on a fresh site, delete that
 option from the database first.
 
 == Changelog ==
+
+= 1.1.0 =
+* Careers: Job Openings post type, openings grid and application form.
+* Donations: Support CIHS page with pledge form, preset amounts and
+  bank/UPI details managed from the Customizer.
+* Homepage hero slides now support banner images with automatic overlay.
+* Events: thumbnail image cards with date ribbon on homepage and archive.
+* New "Our Latest Reports" homepage section (4 newest publications with
+  thumbnails).
+* New "Our Impact" homepage image gallery (Impact Gallery post type).
+* Header search toggle and Donate button.
+* Automatic, non-destructive upgrade routine for sites on 1.0.
 
 = 1.0.0 =
 * Initial release: full site auto-setup, CPTs, hero slider, contact form,

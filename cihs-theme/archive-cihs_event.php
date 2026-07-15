@@ -50,9 +50,11 @@ get_header();
 		<h2><?php esc_html_e( 'Upcoming Events', 'cihs' ); ?></h2>
 		<?php
 		if ( $cihs_upcoming ) {
+			echo '<div class="cihs-grid cihs-grid--4" style="margin-bottom:2em;">';
 			foreach ( $cihs_upcoming as $cihs_event ) {
-				cihs_render_event_row( $cihs_event );
+				cihs_render_event_card( $cihs_event );
 			}
+			echo '</div>';
 		} else {
 			echo '<p>' . esc_html__( 'No upcoming events at the moment — please check back soon or follow us on social media for announcements.', 'cihs' ) . '</p>';
 		}
@@ -61,9 +63,11 @@ get_header();
 		<h2 style="margin-top:2em;"><?php esc_html_e( 'Past Events', 'cihs' ); ?></h2>
 		<?php
 		if ( $cihs_past ) {
+			echo '<div class="cihs-grid cihs-grid--4">';
 			foreach ( $cihs_past as $cihs_event ) {
-				cihs_render_event_row( $cihs_event );
+				cihs_render_event_card( $cihs_event );
 			}
+			echo '</div>';
 		} else {
 			echo '<p>' . esc_html__( 'Past events will be archived here.', 'cihs' ) . '</p>';
 		}

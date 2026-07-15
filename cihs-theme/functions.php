@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CIHS_VERSION', '1.0.0' );
+define( 'CIHS_VERSION', '1.1.0' );
 
 /* --------------------------------------------------------------------------
  * Theme setup
@@ -185,6 +185,48 @@ function cihs_register_post_types() {
 		)
 	);
 
+	// Job openings shown on the Careers page.
+	register_post_type(
+		'cihs_career',
+		array(
+			'labels'       => array(
+				'name'          => __( 'Job Openings', 'cihs' ),
+				'singular_name' => __( 'Job Opening', 'cihs' ),
+				'add_new_item'  => __( 'Add New Job Opening', 'cihs' ),
+				'edit_item'     => __( 'Edit Job Opening', 'cihs' ),
+			),
+			'public'       => true,
+			'has_archive'  => false,
+			'rewrite'      => array( 'slug' => 'openings' ),
+			'menu_icon'    => 'dashicons-businessperson',
+			'menu_position'=> 8,
+			'supports'     => array( 'title', 'editor', 'excerpt' ),
+			'show_in_rest' => true,
+		)
+	);
+
+	// Impact gallery items (image + short caption) shown on the homepage.
+	register_post_type(
+		'cihs_impact',
+		array(
+			'labels'       => array(
+				'name'          => __( 'Impact Gallery', 'cihs' ),
+				'singular_name' => __( 'Impact Item', 'cihs' ),
+				'add_new_item'  => __( 'Add New Impact Item', 'cihs' ),
+				'edit_item'     => __( 'Edit Impact Item', 'cihs' ),
+				'featured_image'=> __( 'Impact Image', 'cihs' ),
+			),
+			'public'             => true,
+			'publicly_queryable' => false,
+			'exclude_from_search'=> true,
+			'has_archive'        => false,
+			'menu_icon'          => 'dashicons-format-gallery',
+			'menu_position'      => 9,
+			'supports'           => array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
+			'show_in_rest'       => true,
+		)
+	);
+
 	// Team members.
 	register_post_type(
 		'cihs_team',
@@ -213,6 +255,7 @@ add_action( 'init', 'cihs_register_post_types' );
 function cihs_event_meta_box() {
 	add_meta_box( 'cihs_event_details', __( 'Event Details', 'cihs' ), 'cihs_event_meta_box_html', 'cihs_event', 'side' );
 	add_meta_box( 'cihs_team_details', __( 'Member Details', 'cihs' ), 'cihs_team_meta_box_html', 'cihs_team', 'side' );
+	add_meta_box( 'cihs_career_details', __( 'Opening Details', 'cihs' ), 'cihs_career_meta_box_html', 'cihs_career', 'side' );
 }
 add_action( 'add_meta_boxes', 'cihs_event_meta_box' );
 
@@ -243,6 +286,25 @@ function cihs_team_meta_box_html( $post ) {
 	<?php
 }
 
+function cihs_career_meta_box_html( $post ) {
+	wp_nonce_field( 'cihs_meta_save', 'cihs_meta_nonce' );
+	$location = get_post_meta( $post->ID, '_cihs_career_location', true );
+	$type     = get_post_meta( $post->ID, '_cihs_career_type', true );
+	$deadline = get_post_meta( $post->ID, '_cihs_career_deadline', true );
+	?>
+	<p><label for="cihs_career_location"><strong><?php esc_html_e( 'Location', 'cihs' ); ?></strong></label>
+	<input type="text" id="cihs_career_location" name="cihs_career_location" value="<?php echo esc_attr( $location ); ?>" style="width:100%" placeholder="Noida / New Delhi"></p>
+	<p><label for="cihs_career_type"><strong><?php esc_html_e( 'Engagement Type', 'cihs' ); ?></strong></label>
+	<select id="cihs_career_type" name="cihs_career_type" style="width:100%">
+		<?php foreach ( array( 'Full-time', 'Part-time', 'Internship', 'Fellowship', 'Volunteer' ) as $opt ) : ?>
+			<option value="<?php echo esc_attr( $opt ); ?>" <?php selected( $type, $opt ); ?>><?php echo esc_html( $opt ); ?></option>
+		<?php endforeach; ?>
+	</select></p>
+	<p><label for="cihs_career_deadline"><strong><?php esc_html_e( 'Application Deadline', 'cihs' ); ?></strong></label>
+	<input type="date" id="cihs_career_deadline" name="cihs_career_deadline" value="<?php echo esc_attr( $deadline ); ?>" style="width:100%"></p>
+	<?php
+}
+
 function cihs_save_meta( $post_id ) {
 	if ( ! isset( $_POST['cihs_meta_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['cihs_meta_nonce'] ), 'cihs_meta_save' ) ) {
 		return;
@@ -257,8 +319,11 @@ function cihs_save_meta( $post_id ) {
 		'cihs_event_date'  => '_cihs_event_date',
 		'cihs_event_time'  => '_cihs_event_time',
 		'cihs_event_venue' => '_cihs_event_venue',
-		'cihs_event_link'  => '_cihs_event_link',
-		'cihs_team_role'   => '_cihs_team_role',
+		'cihs_event_link'      => '_cihs_event_link',
+		'cihs_team_role'       => '_cihs_team_role',
+		'cihs_career_location' => '_cihs_career_location',
+		'cihs_career_type'     => '_cihs_career_type',
+		'cihs_career_deadline' => '_cihs_career_deadline',
 	);
 	foreach ( $fields as $field => $meta_key ) {
 		if ( isset( $_POST[ $field ] ) ) {
@@ -275,6 +340,7 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/contact-form.php';
+require get_template_directory() . '/inc/careers-donations.php';
 require get_template_directory() . '/inc/setup-content.php';
 
 /* --------------------------------------------------------------------------

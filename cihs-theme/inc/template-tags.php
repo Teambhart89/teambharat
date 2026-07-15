@@ -98,6 +98,79 @@ function cihs_render_event_row( $post = null ) {
 }
 
 /**
+ * Event card with thumbnail image and date ribbon (homepage / archive grid).
+ *
+ * @param int|WP_Post|null $post Event post.
+ */
+function cihs_render_event_card( $post = null ) {
+	$post = get_post( $post );
+	if ( ! $post ) {
+		return;
+	}
+	$date  = get_post_meta( $post->ID, '_cihs_event_date', true );
+	$venue = get_post_meta( $post->ID, '_cihs_event_venue', true );
+	$ts    = $date ? strtotime( $date ) : false;
+	?>
+	<article class="cihs-card cihs-event-card cihs-reveal">
+		<a class="cihs-card__media <?php echo has_post_thumbnail( $post ) ? '' : 'cihs-card__media--initial'; ?>" href="<?php echo esc_url( get_permalink( $post ) ); ?>" aria-hidden="true" tabindex="-1">
+			<?php
+			if ( has_post_thumbnail( $post ) ) {
+				echo get_the_post_thumbnail( $post, 'cihs-card' );
+			} else {
+				echo esc_html( mb_substr( get_the_title( $post ), 0, 1 ) );
+			}
+			?>
+			<span class="cihs-event-ribbon">
+				<b><?php echo esc_html( $ts ? date_i18n( 'd', $ts ) : '—' ); ?></b>
+				<span><?php echo esc_html( $ts ? date_i18n( 'M', $ts ) : __( 'TBA', 'cihs' ) ); ?></span>
+			</span>
+		</a>
+		<div class="cihs-card__body">
+			<h3><a href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h3>
+			<?php if ( $venue ) : ?>
+				<p class="cihs-event-venue"><strong><?php esc_html_e( 'Venue:', 'cihs' ); ?></strong> <?php echo esc_html( $venue ); ?></p>
+			<?php endif; ?>
+			<a class="cihs-btn cihs-event-card__btn" href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php esc_html_e( 'Event Details', 'cihs' ); ?></a>
+		</div>
+	</article>
+	<?php
+}
+
+/**
+ * Compact horizontal report card: thumbnail left, type + title right.
+ *
+ * @param int|WP_Post|null $post Publication post.
+ */
+function cihs_render_report_row( $post = null ) {
+	$post = get_post( $post );
+	if ( ! $post ) {
+		return;
+	}
+	$type  = __( 'Publication', 'cihs' );
+	$terms = get_the_terms( $post, 'cihs_publication_type' );
+	if ( $terms && ! is_wp_error( $terms ) ) {
+		$type = $terms[0]->name;
+	}
+	?>
+	<a class="cihs-report-row cihs-reveal" href="<?php echo esc_url( get_permalink( $post ) ); ?>">
+		<span class="cihs-report-row__thumb <?php echo has_post_thumbnail( $post ) ? '' : 'cihs-card__media--initial'; ?>">
+			<?php
+			if ( has_post_thumbnail( $post ) ) {
+				echo get_the_post_thumbnail( $post, 'thumbnail' );
+			} else {
+				echo esc_html( mb_substr( get_the_title( $post ), 0, 1 ) );
+			}
+			?>
+		</span>
+		<span class="cihs-report-row__body">
+			<span class="cihs-report-row__type"><?php echo esc_html( $type ); ?></span>
+			<span class="cihs-report-row__title"><?php echo esc_html( get_the_title( $post ) ); ?></span>
+		</span>
+	</a>
+	<?php
+}
+
+/**
  * Simple breadcrumbs for inner pages.
  */
 function cihs_breadcrumbs() {
@@ -110,6 +183,8 @@ function cihs_breadcrumbs() {
 		echo '<a href="' . esc_url( get_post_type_archive_link( 'cihs_publication' ) ) . '">' . esc_html__( 'Publications', 'cihs' ) . '</a> &rsaquo; ';
 	} elseif ( is_singular( 'cihs_event' ) ) {
 		echo '<a href="' . esc_url( get_post_type_archive_link( 'cihs_event' ) ) . '">' . esc_html__( 'Events', 'cihs' ) . '</a> &rsaquo; ';
+	} elseif ( is_singular( 'cihs_career' ) ) {
+		echo '<a href="' . esc_url( home_url( '/careers-internships/' ) ) . '">' . esc_html__( 'Careers', 'cihs' ) . '</a> &rsaquo; ';
 	} elseif ( is_singular( 'post' ) ) {
 		$blog = get_option( 'page_for_posts' );
 		if ( $blog ) {

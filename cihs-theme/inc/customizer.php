@@ -92,6 +92,27 @@ function cihs_customize_register( $wp_customize ) {
 
 	$defaults = cihs_hero_defaults();
 	for ( $i = 1; $i <= 3; $i++ ) {
+		// Banner image per slide.
+		$wp_customize->add_setting(
+			"cihs_hero_{$i}_image",
+			array(
+				'default'           => '',
+				'sanitize_callback' => 'esc_url_raw',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				"cihs_hero_{$i}_image",
+				array(
+					/* translators: %d: slide number. */
+					'label'       => sprintf( __( 'Slide %d — Banner Image', 'cihs' ), $i ),
+					'description' => __( 'Recommended 1920×800px. A navy overlay is applied automatically so text stays readable.', 'cihs' ),
+					'section'     => 'cihs_hero',
+				)
+			)
+		);
+
 		foreach ( array( 'kicker', 'title', 'text', 'button_label', 'button_url' ) as $part ) {
 			$key = "cihs_hero_{$i}_{$part}";
 			$wp_customize->add_setting(
@@ -111,6 +132,41 @@ function cihs_customize_register( $wp_customize ) {
 				)
 			);
 		}
+	}
+	/* ---------- Donation details ---------- */
+	$wp_customize->add_section(
+		'cihs_donation',
+		array(
+			'title'       => __( 'CIHS: Donation Details', 'cihs' ),
+			'description' => __( 'Bank and UPI details shown on the Support CIHS (donation) page.', 'cihs' ),
+			'priority'    => 33,
+		)
+	);
+
+	$donation_fields = array(
+		'cihs_don_account_name' => array( __( 'Account Name', 'cihs' ), 'Centre for Integrated and Holistic Studies' ),
+		'cihs_don_bank'         => array( __( 'Bank Name & Branch', 'cihs' ), 'Add bank name and branch' ),
+		'cihs_don_account_no'   => array( __( 'Account Number', 'cihs' ), 'Add account number' ),
+		'cihs_don_ifsc'         => array( __( 'IFSC Code', 'cihs' ), 'Add IFSC code' ),
+		'cihs_don_upi'          => array( __( 'UPI ID', 'cihs' ), 'Add UPI ID' ),
+		'cihs_don_note'         => array( __( 'Tax Note (e.g. 80G)', 'cihs' ), 'Donations to CIHS may be eligible for tax exemption. A receipt is issued for every contribution.' ),
+	);
+	foreach ( $donation_fields as $key => $data ) {
+		$wp_customize->add_setting(
+			$key,
+			array(
+				'default'           => $data[1],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			$key,
+			array(
+				'label'   => $data[0],
+				'section' => 'cihs_donation',
+				'type'    => 'text',
+			)
+		);
 	}
 }
 add_action( 'customize_register', 'cihs_customize_register' );
@@ -160,6 +216,7 @@ function cihs_get_hero_slides() {
 			$default        = isset( $defaults[ $i ][ $part ] ) ? $defaults[ $i ][ $part ] : '';
 			$slide[ $part ] = get_theme_mod( "cihs_hero_{$i}_{$part}", $default );
 		}
+		$slide['image'] = get_theme_mod( "cihs_hero_{$i}_image", '' );
 		if ( ! empty( $slide['title'] ) ) {
 			$slides[] = $slide;
 		}

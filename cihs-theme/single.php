@@ -64,6 +64,27 @@ get_header();
 						</div>
 					<?php endif; ?>
 
+					<?php if ( 'cihs_career' === get_post_type() ) : ?>
+						<div class="cihs-contact-card" style="margin-bottom:2em;">
+							<h3><?php esc_html_e( 'Opening Details', 'cihs' ); ?></h3>
+							<?php
+							$cihs_job_type     = get_post_meta( get_the_ID(), '_cihs_career_type', true );
+							$cihs_job_location = get_post_meta( get_the_ID(), '_cihs_career_location', true );
+							$cihs_job_deadline = get_post_meta( get_the_ID(), '_cihs_career_deadline', true );
+							if ( $cihs_job_type ) {
+								echo '<p><strong>' . esc_html__( 'Type:', 'cihs' ) . '</strong> ' . esc_html( $cihs_job_type ) . '</p>';
+							}
+							if ( $cihs_job_location ) {
+								echo '<p><strong>' . esc_html__( 'Location:', 'cihs' ) . '</strong> ' . esc_html( $cihs_job_location ) . '</p>';
+							}
+							if ( $cihs_job_deadline ) {
+								echo '<p><strong>' . esc_html__( 'Apply by:', 'cihs' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $cihs_job_deadline ) ) ) . '</p>';
+							}
+							?>
+							<p><a class="cihs-btn" href="<?php echo esc_url( home_url( '/careers-internships/#apply' ) ); ?>"><?php esc_html_e( 'Apply for this Position', 'cihs' ); ?></a></p>
+						</div>
+					<?php endif; ?>
+
 					<?php if ( has_post_thumbnail() ) : ?>
 						<div class="post-thumbnail"><?php the_post_thumbnail( 'large' ); ?></div>
 					<?php endif; ?>

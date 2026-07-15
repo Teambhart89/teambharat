@@ -28,7 +28,9 @@ function cihs_run_site_setup() {
 	cihs_setup_events();
 	cihs_setup_team();
 	cihs_setup_posts();
+	cihs_setup_careers();
 	cihs_setup_menus( $pages );
+	update_option( 'cihs_setup_110_done', 1 );
 
 	// Front page + posts page.
 	if ( isset( $pages['home'], $pages['analysis'] ) ) {
@@ -45,6 +47,64 @@ function cihs_run_site_setup() {
 	update_option( 'cihs_setup_done', 1 );
 }
 add_action( 'after_switch_theme', 'cihs_run_site_setup' );
+
+/**
+ * v1.1 upgrade for sites that activated an earlier version of this theme:
+ * adds the Support CIHS (donation) page, upgrades the Careers page with
+ * the openings grid + application form, seeds sample job openings and
+ * appends Donate to the menus. Runs once (guarded by its own option) and
+ * never touches a Careers page the editor has already customised with
+ * the new shortcodes.
+ */
+function cihs_run_site_setup_110() {
+	if ( get_option( 'cihs_setup_110_done' ) || ! get_option( 'cihs_setup_done' ) ) {
+		return;
+	}
+
+	cihs_register_post_types();
+
+	// Donation page.
+	$donate_id = cihs_make_page( 'support-cihs', 'Support CIHS', cihs_donate_page_content() );
+
+	// Careers page: add openings + application form if not already present.
+	$careers = get_page_by_path( 'careers-internships' );
+	if ( $careers && false === strpos( $careers->post_content, 'cihs_job_openings' ) ) {
+		wp_update_post(
+			array(
+				'ID'           => $careers->ID,
+				'post_content' => cihs_careers_page_content(),
+			)
+		);
+	}
+
+	cihs_setup_careers();
+
+	// Append "Support CIHS" to the primary and footer menus if missing.
+	$locations = get_theme_mod( 'nav_menu_locations', array() );
+	foreach ( array( 'primary', 'footer' ) as $location ) {
+		if ( empty( $locations[ $location ] ) ) {
+			continue;
+		}
+		$items      = wp_get_nav_menu_items( $locations[ $location ] );
+		$has_donate = false;
+		if ( $items ) {
+			foreach ( $items as $item ) {
+				if ( (int) $item->object_id === (int) $donate_id ) {
+					$has_donate = true;
+					break;
+				}
+			}
+		}
+		if ( ! $has_donate ) {
+			cihs_menu_page_item( $locations[ $location ], $donate_id, 'primary' === $location ? 'Donate' : 'Support CIHS' );
+		}
+	}
+
+	flush_rewrite_rules();
+	update_option( 'cihs_setup_110_done', 1 );
+}
+add_action( 'after_switch_theme', 'cihs_run_site_setup_110', 20 );
+add_action( 'admin_init', 'cihs_run_site_setup_110', 20 );
 
 /* --------------------------------------------------------------------------
  * Helpers
@@ -177,9 +237,13 @@ function cihs_setup_pages() {
 	$ids['careers'] = cihs_make_page(
 		'careers-internships',
 		'Careers & Internships',
-		'<!-- wp:paragraph --><p>CIHS welcomes researchers, writers, editors and interns who share our commitment to rigorous, holistic scholarship. We offer research fellowships, internships for students and early-career professionals, and volunteer opportunities around our events.</p><!-- /wp:paragraph -->
-<!-- wp:heading --><h2 class="wp-block-heading">How to apply</h2><!-- /wp:heading -->
-<!-- wp:paragraph --><p>Send your CV, a short statement of interest and a writing sample through the <a href="/contact/">contact form</a>, selecting “Internships &amp; Careers” as the subject. Shortlisted candidates will hear from us within three weeks.</p><!-- /wp:paragraph -->'
+		cihs_careers_page_content()
+	);
+
+	$ids['donate'] = cihs_make_page(
+		'support-cihs',
+		'Support CIHS',
+		cihs_donate_page_content()
 	);
 
 	/* ---------- Contact ---------- */
@@ -214,6 +278,38 @@ function cihs_setup_pages() {
 	);
 
 	return $ids;
+}
+
+/**
+ * Careers page body (openings grid + application form).
+ *
+ * @return string
+ */
+function cihs_careers_page_content() {
+	return '<!-- wp:paragraph --><p>CIHS welcomes researchers, writers, editors and interns who share our commitment to rigorous, holistic scholarship. We offer research fellowships, internships for students and early-career professionals, and volunteer opportunities around our events.</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2 class="wp-block-heading">Current Openings</h2><!-- /wp:heading -->
+<!-- wp:shortcode -->[cihs_job_openings]<!-- /wp:shortcode -->
+<!-- wp:heading --><h2 class="wp-block-heading">Why work with CIHS</h2><!-- /wp:heading -->
+<!-- wp:list --><ul class="wp-block-list"><!-- wp:list-item --><li><strong>Meaningful research:</strong> work on questions that shape national debate — policy, security, economy, technology and culture.</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>Mentorship:</strong> learn directly from senior fellows and published scholars.</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>Visibility:</strong> publish under your own byline in CIHS briefs, reports and commentary.</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>Network:</strong> engage with policymakers, diplomats, journalists and academics at CIHS events.</li><!-- /wp:list-item --></ul><!-- /wp:list -->
+<!-- wp:heading --><h2 class="wp-block-heading">Apply Now</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Fill in the form below with a link to your CV (Google Drive, Dropbox or similar). Shortlisted candidates will hear from us within three weeks.</p><!-- /wp:paragraph -->
+<!-- wp:shortcode -->[cihs_job_application]<!-- /wp:shortcode -->';
+}
+
+/**
+ * Donation page body (details card + pledge form).
+ *
+ * @return string
+ */
+function cihs_donate_page_content() {
+	return '<!-- wp:paragraph --><p>CIHS is an independent, non-partisan institution — our research stays free of institutional bias because it is supported by people like you. Your contribution funds rigorous studies, public lectures, fellowships for young scholars and open-access publications.</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2 class="wp-block-heading">What your support enables</h2><!-- /wp:heading -->
+<!-- wp:list --><ul class="wp-block-list"><!-- wp:list-item --><li><strong>₹500</strong> — helps distribute an issue brief to policymakers and the press.</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>₹2,500</strong> — supports a public lecture or round-table session.</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>₹10,000</strong> — funds a month of a research internship for a young scholar.</li><!-- /wp:list-item --></ul><!-- /wp:list -->
+<!-- wp:heading --><h2 class="wp-block-heading">How to donate</h2><!-- /wp:heading -->
+<!-- wp:shortcode -->[cihs_donation_details]<!-- /wp:shortcode -->
+<!-- wp:heading --><h2 class="wp-block-heading">Pledge your support</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Tell us about your contribution so we can confirm it and issue your receipt. Fields marked * are required.</p><!-- /wp:paragraph -->
+<!-- wp:shortcode -->[cihs_donation_form]<!-- /wp:shortcode -->';
 }
 
 /* --------------------------------------------------------------------------
@@ -384,6 +480,50 @@ function cihs_setup_team() {
 }
 
 /* --------------------------------------------------------------------------
+ * Sample job openings (replace with real vacancies)
+ * ------------------------------------------------------------------------ */
+function cihs_setup_careers() {
+	$jobs = array(
+		array(
+			'title'    => 'Research Fellow — Geopolitics & Security',
+			'type'     => 'Full-time',
+			'location' => 'Noida / New Delhi',
+			'excerpt'  => 'Lead research on strategic affairs, terrorism and India\'s security environment. 3+ years of research experience and a strong publication record preferred.',
+		),
+		array(
+			'title'    => 'Research Internship — Policy & Economy',
+			'type'     => 'Internship',
+			'location' => 'Noida (hybrid)',
+			'excerpt'  => 'A 3–6 month internship for students and early-career professionals. Work with senior fellows on briefs, data analysis and event research.',
+		),
+		array(
+			'title'    => 'Content & Communications Associate',
+			'type'     => 'Full-time',
+			'location' => 'Noida / New Delhi',
+			'excerpt'  => 'Manage the CIHS website, social channels and newsletter. Strong writing and editing skills in English required; Hindi a plus.',
+		),
+	);
+	foreach ( $jobs as $job ) {
+		if ( get_page_by_path( sanitize_title( $job['title'] ), OBJECT, 'cihs_career' ) ) {
+			continue;
+		}
+		$id = wp_insert_post(
+			array(
+				'post_type'    => 'cihs_career',
+				'post_status'  => 'publish',
+				'post_title'   => $job['title'],
+				'post_excerpt' => $job['excerpt'],
+				'post_content' => '<!-- wp:paragraph --><p>' . $job['excerpt'] . '</p><!-- /wp:paragraph --><!-- wp:heading --><h2 class="wp-block-heading">How to apply</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Use the application form on the <a href="/careers-internships/#apply">Careers page</a> and select this position. <em>This is a sample opening created by the CIHS theme — edit or delete it under Job Openings in the dashboard.</em></p><!-- /wp:paragraph -->',
+			)
+		);
+		if ( $id && ! is_wp_error( $id ) ) {
+			update_post_meta( $id, '_cihs_career_type', $job['type'] );
+			update_post_meta( $id, '_cihs_career_location', $job['location'] );
+		}
+	}
+}
+
+/* --------------------------------------------------------------------------
  * Sample analysis posts
  * ------------------------------------------------------------------------ */
 function cihs_setup_posts() {
@@ -477,6 +617,7 @@ function cihs_setup_menus( $pages ) {
 		) );
 		cihs_menu_page_item( $menu_id, $pages['media'], 'Media' );
 		cihs_menu_page_item( $menu_id, $pages['contact'], 'Contact' );
+		cihs_menu_page_item( $menu_id, $pages['donate'], 'Donate' );
 
 		cihs_assign_menu( 'primary', $menu_id );
 	}
@@ -499,6 +640,7 @@ function cihs_setup_menus( $pages ) {
 		) );
 		cihs_menu_page_item( $footer_id, $pages['analysis'], 'Analysis' );
 		cihs_menu_page_item( $footer_id, $pages['careers'], 'Careers' );
+		cihs_menu_page_item( $footer_id, $pages['donate'], 'Support CIHS' );
 		cihs_menu_page_item( $footer_id, $pages['contact'], 'Contact' );
 		cihs_assign_menu( 'footer', $footer_id );
 	}

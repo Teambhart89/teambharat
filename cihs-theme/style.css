@@ -4,7 +4,7 @@ Theme URI: https://cihs.org.in/
 Author: CIHS Web Team
 Author URI: https://cihs.org.in/
 Description: Modern, responsive WordPress theme for the Centre for Integrated and Holistic Studies (CIHS), a non-partisan independent think tank headquartered in New Delhi. On activation it automatically creates all pages, menus, publications, events and team sections. Features: custom post types (Publications, Events, Team), block editor support, block patterns, customizer options for contact/social details, built-in contact form, SEO meta + JSON-LD schema, accessibility-ready markup, sticky header, hero slider, and a fully responsive design.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -204,6 +204,36 @@ code { padding: .15em .4em; }
   .main-navigation ul ul a { padding-left: 44px; }
 }
 
+/* ---------- Header actions: search + donate ---------- */
+.cihs-header-actions { display: flex; align-items: center; gap: 12px; }
+.cihs-search-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--cihs-ivory); border: 1px solid var(--cihs-line);
+  color: var(--cihs-navy); cursor: pointer; transition: all .2s ease;
+}
+.cihs-search-toggle:hover, .cihs-search-toggle[aria-expanded="true"] {
+  background: var(--cihs-navy); color: #fff; border-color: var(--cihs-navy);
+}
+.cihs-btn--donate { padding: .55em 1.4em; font-size: .88rem; }
+.cihs-header-search {
+  border-top: 1px solid var(--cihs-line);
+  background: var(--cihs-ivory);
+  padding: 16px 0;
+}
+.cihs-header-search__form { display: flex; gap: 10px; }
+.cihs-header-search__form input[type="search"] {
+  flex: 1; padding: .75em 1.1em; border: 1px solid #cfd4de; border-radius: 999px;
+  font-size: 1rem; background: #fff; color: var(--cihs-ink);
+}
+.cihs-header-search__form input[type="search"]:focus {
+  border-color: var(--cihs-saffron); outline: none;
+  box-shadow: 0 0 0 3px rgba(232,150,58,.2);
+}
+@media (max-width: 640px) {
+  .cihs-btn--donate { display: none; }
+}
+
 /* ---------- Hero ---------- */
 .cihs-hero {
   position: relative; overflow: hidden;
@@ -237,6 +267,19 @@ code { padding: .15em .4em; }
   border: 0; cursor: pointer; transition: background .2s;
 }
 .cihs-hero__dot.is-active { background: var(--cihs-saffron); }
+
+/* Hero slide with banner image: navy overlay keeps text readable */
+.cihs-hero__slide--image {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.cihs-hero__slide--image::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(12,23,48,.92) 0%, rgba(20,33,61,.78) 55%, rgba(20,33,61,.45) 100%);
+}
+.cihs-hero__slide--image .cihs-container { position: relative; z-index: 2; }
 
 /* Page hero (inner pages) */
 .cihs-page-hero {
@@ -299,6 +342,97 @@ code { padding: .15em .4em; }
 .cihs-event-date span { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
 .cihs-event-row h3 { margin-bottom: .2em; font-size: 1.1rem; }
 .cihs-event-row .cihs-event-loc { font-size: .85rem; color: var(--cihs-muted); margin: 0; }
+
+/* Event cards with date ribbon (homepage) */
+.cihs-event-card .cihs-card__media { position: relative; }
+.cihs-event-ribbon {
+  position: absolute; top: 12px; right: 12px; z-index: 3;
+  background: var(--cihs-navy); color: #fff; border-radius: 8px;
+  padding: 7px 12px 6px; text-align: center; line-height: 1.05;
+  box-shadow: 0 4px 14px rgba(12,23,48,.35);
+}
+.cihs-event-ribbon b { display: block; font-size: 1.25rem; font-family: var(--cihs-font-serif); }
+.cihs-event-ribbon span { font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; }
+.cihs-event-card h3 { font-size: 1.02rem; }
+.cihs-event-venue { font-size: .86rem; color: var(--cihs-muted); margin-bottom: 1em; }
+.cihs-event-venue strong { color: var(--cihs-navy); }
+.cihs-event-card__btn { margin-top: auto; align-self: flex-start; padding: .55em 1.4em; font-size: .85rem; }
+
+/* Latest reports: horizontal thumb cards */
+.cihs-report-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (max-width: 800px) { .cihs-report-grid { grid-template-columns: 1fr; } }
+.cihs-report-row {
+  display: flex; align-items: center; gap: 20px;
+  background: #fff; border: 1px solid var(--cihs-line); border-radius: var(--cihs-radius);
+  padding: 18px 22px; transition: transform .2s ease, box-shadow .2s ease;
+}
+.cihs-report-row:hover { transform: translateY(-4px); box-shadow: var(--cihs-shadow); }
+.cihs-report-row__thumb {
+  flex: 0 0 96px; width: 96px; height: 118px; border-radius: 8px; overflow: hidden;
+  background: linear-gradient(135deg, var(--cihs-navy), var(--cihs-navy-soft));
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.85); font-family: var(--cihs-font-serif); font-size: 1.8rem;
+}
+.cihs-report-row__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cihs-report-row__body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cihs-report-row__type {
+  font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cihs-saffron-dark);
+}
+.cihs-report-row__title { font-weight: 700; color: var(--cihs-navy); font-size: 1.02rem; line-height: 1.4; }
+.cihs-report-row:hover .cihs-report-row__title { color: var(--cihs-saffron-dark); }
+
+/* Impact gallery */
+.cihs-impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+@media (max-width: 960px) { .cihs-impact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .cihs-impact-grid { grid-template-columns: 1fr; } }
+.cihs-impact-item {
+  position: relative; margin: 0; border-radius: var(--cihs-radius); overflow: hidden;
+  aspect-ratio: 4/3; background: var(--cihs-navy);
+}
+.cihs-impact-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .4s ease;
+}
+.cihs-impact-item:hover img { transform: scale(1.06); }
+.cihs-impact-item figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 34px 16px 14px;
+  background: linear-gradient(transparent, rgba(12,23,48,.88));
+  color: #fff; font-size: .85rem; line-height: 1.35;
+}
+.cihs-impact-item figcaption strong { display: block; }
+.cihs-impact-item figcaption span { color: #c6cede; font-size: .78rem; }
+
+/* Careers: job cards + badges */
+.cihs-job-card {
+  background: #fff; border: 1px solid var(--cihs-line); border-left: 4px solid var(--cihs-saffron);
+  border-radius: var(--cihs-radius); padding: 26px 28px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cihs-job-card:hover { transform: translateY(-4px); box-shadow: var(--cihs-shadow); }
+.cihs-job-card__badges { margin-bottom: 12px; }
+.cihs-badge {
+  display: inline-block; background: var(--cihs-saffron); color: var(--cihs-navy-dark);
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  border-radius: 999px; padding: .3em 1em; margin-right: 8px;
+}
+.cihs-badge--ghost { background: var(--cihs-ivory); border: 1px solid var(--cihs-line); color: var(--cihs-muted); }
+.cihs-job-card h3 { font-size: 1.15rem; }
+.cihs-job-card p { font-size: .92rem; color: var(--cihs-muted); }
+.cihs-job-card__deadline { color: var(--cihs-navy) !important; }
+
+/* Donations: preset amount buttons */
+.cihs-amounts { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 12px; }
+.cihs-amount-btn {
+  background: var(--cihs-ivory); border: 2px solid var(--cihs-line); border-radius: 999px;
+  padding: .55em 1.4em; font-weight: 700; font-size: .95rem; color: var(--cihs-navy);
+  cursor: pointer; transition: all .15s ease;
+}
+.cihs-amount-btn:hover { border-color: var(--cihs-saffron); }
+.cihs-amount-btn.is-selected {
+  background: var(--cihs-saffron); border-color: var(--cihs-saffron); color: var(--cihs-navy-dark);
+}
+.cihs-form-note { font-size: .85rem; color: var(--cihs-muted); margin-top: 1em; }
 
 /* Team */
 .cihs-team-card { text-align: center; }

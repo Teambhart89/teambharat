@@ -24,6 +24,47 @@
 			});
 		}
 
+		/* ---------- Header search toggle ---------- */
+		var searchToggle = document.querySelector('.cihs-search-toggle');
+		var searchPanel = document.getElementById('cihs-header-search');
+		if (searchToggle && searchPanel) {
+			searchToggle.addEventListener('click', function () {
+				var open = searchPanel.hasAttribute('hidden');
+				if (open) {
+					searchPanel.removeAttribute('hidden');
+					searchToggle.setAttribute('aria-expanded', 'true');
+					var field = searchPanel.querySelector('input[type="search"]');
+					if (field) { field.focus(); }
+				} else {
+					searchPanel.setAttribute('hidden', '');
+					searchToggle.setAttribute('aria-expanded', 'false');
+				}
+			});
+			document.addEventListener('keyup', function (e) {
+				if (e.key === 'Escape' && !searchPanel.hasAttribute('hidden')) {
+					searchPanel.setAttribute('hidden', '');
+					searchToggle.setAttribute('aria-expanded', 'false');
+					searchToggle.focus();
+				}
+			});
+		}
+
+		/* ---------- Donation preset amounts ---------- */
+		var amountInput = document.getElementById('cihs_d_amount');
+		var amountBtns = document.querySelectorAll('.cihs-amount-btn');
+		if (amountInput && amountBtns.length) {
+			amountBtns.forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					amountBtns.forEach(function (b) { b.classList.remove('is-selected'); });
+					btn.classList.add('is-selected');
+					amountInput.value = btn.getAttribute('data-amount');
+				});
+			});
+			amountInput.addEventListener('input', function () {
+				amountBtns.forEach(function (b) { b.classList.remove('is-selected'); });
+			});
+		}
+
 		/* ---------- Sticky header shadow ---------- */
 		var header = document.querySelector('.site-header');
 		if (header) {

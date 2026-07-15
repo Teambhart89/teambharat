@@ -64,5 +64,22 @@
 				);
 				?>
 			</nav>
+
+			<div class="cihs-header-actions">
+				<button class="cihs-search-toggle" aria-controls="cihs-header-search" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open search', 'cihs' ); ?>">
+					<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.2" y2="16.2"></line></svg>
+				</button>
+				<a class="cihs-btn cihs-btn--donate" href="<?php echo esc_url( home_url( '/support-cihs/' ) ); ?>"><?php esc_html_e( 'Donate', 'cihs' ); ?></a>
+			</div>
+		</div>
+
+		<div id="cihs-header-search" class="cihs-header-search" hidden>
+			<div class="cihs-container">
+				<form role="search" method="get" class="cihs-header-search__form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<label class="screen-reader-text" for="cihs-header-search-field"><?php esc_html_e( 'Search the site', 'cihs' ); ?></label>
+					<input type="search" id="cihs-header-search-field" name="s" placeholder="<?php esc_attr_e( 'Search publications, events, analysis…', 'cihs' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>">
+					<button type="submit" class="cihs-btn"><?php esc_html_e( 'Search', 'cihs' ); ?></button>
+				</form>
+			</div>
 		</div>
 	</header>

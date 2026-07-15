@@ -15,7 +15,7 @@ get_header();
 	<section class="cihs-hero" aria-label="<?php esc_attr_e( 'Highlights', 'cihs' ); ?>">
 		<div class="cihs-hero__slides">
 			<?php foreach ( cihs_get_hero_slides() as $i => $slide ) : ?>
-				<div class="cihs-hero__slide<?php echo 0 === $i ? ' is-active' : ''; ?>">
+				<div class="cihs-hero__slide<?php echo 0 === $i ? ' is-active' : ''; ?><?php echo $slide['image'] ? ' cihs-hero__slide--image' : ''; ?>"<?php echo $slide['image'] ? ' style="background-image:url(' . esc_url( $slide['image'] ) . ');"' : ''; ?>>
 					<div class="cihs-container">
 						<div class="cihs-hero__inner">
 							<?php if ( $slide['kicker'] ) : ?>
@@ -80,26 +80,26 @@ get_header();
 		</div>
 	</section>
 
-	<!-- Latest publications -->
+	<!-- Latest reports: horizontal cards with thumbnails -->
 	<section class="cihs-section">
 		<div class="cihs-container">
 			<div class="cihs-section-head cihs-reveal">
 				<span class="cihs-eyebrow"><?php esc_html_e( 'Publications', 'cihs' ); ?></span>
-				<h2><?php esc_html_e( 'Latest Research', 'cihs' ); ?></h2>
+				<h2><?php esc_html_e( 'Our Latest Reports', 'cihs' ); ?></h2>
 			</div>
-			<div class="cihs-grid cihs-grid--3">
+			<div class="cihs-report-grid">
 				<?php
 				$cihs_pubs = new WP_Query(
 					array(
 						'post_type'      => 'cihs_publication',
-						'posts_per_page' => 3,
+						'posts_per_page' => 4,
 						'no_found_rows'  => true,
 					)
 				);
 				if ( $cihs_pubs->have_posts() ) {
 					while ( $cihs_pubs->have_posts() ) {
 						$cihs_pubs->the_post();
-						cihs_render_card();
+						cihs_render_report_row();
 					}
 					wp_reset_postdata();
 				} else {
@@ -108,6 +108,40 @@ get_header();
 				?>
 			</div>
 			<p style="text-align:center;margin-top:36px;"><a class="cihs-btn" href="<?php echo esc_url( home_url( '/publications/' ) ); ?>"><?php esc_html_e( 'View All Publications', 'cihs' ); ?></a></p>
+		</div>
+	</section>
+
+	<!-- Events: image cards with date ribbon -->
+	<section class="cihs-section cihs-section--tint">
+		<div class="cihs-container">
+			<div class="cihs-section-head cihs-reveal">
+				<span class="cihs-eyebrow"><?php esc_html_e( 'Events', 'cihs' ); ?></span>
+				<h2><?php esc_html_e( 'Lectures, Seminars & Round Tables', 'cihs' ); ?></h2>
+			</div>
+			<div class="cihs-grid cihs-grid--4">
+				<?php
+				$cihs_event_cards = new WP_Query(
+					array(
+						'post_type'      => 'cihs_event',
+						'posts_per_page' => 4,
+						'meta_key'       => '_cihs_event_date',
+						'orderby'        => 'meta_value',
+						'order'          => 'DESC',
+						'no_found_rows'  => true,
+					)
+				);
+				if ( $cihs_event_cards->have_posts() ) {
+					while ( $cihs_event_cards->have_posts() ) {
+						$cihs_event_cards->the_post();
+						cihs_render_event_card();
+					}
+					wp_reset_postdata();
+				} else {
+					echo '<p>' . esc_html__( 'Events will appear here once added from the dashboard.', 'cihs' ) . '</p>';
+				}
+				?>
+			</div>
+			<p style="text-align:center;margin-top:36px;"><a class="cihs-btn" href="<?php echo esc_url( home_url( '/events/' ) ); ?>"><?php esc_html_e( 'View All Events', 'cihs' ); ?></a></p>
 		</div>
 	</section>
 
@@ -123,65 +157,83 @@ get_header();
 		</div>
 	</section>
 
-	<!-- Analysis + events -->
+	<!-- Our Impact gallery -->
+	<?php
+	$cihs_impact = new WP_Query(
+		array(
+			'post_type'      => 'cihs_impact',
+			'posts_per_page' => 8,
+			'orderby'        => 'menu_order date',
+			'order'          => 'ASC',
+			'meta_key'       => '_thumbnail_id',
+			'no_found_rows'  => true,
+		)
+	);
+	if ( $cihs_impact->have_posts() ) :
+		?>
+		<section class="cihs-section">
+			<div class="cihs-container">
+				<div class="cihs-section-head cihs-reveal">
+					<span class="cihs-eyebrow"><?php esc_html_e( 'Our Impact', 'cihs' ); ?></span>
+					<h2><?php esc_html_e( 'Moments That Shape the Discourse', 'cihs' ); ?></h2>
+				</div>
+				<div class="cihs-impact-grid">
+					<?php
+					while ( $cihs_impact->have_posts() ) {
+						$cihs_impact->the_post();
+						?>
+						<figure class="cihs-impact-item cihs-reveal">
+							<?php the_post_thumbnail( 'cihs-card' ); ?>
+							<figcaption>
+								<strong><?php the_title(); ?></strong>
+								<?php if ( has_excerpt() ) : ?>
+									<span><?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?></span>
+								<?php endif; ?>
+							</figcaption>
+						</figure>
+						<?php
+					}
+					wp_reset_postdata();
+					?>
+				</div>
+			</div>
+		</section>
+	<?php elseif ( current_user_can( 'edit_posts' ) ) : ?>
+		<section class="cihs-section">
+			<div class="cihs-container">
+				<div class="cihs-section-head">
+					<span class="cihs-eyebrow"><?php esc_html_e( 'Our Impact', 'cihs' ); ?></span>
+					<h2><?php esc_html_e( 'Add Impact Images', 'cihs' ); ?></h2>
+					<p><?php esc_html_e( 'This note is visible only to logged-in editors: add items under “Impact Gallery” in the dashboard (set a Featured Image on each) and they will appear here automatically.', 'cihs' ); ?></p>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<!-- Analysis -->
 	<section class="cihs-section cihs-section--tint">
 		<div class="cihs-container">
-			<div class="cihs-grid cihs-grid--2">
-				<div>
-					<span class="cihs-eyebrow"><?php esc_html_e( 'Analysis', 'cihs' ); ?></span>
-					<h2><?php esc_html_e( 'Latest Commentary', 'cihs' ); ?></h2>
-					<?php
-					$cihs_posts = new WP_Query(
-						array(
-							'post_type'      => 'post',
-							'posts_per_page' => 3,
-							'no_found_rows'  => true,
-						)
-					);
-					if ( $cihs_posts->have_posts() ) {
-						echo '<div class="cihs-grid" style="gap:18px;">';
-						while ( $cihs_posts->have_posts() ) {
-							$cihs_posts->the_post();
-							?>
-							<article class="cihs-event-row cihs-reveal" style="grid-template-columns: 1fr auto;">
-								<div>
-									<div class="cihs-card__meta"><?php echo esc_html( get_the_date() ); ?></div>
-									<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-									<p class="cihs-event-loc"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18 ) ); ?></p>
-								</div>
-								<a class="cihs-btn cihs-btn--ghost" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read', 'cihs' ); ?></a>
-							</article>
-							<?php
-						}
-						echo '</div>';
-						wp_reset_postdata();
+			<div class="cihs-section-head cihs-reveal">
+				<span class="cihs-eyebrow"><?php esc_html_e( 'Analysis', 'cihs' ); ?></span>
+				<h2><?php esc_html_e( 'Latest Commentary', 'cihs' ); ?></h2>
+			</div>
+			<div class="cihs-grid cihs-grid--3">
+				<?php
+				$cihs_posts = new WP_Query(
+					array(
+						'post_type'      => 'post',
+						'posts_per_page' => 3,
+						'no_found_rows'  => true,
+					)
+				);
+				if ( $cihs_posts->have_posts() ) {
+					while ( $cihs_posts->have_posts() ) {
+						$cihs_posts->the_post();
+						cihs_render_card();
 					}
-					?>
-				</div>
-				<div>
-					<span class="cihs-eyebrow"><?php esc_html_e( 'Events', 'cihs' ); ?></span>
-					<h2><?php esc_html_e( 'Lectures & Seminars', 'cihs' ); ?></h2>
-					<?php
-					$cihs_events = new WP_Query(
-						array(
-							'post_type'      => 'cihs_event',
-							'posts_per_page' => 3,
-							'meta_key'       => '_cihs_event_date',
-							'orderby'        => 'meta_value',
-							'order'          => 'DESC',
-							'no_found_rows'  => true,
-						)
-					);
-					if ( $cihs_events->have_posts() ) {
-						while ( $cihs_events->have_posts() ) {
-							$cihs_events->the_post();
-							cihs_render_event_row();
-						}
-						wp_reset_postdata();
-					}
-					?>
-					<p><a class="cihs-btn cihs-btn--ghost" href="<?php echo esc_url( home_url( '/events/' ) ); ?>"><?php esc_html_e( 'All Events', 'cihs' ); ?></a></p>
-				</div>
+					wp_reset_postdata();
+				}
+				?>
 			</div>
 		</div>
 	</section>
