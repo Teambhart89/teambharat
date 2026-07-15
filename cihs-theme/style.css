@@ -4,7 +4,7 @@ Theme URI: https://cihs.org.in/
 Author: CIHS Web Team
 Author URI: https://cihs.org.in/
 Description: Modern, responsive WordPress theme for the Centre for Integrated and Holistic Studies (CIHS), a non-partisan independent think tank headquartered in New Delhi. On activation it automatically creates all pages, menus, publications, events and team sections. Features: custom post types (Publications, Events, Team), block editor support, block patterns, customizer options for contact/social details, built-in contact form, SEO meta + JSON-LD schema, accessibility-ready markup, sticky header, hero slider, and a fully responsive design.
-Version: 1.1.0
+Version: 1.2.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -133,48 +133,57 @@ code { padding: .15em .4em; }
 .cihs-section--navy .cihs-btn--ghost { color: #fff; border-color: rgba(255,255,255,.6); }
 .cihs-section--navy .cihs-btn--ghost:hover { background: #fff; color: var(--cihs-navy); border-color: #fff; }
 
-/* ---------- Header ---------- */
-.cihs-topbar {
-  background: var(--cihs-navy-dark); color: #c8cfdd; font-size: .82rem;
-  padding: 7px 0;
-}
-.cihs-topbar .cihs-container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-.cihs-topbar a { color: #c8cfdd; }
-.cihs-topbar a:hover { color: var(--cihs-saffron); }
-.cihs-topbar__contact span { margin-right: 18px; white-space: nowrap; }
-.cihs-topbar__social a { margin-left: 12px; font-weight: 600; }
-
+/* ---------- Header (reference design: date/time · centred logo · tools) ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 999;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
+  background: #fff;
   border-bottom: 1px solid var(--cihs-line);
-  transition: box-shadow .25s ease;
-}
-.site-header.is-scrolled { box-shadow: 0 6px 24px rgba(20,33,61,.12); }
-.site-header .cihs-container {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  min-height: 76px;
-}
-.site-branding { display: flex; align-items: center; gap: 14px; }
-.site-branding img { max-height: 54px; width: auto; }
-.site-title {
-  margin: 0; font-size: 1.45rem; letter-spacing: .04em; font-weight: 800;
   font-family: var(--cihs-font-serif);
 }
+.cihs-header-top { padding: 26px 0 22px; }
+.cihs-header-top__grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+.cihs-header-datetime {
+  justify-self: start;
+  font-size: .98rem;
+  color: var(--cihs-ink);
+  letter-spacing: .01em;
+}
+.site-branding { justify-self: center; text-align: center; }
+.site-branding img, .cihs-logo-link img { max-height: 74px; width: auto; display: block; }
+.site-title { margin: 0; font-family: var(--cihs-font-serif); }
 .site-title a { color: var(--cihs-navy); }
-.site-description { margin: 0; font-size: .72rem; color: var(--cihs-muted); letter-spacing: .02em; max-width: 300px; line-height: 1.35; }
+.cihs-header-tools {
+  justify-self: end;
+  display: flex; align-items: center; gap: 26px;
+}
+.cihs-mailus {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--cihs-navy); font-size: 1rem;
+}
+.cihs-mailus:hover { color: var(--cihs-saffron-dark); }
 
-/* Navigation */
-.main-navigation ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; }
+/* Navigation bar (second row) */
+.cihs-header-nav { border-top: 1px solid var(--cihs-line); position: relative; }
+.cihs-header-nav__inner { display: flex; align-items: center; gap: 18px; }
+.main-navigation { flex: 1; }
+.main-navigation ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; }
 .main-navigation li { position: relative; }
 .main-navigation a {
-  display: block; padding: 26px 14px; font-weight: 600; font-size: .93rem;
+  display: block; padding: 17px 16px;
+  font-family: var(--cihs-font-serif);
+  font-weight: 400; font-size: 1.05rem;
   color: var(--cihs-navy); letter-spacing: .01em;
 }
 .main-navigation a:hover { color: var(--cihs-saffron-dark); }
 .main-navigation .current-menu-item > a,
-.main-navigation .current-menu-ancestor > a { color: var(--cihs-saffron-dark); box-shadow: inset 0 -3px 0 var(--cihs-saffron); }
+.main-navigation .current-menu-ancestor > a {
+  color: var(--cihs-navy);
+  box-shadow: inset 0 -2px 0 var(--cihs-navy);
+}
 .main-navigation ul ul {
   position: absolute; top: 100%; left: 0; min-width: 240px;
   background: #fff; border: 1px solid var(--cihs-line); border-radius: 0 0 var(--cihs-radius) var(--cihs-radius);
@@ -192,8 +201,14 @@ code { padding: .15em .4em; }
   cursor: pointer; font-size: .9rem;
 }
 @media (max-width: 1020px) {
-  .menu-toggle { display: inline-block; }
-  .main-navigation { position: absolute; top: 100%; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--cihs-line); display: none; max-height: calc(100vh - 120px); overflow: auto; }
+  .menu-toggle { display: inline-block; margin: 10px 0; }
+  .cihs-header-top { padding: 18px 0 14px; }
+  .cihs-header-top__grid { grid-template-columns: auto 1fr auto; gap: 12px; }
+  .cihs-header-datetime { display: none; }
+  .site-branding { justify-self: start; }
+  .site-branding img, .cihs-logo-link img { max-height: 52px; }
+  .cihs-mailus span { display: none; }
+  .main-navigation { position: absolute; top: 100%; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--cihs-line); display: none; max-height: calc(100vh - 120px); overflow: auto; z-index: 60; }
   .main-navigation.is-open { display: block; box-shadow: var(--cihs-shadow); }
   .main-navigation ul { flex-direction: column; gap: 0; padding: 8px 0; }
   .main-navigation a { padding: 13px 24px; }
@@ -205,17 +220,16 @@ code { padding: .15em .4em; }
 }
 
 /* ---------- Header actions: search + donate ---------- */
-.cihs-header-actions { display: flex; align-items: center; gap: 12px; }
 .cihs-search-toggle {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--cihs-ivory); border: 1px solid var(--cihs-line);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: transparent; border: 0;
   color: var(--cihs-navy); cursor: pointer; transition: all .2s ease;
 }
 .cihs-search-toggle:hover, .cihs-search-toggle[aria-expanded="true"] {
-  background: var(--cihs-navy); color: #fff; border-color: var(--cihs-navy);
+  background: var(--cihs-ivory); color: var(--cihs-saffron-dark);
 }
-.cihs-btn--donate { padding: .55em 1.4em; font-size: .88rem; }
+.cihs-btn--donate { padding: .5em 1.4em; font-size: .88rem; font-family: var(--cihs-font-sans); }
 .cihs-header-search {
   border-top: 1px solid var(--cihs-line);
   background: var(--cihs-ivory);

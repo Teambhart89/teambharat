@@ -3,7 +3,7 @@ Contributors: cihs
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,14 @@ cihs_setup_done option). To re-run the setup on a fresh site, delete that
 option from the database first.
 
 == Changelog ==
+
+= 1.2.0 =
+* Redesigned header to the CIHS reference layout: live Date/Time on the
+  left, centred CIHS logo, search icon and MailUs link on the right, with
+  the navigation bar below in a classic serif typeface.
+* Bundled CIHS logo (SVG) used automatically until a logo is uploaded
+  under Appearance → Customize → Site Identity.
+* Menu names and structure are untouched — only the header design changed.
 
 = 1.1.0 =
 * Careers: Job Openings post type, openings grid and application form.

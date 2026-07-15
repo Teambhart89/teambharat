@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CIHS_VERSION', '1.1.0' );
+define( 'CIHS_VERSION', '1.2.0' );
 
 /* --------------------------------------------------------------------------
  * Theme setup

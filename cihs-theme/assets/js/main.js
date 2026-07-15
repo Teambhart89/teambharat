@@ -24,6 +24,19 @@
 			});
 		}
 
+		/* ---------- Live date/time in header ---------- */
+		var clock = document.getElementById('cihs-datetime');
+		if (clock) {
+			var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+			var tick = function () {
+				var d = new Date();
+				clock.textContent = pad(d.getDate()) + '.' + pad(d.getMonth() + 1) + '.' + d.getFullYear() +
+					' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+			};
+			tick();
+			setInterval(tick, 15000);
+		}
+
 		/* ---------- Header search toggle ---------- */
 		var searchToggle = document.querySelector('.cihs-search-toggle');
 		var searchPanel = document.getElementById('cihs-header-search');
