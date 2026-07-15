@@ -1,0 +1,84 @@
+{
+  "categories": [
+    {
+      "name": "Company Registration",
+      "slug": "company-registration",
+      "icon": "building",
+      "file": "services-company.json",
+      "tagline": "Start your business the right way with the structure that fits you best.",
+      "description": "Register your business in India with expert CA support. From private limited company and LLP to OPC, partnership and Startup India recognition, Krishna TaxNova handles name approval, documentation and filings end to end. Share your documents online or on WhatsApp and get your company registered without leaving your desk."
+    },
+    {
+      "name": "GST Services",
+      "slug": "gst-services",
+      "icon": "percent",
+      "file": "services-gst.json",
+      "tagline": "GST registration, returns, refunds and notices handled by experts.",
+      "description": "Complete GST solutions for businesses of every size: new GST registration, monthly and annual return filing, LUT filing for exporters, refund claims, cancellation and expert replies to GST notices. Upload your documents online or WhatsApp them to our Delhi based CA team and stay fully GST compliant."
+    },
+    {
+      "name": "Income Tax",
+      "slug": "income-tax",
+      "icon": "rupee",
+      "file": "services-incometax.json",
+      "tagline": "Accurate tax filing and smart planning for individuals and businesses.",
+      "description": "Income tax return filing, TDS returns, tax audit, notice replies and year round tax planning by qualified Chartered Accountants. Krishna TaxNova helps salaried individuals, professionals and companies file correctly, claim every eligible deduction and respond to the tax department with confidence."
+    },
+    {
+      "name": "Trademark & IPR",
+      "slug": "trademark-ipr",
+      "icon": "shield",
+      "file": "services-trademark.json",
+      "tagline": "Protect your brand name, logo, creative work and inventions.",
+      "description": "Protect what you have built. We handle trademark registration, objection replies, opposition, renewal and assignment, along with copyright, patent and design registration. File your brand protection application online with CA and IP expert support from Krishna TaxNova."
+    },
+    {
+      "name": "MCA & ROC Compliance",
+      "slug": "mca-compliance",
+      "icon": "clipboard",
+      "file": "services-mca.json",
+      "tagline": "Annual filings and event based ROC compliance, always on time.",
+      "description": "Keep your company and LLP fully compliant with the Companies Act. Annual ROC filings, director changes, registered office change, name change, capital increase, share transfer and company closure, all prepared and filed by experts so you avoid penalties and disqualification."
+    },
+    {
+      "name": "Licenses & Registrations",
+      "slug": "licenses-registrations",
+      "icon": "license",
+      "file": "services-licenses.json",
+      "tagline": "Every government license your business needs, done online.",
+      "description": "FSSAI food license, import export code, MSME Udyam, ISO certification, trade license, drug license, PSARA, EPF, ESI, professional tax and more. Krishna TaxNova prepares your application, uploads your documents and follows up with the department until your license is in hand."
+    },
+    {
+      "name": "NGO Services",
+      "slug": "ngo-services",
+      "icon": "heart",
+      "file": "services-ngo.json",
+      "tagline": "Set up and manage your trust, society or foundation with full compliance.",
+      "description": "Complete support for non profits: trust and society registration, Section 8 company, 12A and 80G registration for tax exemption, FCRA for foreign funding, CSR-1 and NGO Darpan. Start your NGO the right way and stay eligible for grants and donations."
+    },
+    {
+      "name": "NBFC & FinTech",
+      "slug": "nbfc-fintech",
+      "icon": "bank",
+      "file": "services-nbfc.json",
+      "tagline": "RBI licensing and compliance for finance and fintech businesses.",
+      "description": "Specialised support for financial businesses: NBFC registration and takeover, microfinance company setup, P2P lending, payment aggregator and prepaid wallet licenses, FFMC and ongoing RBI compliance. Get your finance business licensed and audit ready with expert guidance."
+    },
+    {
+      "name": "Environmental & EPR",
+      "slug": "environmental-epr",
+      "icon": "leaf",
+      "file": "services-environment.json",
+      "tagline": "Pollution NOCs, EPR registration and green approvals made simple.",
+      "description": "Environmental compliance for manufacturers, importers and recyclers: consent to establish and operate from the Pollution Control Board, EPR registration for e-waste, plastic and battery waste, hazardous waste authorization and environmental clearance, managed end to end."
+    },
+    {
+      "name": "Accounting & Finance",
+      "slug": "accounting-finance",
+      "icon": "chart",
+      "file": "services-accounting.json",
+      "tagline": "Reliable bookkeeping, payroll, audits and CFO level insight.",
+      "description": "Outsource your finance function to a CA firm: monthly accounting and bookkeeping, payroll with compliance, virtual CFO support, project reports and CMA data for bank loans, internal audit, due diligence and business valuation for growing businesses across India."
+    }
+  ]
+}

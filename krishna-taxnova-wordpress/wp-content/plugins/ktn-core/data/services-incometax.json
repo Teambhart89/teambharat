@@ -1,0 +1,384 @@
+[
+  {
+    "name": "Income Tax Return Filing",
+    "slug": "income-tax-return-filing",
+    "meta_title": "Income Tax Return Filing Online | ITR Filing by CA Experts",
+    "meta_description": "File your ITR accurately with CA review: salary, business, capital gains and foreign income. Maximum eligible refund, zero errors. WhatsApp your documents.",
+    "keywords": ["income tax return filing online", "itr filing by ca", "itr filing in delhi", "file itr online india"],
+    "excerpt": "CA reviewed ITR filing for salaried, business and capital gains income, with every eligible deduction claimed.",
+    "intro": [
+      "An income tax return filed correctly does two things: it keeps you compliant and it gets you every rupee of refund you are entitled to. Filed carelessly, it does the opposite, missed deductions, mismatch notices and delayed refunds.",
+      "Krishna TaxNova files ITRs with a real CA review, not just software upload. Send your Form 16, broker statements and other documents on WhatsApp or through this page, and we choose the correct form, the better tax regime and every eligible deduction."
+    ],
+    "what": [
+      "Income tax return filing reports your annual income, deductions and taxes to the Income Tax Department. The correct form depends on your income sources: ITR-1 or ITR-2 for salary and capital gains, ITR-3 for business and profession, ITR-4 for presumptive income. Since regime choice affects tax directly, comparing old and new regimes before filing is now an essential step."
+    ],
+    "who": [
+      "Salaried employees, including those with multiple Form 16s or ESOPs",
+      "Investors with capital gains from shares, mutual funds or property",
+      "Freelancers, professionals and business owners",
+      "NRIs with Indian income and residents with foreign income or assets",
+      "Anyone whose income exceeds the basic exemption limit or who wants a refund"
+    ],
+    "benefits": [
+      ["Maximum Legitimate Refund", "Every eligible deduction and exemption is checked, not just the ones in Form 16."],
+      ["Right Form, Right Regime", "We compare old and new regimes with your actual numbers and pick the cheaper one."],
+      ["Mismatch Prevention", "Income is reconciled with AIS and Form 26AS before filing, which prevents automated notices."],
+      ["Loan and Visa Ready", "Cleanly filed ITRs are the documents banks and embassies rely on."],
+      ["Post Filing Support", "E-verification, refund tracking and any rectification are included."]
+    ],
+    "documents": [
+      "PAN and Aadhaar",
+      "Form 16 from employer(s)",
+      "Bank statements or interest certificates",
+      "Capital gains statements from brokers or mutual funds",
+      "Home loan interest certificate, if any",
+      "Investment proofs: LIC, PPF, ELSS, mediclaim and similar",
+      "Rent receipts for HRA claims",
+      "Details of foreign income or assets, if applicable"
+    ],
+    "process": [
+      ["Document Collection", "Share documents on WhatsApp or the upload form; a checklist tailored to you follows."],
+      ["Income Compilation", "We compile income from all sources and reconcile with AIS and 26AS."],
+      ["Regime Comparison", "Tax is computed under both regimes and the beneficial one is chosen with your consent."],
+      ["Review and Filing", "A CA reviews the computation, files the return and completes e-verification with you."],
+      ["Refund Tracking", "We monitor processing and follow up until your refund is credited."]
+    ],
+    "timeline": "1 to 3 working days after complete documents",
+    "authority": "Income Tax Department, CBDT",
+    "validity": "Annual filing; due 31 July for most individuals",
+    "fees_note": "Late filing attracts fees up to 5,000 rupees under section 234F",
+    "why_us": "Software can file a return; it cannot notice that your employer missed your HRA or that a broker statement double counted a trade. Our CA review catches what tools skip.",
+    "faqs": [
+      ["Which ITR form applies to me?", "It depends on your income sources: ITR-1 for simple salary cases, ITR-2 for capital gains or two house properties, ITR-3 for business income, ITR-4 for presumptive schemes. We select and justify the correct form as part of the service."],
+      ["Old regime or new regime, which saves more?", "There is no universal answer; it depends on your deductions. As a rule of thumb, significant HRA, 80C and home loan benefits favour the old regime. We compute both with your actual data before filing."],
+      ["I missed the due date. Can I still file?", "Yes, a belated return can be filed until 31 December of the assessment year with late fees. Missing that too, ITR-U allows updated returns for past years with additional tax. Act early to limit the cost."],
+      ["Why does my refund get delayed?", "Common causes are unvalidated bank accounts, mismatches with AIS or pending e-verification. We resolve each of these as part of filing, and raise refund reissue requests where needed."]
+    ]
+  },
+  {
+    "name": "TDS Return Filing",
+    "slug": "tds-return-filing",
+    "meta_title": "TDS Return Filing Online | 24Q, 26Q Quarterly Filing",
+    "meta_description": "Quarterly TDS return filing with challan mapping, PAN validation and Form 16/16A generation. Avoid demand notices and late fees. CA managed service.",
+    "keywords": ["tds return filing online", "24q 26q filing", "tds return due date", "tds filing services delhi"],
+    "excerpt": "Accurate quarterly TDS returns with challan mapping and Form 16 generation, so deductees get credit and you avoid demands.",
+    "intro": [
+      "Every business that deducts tax at source must deposit it monthly and report it quarterly. Small errors, a wrong PAN, a mismatched challan, trigger automatic demand notices and block your vendors' and employees' tax credits.",
+      "Krishna TaxNova runs your complete TDS cycle: correct deduction rates, monthly deposit reminders, quarterly returns and Form 16 and 16A generation, all managed by a CA team."
+    ],
+    "what": [
+      "TDS returns are filed quarterly: Form 24Q for salaries, 26Q for domestic non salary payments such as rent, contractor fees and professional charges, and 27Q for payments to non residents. Returns map every deduction to a deposited challan and a valid PAN. After filing, TDS certificates are generated from the TRACES portal for deductees."
+    ],
+    "who": [
+      "Companies and firms paying salaries above the taxable limit",
+      "Businesses paying rent, contractor or professional fees above TDS thresholds",
+      "Buyers of property above fifty lakh rupees (Form 26QB)",
+      "Anyone with a TAN who has deducted or should have deducted tax"
+    ],
+    "benefits": [
+      ["No Demand Notices", "PAN validation and challan mapping before filing prevents the classic TRACES demands."],
+      ["Deductee Credit on Time", "Employees and vendors see their credit in 26AS quickly, avoiding disputes."],
+      ["Correct Rates Applied", "We track section wise rates and threshold changes so deductions are right."],
+      ["Certificates Handled", "Form 16 and 16A are generated and shared each quarter without you chasing."],
+      ["Late Fee Protection", "A filing calendar with reminders keeps you clear of 200 rupees per day late fees."]
+    ],
+    "documents": [
+      "TAN and PAN of the deductor",
+      "Challan details of TDS deposited (CIN)",
+      "PAN and payment details of all deductees",
+      "Salary details of employees for 24Q",
+      "Previous quarter return acknowledgment, if any",
+      "TRACES login credentials"
+    ],
+    "process": [
+      ["Data Collection", "Payment and deduction data is collected monthly in a simple template or from your software."],
+      ["Verification", "PANs are validated and every deduction is mapped to a deposited challan."],
+      ["Return Preparation", "The quarterly return is prepared and validated through the government utility."],
+      ["Filing and Acknowledgment", "The return is filed and the acknowledgment shared with you."],
+      ["Certificates", "Form 16 and 16A are downloaded from TRACES and delivered for distribution."]
+    ],
+    "timeline": "Quarterly; returns due 31 July, 31 October, 31 January and 31 May",
+    "authority": "Income Tax Department, TRACES/NSDL",
+    "validity": "Continuous quarterly compliance",
+    "fees_note": "Late filing fee is 200 rupees per day under section 234E",
+    "why_us": "TDS demands are almost always preventable data errors. Our validation before filing is why our clients' TRACES dashboards stay clean.",
+    "faqs": [
+      ["What happens if TDS is deducted but deposited late?", "Interest applies at one and a half percent per month from the date of deduction. Repeated delays can also attract prosecution provisions, so we set up standing reminders for the 7th of every month."],
+      ["What if a vendor has not given their PAN?", "TDS must then be deducted at twenty percent, and the deductee gets no credit. We chase and validate PANs during onboarding to avoid this entirely."],
+      ["Can old TDS returns be corrected?", "Yes. Correction statements can fix PAN errors, challan mismatches and amounts. We file corrections and get existing demands nullified where the underlying error is fixable."],
+      ["Do I need to deduct TDS when buying property?", "Yes, buyers must deduct one percent on property purchases of fifty lakh rupees or more and file Form 26QB within thirty days. We complete this end to end for property buyers."]
+    ]
+  },
+  {
+    "name": "Tax Audit",
+    "slug": "tax-audit",
+    "meta_title": "Tax Audit Under Section 44AB | CA Tax Audit Services",
+    "meta_description": "Tax audit under section 44AB by experienced Chartered Accountants: Form 3CA/3CB and 3CD preparation, clause wise review and on time filing.",
+    "keywords": ["tax audit services", "section 44ab audit", "form 3cd filing", "tax audit ca delhi"],
+    "excerpt": "Section 44AB tax audit conducted by experienced CAs with meticulous Form 3CD reporting and on time filing.",
+    "intro": [
+      "A tax audit is not just a signature; it is a clause by clause examination of your books that the Income Tax Department relies on. Errors in Form 3CD invite scrutiny of the whole return.",
+      "Krishna TaxNova conducts tax audits with a structured checklist approach: books review, statutory cross checks, clause wise 3CD reporting and clear communication of issues before anything is filed."
+    ],
+    "what": [
+      "Tax audit under section 44AB applies when business turnover exceeds one crore rupees (ten crore where cash transactions are under five percent) or professional receipts exceed fifty lakh rupees, and in certain presumptive scheme cases where declared profit is below the deemed rate. The auditor files Form 3CA or 3CB with the detailed statement of particulars in Form 3CD by 30 September."
+    ],
+    "who": [
+      "Businesses with turnover above the section 44AB thresholds",
+      "Professionals with gross receipts above fifty lakh rupees",
+      "Presumptive taxpayers declaring profit below the deemed rate",
+      "Entities whose lenders or investors require audited tax reports"
+    ],
+    "benefits": [
+      ["Statutory Compliance", "Timely audit and filing avoids penalty of up to one and a half lakh rupees under section 271B."],
+      ["Clean 3CD Reporting", "Accurate clause reporting prevents automated flags that trigger scrutiny."],
+      ["Issues Fixed Before Filing", "Disallowances and reporting gaps are discussed with you first, never sprung in the report."],
+      ["Better Financial Discipline", "Audit observations strengthen your accounting for the following year."],
+      ["Bank Ready Financials", "Audited accounts carry weight with lenders and large customers."]
+    ],
+    "documents": [
+      "Books of accounts: ledgers, cash book and bank book",
+      "Financial statements for the year",
+      "GST returns and reconciliation",
+      "TDS returns and challans",
+      "Loan statements and interest certificates",
+      "Fixed asset register",
+      "Previous year's audit report, if any"
+    ],
+    "process": [
+      ["Engagement and Planning", "We confirm applicability, timelines and the document list for your business."],
+      ["Books Review", "Ledger scrutiny, vouching of major items and statutory cross checks with GST and TDS records."],
+      ["Draft Discussion", "Observations, disallowances and clause positions are discussed with you openly."],
+      ["Form 3CD Preparation", "The complete statement of particulars is prepared and reviewed by a senior CA."],
+      ["Filing and Handover", "The audit report is filed on the portal and accepted by you, with a copy of all working papers."]
+    ],
+    "timeline": "2 to 4 weeks depending on books quality; due 30 September",
+    "authority": "Income Tax Department, CBDT",
+    "validity": "Annual requirement while thresholds are crossed",
+    "fees_note": "Penalty for failure is 0.5 percent of turnover up to 1.5 lakh rupees",
+    "why_us": "We audit to protect you, flagging risks in language you understand and fixing what can be fixed before filing, rather than reporting problems you never got to see.",
+    "faqs": [
+      ["Is tax audit required if I opt for presumptive taxation?", "Not if you declare profit at or above the deemed rate within the turnover limits. Audit triggers when you declare lower profit than the deemed rate and your income exceeds the basic exemption."],
+      ["What is the difference between statutory audit and tax audit?", "Statutory audit under the Companies Act examines financial statements for shareholders; tax audit under section 44AB reports specific tax particulars to the department. A company may need both; we coordinate them efficiently."],
+      ["What does the ten crore threshold mean?", "If your cash receipts and cash payments are each under five percent of totals, the audit threshold rises from one crore to ten crore rupees. Digital heavy businesses often escape audit through this relaxation."],
+      ["What if my books are incomplete?", "We first help you complete and reconcile the books; audit quality depends on them. Our accounting team can rebuild ledgers from bank statements and invoices where needed."]
+    ]
+  },
+  {
+    "name": "Income Tax Notice Reply",
+    "slug": "income-tax-notice-reply",
+    "meta_title": "Income Tax Notice Reply | 143(1), 139(9), 148 Notice Help",
+    "meta_description": "Received an income tax notice? CA drafted replies for 143(1) adjustments, defective returns, scrutiny and reassessment. WhatsApp your notice for a free review.",
+    "keywords": ["income tax notice reply", "section 143 1 intimation", "section 148 notice reply", "defective return 139 9"],
+    "excerpt": "Timely, well drafted responses to income tax notices, from simple mismatches to scrutiny and reassessment proceedings.",
+    "intro": [
+      "Income tax notices are increasingly automated: AIS mismatches, high value transactions and return inconsistencies are flagged by systems, not officers. That means most notices are answerable with the right data, if you respond correctly and on time.",
+      "WhatsApp your notice to Krishna TaxNova. We identify exactly what triggered it, prepare the response with supporting reconciliations and file it within the deadline, and we represent you if the matter goes further."
+    ],
+    "what": [
+      "Common notices include intimation under section 143(1) with adjustments, defective return notices under 139(9), inquiry under 142(1), scrutiny selection under 143(2), reassessment under 148 for escaped income, and demand notices under 156. Each has a specific response route on the e-proceedings portal and a strict timeline."
+    ],
+    "who": [
+      "Taxpayers with 143(1) adjustment intimations or unexplained demands",
+      "Recipients of defective return or non filing notices",
+      "Cases selected for scrutiny or reassessment",
+      "Taxpayers with AIS or high value transaction mismatch communications"
+    ],
+    "benefits": [
+      ["Correct Diagnosis", "We identify the exact trigger, often a reconcilable data mismatch, before drafting anything."],
+      ["Deadline Compliance", "Responses filed within statutory timelines protect you from ex parte orders."],
+      ["Evidence Based Replies", "Every figure in the reply ties to a document the officer can verify."],
+      ["Demand Reduction", "Wrong demands are contested through rectification and appeals until corrected."],
+      ["Full Representation", "From e-proceedings submissions to appearing before officers, one team handles it."]
+    ],
+    "documents": [
+      "Copy of the notice or intimation",
+      "Filed ITR and computation for the relevant year",
+      "Form 26AS and AIS for the year",
+      "Bank statements and investment proofs relevant to the query",
+      "Portal login credentials",
+      "Any earlier replies already filed"
+    ],
+    "process": [
+      ["Free Notice Review", "Send the notice on WhatsApp; we explain in plain words what it means and what is at stake."],
+      ["Data Assembly", "We gather returns, AIS, 26AS and documents to rebuild the correct position."],
+      ["Reply Drafting", "A point wise, annexure backed reply is drafted and approved by you."],
+      ["Portal Filing", "The response is submitted through e-proceedings within the deadline."],
+      ["Follow Through", "We track the closure order and pursue rectification or appeal if the outcome is wrong."]
+    ],
+    "timeline": "Response windows are typically 15 to 30 days from the notice",
+    "authority": "Income Tax Department, CBDT",
+    "validity": "Matter specific until proceedings close",
+    "fees_note": "Initial notice assessment is free; fees quoted per matter",
+    "why_us": "The difference between a closed case and a spiralling one is usually the first reply. Ours are precise, documented and filed on time, which is why most of our matters end at stage one.",
+    "faqs": [
+      ["Is every income tax notice serious?", "No. Many are automated intimations that need a simple response or none at all. But seriousness can only be judged by reading it; send it to us the day it arrives and we will tell you honestly."],
+      ["What is a 143(1) intimation with a demand?", "It is an automated comparison of your return with department data. Demands often arise from TDS mismatches or disallowed claims, and can frequently be removed through a rectification request with proof."],
+      ["What does a section 148 notice mean?", "The department believes income escaped assessment and wants to reopen your case. These are serious, deadline driven proceedings where early professional handling significantly affects the outcome."],
+      ["Can I ignore a notice sent for a year I already closed?", "Never. Even wrongly issued notices must be responded to, pointing out why they are invalid. Silence converts weak notices into confirmed demands."]
+    ]
+  },
+  {
+    "name": "Business Tax Planning",
+    "slug": "business-tax-planning",
+    "meta_title": "Business Tax Planning Services | Save Tax Legally",
+    "meta_description": "Structured tax planning for businesses and professionals: entity structure, salary vs dividend, deductions and investment timing. CA led annual planning.",
+    "keywords": ["business tax planning india", "tax planning services delhi", "corporate tax planning", "save business tax legally"],
+    "excerpt": "Year round, fully legal tax planning that aligns entity structure, remuneration and investments to cut your effective tax rate.",
+    "intro": [
+      "Most businesses meet their tax consultant in July, after the year is over and every planning option has expired. Real tax savings come from decisions made during the year: how you pay yourself, when you buy assets, which entity holds what.",
+      "Krishna TaxNova's tax planning service works ahead of the calendar. We map your projected income, apply every legitimate relief and structure remuneration and investments so that March never brings surprises."
+    ],
+    "what": [
+      "Business tax planning is the legal structuring of income, expenses and investments to minimise tax: choosing between proprietorship, LLP and company taxation, optimising salary, interest and dividend flows to owners, timing capital expenditure for depreciation, using presumptive schemes where beneficial and planning advance tax to avoid interest."
+    ],
+    "who": [
+      "Business owners paying significant tax without a structured plan",
+      "Professionals and consultants choosing between entity structures",
+      "Family businesses balancing income across members lawfully",
+      "Companies planning capex, ESOPs or owner remuneration"
+    ],
+    "benefits": [
+      ["Lower Effective Tax Rate", "Structural choices often save more than any deduction checklist."],
+      ["No Year End Panic", "Quarterly reviews mean advance tax is right and March is calm."],
+      ["Owner Pay Optimisation", "The salary, interest and dividend mix is tuned to your bracket each year."],
+      ["Interest Cost Avoided", "Accurate advance tax planning eliminates 234B and 234C interest."],
+      ["Fully Documented Positions", "Every strategy is legal, documented and defensible in assessment."]
+    ],
+    "documents": [
+      "Last two years' ITRs and financial statements",
+      "Current year projections or management accounts",
+      "Details of owner remuneration and drawings",
+      "Investment portfolio summary",
+      "Planned major purchases or expansion",
+      "Existing loan and interest details"
+    ],
+    "process": [
+      ["Baseline Review", "We study your last filings and current structure to find the leakage points."],
+      ["Strategy Design", "A written plan covers entity structure, remuneration, deductions and timing actions."],
+      ["Quarterly Check Ins", "Projections are updated and advance tax computed each quarter."],
+      ["Year End Execution", "Pending actions, investments, documentation, are completed before 31 March."],
+      ["Filing Alignment", "The plan flows directly into your returns, audited where applicable."]
+    ],
+    "timeline": "Initial plan in 1 to 2 weeks; ongoing through the year",
+    "authority": "Planning within the Income Tax Act, 1961",
+    "validity": "Reviewed annually with law changes",
+    "fees_note": "Annual retainer quoted after the baseline review",
+    "why_us": "We plan with the assessment in mind: every strategy we recommend is one we are prepared to defend before an officer, which keeps savings real rather than temporary.",
+    "faqs": [
+      ["Is tax planning legal?", "Yes. Tax planning uses reliefs and structures the law itself provides. What we never do is evasion, concealing income or faking expenses, which carries penalties and prosecution."],
+      ["How much tax can structured planning save?", "It varies, but businesses moving from unplanned to structured setups commonly reduce their effective rate meaningfully, especially around owner remuneration and entity choice. The baseline review quantifies it for you."],
+      ["When should tax planning start?", "The first quarter of the financial year. Most powerful options, remuneration structure, capex timing, regime elections, need to run through the year to deliver."],
+      ["Do salaried individuals benefit from planning too?", "Yes, particularly those with ESOPs, capital gains, rental income or side income. Regime choice, exemption timing and loss harvesting apply to individuals as much as businesses."]
+    ]
+  },
+  {
+    "name": "Form 15CA and 15CB Filing",
+    "slug": "form-15ca-15cb-filing",
+    "meta_title": "Form 15CA 15CB Filing | Foreign Remittance Certificate",
+    "meta_description": "CA certified Form 15CB and 15CA filing for foreign remittances. Correct DTAA rates, quick turnaround, bank ready certificates. WhatsApp your invoice to start.",
+    "keywords": ["form 15ca 15cb filing", "foreign remittance certificate ca", "15cb certificate online", "dtaa tds on foreign payment"],
+    "excerpt": "Same week CA certification for foreign remittances with correct DTAA rates, so your bank processes payments without holdups.",
+    "intro": [
+      "Banks will not process most foreign remittances without Form 15CA, and often a CA certificate in Form 15CB determining the correct tax. Getting the rate wrong means either excess tax withheld or a future demand with interest.",
+      "Krishna TaxNova issues 15CB certificates with proper DTAA analysis and files your 15CA, usually within two working days, so vendor payments and other remittances go out on schedule."
+    ],
+    "what": [
+      "Form 15CA is the remitter's online declaration of a foreign payment; Form 15CB is a CA certificate confirming the nature of the payment and the applicable withholding tax after considering the Income Tax Act and the relevant Double Taxation Avoidance Agreement. Which part of 15CA applies, and whether 15CB is needed, depends on the amount and the nature of the remittance."
+    ],
+    "who": [
+      "Businesses paying foreign vendors for services, software or royalties",
+      "Companies remitting dividends, interest or technical fees abroad",
+      "Individuals sending money for investments or property purchases overseas",
+      "Importers whose banks demand 15CA/CB for specific payments"
+    ],
+    "benefits": [
+      ["Bank Ready Certificates", "Certificates in the exact format banks accept, without back and forth."],
+      ["Correct DTAA Rate", "Treaty analysis often reduces withholding below domestic rates, saving real money."],
+      ["Fast Turnaround", "Standard remittances are certified within one to two working days."],
+      ["Compliance Trail", "Proper certification protects you in any later withholding tax assessment."],
+      ["Volume Handling", "Monthly retainers available for businesses with recurring foreign payments."]
+    ],
+    "documents": [
+      "Invoice or agreement for the remittance",
+      "Tax residency certificate of the foreign recipient (for DTAA benefit)",
+      "Form 10F and no permanent establishment declaration, where applicable",
+      "PAN of the remitter and bank details",
+      "Nature and purpose code of the remittance",
+      "Portal login credentials"
+    ],
+    "process": [
+      ["Payment Analysis", "We classify the remittance and determine taxability under the Act and DTAA."],
+      ["Document Collection", "TRC, 10F and declarations are collected from the foreign party where needed."],
+      ["15CB Certification", "Our CA issues the certificate with the correct rate and legal basis."],
+      ["15CA Filing", "The appropriate part of 15CA is filed online and the acknowledgment shared."],
+      ["Bank Submission Support", "We resolve any query your bank raises on the certificates."]
+    ],
+    "timeline": "1 to 2 working days per remittance",
+    "authority": "Income Tax Department, CBDT",
+    "validity": "Per remittance",
+    "fees_note": "No government fee; professional certification fee per remittance",
+    "why_us": "Withholding tax on cross border payments is a specialist area. We analyse the treaty, not just the domestic rate, which regularly cuts the tax our clients withhold, lawfully.",
+    "faqs": [
+      ["Is 15CB needed for every foreign payment?", "No. Small remittances and specified exempt categories need only 15CA Part A or D, or nothing at all. We check the exemption list first so you never pay for certification you do not need."],
+      ["What if the foreign vendor will not share a tax residency certificate?", "Without a TRC, DTAA benefits generally cannot be claimed and domestic rates apply. We help you request the right documents and structure the payment accordingly."],
+      ["Can excess tax withheld on a foreign payment be recovered?", "The foreign recipient can claim it through a refund route in India, which is slow. Withholding correctly the first time is far better, which is exactly what proper 15CB analysis achieves."],
+      ["Do these forms apply to import of goods?", "Plain import payments for goods are generally in the exempt list and need minimal or no filing. Mixed invoices with services attached are where analysis matters."]
+    ]
+  },
+  {
+    "name": "PAN and TAN Application",
+    "slug": "pan-tan-application",
+    "meta_title": "PAN and TAN Application Online | New, Correction, Reprint",
+    "meta_description": "Apply for PAN or TAN online, fix name and date errors or get reprints, for individuals, firms, companies and NRIs. Quick CA assisted processing.",
+    "keywords": ["pan card apply online", "tan application online", "pan correction online", "nri pan card application"],
+    "excerpt": "New PAN and TAN applications, corrections and reprints handled quickly for individuals, businesses and NRIs.",
+    "intro": [
+      "PAN is the identity on which the entire tax system runs, and TAN is compulsory for anyone deducting tax at source. Errors in either, a mismatched name, a wrong date of birth, block ITRs, refunds and registrations downstream.",
+      "Krishna TaxNova processes new PAN and TAN applications, corrections and reprints for individuals, firms, companies, trusts and NRIs, with documents collected entirely over WhatsApp."
+    ],
+    "what": [
+      "PAN (Permanent Account Number) is a ten character identifier mandatory for taxpayers and for high value transactions. TAN (Tax Deduction and Collection Account Number) is required by every deductor of TDS and is quoted in challans, returns and certificates. Applications go through the Protean (NSDL) or UTIITSL systems, with e-KYC options for individuals."
+    ],
+    "who": [
+      "Individuals and minors applying for a first PAN",
+      "New firms, companies, trusts and societies needing entity PAN",
+      "NRIs and foreign nationals requiring PAN for Indian investments",
+      "Businesses starting salary or vendor payments that need TAN"
+    ],
+    "benefits": [
+      ["Error Free Applications", "Details verified against KYC documents before submission avoids rejections."],
+      ["NRI and Foreign Entity Expertise", "We handle the extra documentation these categories require."],
+      ["Corrections Done Right", "Name, DOB and photo corrections with the exact supporting proofs required."],
+      ["Fast Processing", "e-KYC routes deliver PAN in days rather than weeks where eligible."],
+      ["Linked Compliance", "We also complete Aadhaar linking and immediate next steps like GST or TDS setup."]
+    ],
+    "documents": [
+      "Identity proof: Aadhaar, passport or voter ID",
+      "Address proof: Aadhaar, bank statement or utility bill",
+      "Date of birth proof for individuals",
+      "Photograph and signature",
+      "Certificate of incorporation or deed for entities",
+      "Passport and OCI or visa documents for NRIs and foreign nationals"
+    ],
+    "process": [
+      ["Requirement Check", "We confirm the category, form type and document list for your case."],
+      ["Document Collection", "KYC documents are collected via WhatsApp or the upload form."],
+      ["Application Filing", "The application is filed online with e-sign or physical mode as applicable."],
+      ["Tracking", "We track the acknowledgment through processing and resolve any objection."],
+      ["Delivery", "The e-PAN or TAN letter is delivered and next step registrations are advised."]
+    ],
+    "timeline": "e-PAN often within 2 to 5 working days; TAN 5 to 7 working days",
+    "authority": "Income Tax Department via Protean (NSDL) / UTIITSL",
+    "validity": "Lifetime",
+    "fees_note": "Nominal government fee applies, varies by delivery mode and address",
+    "why_us": "Rejected applications waste weeks. We pre verify every field against your documents, which is why our applications go through the first time, including tricky NRI cases.",
+    "faqs": [
+      ["Can I hold two PANs?", "No, holding more than one PAN is penalised. If you have duplicates, we help surrender the extra one properly so it never causes trouble."],
+      ["Is Aadhaar linking mandatory for PAN?", "Yes, for most individual holders. An unlinked PAN becomes inoperative, blocking refunds and higher TDS applies. We complete linking along with any application."],
+      ["Do NRIs need PAN?", "NRIs need PAN for investing in India, buying property, and filing returns on Indian income. The application uses different documents than resident applications, which we prepare for you."],
+      ["When does a business need TAN?", "The moment it becomes liable to deduct TDS, typically on crossing salary or payment thresholds. Deducting without TAN or quoting it wrongly attracts penalties, so we obtain it before your first deduction."]
+    ]
+  }
+]
