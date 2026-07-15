@@ -1,0 +1,88 @@
+{
+  "home": {
+    "eyebrow": "CA firm in Delhi, serving all India",
+    "h1": "Online CA Services for Accounting, Tax, GST, Trademark, MCA and Compliance",
+    "sub": "Krishna TaxNova helps startups, businesses and professionals register, stay compliant and save tax. Fill your details online, upload your documents or WhatsApp them to us, and a qualified expert takes it from there.",
+    "stat1_num": "1500+",
+    "stat1_label": "Clients Served",
+    "stat2_num": "90+",
+    "stat2_label": "Services Offered",
+    "stat3_num": "10+",
+    "stat3_label": "Years of Experience",
+    "stat4_num": "4.8/5",
+    "stat4_label": "Client Rating"
+  },
+  "home_faqs": [
+    {
+      "q": "What services does Krishna TaxNova provide?",
+      "a": "We are a Delhi based CA firm offering the complete stack a business needs: company and LLP registration, GST registration and returns, income tax filing and notices, trademark and IPR protection, MCA and ROC compliance, government licenses like FSSAI and IEC, NGO registrations, NBFC and fintech licensing, environmental approvals and full accounting, payroll and CFO support. Every service page on this website explains the process, documents and timeline in plain language."
+    },
+    {
+      "q": "How do I share my documents with you?",
+      "a": "Two ways, both online. Every service page has a secure form where you fill your details and upload documents directly from your phone or computer. Or simply tap the WhatsApp button and send your documents in chat. Our team confirms receipt, checks everything and tells you if anything is missing."
+    },
+    {
+      "q": "Do I need to visit your office to get work done?",
+      "a": "No. The entire process is online for every service, from consultation and document collection to filing and delivery of certificates. We are based in Delhi and serve clients in every state of India. Clients who prefer to meet in person are always welcome by appointment."
+    },
+    {
+      "q": "How much do your services cost?",
+      "a": "Fees depend on the service and your exact requirement, so we quote before we start, in writing, with government fees shown separately. There are no hidden charges at any stage. Share your requirement through the form or WhatsApp and you will receive a clear fixed quote, usually the same day."
+    },
+    {
+      "q": "How fast will someone respond after I submit an enquiry?",
+      "a": "During working hours, our team typically responds within a couple of hours, and always by the same working day. WhatsApp messages usually get the fastest replies. Once your work starts, you get a single point of contact who keeps you updated at every stage."
+    },
+    {
+      "q": "Is my data and are my documents safe with you?",
+      "a": "Yes. Documents uploaded through the website are stored securely and are accessible only to the team working on your assignment. As a professional CA firm we are bound by confidentiality obligations, and we never share client information with any third party without your consent."
+    },
+    {
+      "q": "Which structure should I choose to start my business?",
+      "a": "It depends on your funding plans, liability comfort and running costs. As a rule of thumb: choose a private limited company if investors are on your roadmap, an LLP for professional services with partners, and a proprietorship to start small and quick. The honest answer needs a short conversation, and our first consultation is free."
+    },
+    {
+      "q": "Can you take over from my existing accountant or consultant?",
+      "a": "Yes, and it happens often. We start with a review of your current filings and books, list anything pending or incorrect, fix what needs fixing and then take over the routine. The handover is managed so no deadline is missed in between."
+    },
+    {
+      "q": "What happens if I receive a tax or GST notice?",
+      "a": "Send it to us on WhatsApp the day it arrives. We read it free of charge, explain in plain words what the department wants and what is at stake, and quote for the reply only if professional drafting is actually needed. Deadlines matter most with notices, so early review is everything."
+    },
+    {
+      "q": "Why should I choose Krishna TaxNova over a big online platform?",
+      "a": "You get the convenience of a platform with the accountability of a firm. Your work is handled by a qualified CA team that knows your file, not a ticket queue. The same team stays with you across years, registrations, filings and notices, which is exactly when continuity pays."
+    }
+  ],
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "meta_title": "Krishna TaxNova | CA Services in Delhi for Tax, GST, Trademark and Compliance",
+      "meta_description": "Krishna TaxNova is a Delhi based CA firm for company registration, GST, income tax, trademark, MCA compliance and licenses. Upload documents online or WhatsApp us.",
+      "content": ""
+    },
+    {
+      "title": "About Us",
+      "slug": "about-us",
+      "meta_title": "About Krishna TaxNova | CA Firm in Delhi",
+      "meta_description": "Krishna TaxNova is a Chartered Accountant led firm in Delhi providing accounting, tax, trademark, MCA and compliance services to businesses across India.",
+      "content": "<p class=\"ktn-lead\">Krishna TaxNova is a Chartered Accountant led firm based in Delhi, serving startups, small businesses, professionals and growing companies across India.</p><h2>Who We Are</h2><p>We started with a simple observation: business owners were losing time and money shuttling between an accountant, a company secretary, a trademark agent and a license consultant, with no one taking responsibility for the whole picture. Krishna TaxNova brings all of it under one roof, with a qualified team that stays accountable end to end.</p><h2>What We Do</h2><p>From registering your business and protecting your brand to filing your taxes, managing your books and keeping every government deadline, we cover the complete compliance and finance needs of Indian businesses. Every engagement begins with an honest conversation about what you actually need, and a written quote before any work starts.</p><h2>How We Work</h2><p>Everything runs online. You share your details and documents through our website or WhatsApp, and a dedicated expert handles your work while keeping you updated at every stage. Deadlines are tracked in our systems, not in anyone's memory, so renewals and due dates never slip.</p><h3>Our Promise</h3><ul><li>Advice first, invoice later: we tell you what you need, not what we sell</li><li>Fixed written quotes with government fees shown separately</li><li>A single point of contact who knows your file</li><li>Reminders before every due date that affects you</li><li>Complete confidentiality of your data and documents</li></ul><h2>Talk to Us</h2><p>Whether you are starting up, scaling or fixing a compliance mess, the first consultation is free. Call us, WhatsApp us or fill the form on any page, and a member of our team will get back to you the same working day.</p>"
+    },
+    {
+      "title": "Contact Us",
+      "slug": "contact-us",
+      "template": "page-contact.php",
+      "meta_title": "Contact Krishna TaxNova | Call, WhatsApp or Visit Us in Delhi",
+      "meta_description": "Contact Krishna TaxNova for CA services in Delhi and across India. Call, WhatsApp your documents or fill the online form for a free consultation.",
+      "content": "<p class=\"ktn-lead\">Have a question about a service, a notice you just received or a business you want to start? Reach us any way that suits you, and a qualified team member will respond the same working day.</p><h2>Ways to Reach Us</h2><p>WhatsApp is the fastest: send your question or documents and get a quick response. You can also call during working hours, email us, or fill the form on this page with your requirement and documents attached.</p>"
+    },
+    {
+      "title": "Privacy Policy",
+      "slug": "privacy-policy",
+      "meta_title": "Privacy Policy | Krishna TaxNova",
+      "meta_description": "How Krishna TaxNova collects, uses and protects your personal information and documents submitted through this website.",
+      "content": "<p class=\"ktn-lead\">This policy explains how Krishna TaxNova collects, uses and protects the information you share with us through this website, WhatsApp, email or phone.</p><h2>Information We Collect</h2><p>When you submit an enquiry or upload documents, we collect the details you provide: your name, contact information, the service you are interested in, your message and any documents you attach. We also collect basic technical information that all websites receive, such as browser type, for security and performance.</p><h2>How We Use Your Information</h2><ul><li>To respond to your enquiry and provide the services you request</li><li>To prepare and file applications, returns and documents on your instructions</li><li>To send you updates about your work and reminders about due dates that affect you</li><li>To meet our legal and professional obligations</li></ul><h2>Document Security</h2><p>Documents you upload are stored securely and are accessible only to team members working on your assignment. We do not sell or share your personal information or documents with third parties for marketing. Information is disclosed only where required to complete your work (for example, filing with a government portal) or where the law requires it.</p><h2>Data Retention</h2><p>We retain engagement records for the periods professional and tax regulations require. If you would like enquiry data deleted where no engagement followed, contact us and we will action it.</p><h2>Cookies</h2><p>This website uses only essential cookies needed for its basic operation and does not run third party advertising trackers.</p><h2>Contact</h2><p>For any privacy question or request, contact us through the details on our Contact page.</p>"
+    }
+  ]
+}
