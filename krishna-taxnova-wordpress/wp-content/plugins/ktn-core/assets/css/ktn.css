@@ -1,0 +1,64 @@
+/* Krishna TaxNova Core: forms, WhatsApp buttons, page components */
+
+.ktn-form-card{background:#fff;border:1px solid #e5e9f2;border-radius:14px;padding:1.5rem;box-shadow:0 10px 30px rgba(15,35,95,.08)}
+.ktn-form-title{margin:0 0 .25rem;font-size:1.3rem;color:#0f235f}
+.ktn-form-sub{margin:0 0 1rem;font-size:.9rem;color:#5a647a}
+.ktn-form .ktn-field{margin-bottom:.85rem}
+.ktn-field-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+@media(max-width:560px){.ktn-field-row{grid-template-columns:1fr}}
+.ktn-form label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.3rem;color:#22304f}
+.ktn-form label span{color:#d63638}
+.ktn-form input[type=text],.ktn-form input[type=tel],.ktn-form input[type=email],.ktn-form select,.ktn-form textarea{width:100%;padding:.65rem .8rem;border:1px solid #cdd5e4;border-radius:8px;font-size:.95rem;background:#fbfcfe;color:#1c2437}
+.ktn-form input:focus,.ktn-form select:focus,.ktn-form textarea:focus{outline:2px solid #1a56db;outline-offset:1px;border-color:#1a56db}
+.ktn-upload-box{border:2px dashed #b9c4da;border-radius:10px;padding:.9rem;background:#f6f9ff;text-align:center}
+.ktn-upload-box input[type=file]{width:100%;font-size:.85rem}
+.ktn-upload-hint{margin:.5rem 0 0;font-size:.78rem;color:#5a647a}
+.ktn-file-list{list-style:none;margin:.4rem 0 0;padding:0;font-size:.8rem;color:#1c2437;text-align:left}
+.ktn-file-list li{padding:.15rem 0;border-bottom:1px dotted #dbe2ef}
+.ktn-consent label{font-weight:400;font-size:.8rem;color:#5a647a}
+.ktn-hp{position:absolute!important;left:-9999px!important;height:1px;overflow:hidden}
+
+.ktn-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.4rem;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;line-height:1.2}
+.ktn-btn:hover{transform:translateY(-2px)}
+.ktn-btn-block{display:flex;width:100%}
+.ktn-btn-primary{background:#1a56db;color:#fff;box-shadow:0 6px 16px rgba(26,86,219,.35)}
+.ktn-btn-primary:hover{background:#1348bd;color:#fff}
+.ktn-btn-whatsapp{background:#25d366;color:#fff;box-shadow:0 6px 16px rgba(37,211,102,.35)}
+.ktn-btn-whatsapp:hover{background:#1eb958;color:#fff}
+.ktn-btn-outline{background:transparent;color:#1a56db;border:2px solid #1a56db}
+.ktn-btn-outline:hover{background:#1a56db;color:#fff}
+
+.ktn-alert{padding:.8rem 1rem;border-radius:8px;font-size:.9rem;margin-bottom:1rem}
+.ktn-alert-success{background:#e7f7ee;color:#116b3a;border:1px solid #9fdcbb}
+.ktn-alert-error{background:#fdecec;color:#9c2020;border:1px solid #f2b3b3}
+.ktn-form-or{display:flex;align-items:center;gap:.75rem;margin:1rem 0;color:#8a93a8;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+.ktn-form-or:before,.ktn-form-or:after{content:"";flex:1;height:1px;background:#e1e7f2}
+
+/* Floating WhatsApp */
+.ktn-wa-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:.5rem;background:#25d366;color:#fff;padding:.75rem 1rem;border-radius:999px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);animation:ktn-pulse 2.5s infinite}
+.ktn-wa-float:hover{background:#1eb958;color:#fff}
+.ktn-wa-float svg{width:24px;height:24px}
+@media(max-width:600px){.ktn-wa-float-label{display:none}.ktn-wa-float{padding:.85rem}}
+@keyframes ktn-pulse{0%{box-shadow:0 8px 24px rgba(0,0,0,.25),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 8px 24px rgba(0,0,0,.25),0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 8px 24px rgba(0,0,0,.25),0 0 0 0 rgba(37,211,102,0)}}
+
+/* Service content components */
+.ktn-lead{font-size:1.08rem;color:#33405e}
+.ktn-benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0 1.5rem}
+@media(max-width:700px){.ktn-benefits{grid-template-columns:1fr}}
+.ktn-benefit{background:#f6f9ff;border:1px solid #e3eaf8;border-radius:12px;padding:1rem 1.1rem}
+.ktn-benefit h3{margin:0 0 .35rem;font-size:1.02rem;color:#0f235f}
+.ktn-benefit p{margin:0;font-size:.92rem;color:#43506c}
+.ktn-doc-list{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+@media(max-width:700px){.ktn-doc-list{grid-template-columns:1fr}}
+.ktn-doc-list li{background:#fff;border:1px solid #e5e9f2;border-left:4px solid #f5a623;border-radius:8px;padding:.6rem .8rem;font-size:.92rem}
+.ktn-steps{list-style:none;counter-reset:none;margin:0 0 1.5rem;padding:0;position:relative}
+.ktn-steps li{position:relative;padding:0 0 1.1rem 1.6rem;border-left:2px solid #dbe4f5;margin-left:.4rem}
+.ktn-steps li:last-child{border-left-color:transparent}
+.ktn-steps li:before{content:"";position:absolute;left:-8px;top:.2rem;width:14px;height:14px;border-radius:50%;background:#1a56db;box-shadow:0 0 0 4px #dce7fb}
+.ktn-steps h3{margin:0 0 .3rem;font-size:1.02rem;color:#0f235f}
+.ktn-steps p{margin:0;font-size:.93rem;color:#43506c}
+.ktn-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin:1rem 0 1.5rem}
+@media(max-width:820px){.ktn-facts{grid-template-columns:repeat(2,1fr)}}
+.ktn-fact{background:#0f235f;color:#fff;border-radius:12px;padding:.9rem}
+.ktn-fact h4{margin:0 0 .3rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:#f5a623}
+.ktn-fact p{margin:0;font-size:.95rem;font-weight:600}
