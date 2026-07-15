@@ -46,6 +46,7 @@ krishna-taxnova-wordpress.zip
    - 10 service categories with SEO descriptions
    - 90 service pages, each with full content, meta tags and 10 FAQs
    - Home, About Us, Contact Us and Privacy Policy pages
+   - A Free Online Tools section (/tools/) with GST, income tax, HRA and EMI calculators
    - Sets the homepage and pretty permalinks automatically
 4. The import is safe to run again later; it updates rather than duplicates.
 
@@ -77,6 +78,7 @@ krishna-taxnova-wordpress.zip
 - **WhatsApp buttons** appear site wide (floating button) and on every service page ("WhatsApp Us Your Documents") with a pre-filled message naming the service.
 - **Structured data** (Organization, Service, FAQPage, BreadcrumbList) is output automatically for rich results.
 - **Menus are automatic**: the header mega menu and footer link columns build themselves from your service categories, so new services appear without touching menu settings.
+- **Online tools** live at /tools/ (GST calculator, income tax old vs new regime, HRA exemption, business loan EMI). Each is a shortcode (`[ktn_gst_calculator]` etc.) you can also place on any page. The income tax slabs sit in a clearly marked CONFIG block in the plugin's `includes/tools.php`; verify them after every Union Budget.
 
 ## Support tips
 

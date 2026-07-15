@@ -44,10 +44,13 @@
 			<?php endif; ?>
 		</div>
 
-		<button class="ktn-nav-toggle" aria-expanded="false" aria-controls="ktn-nav">
-			<span class="ktn-nav-toggle-bar"></span><span class="ktn-nav-toggle-bar"></span><span class="ktn-nav-toggle-bar"></span>
-			<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'krishna-taxnova' ); ?></span>
-		</button>
+		<div class="ktn-header-actions">
+			<a class="ktn-btn ktn-btn-primary ktn-header-cta" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Free Consultation', 'krishna-taxnova' ); ?></a>
+			<button class="ktn-nav-toggle" aria-expanded="false" aria-controls="ktn-nav">
+				<span class="ktn-nav-toggle-bar"></span><span class="ktn-nav-toggle-bar"></span><span class="ktn-nav-toggle-bar"></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'krishna-taxnova' ); ?></span>
+			</button>
+		</div>
 
 		<nav class="ktn-nav" id="ktn-nav" aria-label="<?php esc_attr_e( 'Primary', 'krishna-taxnova' ); ?>">
 			<ul class="ktn-menu">
@@ -69,12 +72,10 @@
 						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
+				<li><a href="<?php echo esc_url( home_url( '/tools/' ) ); ?>"><?php esc_html_e( 'Tools', 'krishna-taxnova' ); ?></a></li>
 				<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'About', 'krishna-taxnova' ); ?></a></li>
 				<li><a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Contact', 'krishna-taxnova' ); ?></a></li>
 			</ul>
-			<div class="ktn-nav-cta">
-				<a class="ktn-btn ktn-btn-primary" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Free Consultation', 'krishna-taxnova' ); ?></a>
-			</div>
 		</nav>
 	</div>
 </header>

@@ -3,7 +3,7 @@
  * Plugin Name:       Krishna TaxNova Core
  * Plugin URI:        https://krishnataxnova.in
  * Description:       Core functionality for the Krishna TaxNova website: services post type, service categories, enquiry and document upload forms, WhatsApp integration, SEO meta, structured data and one click demo content importer.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Krishna TaxNova
  * License:           GPL-2.0-or-later
  * Text Domain:       ktn-core
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KTN_CORE_VERSION', '1.0.0' );
+define( 'KTN_CORE_VERSION', '1.1.0' );
 define( 'KTN_CORE_FILE', __FILE__ );
 define( 'KTN_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'KTN_CORE_URL', plugin_dir_url( __FILE__ ) );
@@ -25,6 +25,7 @@ require_once KTN_CORE_DIR . 'includes/whatsapp.php';
 require_once KTN_CORE_DIR . 'includes/seo.php';
 require_once KTN_CORE_DIR . 'includes/schema.php';
 require_once KTN_CORE_DIR . 'includes/importer.php';
+require_once KTN_CORE_DIR . 'includes/tools.php';
 
 /**
  * Flush rewrite rules on activation so /services/ URLs work immediately.

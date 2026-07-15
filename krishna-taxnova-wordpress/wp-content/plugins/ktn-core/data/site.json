@@ -78,6 +78,47 @@
       "content": "<p class=\"ktn-lead\">Have a question about a service, a notice you just received or a business you want to start? Reach us any way that suits you, and a qualified team member will respond the same working day.</p><h2>Ways to Reach Us</h2><p>WhatsApp is the fastest: send your question or documents and get a quick response. You can also call during working hours, email us, or fill the form on this page with your requirement and documents attached.</p>"
     },
     {
+      "title": "Free Online Tools",
+      "slug": "tools",
+      "meta_title": "Free Online Tax and Finance Tools | Krishna TaxNova",
+      "meta_description": "Free calculators for Indian businesses and taxpayers: GST calculator, income tax old vs new regime, HRA exemption and business loan EMI. No signup needed.",
+      "content": "<p class=\"ktn-lead\">Quick, free calculators built by our CA team. No signup, no data stored, instant answers on your phone or desktop.</p>[ktn_tools_grid]<h2>Why We Built These Tools</h2><p>Clients ask us the same quick questions every week: how much GST goes on this invoice, which tax regime saves more, how much of my HRA is exempt, what EMI will this loan carry. These tools answer them instantly. When the answer raises a bigger question, our team is one WhatsApp message away.</p><h3>A Note on Accuracy</h3><p>Each tool uses the current rules and rates and states its assumptions clearly below the results. They are close estimates for planning, not filing computations. For anything you will sign or file, have our team check the numbers, the first consultation is free.</p>",
+      "children": [
+        {
+          "title": "GST Calculator",
+          "slug": "gst-calculator",
+          "parent": "tools",
+          "meta_title": "GST Calculator Online | Add or Remove GST Instantly",
+          "meta_description": "Free GST calculator: add GST to a base price or remove GST from a total. See CGST and SGST split for 5%, 12%, 18% and 28% rates instantly.",
+          "content": "<p class=\"ktn-lead\">Calculate GST both ways: add tax to a base price or work backwards from a price that already includes it, with the CGST and SGST split shown.</p>[ktn_gst_calculator]<h2>How to Use This GST Calculator</h2><p>Enter the amount, pick the GST rate that applies to your goods or services and choose the calculation type. Use add GST when your price is before tax and you want the invoice total. Use remove GST when you have a final price and need the base value and tax inside it.</p><h3>Which GST Rate Applies to You?</h3><p>Most services fall at 18 percent. Goods vary widely: essentials at 5 percent, standard goods at 12 or 18 percent and luxury or sin goods at 28 percent. The correct rate depends on your HSN or SAC classification, and getting it wrong invites notices. If you are unsure, ask us on WhatsApp with your product details.</p><h3>CGST, SGST and IGST</h3><p>For sales within your state, the tax splits equally into CGST and SGST. For interstate sales, the entire amount is charged as IGST. The total tax is the same either way; only the split changes.</p>"
+        },
+        {
+          "title": "Income Tax Calculator",
+          "slug": "income-tax-calculator",
+          "parent": "tools",
+          "meta_title": "Income Tax Calculator | Old vs New Regime Comparison",
+          "meta_description": "Free income tax calculator for India: compare old and new regime tax side by side with standard deduction, 87A rebate and cess included.",
+          "content": "<p class=\"ktn-lead\">Compare your income tax under the old and new regimes side by side and see which one saves you money this year.</p>[ktn_income_tax_calculator]<h2>How to Use This Income Tax Calculator</h2><p>Enter your gross annual income, tick the salaried box if you receive salary or pension (the standard deduction applies automatically) and enter your total old regime deductions such as 80C investments, health insurance, HRA and home loan interest. The calculator shows tax under both regimes and tells you plainly which is cheaper.</p><h3>Old Regime or New Regime?</h3><p>The new regime has lower slab rates but allows almost no deductions. The old regime has higher rates but rewards deductions. As a rough rule, if your deductions and exemptions are substantial, the old regime often wins; with few deductions, the new regime usually does. The only reliable answer is calculating both with your actual numbers, which is exactly what this tool and our ITR filing service do.</p><h3>What This Estimate Includes</h3><p>The calculation covers the current slabs, standard deduction, the section 87A rebate with marginal relief and 4 percent cess. It does not compute surcharge on incomes above fifty lakh rupees. Treat the result as a close planning estimate rather than a final filing computation.</p>"
+        },
+        {
+          "title": "HRA Exemption Calculator",
+          "slug": "hra-exemption-calculator",
+          "parent": "tools",
+          "meta_title": "HRA Exemption Calculator | How Much HRA is Tax Free",
+          "meta_description": "Free HRA calculator: find your tax free house rent allowance under section 10(13A) using salary, rent paid and metro city rules.",
+          "content": "<p class=\"ktn-lead\">Find out how much of your house rent allowance escapes tax under section 10(13A), using the three limb rule the law prescribes.</p>[ktn_hra_calculator]<h2>How HRA Exemption is Calculated</h2><p>The exempt amount is the lowest of three figures: the HRA you actually received, rent paid minus 10 percent of basic salary plus DA, and 50 percent of basic plus DA in metro cities (40 percent elsewhere). Whatever remains of your HRA after the exemption is taxable as salary.</p><h3>Documents That Protect Your HRA Claim</h3><p>Keep rent receipts and the rent agreement, pay rent through bank transfer rather than cash where possible, and collect your landlord's PAN if annual rent exceeds one lakh rupees. Claims without this paper trail are the ones that fail in scrutiny.</p><h3>HRA and the New Regime</h3><p>HRA exemption is available only under the old tax regime. If your HRA and other deductions are large, the old regime may beat the new one, which you can verify in our income tax calculator or have us confirm when filing your return.</p>"
+        },
+        {
+          "title": "Business Loan EMI Calculator",
+          "slug": "business-loan-emi-calculator",
+          "parent": "tools",
+          "meta_title": "Business Loan EMI Calculator | Monthly EMI and Interest",
+          "meta_description": "Free EMI calculator for business and term loans: monthly EMI, total interest and total repayment from loan amount, rate and tenure.",
+          "content": "<p class=\"ktn-lead\">Check the monthly EMI, total interest cost and total repayment for any business loan, term loan or machinery finance before you sign.</p>[ktn_emi_calculator]<h2>How to Read the Results</h2><p>The EMI is your fixed monthly outflow. Total interest shows what the loan truly costs over its life, which is the number to compare across bank offers. A longer tenure lowers the EMI but raises total interest, so match the tenure to the cash flow the loan will generate.</p><h3>Before You Apply for a Business Loan</h3><p>Banks assess your application on financial ratios, projected cash flows and a credible project report or CMA data. Applications with weak documentation get under sanctioned or rejected even when the business is sound. Our team prepares bank ready project reports and handles banker queries until sanction.</p><h3>Interest Rates and Fees</h3><p>This calculator assumes a fixed rate with monthly rests, which is how most term loans work. Also budget for processing fees, typically 0.5 to 2 percent, and check for prepayment charges before signing the sanction letter.</p>"
+        }
+      ]
+    },
+    {
       "title": "Privacy Policy",
       "slug": "privacy-policy",
       "meta_title": "Privacy Policy | Krishna TaxNova",

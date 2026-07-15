@@ -59,6 +59,7 @@
 			<h4><?php esc_html_e( 'Quick Links', 'krishna-taxnova' ); ?></h4>
 			<ul>
 				<li><a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>"><?php esc_html_e( 'All Services', 'krishna-taxnova' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/tools/' ) ); ?>"><?php esc_html_e( 'Free Online Tools', 'krishna-taxnova' ); ?></a></li>
 				<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'About Us', 'krishna-taxnova' ); ?></a></li>
 				<li><a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Contact Us', 'krishna-taxnova' ); ?></a></li>
 				<li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'krishna-taxnova' ); ?></a></li>

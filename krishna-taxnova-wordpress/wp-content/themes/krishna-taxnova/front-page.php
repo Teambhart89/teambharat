@@ -88,6 +88,20 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 	</div>
 </section>
 
+<?php $tools_page = get_page_by_path( 'tools' ); ?>
+<?php if ( $tools_page ) : ?>
+	<section class="ktn-section ktn-section-alt">
+		<div class="wrap">
+			<h2 class="ktn-section-title"><?php esc_html_e( 'Free Online Tools', 'krishna-taxnova' ); ?></h2>
+			<p class="ktn-section-sub"><?php esc_html_e( 'Quick calculators built by our CA team. Instant answers, no signup, works on any device.', 'krishna-taxnova' ); ?></p>
+			<?php echo do_shortcode( '[ktn_tools_grid]' ); ?>
+			<p style="text-align:center;margin-top:1.5rem;">
+				<a class="ktn-btn ktn-btn-outline" href="<?php echo esc_url( get_permalink( $tools_page ) ); ?>"><?php esc_html_e( 'View All Tools', 'krishna-taxnova' ); ?></a>
+			</p>
+		</div>
+	</section>
+<?php endif; ?>
+
 <?php
 $home_faqs = get_option( 'ktn_home_faqs', array() );
 if ( $home_faqs ) :

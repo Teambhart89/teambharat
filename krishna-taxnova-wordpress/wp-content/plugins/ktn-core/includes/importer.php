@@ -146,6 +146,13 @@ function ktn_import_content() {
 						update_option( 'page_on_front', $page_id );
 					}
 				}
+				if ( ! empty( $page['children'] ) && is_array( $page['children'] ) ) {
+					foreach ( $page['children'] as $child ) {
+						if ( ktn_upsert_page( $child ) ) {
+							$counts['pages']++;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -158,12 +165,22 @@ function ktn_import_content() {
  * Create or update a page from data.
  */
 function ktn_upsert_page( $page ) {
-	$existing = get_page_by_path( $page['slug'], OBJECT, 'page' );
+	$parent_id = 0;
+	$path      = $page['slug'];
+	if ( ! empty( $page['parent'] ) ) {
+		$parent = get_page_by_path( $page['parent'], OBJECT, 'page' );
+		if ( $parent ) {
+			$parent_id = $parent->ID;
+			$path      = $page['parent'] . '/' . $page['slug'];
+		}
+	}
+	$existing = get_page_by_path( $path, OBJECT, 'page' );
 	$args     = array(
 		'post_type'    => 'page',
 		'post_status'  => 'publish',
 		'post_title'   => $page['title'],
 		'post_name'    => $page['slug'],
+		'post_parent'  => $parent_id,
 		'post_content' => isset( $page['content'] ) ? $page['content'] : '',
 	);
 	if ( ! empty( $page['template'] ) ) {

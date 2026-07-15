@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KTN_THEME_VERSION', '1.0.0' );
+define( 'KTN_THEME_VERSION', '1.1.0' );
 
 function ktn_theme_setup() {
 	add_theme_support( 'title-tag' );
