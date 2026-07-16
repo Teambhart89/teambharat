@@ -75,6 +75,24 @@ function ktn_register_post_types() {
 		)
 	);
 
+	// Client testimonials shown in the homepage slider.
+	register_post_type(
+		'ktn_testimonial',
+		array(
+			'labels'              => array(
+				'name'          => __( 'Testimonials', 'ktn-core' ),
+				'singular_name' => __( 'Testimonial', 'ktn-core' ),
+				'add_new_item'  => __( 'Add Testimonial', 'ktn-core' ),
+			),
+			'public'              => false,
+			'show_ui'             => true,
+			'menu_icon'           => 'dashicons-format-quote',
+			'menu_position'       => 8,
+			'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+			'exclude_from_search' => true,
+		)
+	);
+
 	// Enquiries submitted from service forms. Not public.
 	register_post_type(
 		'ktn_enquiry',
@@ -103,8 +121,48 @@ add_action( 'init', 'ktn_register_post_types' );
 function ktn_add_service_metaboxes() {
 	add_meta_box( 'ktn_service_seo', __( 'SEO and Service Details', 'ktn-core' ), 'ktn_service_seo_metabox', 'service', 'normal', 'high' );
 	add_meta_box( 'ktn_team_details', __( 'Member Details', 'ktn-core' ), 'ktn_team_metabox', 'ktn_team', 'normal', 'high' );
+	add_meta_box( 'ktn_testimonial_details', __( 'Client Details', 'ktn-core' ), 'ktn_testimonial_metabox', 'ktn_testimonial', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'ktn_add_service_metaboxes' );
+
+/**
+ * Testimonial metabox: title is the client name, editor is the quote.
+ */
+function ktn_testimonial_metabox( $post ) {
+	wp_nonce_field( 'ktn_testimonial_meta', 'ktn_testimonial_meta_nonce' );
+	$role   = get_post_meta( $post->ID, '_ktn_role', true );
+	$rating = (int) get_post_meta( $post->ID, '_ktn_rating', true );
+	if ( $rating < 1 || $rating > 5 ) {
+		$rating = 5;
+	}
+	printf(
+		'<p><label for="_ktn_role"><strong>%s</strong></label></p><input type="text" class="large-text" id="_ktn_role" name="_ktn_role" value="%s" placeholder="%s">',
+		esc_html__( 'Designation and company / city', 'ktn-core' ),
+		esc_attr( $role ),
+		esc_attr__( 'e.g. Founder, Aarav Foods, Delhi', 'ktn-core' )
+	);
+	echo '<p><label for="_ktn_rating"><strong>' . esc_html__( 'Star rating', 'ktn-core' ) . '</strong></label></p><select id="_ktn_rating" name="_ktn_rating">';
+	for ( $i = 5; $i >= 1; $i-- ) {
+		printf( '<option value="%1$d" %2$s>%1$d / 5</option>', (int) $i, selected( $rating, $i, false ) );
+	}
+	echo '</select><p class="description">' . esc_html__( 'The quote goes in the main editor above. An optional client photo can be set as the Featured Image; otherwise an initials avatar is shown.', 'ktn-core' ) . '</p>';
+}
+
+function ktn_save_testimonial_meta( $post_id ) {
+	if ( ! isset( $_POST['ktn_testimonial_meta_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['ktn_testimonial_meta_nonce'] ), 'ktn_testimonial_meta' ) ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	if ( isset( $_POST['_ktn_role'] ) ) {
+		update_post_meta( $post_id, '_ktn_role', sanitize_text_field( wp_unslash( $_POST['_ktn_role'] ) ) );
+	}
+	if ( isset( $_POST['_ktn_rating'] ) ) {
+		update_post_meta( $post_id, '_ktn_rating', max( 1, min( 5, (int) $_POST['_ktn_rating'] ) ) );
+	}
+}
+add_action( 'save_post_ktn_testimonial', 'ktn_save_testimonial_meta' );
 
 /**
  * Team member metabox: designation shown under the name.

@@ -159,6 +159,7 @@ function ktn_import_content() {
 
 	ktn_import_team();
 	ktn_import_blog();
+	ktn_import_testimonials();
 
 	flush_rewrite_rules();
 	return $counts;
@@ -192,6 +193,65 @@ function ktn_import_team() {
 		);
 		if ( $id && ! is_wp_error( $id ) ) {
 			update_post_meta( $id, '_ktn_role', $member[1] );
+		}
+		$order++;
+	}
+}
+
+/**
+ * Seed placeholder testimonials (replace with real client feedback under
+ * Testimonials in admin). Quote goes in the editor, details in the metabox.
+ */
+function ktn_import_testimonials() {
+	$items = array(
+		array(
+			'name'   => 'Rohit Malhotra',
+			'role'   => 'Founder, D2C food brand, Delhi',
+			'rating' => 5,
+			'quote'  => 'From company registration to monthly GST returns, one team handles everything. I send documents on WhatsApp and get confirmations the same day. In two years we have never missed a single deadline.',
+		),
+		array(
+			'name'   => 'Sneha Kulkarni',
+			'role'   => 'Freelance designer, Pune',
+			'rating' => 5,
+			'quote'  => 'They compared both tax regimes on my actual numbers before filing and the refund came faster than any year I filed myself. Clear answers, fixed fee, no jargon.',
+		),
+		array(
+			'name'   => 'Amit Jain',
+			'role'   => 'Director, manufacturing unit, Faridabad',
+			'rating' => 5,
+			'quote'  => 'Our pollution NOC and factory licenses were stuck for months with a local agent. This team mapped the requirements, fixed the application and got the consent issued. Very professional follow up.',
+		),
+		array(
+			'name'   => 'Farha Ansari',
+			'role'   => 'Trustee, education NGO, Lucknow',
+			'rating' => 5,
+			'quote'  => 'They registered our trust, then got 12A, 80G and Darpan done in one flow. Donors now get their receipts and certificates on time, and the annual filings run without us chasing anyone.',
+		),
+		array(
+			'name'   => 'Karthik Iyer',
+			'role'   => 'CFO, fintech startup, Bengaluru',
+			'rating' => 4,
+			'quote'  => 'Solid support on RBI compliance and our returns calendar. What I value most is that advice comes in writing with the rule behind it, so my board and auditors are always comfortable.',
+		),
+	);
+
+	$order = 0;
+	foreach ( $items as $item ) {
+		if ( ! get_page_by_path( sanitize_title( $item['name'] ), OBJECT, 'ktn_testimonial' ) ) {
+			$id = wp_insert_post(
+				array(
+					'post_type'    => 'ktn_testimonial',
+					'post_status'  => 'publish',
+					'post_title'   => $item['name'],
+					'post_content' => $item['quote'],
+					'menu_order'   => $order,
+				)
+			);
+			if ( $id && ! is_wp_error( $id ) ) {
+				update_post_meta( $id, '_ktn_role', $item['role'] );
+				update_post_meta( $id, '_ktn_rating', $item['rating'] );
+			}
 		}
 		$order++;
 	}

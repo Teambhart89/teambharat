@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KTN_THEME_VERSION', '1.2.0' );
+define( 'KTN_THEME_VERSION', '1.3.0' );
 
 function ktn_theme_setup() {
 	add_theme_support( 'title-tag' );
@@ -85,6 +85,71 @@ function ktn_get_service_tree() {
 		);
 	}
 	return $tree;
+}
+
+/**
+ * Customizer: homepage showcase images and copy.
+ * Appearance -> Customize -> Homepage Showcase lets the owner change the
+ * two photos, the heading and the intro text without touching code.
+ */
+function ktn_customize_register( $wp_customize ) {
+	$wp_customize->add_section(
+		'ktn_showcase',
+		array(
+			'title'    => __( 'Homepage Showcase', 'krishna-taxnova' ),
+			'priority' => 30,
+		)
+	);
+
+	$wp_customize->add_setting( 'ktn_showcase_heading', array( 'default' => 'Your Trusted Experts for Every Tax and Compliance Matter', 'sanitize_callback' => 'sanitize_text_field' ) );
+	$wp_customize->add_control( 'ktn_showcase_heading', array( 'label' => __( 'Heading', 'krishna-taxnova' ), 'section' => 'ktn_showcase', 'type' => 'text' ) );
+
+	$wp_customize->add_setting( 'ktn_showcase_text', array( 'default' => 'We simplify complex tax and compliance rules into clear guidance and fixed price plans that fit your business. One qualified team, accountable end to end.', 'sanitize_callback' => 'sanitize_textarea_field' ) );
+	$wp_customize->add_control( 'ktn_showcase_text', array( 'label' => __( 'Intro text', 'krishna-taxnova' ), 'section' => 'ktn_showcase', 'type' => 'textarea' ) );
+
+	$wp_customize->add_setting( 'ktn_showcase_img1', array( 'default' => '', 'sanitize_callback' => 'absint' ) );
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'ktn_showcase_img1',
+			array(
+				'label'     => __( 'Large photo (portrait works best)', 'krishna-taxnova' ),
+				'section'   => 'ktn_showcase',
+				'mime_type' => 'image',
+			)
+		)
+	);
+
+	$wp_customize->add_setting( 'ktn_showcase_img2', array( 'default' => '', 'sanitize_callback' => 'absint' ) );
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'ktn_showcase_img2',
+			array(
+				'label'     => __( 'Small photo (landscape works best)', 'krishna-taxnova' ),
+				'section'   => 'ktn_showcase',
+				'mime_type' => 'image',
+			)
+		)
+	);
+}
+add_action( 'customize_register', 'ktn_customize_register' );
+
+/**
+ * Showcase image helper: returns an img tag for the customizer image, or a
+ * branded placeholder panel until a photo is uploaded.
+ */
+function ktn_showcase_image( $setting, $size = 'large' ) {
+	$attachment_id = (int) get_theme_mod( $setting );
+	if ( $attachment_id ) {
+		$img = wp_get_attachment_image( $attachment_id, $size, false, array( 'class' => 'ktn-showcase-photo' ) );
+		if ( $img ) {
+			return $img;
+		}
+	}
+	return '<span class="ktn-showcase-placeholder" aria-hidden="true">'
+		. '<svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.35-4.35a1.5 1.5 0 0 0-2.12 0L5 20"/></svg>'
+		. '<em>' . esc_html__( 'Add photo in Customizer', 'krishna-taxnova' ) . '</em></span>';
 }
 
 /**

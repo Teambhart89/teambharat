@@ -45,6 +45,41 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 	</div>
 </section>
 
+<section class="ktn-section ktn-showcase">
+	<div class="wrap ktn-showcase-grid">
+		<div class="ktn-showcase-copy">
+			<span class="ktn-chip-label">&#8599; <?php esc_html_e( 'Professional Tax Guidance', 'krishna-taxnova' ); ?></span>
+			<h2><?php echo esc_html( get_theme_mod( 'ktn_showcase_heading', 'Your Trusted Experts for Every Tax and Compliance Matter' ) ); ?></h2>
+			<p><?php echo esc_html( get_theme_mod( 'ktn_showcase_text', 'We simplify complex tax and compliance rules into clear guidance and fixed price plans that fit your business. One qualified team, accountable end to end.' ) ); ?></p>
+			<div class="ktn-showcase-cta">
+				<a class="ktn-btn ktn-btn-primary" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Book a Consultation', 'krishna-taxnova' ); ?></a>
+				<a class="ktn-btn ktn-btn-outline" href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'Learn More', 'krishna-taxnova' ); ?></a>
+			</div>
+		</div>
+		<div class="ktn-showcase-media">
+			<div class="ktn-showcase-img ktn-showcase-tall">
+				<?php echo ktn_showcase_image( 'ktn_showcase_img1', 'large' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			</div>
+			<div class="ktn-showcase-side">
+				<div class="ktn-showcase-img ktn-showcase-small">
+					<?php echo ktn_showcase_image( 'ktn_showcase_img2', 'medium_large' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				</div>
+				<div class="ktn-showcase-stat">
+					<div class="ktn-showcase-stat-copy">
+						<strong><?php echo esc_html( $get( 'stat1_num', '1500+' ) ); ?> <?php esc_html_e( 'Trusted Clients', 'krishna-taxnova' ); ?></strong>
+						<span><?php esc_html_e( 'Startups, businesses and professionals across India.', 'krishna-taxnova' ); ?></span>
+						<span class="ktn-showcase-avatars" aria-hidden="true"><i>RK</i><i>SP</i><i>AM</i><i class="ktn-av-plus">+</i></span>
+					</div>
+					<div class="ktn-showcase-chart" aria-hidden="true">
+						<em><?php esc_html_e( 'Filings per month', 'krishna-taxnova' ); ?></em>
+						<span style="--h:38%"></span><span style="--h:55%"></span><span style="--h:46%"></span><span style="--h:70%"></span><span style="--h:60%"></span><span style="--h:85%"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="ktn-section">
 	<div class="wrap">
 		<h2 class="ktn-section-title"><?php esc_html_e( 'Our Services', 'krishna-taxnova' ); ?></h2>
@@ -159,6 +194,68 @@ if ( $team_members ) :
 						</div>
 					</div>
 				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php
+$testimonials = get_posts(
+	array(
+		'post_type'      => 'ktn_testimonial',
+		'posts_per_page' => 8,
+		'orderby'        => 'menu_order date',
+		'order'          => 'ASC',
+	)
+);
+if ( $testimonials ) :
+	?>
+	<section class="ktn-section ktn-tsec">
+		<div class="wrap">
+			<div class="ktn-blog-head">
+				<span class="ktn-chip-label"><?php esc_html_e( 'Client Stories', 'krishna-taxnova' ); ?></span>
+				<h2><?php esc_html_e( 'What Our Clients Say', 'krishna-taxnova' ); ?></h2>
+				<p><?php esc_html_e( 'Real feedback from businesses and professionals we work with across India.', 'krishna-taxnova' ); ?></p>
+			</div>
+			<div class="ktn-tslider" id="ktn-tslider">
+				<div class="ktn-ttrack">
+					<?php foreach ( $testimonials as $t ) : ?>
+						<?php
+						$t_role   = get_post_meta( $t->ID, '_ktn_role', true );
+						$t_rating = (int) get_post_meta( $t->ID, '_ktn_rating', true );
+						if ( $t_rating < 1 || $t_rating > 5 ) {
+							$t_rating = 5;
+						}
+						$t_words    = preg_split( '/\s+/', trim( wp_strip_all_tags( $t->post_title ) ) );
+						$t_initials = strtoupper( substr( $t_words[0], 0, 1 ) . ( count( $t_words ) > 1 ? substr( end( $t_words ), 0, 1 ) : '' ) );
+						?>
+						<figure class="ktn-tslide">
+							<div class="ktn-tstars" aria-label="<?php echo esc_attr( sprintf( __( 'Rated %d out of 5', 'krishna-taxnova' ), $t_rating ) ); ?>">
+								<?php echo str_repeat( '<span class="ktn-star-on">&#9733;</span>', $t_rating ) . str_repeat( '<span class="ktn-star-off">&#9733;</span>', 5 - $t_rating ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+							</div>
+							<blockquote><?php echo esc_html( wp_strip_all_tags( $t->post_content ) ); ?></blockquote>
+							<figcaption>
+								<span class="ktn-tavatar">
+									<?php if ( has_post_thumbnail( $t ) ) : ?>
+										<?php echo get_the_post_thumbnail( $t, 'thumbnail' ); ?>
+									<?php else : ?>
+										<i aria-hidden="true"><?php echo esc_html( $t_initials ); ?></i>
+									<?php endif; ?>
+								</span>
+								<span class="ktn-twho">
+									<strong><?php echo esc_html( $t->post_title ); ?></strong>
+									<?php if ( $t_role ) : ?><small><?php echo esc_html( $t_role ); ?></small><?php endif; ?>
+								</span>
+								<span class="ktn-tquote-mark" aria-hidden="true">&#8221;</span>
+							</figcaption>
+						</figure>
+					<?php endforeach; ?>
+				</div>
+				<div class="ktn-tnav">
+					<button type="button" class="ktn-tprev" aria-label="<?php esc_attr_e( 'Previous testimonial', 'krishna-taxnova' ); ?>">&#8592;</button>
+					<div class="ktn-tdots" role="tablist"></div>
+					<button type="button" class="ktn-tnext" aria-label="<?php esc_attr_e( 'Next testimonial', 'krishna-taxnova' ); ?>">&#8594;</button>
+				</div>
 			</div>
 		</div>
 	</section>
