@@ -62,6 +62,34 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 	</div>
 </section>
 
+<section class="ktn-section">
+	<div class="wrap ktn-solutions">
+		<div>
+			<span class="ktn-chip-label"><?php esc_html_e( 'Modern CA Practice', 'krishna-taxnova' ); ?></span>
+			<h2><?php echo esc_html( $get( 'solutions_h2', 'Tax, compliance and finance solutions built for growing Indian businesses' ) ); ?></h2>
+			<p class="ktn-solutions-text"><?php echo esc_html( $get( 'solutions_text', 'We combine qualified professional judgement with a fully online process. Documents move on WhatsApp, deadlines live in tracked calendars and advice is grounded in your numbers, so you always know where your business stands.' ) ); ?></p>
+			<p style="margin-top:1.25rem;"><a class="ktn-btn ktn-btn-primary" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Free Consultation', 'krishna-taxnova' ); ?></a></p>
+			<div class="ktn-solutions-features">
+				<div class="ktn-solutions-feature">
+					<span class="ktn-cat-icon"><?php echo ktn_icon( 'shield' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+					<h3><?php esc_html_e( 'Qualified, Accountable Team', 'krishna-taxnova' ); ?></h3>
+					<p><?php esc_html_e( 'Every filing is reviewed and signed off by experienced professionals who stay responsible for it.', 'krishna-taxnova' ); ?></p>
+				</div>
+				<div class="ktn-solutions-feature">
+					<span class="ktn-cat-icon"><?php echo ktn_icon( 'chart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+					<h3><?php esc_html_e( 'Insight, Not Just Filing', 'krishna-taxnova' ); ?></h3>
+					<p><?php esc_html_e( 'Monthly reports and proactive tax planning that tell you what your numbers mean and what to do next.', 'krishna-taxnova' ); ?></p>
+				</div>
+			</div>
+		</div>
+		<div class="ktn-solutions-visual" aria-hidden="true">
+			<div class="ktn-solutions-stat"><strong><?php echo esc_html( $get( 'stat1_num', '1500+' ) ); ?></strong><span><?php esc_html_e( 'businesses registered, filed and kept compliant', 'krishna-taxnova' ); ?></span></div>
+			<div class="ktn-solutions-stat"><strong><?php echo esc_html( $get( 'stat2_num', '90+' ) ); ?></strong><span><?php esc_html_e( 'services under one roof, one accountable team', 'krishna-taxnova' ); ?></span></div>
+			<div class="ktn-solutions-stat"><strong><?php echo esc_html( $get( 'stat4_num', '4.8/5' ) ); ?></strong><span><?php esc_html_e( 'average client rating across engagements', 'krishna-taxnova' ); ?></span></div>
+		</div>
+	</div>
+</section>
+
 <section class="ktn-section ktn-section-alt">
 	<div class="wrap">
 		<h2 class="ktn-section-title"><?php esc_html_e( 'How It Works', 'krishna-taxnova' ); ?></h2>
@@ -88,6 +116,54 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 	</div>
 </section>
 
+<?php
+$team_members = get_posts(
+	array(
+		'post_type'      => 'ktn_team',
+		'posts_per_page' => 4,
+		'orderby'        => 'menu_order title',
+		'order'          => 'ASC',
+	)
+);
+if ( $team_members ) :
+	?>
+	<section class="ktn-team">
+		<div class="wrap">
+			<div class="ktn-team-head">
+				<div>
+					<span class="ktn-chip-label ktn-chip-dark"><?php esc_html_e( 'Meet Our Team', 'krishna-taxnova' ); ?></span>
+					<h2><?php esc_html_e( 'A Team of Seasoned Tax and Finance Professionals', 'krishna-taxnova' ); ?></h2>
+				</div>
+				<div>
+					<p><?php esc_html_e( 'Chartered Accountants and compliance specialists who handle your work personally, from the first call to the final filing.', 'krishna-taxnova' ); ?></p>
+					<a class="ktn-btn ktn-btn-light" href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'About the Firm', 'krishna-taxnova' ); ?></a>
+				</div>
+			</div>
+			<div class="ktn-team-grid">
+				<?php foreach ( $team_members as $member ) : ?>
+					<div class="ktn-team-card">
+						<div class="ktn-team-photo">
+							<?php if ( has_post_thumbnail( $member ) ) : ?>
+								<?php echo get_the_post_thumbnail( $member, 'medium_large' ); ?>
+							<?php else : ?>
+								<?php
+								$words    = preg_split( '/\s+/', trim( wp_strip_all_tags( $member->post_title ) ) );
+								$initials = strtoupper( substr( $words[0], 0, 1 ) . ( count( $words ) > 1 ? substr( end( $words ), 0, 1 ) : '' ) );
+								?>
+								<span class="ktn-team-initials" aria-hidden="true"><?php echo esc_html( $initials ); ?></span>
+							<?php endif; ?>
+						</div>
+						<div class="ktn-team-info">
+							<h3><?php echo esc_html( $member->post_title ); ?></h3>
+							<p><?php echo esc_html( get_post_meta( $member->ID, '_ktn_role', true ) ); ?></p>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
 <?php $tools_page = get_page_by_path( 'tools' ); ?>
 <?php if ( $tools_page ) : ?>
 	<section class="ktn-section ktn-section-alt">
@@ -109,6 +185,56 @@ if ( $home_faqs ) :
 	<section class="ktn-section ktn-section-alt">
 		<div class="wrap ktn-narrow">
 			<?php ktn_render_faqs( $home_faqs, __( 'Frequently Asked Questions', 'krishna-taxnova' ) ); ?>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php
+$latest_posts = get_posts( array( 'posts_per_page' => 3, 'post_status' => 'publish' ) );
+if ( $latest_posts ) :
+	?>
+	<section class="ktn-section">
+		<div class="wrap">
+			<div class="ktn-blog-head">
+				<span class="ktn-chip-label"><?php esc_html_e( 'Insights & Resources', 'krishna-taxnova' ); ?></span>
+				<h2><?php esc_html_e( 'Latest Insights and Resources', 'krishna-taxnova' ); ?></h2>
+				<p><?php esc_html_e( 'Practical guidance on tax, GST, compliance and business finance from our team, written in plain language for business owners.', 'krishna-taxnova' ); ?></p>
+			</div>
+			<div class="ktn-blog-grid">
+				<?php
+				foreach ( $latest_posts as $post ) :
+					setup_postdata( $post );
+					$cats = get_the_category( $post->ID );
+					?>
+					<article class="ktn-blog-card">
+						<a class="ktn-blog-thumb" href="<?php echo esc_url( get_permalink( $post ) ); ?>" tabindex="-1" aria-hidden="true">
+							<?php if ( has_post_thumbnail( $post ) ) : ?>
+								<?php echo get_the_post_thumbnail( $post, 'medium_large' ); ?>
+							<?php else : ?>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7m-7 4h7"/></svg>
+							<?php endif; ?>
+						</a>
+						<div class="ktn-blog-body">
+							<div class="ktn-blog-meta">
+								<?php if ( $cats ) : ?>
+									<span class="ktn-blog-cat"><?php echo esc_html( $cats[0]->name ); ?></span>
+									<span aria-hidden="true">&bull;</span>
+								<?php endif; ?>
+								<time datetime="<?php echo esc_attr( get_the_date( 'c', $post ) ); ?>"><?php echo esc_html( get_the_date( '', $post ) ); ?></time>
+							</div>
+							<h3><a href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h3>
+							<p><?php echo esc_html( wp_trim_words( get_the_excerpt( $post ), 22 ) ); ?></p>
+							<a class="ktn-blog-more" href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php esc_html_e( 'Read More', 'krishna-taxnova' ); ?></a>
+						</div>
+					</article>
+				<?php endforeach; wp_reset_postdata(); ?>
+			</div>
+			<?php $blog_page_id = (int) get_option( 'page_for_posts' ); ?>
+			<?php if ( $blog_page_id ) : ?>
+				<p style="text-align:center;margin-top:1.75rem;">
+					<a class="ktn-btn ktn-btn-outline" href="<?php echo esc_url( get_permalink( $blog_page_id ) ); ?>"><?php esc_html_e( 'View All Articles', 'krishna-taxnova' ); ?></a>
+				</p>
+			<?php endif; ?>
 		</div>
 	</section>
 <?php endif; ?>

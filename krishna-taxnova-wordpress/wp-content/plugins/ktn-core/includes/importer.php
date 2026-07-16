@@ -157,8 +157,117 @@ function ktn_import_content() {
 		}
 	}
 
+	ktn_import_team();
+	ktn_import_blog();
+
 	flush_rewrite_rules();
 	return $counts;
+}
+
+/**
+ * Seed placeholder team members (edit or replace under Team Members in admin).
+ * Photos are set via Featured Image; without one an initials avatar shows.
+ */
+function ktn_import_team() {
+	$members = array(
+		array( 'CA Ankit Verma', 'Founder and Managing Partner' ),
+		array( 'CA Priya Malhotra', 'Head, Direct Tax' ),
+		array( 'CS Neha Aggarwal', 'Company Law and Compliance' ),
+		array( 'Vikram Singh', 'GST and Indirect Tax Lead' ),
+	);
+	$order = 0;
+	foreach ( $members as $member ) {
+		$existing = get_page_by_path( sanitize_title( $member[0] ), OBJECT, 'ktn_team' );
+		if ( $existing ) {
+			$order++;
+			continue;
+		}
+		$id = wp_insert_post(
+			array(
+				'post_type'   => 'ktn_team',
+				'post_status' => 'publish',
+				'post_title'  => $member[0],
+				'menu_order'  => $order,
+			)
+		);
+		if ( $id && ! is_wp_error( $id ) ) {
+			update_post_meta( $id, '_ktn_role', $member[1] );
+		}
+		$order++;
+	}
+}
+
+/**
+ * Seed the blog: a Blog page (set as the posts page), starter categories and
+ * three original articles so the homepage insights section is never empty.
+ */
+function ktn_import_blog() {
+	// Blog page as the posts page.
+	$blog_page = get_page_by_path( 'blog', OBJECT, 'page' );
+	if ( ! $blog_page ) {
+		$blog_page_id = wp_insert_post(
+			array(
+				'post_type'   => 'page',
+				'post_status' => 'publish',
+				'post_title'  => 'Blog',
+				'post_name'   => 'blog',
+			)
+		);
+	} else {
+		$blog_page_id = $blog_page->ID;
+	}
+	if ( $blog_page_id && ! is_wp_error( $blog_page_id ) ) {
+		update_option( 'page_for_posts', $blog_page_id );
+	}
+
+	$posts = array(
+		array(
+			'title'    => 'Old vs New Tax Regime: How to Actually Choose This Year',
+			'slug'     => 'old-vs-new-tax-regime-how-to-choose',
+			'category' => 'Income Tax',
+			'excerpt'  => 'The right regime depends on your deductions, not on headlines. Here is the simple three step check our CAs run for every return.',
+			'content'  => '<p>Every filing season, the same question tops our inbox: old regime or new regime? The honest answer is that neither is universally better. The right choice depends on how much you genuinely claim in deductions, and it can change from year to year.</p><h2>The Three Step Check</h2><h3>Step 1: Add up your real deductions</h3><p>List what you actually use: section 80C investments, health insurance under 80D, HRA if you pay rent, home loan interest and NPS contributions. Be honest, count only what you will really claim with proof.</p><h3>Step 2: Compare tax under both regimes</h3><p>Compute tax on your income with those deductions under the old regime, and without most of them under the new regime\'s lower slabs. Our free income tax calculator on this website does this side by side in seconds.</p><h3>Step 3: Check the switching rules</h3><p>Salaried taxpayers can switch between regimes every year while filing. Business income earners face restrictions on switching back, so the decision deserves extra care before you opt.</p><h2>A Practical Rule of Thumb</h2><p>If your total deductions are substantial, commonly driven by HRA and home loan interest together, the old regime often wins. With few deductions, the new regime usually takes it. The gap can be tens of thousands of rupees, which is why we compare both regimes on every single return we file.</p><p>Want the comparison done on your actual numbers? Send your Form 16 to us on WhatsApp and we will show you both computations before filing.</p>',
+		),
+		array(
+			'title'    => 'GST Return Filing: 7 Mistakes That Quietly Trigger Notices',
+			'slug'     => 'gst-return-filing-mistakes-that-trigger-notices',
+			'category' => 'GST',
+			'excerpt'  => 'Most GST notices are not about evasion. They come from small, avoidable filing mistakes. Here are the seven we fix most often.',
+			'content'  => '<p>The GST system compares your returns against your suppliers\' filings, your e-way bills and your bank inflows automatically. Most notices are born from small mismatches, not wrongdoing. These are the seven mistakes we see most often.</p><h2>The Seven Mistakes</h2><h3>1. Claiming credit that is not in GSTR-2B</h3><p>If your supplier has not filed, your credit is not eligible yet. Claiming it anyway creates a mismatch the system flags immediately.</p><h3>2. Differences between GSTR-1 and GSTR-3B</h3><p>Sales declared in GSTR-1 must match the tax paid in GSTR-3B. Even timing gaps need reconciliation notes, or they surface as scrutiny questions later.</p><h3>3. Skipping nil returns</h3><p>No sales does not mean no return. Missed nil returns pile up late fees daily and can suspend your registration.</p><h3>4. Wrong place of supply on interstate sales</h3><p>Charging CGST and SGST where IGST applied, or the reverse, creates tax paid under the wrong head that takes months to fix.</p><h3>5. Forgetting reverse charge entries</h3><p>Freight, legal services and imports commonly attract reverse charge. Missing them understates your liability.</p><h3>6. Ignoring credit notes and amendments</h3><p>Returns and discounts must flow through credit notes in the returns, not just in your books.</p><h3>7. No monthly reconciliation</h3><p>Books, returns and 2B should be tied out every month. Annual cleanups find problems after the cheapest window to fix them has closed.</p><h2>The Fix Is Routine, Not Heroics</h2><p>A disciplined monthly cycle with 2B reconciliation prevents virtually all of these. That is exactly what our GST return filing service runs for clients. If you have already received a notice, send it to us on WhatsApp for a free first read.</p>',
+		),
+		array(
+			'title'    => 'Why Clean Bookkeeping Is the Cheapest Insurance Your Business Can Buy',
+			'slug'     => 'clean-bookkeeping-cheapest-business-insurance',
+			'category' => 'Business',
+			'excerpt'  => 'Messy books do not just slow your accountant down. They cost you loans, tax savings and negotiating power exactly when you need them.',
+			'content'  => '<p>Bookkeeping feels like paperwork until the moment it becomes money. A loan application, a tax deadline, an investor conversation or a notice from the department, each of these prices your books in real rupees.</p><h2>Where Messy Books Cost You</h2><h3>Bank loans get smaller and slower</h3><p>Lenders read your financial statements before they read your pitch. Unreconciled accounts and inconsistent figures shrink sanctioned amounts and stretch timelines.</p><h3>Tax savings expire silently</h3><p>Most tax planning opportunities live during the year: timing purchases, structuring salaries, choosing schemes. If your books are compiled once a year in July, every one of those windows has already closed.</p><h3>Notices become expensive</h3><p>When a GST or income tax query arrives, the answer is a reconciliation. With clean monthly books it takes a day. With a year of backlog it takes weeks, and weeks of professional time cost more than a year of bookkeeping.</p><h3>You fly blind in between</h3><p>Receivables ageing, real margins and cash runway are decisions, not reports. Businesses that see them monthly act months earlier than businesses that do not.</p><h2>What Clean Actually Means</h2><p>Clean books are reconciled with the bank every month, tie out to your GST returns, track who owes you and whom you owe, and close within days of month end. That is a process, not a talent, and it costs far less than most owners assume when it runs monthly instead of as an annual rescue.</p><p>If your books are behind, start with a cleanup and a fixed monthly rhythm. Our accounting and bookkeeping team does exactly this for businesses across India, with documents moving over WhatsApp.</p>',
+		),
+	);
+
+	foreach ( $posts as $post_data ) {
+		if ( get_page_by_path( $post_data['slug'], OBJECT, 'post' ) ) {
+			continue;
+		}
+		$cat_id = 0;
+		$term   = term_exists( $post_data['category'], 'category' );
+		if ( ! $term ) {
+			$term = wp_insert_term( $post_data['category'], 'category' );
+		}
+		if ( ! is_wp_error( $term ) ) {
+			$cat_id = (int) $term['term_id'];
+		}
+		wp_insert_post(
+			array(
+				'post_type'     => 'post',
+				'post_status'   => 'publish',
+				'post_title'    => $post_data['title'],
+				'post_name'     => $post_data['slug'],
+				'post_excerpt'  => $post_data['excerpt'],
+				'post_content'  => $post_data['content'],
+				'post_category' => $cat_id ? array( $cat_id ) : array(),
+			)
+		);
+	}
 }
 
 /**

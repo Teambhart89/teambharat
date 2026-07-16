@@ -55,21 +55,31 @@
 		<nav class="ktn-nav" id="ktn-nav" aria-label="<?php esc_attr_e( 'Primary', 'krishna-taxnova' ); ?>">
 			<ul class="ktn-menu">
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'krishna-taxnova' ); ?></a></li>
-				<?php foreach ( ktn_get_service_tree() as $branch ) : ?>
+				<?php foreach ( ktn_get_menu_groups() as $group ) : ?>
 					<li class="ktn-has-mega">
-						<a href="<?php echo esc_url( get_term_link( $branch['term'] ) ); ?>" aria-haspopup="true">
-							<?php echo esc_html( $branch['term']->name ); ?> <span class="ktn-caret" aria-hidden="true">&#9662;</span>
+						<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" aria-haspopup="true">
+							<?php echo esc_html( $group['label'] ); ?> <span class="ktn-caret" aria-hidden="true">&#9662;</span>
 						</a>
-						<?php if ( $branch['services'] ) : ?>
-							<div class="ktn-mega">
-								<ul>
-									<?php foreach ( $branch['services'] as $service_post ) : ?>
-										<li><a href="<?php echo esc_url( get_permalink( $service_post ) ); ?>"><?php echo esc_html( $service_post->post_title ); ?></a></li>
-									<?php endforeach; ?>
-								</ul>
-								<a class="ktn-mega-all" href="<?php echo esc_url( get_term_link( $branch['term'] ) ); ?>"><?php echo esc_html( sprintf( __( 'View all %s', 'krishna-taxnova' ), $branch['term']->name ) ); ?> &rarr;</a>
+						<div class="ktn-mega ktn-mega-groups">
+							<div class="ktn-mega-cols">
+								<?php foreach ( $group['branches'] as $branch ) : ?>
+									<div class="ktn-mega-col">
+										<a class="ktn-mega-head" href="<?php echo esc_url( get_term_link( $branch['term'] ) ); ?>">
+											<span class="ktn-mega-head-icon"><?php echo ktn_icon( get_term_meta( $branch['term']->term_id, '_ktn_icon', true ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+											<?php echo esc_html( $branch['term']->name ); ?>
+										</a>
+										<ul>
+											<?php foreach ( array_slice( $branch['services'], 0, 8 ) as $service_post ) : ?>
+												<li><a href="<?php echo esc_url( get_permalink( $service_post ) ); ?>"><?php echo esc_html( $service_post->post_title ); ?></a></li>
+											<?php endforeach; ?>
+										</ul>
+										<a class="ktn-mega-all" href="<?php echo esc_url( get_term_link( $branch['term'] ) ); ?>">
+											<?php echo esc_html( sprintf( __( 'View all %d services', 'krishna-taxnova' ), count( $branch['services'] ) ) ); ?> &rarr;
+										</a>
+									</div>
+								<?php endforeach; ?>
 							</div>
-						<?php endif; ?>
+						</div>
 					</li>
 				<?php endforeach; ?>
 				<li><a href="<?php echo esc_url( home_url( '/tools/' ) ); ?>"><?php esc_html_e( 'Tools', 'krishna-taxnova' ); ?></a></li>

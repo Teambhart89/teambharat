@@ -57,6 +57,24 @@ function ktn_register_post_types() {
 		)
 	);
 
+	// Team members shown on the homepage team section.
+	register_post_type(
+		'ktn_team',
+		array(
+			'labels'              => array(
+				'name'          => __( 'Team Members', 'ktn-core' ),
+				'singular_name' => __( 'Team Member', 'ktn-core' ),
+				'add_new_item'  => __( 'Add Team Member', 'ktn-core' ),
+			),
+			'public'              => false,
+			'show_ui'             => true,
+			'menu_icon'           => 'dashicons-groups',
+			'menu_position'       => 7,
+			'supports'            => array( 'title', 'thumbnail', 'page-attributes' ),
+			'exclude_from_search' => true,
+		)
+	);
+
 	// Enquiries submitted from service forms. Not public.
 	register_post_type(
 		'ktn_enquiry',
@@ -84,8 +102,37 @@ add_action( 'init', 'ktn_register_post_types' );
  */
 function ktn_add_service_metaboxes() {
 	add_meta_box( 'ktn_service_seo', __( 'SEO and Service Details', 'ktn-core' ), 'ktn_service_seo_metabox', 'service', 'normal', 'high' );
+	add_meta_box( 'ktn_team_details', __( 'Member Details', 'ktn-core' ), 'ktn_team_metabox', 'ktn_team', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'ktn_add_service_metaboxes' );
+
+/**
+ * Team member metabox: designation shown under the name.
+ */
+function ktn_team_metabox( $post ) {
+	wp_nonce_field( 'ktn_team_meta', 'ktn_team_meta_nonce' );
+	$role = get_post_meta( $post->ID, '_ktn_role', true );
+	printf(
+		'<p><label for="_ktn_role"><strong>%s</strong></label></p><input type="text" class="large-text" id="_ktn_role" name="_ktn_role" value="%s" placeholder="%s"><p class="description">%s</p>',
+		esc_html__( 'Designation', 'ktn-core' ),
+		esc_attr( $role ),
+		esc_attr__( 'e.g. Founder and Managing Partner', 'ktn-core' ),
+		esc_html__( 'Set the photo using the Featured Image box. Without a photo, an initials avatar is shown automatically.', 'ktn-core' )
+	);
+}
+
+function ktn_save_team_meta( $post_id ) {
+	if ( ! isset( $_POST['ktn_team_meta_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['ktn_team_meta_nonce'] ), 'ktn_team_meta' ) ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	if ( isset( $_POST['_ktn_role'] ) ) {
+		update_post_meta( $post_id, '_ktn_role', sanitize_text_field( wp_unslash( $_POST['_ktn_role'] ) ) );
+	}
+}
+add_action( 'save_post_ktn_team', 'ktn_save_team_meta' );
 
 function ktn_service_seo_metabox( $post ) {
 	wp_nonce_field( 'ktn_service_meta', 'ktn_service_meta_nonce' );

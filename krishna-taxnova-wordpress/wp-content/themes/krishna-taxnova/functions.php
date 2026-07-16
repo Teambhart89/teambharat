@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KTN_THEME_VERSION', '1.1.0' );
+define( 'KTN_THEME_VERSION', '1.2.0' );
 
 function ktn_theme_setup() {
 	add_theme_support( 'title-tag' );
@@ -85,6 +85,44 @@ function ktn_get_service_tree() {
 		);
 	}
 	return $tree;
+}
+
+/**
+ * Grouped navigation: the 10 service categories are organised into five
+ * clear top level groups so the header stays clean and balanced. Any new
+ * category not listed here automatically appears under "More Services".
+ */
+function ktn_get_menu_groups() {
+	$map = array(
+		__( 'Start a Business', 'krishna-taxnova' )   => array( 'company-registration', 'ngo-services' ),
+		__( 'Tax & GST', 'krishna-taxnova' )          => array( 'gst-services', 'income-tax' ),
+		__( 'Compliance & IPR', 'krishna-taxnova' )   => array( 'mca-compliance', 'trademark-ipr' ),
+		__( 'Licenses', 'krishna-taxnova' )           => array( 'licenses-registrations', 'environmental-epr' ),
+		__( 'Finance & Advisory', 'krishna-taxnova' ) => array( 'accounting-finance', 'nbfc-fintech' ),
+	);
+
+	$by_slug = array();
+	foreach ( ktn_get_service_tree() as $branch ) {
+		$by_slug[ $branch['term']->slug ] = $branch;
+	}
+
+	$groups = array();
+	foreach ( $map as $label => $slugs ) {
+		$branches = array();
+		foreach ( $slugs as $slug ) {
+			if ( isset( $by_slug[ $slug ] ) ) {
+				$branches[] = $by_slug[ $slug ];
+				unset( $by_slug[ $slug ] );
+			}
+		}
+		if ( $branches ) {
+			$groups[] = array( 'label' => $label, 'branches' => $branches );
+		}
+	}
+	if ( $by_slug ) {
+		$groups[] = array( 'label' => __( 'More Services', 'krishna-taxnova' ), 'branches' => array_values( $by_slug ) );
+	}
+	return $groups;
 }
 
 /**
