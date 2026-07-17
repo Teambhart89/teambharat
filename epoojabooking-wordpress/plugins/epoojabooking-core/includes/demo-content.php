@@ -145,7 +145,13 @@ function epb_import_site_content() {
 					) );
 				}
 			}
-			// Temple directory link.
+			// Puja listing and temple directory links.
+			wp_update_nav_menu_item( $menu_id, 0, array(
+				'menu-item-title'  => __( 'Online Pujas', 'epoojabooking-core' ),
+				'menu-item-url'    => home_url( '/pujas/' ),
+				'menu-item-type'   => 'custom',
+				'menu-item-status' => 'publish',
+			) );
 			wp_update_nav_menu_item( $menu_id, 0, array(
 				'menu-item-title'  => __( 'Temples', 'epoojabooking-core' ),
 				'menu-item-url'    => home_url( '/temples/' ),

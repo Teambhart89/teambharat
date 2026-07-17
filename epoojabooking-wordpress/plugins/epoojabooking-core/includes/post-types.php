@@ -43,6 +43,28 @@ function epb_register_post_types() {
 		'show_in_rest' => true,
 	) );
 
+	// Filterable attributes for pujas.
+	$epb_taxonomies = array(
+		'epb_deity'    => array( __( 'Deities', 'epoojabooking-core' ), __( 'Deity', 'epoojabooking-core' ), 'puja-deity' ),
+		'epb_tithi'    => array( __( 'Tithis', 'epoojabooking-core' ), __( 'Tithi', 'epoojabooking-core' ), 'puja-tithi' ),
+		'epb_dosha'    => array( __( 'Doshas', 'epoojabooking-core' ), __( 'Dosha', 'epoojabooking-core' ), 'puja-dosha' ),
+		'epb_benefit'  => array( __( 'Benefits', 'epoojabooking-core' ), __( 'Benefit', 'epoojabooking-core' ), 'puja-benefit' ),
+		'epb_location' => array( __( 'Locations', 'epoojabooking-core' ), __( 'Location', 'epoojabooking-core' ), 'puja-location' ),
+	);
+	foreach ( $epb_taxonomies as $taxonomy => $labels ) {
+		register_taxonomy( $taxonomy, 'epb_puja', array(
+			'labels' => array(
+				'name'          => $labels[0],
+				'singular_name' => $labels[1],
+			),
+			'hierarchical'      => true,
+			'public'            => true,
+			'show_admin_column' => true,
+			'show_in_rest'      => true,
+			'rewrite'           => array( 'slug' => $labels[2] ),
+		) );
+	}
+
 	register_post_type( 'epb_banner', array(
 		'labels' => array(
 			'name'          => __( 'Banners', 'epoojabooking-core' ),

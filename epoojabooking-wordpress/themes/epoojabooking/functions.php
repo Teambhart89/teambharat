@@ -157,6 +157,9 @@ function epb_fallback_menu() {
 	);
 
 	echo '<ul class="epb-nav-list">';
+	if ( post_type_exists( 'epb_puja' ) ) {
+		echo '<li><a href="' . esc_url( get_post_type_archive_link( 'epb_puja' ) ) . '">' . esc_html__( 'Puja', 'epoojabooking' ) . '</a></li>';
+	}
 	if ( post_type_exists( 'epb_temple' ) ) {
 		echo '<li><a href="' . esc_url( get_post_type_archive_link( 'epb_temple' ) ) . '">' . esc_html__( 'Temples', 'epoojabooking' ) . '</a></li>';
 	}

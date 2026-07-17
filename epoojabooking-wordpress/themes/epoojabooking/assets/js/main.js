@@ -131,6 +131,60 @@
 		} );
 	}
 
+	// Puja listing: multi-facet filter with selects.
+	var pujaFilter = document.querySelector( '.epb-puja-filter' );
+	if ( pujaFilter ) {
+		var selects = pujaFilter.querySelectorAll( 'select[data-filter]' );
+		var pujaCards = document.querySelectorAll( '.epb-puja-grid .epb-puja-card' );
+		var clearBtn = pujaFilter.querySelector( '.epb-filter-clear' );
+		var emptyMsg = document.querySelector( '.epb-puja-listing .epb-filter-empty' );
+
+		function applyPujaFilters() {
+			var active = [];
+			selects.forEach( function ( sel ) {
+				sel.classList.toggle( 'has-value', '' !== sel.value );
+				if ( sel.value ) {
+					active.push( {
+						attr: 'data-' + sel.getAttribute( 'data-filter' ).replace( /_/g, '-' ),
+						value: sel.value
+					} );
+				}
+			} );
+
+			var visible = 0;
+			pujaCards.forEach( function ( card ) {
+				var show = active.every( function ( facet ) {
+					var slugs = ( card.getAttribute( facet.attr ) || '' ).split( ' ' );
+					return slugs.indexOf( facet.value ) !== -1;
+				} );
+				card.classList.toggle( 'is-hidden', ! show );
+				if ( show ) {
+					visible++;
+				}
+			} );
+
+			if ( clearBtn ) {
+				clearBtn.hidden = 0 === active.length;
+			}
+			if ( emptyMsg ) {
+				emptyMsg.hidden = visible > 0;
+			}
+		}
+
+		selects.forEach( function ( sel ) {
+			sel.addEventListener( 'change', applyPujaFilters );
+		} );
+
+		if ( clearBtn ) {
+			clearBtn.addEventListener( 'click', function () {
+				selects.forEach( function ( sel ) {
+					sel.value = '';
+				} );
+				applyPujaFilters();
+			} );
+		}
+	}
+
 	// Scroll reveal for cards and steps, skipped for reduced motion.
 	var reduced = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 

@@ -840,6 +840,95 @@ a:hover { color: var(--epb-saffron); }
 /* Secondary hero when the slider is present */
 .epb-hero-secondary { padding-top: var(--epb-space-6); }
 
+/* Compact promo slider (puja listing page) */
+
+.epb-promo-slot { margin-top: var(--epb-space-3); }
+.epb-slider-compact {
+	min-height: clamp(200px, 30vh, 300px);
+	border-radius: var(--epb-radius);
+	border: 1px solid var(--epb-border);
+}
+.epb-slider-compact .epb-slide-title {
+	font-family: var(--epb-font-display);
+	font-size: clamp(1.4rem, 3vw, 2rem);
+	color: var(--epb-white);
+	max-width: 30rem;
+	margin-bottom: 0.5em;
+}
+.epb-slider-compact .epb-slide-inner { padding-block: var(--epb-space-3); }
+.epb-slider-compact .epb-btn { padding: 0.55rem 1.2rem; font-size: var(--epb-text-sm); }
+
+/* Puja listing */
+
+.epb-puja-listing { padding-top: var(--epb-space-4); }
+.epb-listing-title { margin-bottom: 0.25em; }
+.epb-listing-sub { color: var(--epb-ink-soft); max-width: 46rem; margin-bottom: var(--epb-space-3); }
+
+.epb-puja-filter {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem;
+	margin-bottom: var(--epb-space-3);
+}
+
+.epb-filter-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 700;
+	font-size: var(--epb-text-sm);
+	color: var(--epb-saffron-deep);
+	margin-right: 0.4rem;
+}
+
+.epb-filter-select select {
+	appearance: none;
+	-webkit-appearance: none;
+	padding: 0.5rem 2.2rem 0.5rem 1rem;
+	min-height: 44px;
+	font: inherit;
+	font-weight: 600;
+	font-size: var(--epb-text-sm);
+	color: var(--epb-ink);
+	background-color: var(--epb-white);
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B4E33' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 0.8rem center;
+	background-size: 14px;
+	border: 1px solid var(--epb-border);
+	border-radius: 999px;
+	cursor: pointer;
+	transition: border-color var(--epb-transition), box-shadow var(--epb-transition);
+}
+.epb-filter-select select:hover { border-color: var(--epb-gold); }
+.epb-filter-select select:focus {
+	outline: none;
+	border-color: var(--epb-saffron);
+	box-shadow: 0 0 0 3px rgba(232, 93, 4, 0.18);
+}
+.epb-filter-select select.has-value {
+	background-color: #FFF1DC;
+	border-color: var(--epb-saffron);
+	color: var(--epb-saffron-deep);
+}
+
+.epb-filter-clear {
+	padding: 0.5rem 1rem;
+	min-height: 44px;
+	font: inherit;
+	font-weight: 600;
+	font-size: var(--epb-text-sm);
+	color: var(--epb-kumkum);
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.epb-puja-card.is-hidden { display: none; }
+
 /* ---------- Special pujas ---------- */
 
 .epb-badge {

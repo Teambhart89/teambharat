@@ -70,6 +70,13 @@ function epb_import_banners_and_pujas() {
 			'temple'  => 'Shiva Temple, Ujjain',
 			'date'    => 'Every Monday of Shravan',
 			'price'   => '₹1,100',
+			'terms'   => array(
+				'epb_deity'    => array( 'Shiva' ),
+				'epb_tithi'    => array( 'Shravan Somvar' ),
+				'epb_dosha'    => array( 'Kaal Sarp Dosh' ),
+				'epb_benefit'  => array( 'Health and Protection' ),
+				'epb_location' => array( 'Ujjain' ),
+			),
 			'excerpt' => 'The most powerful Mondays of the year. Rudrabhishek with Mahamrityunjaya jaap performed in your name for health, protection and removal of long-standing obstacles.',
 			'content' => <<<'HTML'
 <p>Shravan is the month Lord Shiva holds dearest, and each of its Mondays multiplies the fruit of Shiva worship. In this special seva, our pandits perform Rudrabhishek along with Mahamrityunjaya jaap in your name at a trusted Shiva temple.</p>
@@ -94,6 +101,12 @@ HTML
 			'temple'  => 'Vishnu Temple, Varanasi',
 			'date'    => 'Next Purnima',
 			'price'   => '₹851',
+			'terms'   => array(
+				'epb_deity'    => array( 'Vishnu' ),
+				'epb_tithi'    => array( 'Purnima' ),
+				'epb_benefit'  => array( 'Family Harmony', 'New Beginnings' ),
+				'epb_location' => array( 'Varanasi' ),
+			),
 			'excerpt' => 'Satyanarayan katha on the full moon, completed with the offering of 108 lamps on the ghats. For gratitude, family harmony and new beginnings.',
 			'content' => <<<'HTML'
 <p>The Satyanarayan katha on Purnima is among the most beloved observances in Hindu homes, performed in gratitude and for the wellbeing of the whole family. In this seva, the katha is recited in your name at a Vishnu temple in Kashi, followed by the offering of 108 deepdaan lamps.</p>
@@ -118,6 +131,13 @@ HTML
 			'temple'  => 'Navagraha Mandir, Ujjain',
 			'date'    => 'Shani Amavasya',
 			'price'   => '₹2,100',
+			'terms'   => array(
+				'epb_deity'    => array( 'Navagraha', 'Shani Dev' ),
+				'epb_tithi'    => array( 'Amavasya' ),
+				'epb_dosha'    => array( 'Shani Sade Sati', 'Mangal Dosh' ),
+				'epb_benefit'  => array( 'Career and Wealth', 'Obstacle Removal' ),
+				'epb_location' => array( 'Ujjain' ),
+			),
 			'excerpt' => 'A complete pacification of all nine grahas at Ujjain\'s Navagraha temple, with havan and til-oil offerings to Shani Dev on the powerful Amavasya day.',
 			'content' => <<<'HTML'
 <p>When the kundli shows difficult periods, shani sade sati, mangal dosh or troubling dashas, the shastras recommend graha shanti. This mahapuja pacifies all nine celestial grahas at the Navagraha temple by the Kshipra in Ujjain, on the most potent day for Shani worship.</p>
@@ -155,6 +175,13 @@ HTML
 			update_post_meta( $puja_id, 'epb_event_date', $puja['date'] );
 			update_post_meta( $puja_id, 'epb_price', $puja['price'] );
 			update_post_meta( $puja_id, 'epb_meta_description', $puja['excerpt'] );
+			if ( ! empty( $puja['terms'] ) ) {
+				foreach ( $puja['terms'] as $taxonomy => $terms ) {
+					if ( taxonomy_exists( $taxonomy ) ) {
+						wp_set_object_terms( $puja_id, $terms, $taxonomy );
+					}
+				}
+			}
 		}
 	}
 }
