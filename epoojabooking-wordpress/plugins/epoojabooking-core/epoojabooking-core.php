@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EPB_CORE_VERSION', '1.0.0' );
+define( 'EPB_CORE_VERSION', '1.1.0' );
+define( 'EPB_CONTENT_VERSION', '4' );
 define( 'EPB_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EPB_CORE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -37,8 +38,27 @@ function epb_core_activate() {
 	epb_import_temples();
 	epb_import_banners_and_pujas();
 	flush_rewrite_rules();
+	update_option( 'epb_content_version', EPB_CONTENT_VERSION );
 }
 register_activation_hook( __FILE__, 'epb_core_activate' );
+
+/**
+ * Upgrade routine: when plugin files are replaced with a newer version,
+ * WordPress does not fire the activation hook. Import any new content
+ * (pages, temples, pujas, banners, menu items) automatically instead.
+ * All importers skip content that already exists, so this is safe.
+ */
+function epb_core_maybe_upgrade() {
+	if ( get_option( 'epb_content_version' ) === EPB_CONTENT_VERSION ) {
+		return;
+	}
+	epb_import_site_content();
+	epb_import_temples();
+	epb_import_banners_and_pujas();
+	flush_rewrite_rules();
+	update_option( 'epb_content_version', EPB_CONTENT_VERSION );
+}
+add_action( 'init', 'epb_core_maybe_upgrade', 20 );
 
 /**
  * Deactivation: flush rewrite rules.

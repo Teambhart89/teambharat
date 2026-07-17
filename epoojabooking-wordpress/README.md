@@ -13,6 +13,10 @@ docs/seo-keyword-research.md     → Keyword research and content strategy
 README.md                        → This file
 ```
 
+## Updating from an earlier version
+
+Replace the plugin and theme files with the new ones (easiest: **Plugins → Add New → Upload Plugin**, choose the new zip and click "Replace current with uploaded"; same for the theme under Appearance → Themes). New pages, menu items, temples and pujas are imported **automatically on the next page load** — no reactivation needed. The importer never overwrites content you have edited; it only adds what is missing. If something still does not appear, deactivate and reactivate the ePoojaBooking Core plugin once, and visit **Settings → Permalinks** and click Save.
+
 ## Installation (5 minutes)
 
 1. Install WordPress 6.0+ on your hosting (PHP 7.4 or newer).

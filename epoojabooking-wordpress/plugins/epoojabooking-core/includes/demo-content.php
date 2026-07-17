@@ -120,78 +120,100 @@ function epb_import_site_content() {
 		update_option( 'page_on_front', $created['home'] );
 	}
 
-	// Primary menu.
+	// Primary menu: create if missing, and add any items that are not
+	// there yet. Runs on updates too, so new sections appear for
+	// existing installs without touching items the admin customised.
+	epb_ensure_primary_menu( $created );
+}
+
+/**
+ * Make sure the primary menu exists and contains all standard items.
+ *
+ * @param array $created Map of page slug => page ID.
+ */
+function epb_ensure_primary_menu( $created ) {
 	$menu_name = 'Primary Menu';
 	$menu      = wp_get_nav_menu_object( $menu_name );
-	if ( ! $menu ) {
-		$menu_id = wp_create_nav_menu( $menu_name );
-		if ( ! is_wp_error( $menu_id ) ) {
-			$menu_items = array(
-				'online-puja-booking'           => 'Book Puja',
-				'online-chadhava-offering'      => 'Chadhava',
-				'online-astrology-consultation' => 'Astrology',
-				'online-havan-booking'          => 'Havan',
-				'book-pandit-online'            => 'Pandit Ji',
-				'faq'                           => 'FAQ',
-			);
-			foreach ( $menu_items as $slug => $label ) {
-				if ( ! empty( $created[ $slug ] ) ) {
-					wp_update_nav_menu_item( $menu_id, 0, array(
-						'menu-item-title'     => $label,
-						'menu-item-object'    => 'page',
-						'menu-item-object-id' => $created[ $slug ],
-						'menu-item-type'      => 'post_type',
-						'menu-item-status'    => 'publish',
-					) );
-				}
+	$menu_id   = $menu ? (int) $menu->term_id : wp_create_nav_menu( $menu_name );
+	if ( is_wp_error( $menu_id ) || ! $menu_id ) {
+		return;
+	}
+
+	$page_items  = array();
+	$custom_urls = array();
+	$items       = wp_get_nav_menu_items( $menu_id );
+	if ( $items ) {
+		foreach ( $items as $item ) {
+			if ( 'page' === $item->object ) {
+				$page_items[ (int) $item->object_id ] = (int) $item->ID;
+			} elseif ( 'custom' === $item->type ) {
+				$custom_urls[ untrailingslashit( $item->url ) ] = (int) $item->ID;
 			}
-			// Puja listing and temple directory links.
-			wp_update_nav_menu_item( $menu_id, 0, array(
-				'menu-item-title'  => __( 'Online Pujas', 'epoojabooking-core' ),
-				'menu-item-url'    => home_url( '/pujas/' ),
-				'menu-item-type'   => 'custom',
-				'menu-item-status' => 'publish',
-			) );
-			wp_update_nav_menu_item( $menu_id, 0, array(
-				'menu-item-title'  => __( 'Temples', 'epoojabooking-core' ),
-				'menu-item-url'    => home_url( '/temples/' ),
-				'menu-item-type'   => 'custom',
-				'menu-item-status' => 'publish',
-			) );
-			// Astro Tools dropdown with the calculator pages.
-			if ( ! empty( $created['astro-tools'] ) ) {
-				$astro_parent = wp_update_nav_menu_item( $menu_id, 0, array(
-					'menu-item-title'     => __( 'Astro Tools', 'epoojabooking-core' ),
-					'menu-item-object'    => 'page',
-					'menu-item-object-id' => $created['astro-tools'],
-					'menu-item-type'      => 'post_type',
-					'menu-item-status'    => 'publish',
-				) );
-				if ( ! is_wp_error( $astro_parent ) ) {
-					$astro_children = array(
-						'nakshatra-calculator'      => __( 'Nakshatra Calculator', 'epoojabooking-core' ),
-						'moon-sign-calculator'      => __( 'Moon Sign Calculator', 'epoojabooking-core' ),
-						'mangal-dosha-calculator'   => __( 'Mangal Dosha Calculator', 'epoojabooking-core' ),
-						'kaal-sarp-dosha-calculator' => __( 'Kaal Sarp Dosha Calculator', 'epoojabooking-core' ),
-					);
-					foreach ( $astro_children as $child_slug => $child_label ) {
-						if ( ! empty( $created[ $child_slug ] ) ) {
-							wp_update_nav_menu_item( $menu_id, 0, array(
-								'menu-item-title'     => $child_label,
-								'menu-item-object'    => 'page',
-								'menu-item-object-id' => $created[ $child_slug ],
-								'menu-item-type'      => 'post_type',
-								'menu-item-status'    => 'publish',
-								'menu-item-parent-id' => $astro_parent,
-							) );
-						}
-					}
-				}
-			}
-			$locations            = get_theme_mod( 'nav_menu_locations', array() );
-			$locations['primary'] = $menu_id;
-			set_theme_mod( 'nav_menu_locations', $locations );
 		}
+	}
+
+	$add_page_item = function ( $slug, $label, $parent = 0 ) use ( $created, &$page_items, $menu_id ) {
+		if ( empty( $created[ $slug ] ) ) {
+			return 0;
+		}
+		$page_id = (int) $created[ $slug ];
+		if ( isset( $page_items[ $page_id ] ) ) {
+			return $page_items[ $page_id ];
+		}
+		$item_id = wp_update_nav_menu_item( $menu_id, 0, array(
+			'menu-item-title'     => $label,
+			'menu-item-object'    => 'page',
+			'menu-item-object-id' => $page_id,
+			'menu-item-type'      => 'post_type',
+			'menu-item-status'    => 'publish',
+			'menu-item-parent-id' => (int) $parent,
+		) );
+		if ( is_wp_error( $item_id ) ) {
+			return 0;
+		}
+		$page_items[ $page_id ] = (int) $item_id;
+		return (int) $item_id;
+	};
+
+	$add_custom_item = function ( $url, $label ) use ( &$custom_urls, $menu_id ) {
+		$key = untrailingslashit( $url );
+		if ( isset( $custom_urls[ $key ] ) ) {
+			return;
+		}
+		$item_id = wp_update_nav_menu_item( $menu_id, 0, array(
+			'menu-item-title'  => $label,
+			'menu-item-url'    => $url,
+			'menu-item-type'   => 'custom',
+			'menu-item-status' => 'publish',
+		) );
+		if ( ! is_wp_error( $item_id ) ) {
+			$custom_urls[ $key ] = (int) $item_id;
+		}
+	};
+
+	$add_page_item( 'online-puja-booking', __( 'Book Puja', 'epoojabooking-core' ) );
+	$add_page_item( 'online-chadhava-offering', __( 'Chadhava', 'epoojabooking-core' ) );
+	$add_page_item( 'online-astrology-consultation', __( 'Astrology', 'epoojabooking-core' ) );
+	$add_page_item( 'online-havan-booking', __( 'Havan', 'epoojabooking-core' ) );
+	$add_page_item( 'book-pandit-online', __( 'Pandit Ji', 'epoojabooking-core' ) );
+
+	$add_custom_item( home_url( '/pujas/' ), __( 'Online Pujas', 'epoojabooking-core' ) );
+	$add_custom_item( home_url( '/temples/' ), __( 'Temples', 'epoojabooking-core' ) );
+
+	$astro_parent = $add_page_item( 'astro-tools', __( 'Astro Tools', 'epoojabooking-core' ) );
+	if ( $astro_parent ) {
+		$add_page_item( 'nakshatra-calculator', __( 'Nakshatra Calculator', 'epoojabooking-core' ), $astro_parent );
+		$add_page_item( 'moon-sign-calculator', __( 'Moon Sign Calculator', 'epoojabooking-core' ), $astro_parent );
+		$add_page_item( 'mangal-dosha-calculator', __( 'Mangal Dosha Calculator', 'epoojabooking-core' ), $astro_parent );
+		$add_page_item( 'kaal-sarp-dosha-calculator', __( 'Kaal Sarp Dosha Calculator', 'epoojabooking-core' ), $astro_parent );
+	}
+
+	$add_page_item( 'faq', __( 'FAQ', 'epoojabooking-core' ) );
+
+	$locations = get_theme_mod( 'nav_menu_locations', array() );
+	if ( empty( $locations['primary'] ) ) {
+		$locations['primary'] = $menu_id;
+		set_theme_mod( 'nav_menu_locations', $locations );
 	}
 }
 
