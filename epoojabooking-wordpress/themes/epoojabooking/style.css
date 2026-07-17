@@ -1,0 +1,17 @@
+/*
+Theme Name: ePoojaBooking
+Theme URI: https://epoojabooking.com
+Author: epoojabooking
+Author URI: https://epoojabooking.com
+Description: Premium, mobile-first WordPress theme for epoojabooking.com. A temple-inspired design in saffron, gold and white for online puja booking, chadhava offerings, astrology consultations and spiritual services. SEO friendly with schema markup, fast Core Web Vitals and full responsive support.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: epoojabooking
+Tags: e-commerce, blog, one-column, custom-menu, custom-logo, featured-images, translation-ready
+*/
+
+/* Styles are enqueued from assets/css/main.css */
