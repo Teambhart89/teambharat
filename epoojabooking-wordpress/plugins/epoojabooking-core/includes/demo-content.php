@@ -145,6 +145,13 @@ function epb_import_site_content() {
 					) );
 				}
 			}
+			// Temple directory link.
+			wp_update_nav_menu_item( $menu_id, 0, array(
+				'menu-item-title'  => __( 'Temples', 'epoojabooking-core' ),
+				'menu-item-url'    => home_url( '/temples/' ),
+				'menu-item-type'   => 'custom',
+				'menu-item-status' => 'publish',
+			) );
 			$locations            = get_theme_mod( 'nav_menu_locations', array() );
 			$locations['primary'] = $menu_id;
 			set_theme_mod( 'nav_menu_locations', $locations );

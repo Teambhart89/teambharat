@@ -136,6 +136,25 @@ function epb_print_schema() {
 		);
 	}
 
+	// Temple pages: PlaceOfWorship schema.
+	if ( is_singular( 'epb_temple' ) ) {
+		$city  = get_post_meta( get_the_ID(), 'epb_city', true );
+		$state = get_post_meta( get_the_ID(), 'epb_state', true );
+
+		$graphs[] = array(
+			'@type'       => 'HinduTemple',
+			'name'        => get_the_title(),
+			'url'         => get_permalink(),
+			'description' => wp_strip_all_tags( get_the_excerpt() ),
+			'address'     => array(
+				'@type'           => 'PostalAddress',
+				'addressLocality' => $city,
+				'addressRegion'   => $state,
+				'addressCountry'  => 'IN',
+			),
+		);
+	}
+
 	// FAQ schema on the FAQ page.
 	if ( is_page( 'faq' ) ) {
 		$faq_entities = array();

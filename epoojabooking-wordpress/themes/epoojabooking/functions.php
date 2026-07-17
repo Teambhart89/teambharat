@@ -157,6 +157,9 @@ function epb_fallback_menu() {
 	);
 
 	echo '<ul class="epb-nav-list">';
+	if ( post_type_exists( 'epb_temple' ) ) {
+		echo '<li><a href="' . esc_url( get_post_type_archive_link( 'epb_temple' ) ) . '">' . esc_html__( 'Temples', 'epoojabooking' ) . '</a></li>';
+	}
 	foreach ( $links as $slug => $label ) {
 		$page = get_page_by_path( $slug );
 		$url  = $page ? get_permalink( $page ) : home_url( '/' . $slug . '/' );

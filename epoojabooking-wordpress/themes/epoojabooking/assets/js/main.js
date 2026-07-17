@@ -26,6 +26,41 @@
 		} );
 	}
 
+	// Temple directory: filter cards by city.
+	var filter = document.querySelector( '.epb-city-filter' );
+	if ( filter ) {
+		var chips = filter.querySelectorAll( '.epb-chip' );
+		var cards = document.querySelectorAll( '.epb-temple-card' );
+		var empty = document.querySelector( '.epb-filter-empty' );
+
+		filter.addEventListener( 'click', function ( e ) {
+			var chip = e.target.closest( '.epb-chip' );
+			if ( ! chip ) {
+				return;
+			}
+			var city = chip.getAttribute( 'data-city' );
+			var visible = 0;
+
+			chips.forEach( function ( c ) {
+				var active = c === chip;
+				c.classList.toggle( 'is-active', active );
+				c.setAttribute( 'aria-pressed', active ? 'true' : 'false' );
+			} );
+
+			cards.forEach( function ( card ) {
+				var show = 'all' === city || card.getAttribute( 'data-city' ) === city;
+				card.classList.toggle( 'is-hidden', ! show );
+				if ( show ) {
+					visible++;
+				}
+			} );
+
+			if ( empty ) {
+				empty.hidden = visible > 0;
+			}
+		} );
+	}
+
 	// Scroll reveal for cards and steps, skipped for reduced motion.
 	var reduced = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 

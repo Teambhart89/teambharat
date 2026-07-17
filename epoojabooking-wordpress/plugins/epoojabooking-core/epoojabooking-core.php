@@ -24,6 +24,7 @@ require EPB_CORE_DIR . 'includes/settings.php';
 require EPB_CORE_DIR . 'includes/payments.php';
 require EPB_CORE_DIR . 'includes/booking-form.php';
 require EPB_CORE_DIR . 'includes/demo-content.php';
+require EPB_CORE_DIR . 'includes/temples-content.php';
 
 /**
  * Activation: register types, import pages, flush rewrite rules.
@@ -31,6 +32,7 @@ require EPB_CORE_DIR . 'includes/demo-content.php';
 function epb_core_activate() {
 	epb_register_post_types();
 	epb_import_site_content();
+	epb_import_temples();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'epb_core_activate' );

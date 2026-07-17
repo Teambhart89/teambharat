@@ -54,6 +54,18 @@ Visit **Settings → ePoojaBooking** to configure:
   ```
 - **WhatsApp chat button** sitewide once you save your number.
 - **Pujas catalogue** post type for listing individual pujas with photos and prices.
+- **Temple directory** at `/temples/`: 18 famous temples pre-loaded with original descriptions (history, significance, what to experience), darshan and aarti timings, city filter chips, and HinduTemple schema markup. Manage them under **Temples** in wp-admin.
+
+## Adding your own images (important for copyright)
+
+No photos are bundled in this package. Bundling images scraped from other websites would violate their copyright, so every image slot is an option you fill with your own or licensed photos:
+
+- **Temple card and hero photo**: edit the temple in wp-admin and set a **Featured Image**. It appears on the directory card and as the large gallery image on the temple page.
+- **Temple photo gallery**: while editing a temple, upload additional images via **Add Media** (they attach to that temple). Up to four attached images automatically appear beside the featured image in the srimandir-style gallery grid.
+- **Until you add images**, an elegant temple-art placeholder in the site's saffron and gold palette is shown, so pages never look broken.
+- Good free sources for licensed temple photos: Wikimedia Commons (check each photo's license), Unsplash and Pexels, or your own visits. Always keep attribution where the license requires it.
+
+Timings are pre-filled with commonly published values; verify them with each temple, as they change on festival days.
 
 ## Recommended companion plugins (free)
 

@@ -717,6 +717,128 @@ a:hover { color: var(--epb-saffron); }
 }
 .epb-pagination .current { background: var(--epb-saffron); color: var(--epb-white); border-color: var(--epb-saffron); }
 
+/* ---------- Temple directory ---------- */
+
+.epb-city-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	justify-content: center;
+	margin-bottom: var(--epb-space-3);
+}
+
+.epb-chip {
+	padding: 0.5rem 1.1rem;
+	min-height: 44px;
+	font: inherit;
+	font-weight: 600;
+	font-size: var(--epb-text-sm);
+	color: var(--epb-ink);
+	background: var(--epb-white);
+	border: 1px solid var(--epb-border);
+	border-radius: 999px;
+	cursor: pointer;
+	transition: background var(--epb-transition), color var(--epb-transition), border-color var(--epb-transition);
+}
+.epb-chip:hover { border-color: var(--epb-gold); }
+.epb-chip.is-active {
+	background: var(--epb-saffron);
+	border-color: var(--epb-saffron);
+	color: var(--epb-white);
+}
+
+.epb-temple-card.is-hidden { display: none; }
+
+.epb-temple-location {
+	color: var(--epb-kumkum);
+	font-weight: 600;
+	font-size: var(--epb-text-sm);
+	margin: -0.3rem 0 0.5rem;
+}
+
+.epb-thumb-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	border-radius: 10px;
+	margin-bottom: var(--epb-space-2);
+	color: var(--epb-saffron-deep);
+	background:
+		radial-gradient(18rem 8rem at 50% 120%, rgba(232, 93, 4, 0.14), transparent 70%),
+		linear-gradient(160deg, #FFF1DC, #FBE3C2);
+	border: 1px solid var(--epb-gold-soft);
+}
+.epb-thumb-placeholder-lg { aspect-ratio: auto; height: 100%; min-height: 260px; margin: 0; }
+.epb-placeholder-note { font-size: var(--epb-text-sm); color: var(--epb-ink-soft); font-weight: 500; }
+
+/* Temple single: gallery */
+
+.epb-temple-media { padding-top: var(--epb-space-3); }
+
+.epb-temple-gallery {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	grid-auto-rows: 150px;
+	gap: 0.75rem;
+}
+.epb-gallery-main {
+	grid-row: span 2;
+	border-radius: var(--epb-radius);
+	overflow: hidden;
+}
+.epb-gallery-main img,
+.epb-gallery-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+.epb-gallery-item {
+	border-radius: 10px;
+	overflow: hidden;
+}
+/* With no side images the main image spans the full width */
+.epb-temple-gallery:not(:has(.epb-gallery-item)) { grid-template-columns: 1fr; grid-auto-rows: 320px; }
+
+.epb-temple-intro { text-align: center; padding-top: var(--epb-space-3); }
+.epb-temple-intro .epb-breadcrumbs { justify-content: center; }
+.epb-temple-intro-inner { max-width: 46rem; }
+.epb-temple-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--epb-space-2);
+	justify-content: center;
+	margin-top: var(--epb-space-2);
+}
+
+/* Temple timings */
+
+.epb-timings-heading { margin-top: var(--epb-space-4); }
+.epb-timings-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: var(--epb-space-2);
+	margin-top: var(--epb-space-2);
+}
+.epb-timing-card {
+	background: var(--epb-white);
+	border: 1px solid var(--epb-border);
+	border-radius: var(--epb-radius);
+	padding: var(--epb-space-3);
+}
+.epb-timing-card h3 { font-family: var(--epb-font-body); font-weight: 700; font-size: var(--epb-text-base); margin: 0.5rem 0 0.25rem; }
+.epb-timing-card p { margin: 0; color: var(--epb-ink-soft); }
+.epb-timings-note { font-size: var(--epb-text-sm); color: var(--epb-ink-soft); margin-top: var(--epb-space-2); }
+
+@media (max-width: 768px) {
+	.epb-temple-gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 120px; }
+	.epb-gallery-main { grid-column: span 2; }
+}
+
 /* Scroll reveal (JS adds .epb-revealed; hidden state only when JS present) */
 .js .epb-reveal { opacity: 0; transform: translateY(14px); transition: opacity 400ms ease-out, transform 400ms ease-out; }
 .js .epb-reveal.epb-revealed { opacity: 1; transform: none; }
