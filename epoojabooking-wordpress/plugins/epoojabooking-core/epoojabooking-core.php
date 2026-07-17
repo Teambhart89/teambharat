@@ -26,6 +26,7 @@ require EPB_CORE_DIR . 'includes/booking-form.php';
 require EPB_CORE_DIR . 'includes/demo-content.php';
 require EPB_CORE_DIR . 'includes/temples-content.php';
 require EPB_CORE_DIR . 'includes/banners-pujas-content.php';
+require EPB_CORE_DIR . 'includes/astro-tools.php';
 
 /**
  * Activation: register types, import pages, flush rewrite rules.
@@ -52,6 +53,8 @@ register_deactivation_hook( __FILE__, 'epb_core_deactivate' );
  */
 function epb_core_assets() {
 	wp_register_style( 'epb-booking', EPB_CORE_URL . 'assets/booking.css', array(), EPB_CORE_VERSION );
+	wp_register_style( 'epb-astro', EPB_CORE_URL . 'assets/astro.css', array(), EPB_CORE_VERSION );
+	wp_register_script( 'epb-astro', EPB_CORE_URL . 'assets/astro.js', array(), EPB_CORE_VERSION, true );
 	wp_register_script( 'epb-razorpay', 'https://checkout.razorpay.com/v1/checkout.js', array(), null, true );
 	wp_register_script( 'epb-booking', EPB_CORE_URL . 'assets/booking.js', array(), EPB_CORE_VERSION, true );
 

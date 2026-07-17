@@ -158,6 +158,36 @@ function epb_import_site_content() {
 				'menu-item-type'   => 'custom',
 				'menu-item-status' => 'publish',
 			) );
+			// Astro Tools dropdown with the calculator pages.
+			if ( ! empty( $created['astro-tools'] ) ) {
+				$astro_parent = wp_update_nav_menu_item( $menu_id, 0, array(
+					'menu-item-title'     => __( 'Astro Tools', 'epoojabooking-core' ),
+					'menu-item-object'    => 'page',
+					'menu-item-object-id' => $created['astro-tools'],
+					'menu-item-type'      => 'post_type',
+					'menu-item-status'    => 'publish',
+				) );
+				if ( ! is_wp_error( $astro_parent ) ) {
+					$astro_children = array(
+						'nakshatra-calculator'      => __( 'Nakshatra Calculator', 'epoojabooking-core' ),
+						'moon-sign-calculator'      => __( 'Moon Sign Calculator', 'epoojabooking-core' ),
+						'mangal-dosha-calculator'   => __( 'Mangal Dosha Calculator', 'epoojabooking-core' ),
+						'kaal-sarp-dosha-calculator' => __( 'Kaal Sarp Dosha Calculator', 'epoojabooking-core' ),
+					);
+					foreach ( $astro_children as $child_slug => $child_label ) {
+						if ( ! empty( $created[ $child_slug ] ) ) {
+							wp_update_nav_menu_item( $menu_id, 0, array(
+								'menu-item-title'     => $child_label,
+								'menu-item-object'    => 'page',
+								'menu-item-object-id' => $created[ $child_slug ],
+								'menu-item-type'      => 'post_type',
+								'menu-item-status'    => 'publish',
+								'menu-item-parent-id' => $astro_parent,
+							) );
+						}
+					}
+				}
+			}
 			$locations            = get_theme_mod( 'nav_menu_locations', array() );
 			$locations['primary'] = $menu_id;
 			set_theme_mod( 'nav_menu_locations', $locations );
@@ -237,6 +267,51 @@ function epb_site_pages() {
 		'excerpt'          => 'Book verified pandits for griha pravesh, satyanarayan katha, weddings and all sanskars. At your home in India or online for NRI families.',
 		'meta_description' => 'Book pandit ji online for puja at home. Verified pandits for griha pravesh, satyanarayan katha, weddings and sanskars, in person across India or online worldwide.',
 		'content'          => epb_content_pandit(),
+	);
+
+	$pages[] = array(
+		'slug'             => 'astro-tools',
+		'title'            => 'Free Astro Tools: Nakshatra, Rashi and Dosha Calculators',
+		'template'         => '',
+		'excerpt'          => 'Free Vedic astrology tools: nakshatra calculator, moon sign calculator, Mangal Dosha checker and Kaal Sarp Dosha checker. Instant results, no signup.',
+		'meta_description' => 'Use free Vedic astrology tools on epoojabooking: nakshatra calculator, moon sign (rashi) calculator, Mangal Dosha calculator and Kaal Sarp Dosha calculator with instant results.',
+		'content'          => epb_content_astro_hub(),
+	);
+
+	$pages[] = array(
+		'slug'             => 'nakshatra-calculator',
+		'title'            => 'Free Nakshatra Calculator | Birthstar Calculator | Janma Nakshatra Calculator',
+		'template'         => '',
+		'excerpt'          => 'Find your janma nakshatra instantly. Enter your birth date, time and place to know your birth star, its pada and its lord, free and without signup.',
+		'meta_description' => 'Free nakshatra calculator: enter your birth date, time and place to find your janma nakshatra (birth star), its pada and nakshatra lord instantly with Lahiri ayanamsa.',
+		'content'          => epb_content_nakshatra_tool(),
+	);
+
+	$pages[] = array(
+		'slug'             => 'moon-sign-calculator',
+		'title'            => 'Free Moon Sign Calculator | Rashi Calculator | Janma Rashi Calculator',
+		'template'         => '',
+		'excerpt'          => 'Know your janma rashi in seconds. Enter your birth details to find your Vedic moon sign, its lord and your birth star, completely free.',
+		'meta_description' => 'Free moon sign calculator: find your janma rashi (Vedic moon sign) from your birth date, time and place, with the rashi lord and birth star, using Lahiri ayanamsa.',
+		'content'          => epb_content_rashi_tool(),
+	);
+
+	$pages[] = array(
+		'slug'             => 'mangal-dosha-calculator',
+		'title'            => 'Mangal Dosha Calculator: Check Manglik Status Free',
+		'template'         => '',
+		'excerpt'          => 'Check whether your kundli has Mangal Dosha. The calculator examines Mars from your Lagna and Moon chart and explains the traditional remedies.',
+		'meta_description' => 'Free Mangal Dosha calculator: check Manglik status from your birth details. Mars is examined from the Lagna and Moon chart, with cancellations and remedies explained.',
+		'content'          => epb_content_mangal_tool(),
+	);
+
+	$pages[] = array(
+		'slug'             => 'kaal-sarp-dosha-calculator',
+		'title'            => 'Kaal Sarp Dosha Calculator: Check All 12 Types Free',
+		'template'         => '',
+		'excerpt'          => 'Check for Kaal Sarp Dosha in your kundli. The calculator finds whether all grahas fall between Rahu and Ketu and names the exact yoga type.',
+		'meta_description' => 'Free Kaal Sarp Dosha calculator: enter your birth details to check whether all planets fall between Rahu and Ketu, identify the yoga type and learn the remedies.',
+		'content'          => epb_content_kaalsarp_tool(),
 	);
 
 	$pages[] = array(
@@ -510,6 +585,123 @@ function epb_content_pandit() {
 
 <h4>A Small Tip for Your Puja Day</h4>
 <p>Keep the puja space clean and ready an hour early, keep a small lamp lit, and let the children sit in front. Ceremonies stay in a family's memory for decades; we help make them beautiful.</p>
+HTML;
+}
+
+/** Astro tools hub page content. */
+function epb_content_astro_hub() {
+	return <<<'HTML'
+<p>Vedic astrology begins with three questions: where was the Moon when you were born, which nakshatra held it, and how do the grahas sit around Rahu and Ketu and Mars. Our free astro tools answer all of them in seconds, right in your browser, with no signup and no charge.</p>
+
+<h2>Choose a Free Tool</h2>
+<h3><a href="/nakshatra-calculator/">Nakshatra Calculator (Birth Star)</a></h3>
+<p>Find your janma nakshatra, its pada and its lord from your birth details. Essential for naming ceremonies, muhurat selection and choosing the right pujas.</p>
+<h3><a href="/moon-sign-calculator/">Moon Sign Calculator (Janma Rashi)</a></h3>
+<p>Know your Vedic moon sign, the rashi used for daily predictions, kundli milan and your rashi name.</p>
+<h3><a href="/mangal-dosha-calculator/">Mangal Dosha Calculator</a></h3>
+<p>Check your Manglik status from both the Lagna and the Moon chart, with the traditional cancellations explained.</p>
+<h3><a href="/kaal-sarp-dosha-calculator/">Kaal Sarp Dosha Calculator</a></h3>
+<p>See whether all seven grahas fall between Rahu and Ketu in your kundli, and learn which of the twelve types applies.</p>
+
+<h2>How Our Calculators Work</h2>
+<p>Each tool computes real planetary positions for your birth moment using the Lahiri ayanamsa, the standard of Vedic panchangs. The calculation runs entirely in your browser, so your birth details are never stored or sent anywhere.</p>
+
+<h4>When to Consult an Astrologer</h4>
+<p>Calculators answer the what; an astrologer explains the why and what next. For births close to a sign boundary, or for remedies tailored to your full kundli, <a href="/online-astrology-consultation/">book an online astrology consultation</a> with our experienced Vedic astrologers.</p>
+HTML;
+}
+
+/** Nakshatra calculator page content. */
+function epb_content_nakshatra_tool() {
+	return <<<'HTML'
+[epb_nakshatra_calculator]
+
+<h2>What Is a Janma Nakshatra?</h2>
+<p>Your janma nakshatra, also called your birth star, is the nakshatra the Moon occupied at the moment you were born. The zodiac is divided into 27 nakshatras of 13 degrees 20 minutes each, from Ashwini to Revati, and every nakshatra is further divided into four padas or charans. Together they form the finest layer of Vedic astrology, more precise than the twelve rashis.</p>
+
+<h2>Why Your Birth Star Matters</h2>
+<h3>Naming and sanskars</h3>
+<p>Tradition assigns starting syllables for a child's name based on the nakshatra pada, which is why families ask for the nakshatra soon after a birth.</p>
+<h3>Muhurat and festivals</h3>
+<p>Auspicious dates for griha pravesh, marriage and new ventures are chosen by matching the day's nakshatra with your birth star.</p>
+<h3>Choosing the right puja</h3>
+<p>Each nakshatra has a lord, such as Ketu for Ashwini or Venus for Bharani, and pujas to that lord bring special benefit. Your nakshatra also decides the days when Satyanarayan katha or graha shanti serve you best.</p>
+
+<h2>How to Use This Calculator</h2>
+<p>Enter your date of birth, an accurate time of birth and your birth city, then press the button. You will instantly see your nakshatra, its pada, its lord and the Moon's exact position. The Moon spends about one day in each nakshatra, so an accurate birth time gives the most reliable answer.</p>
+
+<h4>Not Sure of Your Birth Time?</h4>
+<p>Try the earliest and latest possible times. If the nakshatra changes between them, our astrologers can help narrow it down through birth time rectification in an <a href="/online-astrology-consultation/">astrology consultation</a>.</p>
+HTML;
+}
+
+/** Rashi calculator page content. */
+function epb_content_rashi_tool() {
+	return <<<'HTML'
+[epb_rashi_calculator]
+
+<h2>What Is a Janma Rashi?</h2>
+<p>Your janma rashi is your Vedic moon sign, the rashi where the Moon stood when you were born. While Western astrology speaks of sun signs, Vedic astrology reads daily life, emotions and predictions primarily from the Moon. The twelve rashis run from Mesha (Aries) to Meena (Pisces), each ruled by its own graha.</p>
+
+<h2>Why Your Moon Sign Matters</h2>
+<h3>Daily and yearly predictions</h3>
+<p>Panchang predictions, rashifal columns and festival observances all follow the moon sign, not the sun sign. Knowing your correct rashi makes every prediction meaningful.</p>
+<h3>Kundli milan for marriage</h3>
+<p>Gun milan begins from the moon signs and nakshatras of the couple. The janma rashi is the foundation of the compatibility count.</p>
+<h3>Rashi name and mantras</h3>
+<p>Many families keep a rashi name based on the moon sign syllables, and the rashi lord suggests which mantras and gemstones suit you.</p>
+
+<h2>How to Use This Calculator</h2>
+<p>Fill in your birth date, time and city, and the tool shows your janma rashi, its lord and your birth star together. The Moon changes rashi roughly every two and a half days, so a correct birth time matters most for births near the transition.</p>
+
+<h4>Moon Sign Different From What You Expected?</h4>
+<p>Sun sign and moon sign are often different signs, and sidereal Vedic signs differ from Western tropical ones. If your result surprises you, an <a href="/online-astrology-consultation/">astrologer consultation</a> can walk you through your full kundli.</p>
+HTML;
+}
+
+/** Mangal dosha calculator page content. */
+function epb_content_mangal_tool() {
+	return <<<'HTML'
+[epb_mangal_dosha_calculator]
+
+<h2>What Is Mangal Dosha?</h2>
+<p>Mangal Dosha, also called Manglik dosha or Kuja dosha, forms when Mars occupies the 1st, 2nd, 4th, 7th, 8th or 12th house of the kundli. Mars is the graha of energy and assertion, and in these houses tradition says its heat can touch the house of marriage, which is why families check Manglik status before fixing a match.</p>
+
+<h2>How This Calculator Checks Your Chart</h2>
+<h3>From the Lagna</h3>
+<p>The primary check counts the house of Mars from your ascendant, computed from your birth time and place.</p>
+<h3>From the Moon</h3>
+<p>Many traditions also check Mars from the Moon chart. The calculator shows both results so you see the complete picture.</p>
+<h3>Cancellations noted</h3>
+<p>Mars in its own signs of Mesha and Vrishchika, or exalted in Makara, is traditionally considered far weaker as a dosha. The tool tells you when such a placement softens the result.</p>
+
+<h2>If You Are Manglik, Do Not Worry</h2>
+<p>A large share of all kundlis carry some form of Mangal Dosha, and shastras provide well-known remedies: Mangal Shanti puja, Hanuman upasana on Tuesdays, and matching with another Manglik chart, after which the dosha is considered balanced. You can <a href="/online-puja-booking/">book a Mangal Shanti puja</a> or <a href="/online-astrology-consultation/">consult our astrologers</a> for guidance specific to your chart.</p>
+
+<h4>A Note on Accuracy</h4>
+<p>The ascendant moves one sign every two hours, so an accurate birth time matters greatly for this check. For borderline results, verify with a detailed kundli reading.</p>
+HTML;
+}
+
+/** Kaal sarp dosha calculator page content. */
+function epb_content_kaalsarp_tool() {
+	return <<<'HTML'
+[epb_kaalsarp_calculator]
+
+<h2>What Is Kaal Sarp Dosha?</h2>
+<p>Kaal Sarp Dosha, or Kaal Sarp Yoga, forms when all seven grahas, from the Sun to Saturn, stand on one side of the axis made by Rahu and Ketu, the shadow planets. The kundli then resembles a serpent holding all the planets between its head and tail, and tradition associates the formation with periods of struggle followed by remarkable achievement once the dosha is pacified.</p>
+
+<h2>The Twelve Types of Kaal Sarp Yoga</h2>
+<p>The yoga takes its name from the house Rahu occupies: Anant from the 1st house, Kulik from the 2nd, Vasuki from the 3rd, Shankhpal from the 4th, Padma from the 5th, Mahapadma from the 6th, Takshak from the 7th, Karkotak from the 8th, Shankhachur from the 9th, Ghatak from the 10th, Vishdhar from the 11th and Sheshnag from the 12th. Each type colours a different area of life, from health and wealth to marriage and career.</p>
+
+<h2>How This Calculator Works</h2>
+<p>Enter your birth date, time and city. The tool computes the positions of all grahas with Rahu and Ketu, checks whether every planet falls on one side of the axis, and names the exact yoga type from Rahu's house. If one planet stands outside, it reports a partial formation, which is considered much milder.</p>
+
+<h2>Remedies for Kaal Sarp Dosha</h2>
+<p>The classical remedy is the Kaal Sarp Dosh Nivaran puja, performed with special sanctity at Trimbakeshwar near Nashik and in Ujjain, along with Rahu and Ketu shanti and Nag Panchami worship. You can <a href="/online-puja-booking/">book the nivaran puja online</a> and our pandits will perform it in your name with video proof.</p>
+
+<h4>Keep Perspective</h4>
+<p>Many accomplished people carry this yoga; shastras themselves describe it as a giver of late but great success. Treat the result as guidance, and for a full reading of its strength in your chart, <a href="/online-astrology-consultation/">talk to our astrologers</a>.</p>
 HTML;
 }
 

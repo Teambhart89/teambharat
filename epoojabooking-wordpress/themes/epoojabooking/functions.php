@@ -163,6 +163,10 @@ function epb_fallback_menu() {
 	if ( post_type_exists( 'epb_temple' ) ) {
 		echo '<li><a href="' . esc_url( get_post_type_archive_link( 'epb_temple' ) ) . '">' . esc_html__( 'Temples', 'epoojabooking' ) . '</a></li>';
 	}
+	$astro_hub = get_page_by_path( 'astro-tools' );
+	if ( $astro_hub ) {
+		echo '<li><a href="' . esc_url( get_permalink( $astro_hub ) ) . '">' . esc_html__( 'Astro Tools', 'epoojabooking' ) . '</a></li>';
+	}
 	foreach ( $links as $slug => $label ) {
 		$page = get_page_by_path( $slug );
 		$url  = $page ? get_permalink( $page ) : home_url( '/' . $slug . '/' );

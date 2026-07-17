@@ -1,0 +1,57 @@
+/* Astro tools: calculator card and result styles. */
+
+.epb-astro-tool {
+	max-width: 40rem;
+	margin: 0 auto 2rem;
+	background: #FFFFFF;
+	border: 1px solid #EADFCB;
+	border-top: 4px solid #E85D04;
+	border-radius: 14px;
+	padding: 1.5rem;
+	box-shadow: 0 14px 36px rgba(56, 34, 15, 0.14);
+}
+
+.epb-astro-result {
+	margin-top: 1.25rem;
+	padding: 1.25rem;
+	background: #FFF9F0;
+	border: 1px solid #E7C873;
+	border-radius: 12px;
+}
+
+.epb-astro-headline {
+	font-weight: 700;
+	font-size: 1.15rem;
+	color: #C2410C;
+	margin-bottom: 0.75rem;
+}
+
+.epb-astro-facts {
+	list-style: none;
+	margin: 0 0 1rem;
+	padding: 0;
+	display: grid;
+	gap: 0.4rem;
+}
+.epb-astro-facts li {
+	padding-left: 1.1rem;
+	position: relative;
+}
+.epb-astro-facts li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #B8860B;
+}
+
+.epb-astro-note {
+	font-size: 0.85rem;
+	color: #6B4E33;
+	border-top: 1px dashed #EADFCB;
+	padding-top: 0.75rem;
+	margin-bottom: 0;
+}
