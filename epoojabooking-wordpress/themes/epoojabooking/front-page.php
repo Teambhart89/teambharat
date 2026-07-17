@@ -6,13 +6,71 @@
  */
 
 get_header();
+
+$epb_banners = post_type_exists( 'epb_banner' ) ? get_posts( array(
+	'post_type'      => 'epb_banner',
+	'posts_per_page' => 5,
+	'orderby'        => 'menu_order',
+	'order'          => 'ASC',
+) ) : array();
 ?>
 
-<section class="epb-hero">
+<?php if ( $epb_banners ) : ?>
+<section class="epb-slider" aria-roledescription="carousel" aria-label="<?php esc_attr_e( 'Featured services', 'epoojabooking' ); ?>">
+	<h1 class="screen-reader-text"><?php echo esc_html( get_bloginfo( 'name' ) ); ?>: <?php esc_html_e( 'Online Puja Booking, Chadhava and Astrology Services', 'epoojabooking' ); ?></h1>
+	<?php
+	$epb_i = 0;
+	foreach ( $epb_banners as $epb_banner ) :
+		$epb_i++;
+		$epb_sub  = get_post_meta( $epb_banner->ID, 'epb_subtitle', true );
+		$epb_btnt = get_post_meta( $epb_banner->ID, 'epb_btn_text', true );
+		$epb_btnu = get_post_meta( $epb_banner->ID, 'epb_btn_url', true );
+		$epb_img  = get_the_post_thumbnail_url( $epb_banner, 'full' );
+		?>
+		<div class="epb-slide<?php echo 1 === $epb_i ? ' is-active' : ''; ?>"<?php echo $epb_img ? ' style="background-image:url(' . esc_url( $epb_img ) . ')"' : ''; ?> role="group" aria-roledescription="slide" aria-label="<?php echo esc_attr( $epb_i . ' / ' . count( $epb_banners ) ); ?>"<?php echo 1 === $epb_i ? '' : ' aria-hidden="true"'; ?>>
+			<div class="epb-slide-overlay" aria-hidden="true"></div>
+			<div class="epb-container epb-slide-inner">
+				<h2 class="epb-slide-title"><?php echo esc_html( get_the_title( $epb_banner ) ); ?></h2>
+				<?php if ( $epb_sub ) : ?>
+					<p class="epb-slide-sub"><?php echo esc_html( $epb_sub ); ?></p>
+				<?php endif; ?>
+				<?php if ( $epb_btnt && $epb_btnu ) : ?>
+					<a class="epb-btn epb-btn-light" href="<?php echo esc_url( home_url( $epb_btnu ) ); ?>"><?php echo esc_html( $epb_btnt ); ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
+	<?php endforeach; ?>
+
+	<?php if ( count( $epb_banners ) > 1 ) : ?>
+		<button class="epb-slider-arrow epb-slider-prev" aria-label="<?php esc_attr_e( 'Previous slide', 'epoojabooking' ); ?>">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+		</button>
+		<button class="epb-slider-arrow epb-slider-next" aria-label="<?php esc_attr_e( 'Next slide', 'epoojabooking' ); ?>">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+		</button>
+		<div class="epb-slider-dots" role="tablist" aria-label="<?php esc_attr_e( 'Choose slide', 'epoojabooking' ); ?>">
+			<?php for ( $epb_d = 0; $epb_d < count( $epb_banners ); $epb_d++ ) : ?>
+				<button class="epb-slider-dot<?php echo 0 === $epb_d ? ' is-active' : ''; ?>" data-slide="<?php echo esc_attr( $epb_d ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: slide number. */ __( 'Go to slide %d', 'epoojabooking' ), $epb_d + 1 ) ); ?>"></button>
+			<?php endfor; ?>
+		</div>
+	<?php endif; ?>
+</section>
+
+<div class="epb-trust-strip">
+	<div class="epb-container epb-trust-strip-inner">
+		<span><?php epb_the_icon( 'star' ); ?> <?php esc_html_e( 'Trusted temples and verified pandits', 'epoojabooking' ); ?></span>
+		<span><?php epb_the_icon( 'shield' ); ?> <?php esc_html_e( '100% secure payments', 'epoojabooking' ); ?></span>
+		<span><?php epb_the_icon( 'lotus' ); ?> <?php esc_html_e( 'Serving devotees in India and 15+ countries', 'epoojabooking' ); ?></span>
+	</div>
+</div>
+<?php endif; ?>
+
+<section class="epb-hero<?php echo $epb_banners ? ' epb-hero-secondary' : ''; ?>"
 	<div class="epb-hero-glow" aria-hidden="true"></div>
 	<div class="epb-container epb-hero-inner">
 		<p class="epb-eyebrow"><?php esc_html_e( 'Trusted temples across India', 'epoojabooking' ); ?></p>
-		<h1><?php esc_html_e( 'Book Online Puja, Chadhava and Temple Offerings from Anywhere in the World', 'epoojabooking' ); ?></h1>
+		<?php $epb_hero_tag = $epb_banners ? 'h2' : 'h1'; ?>
+		<<?php echo esc_html( $epb_hero_tag ); ?>><?php esc_html_e( 'Book Online Puja, Chadhava and Temple Offerings from Anywhere in the World', 'epoojabooking' ); ?></<?php echo esc_html( $epb_hero_tag ); ?>>
 		<p class="epb-hero-sub"><?php esc_html_e( 'epoojabooking connects you with verified temples and experienced pandits for online puja booking, chadhava offerings, abhishek, havan and astrology consultations. Your puja is performed in your name with full sankalp, and prasad reaches your doorstep in India or abroad.', 'epoojabooking' ); ?></p>
 		<div class="epb-hero-actions">
 			<a class="epb-btn epb-btn-primary" href="<?php echo esc_url( home_url( '/online-puja-booking/' ) ); ?>"><?php esc_html_e( 'Book a Puja', 'epoojabooking' ); ?></a>
@@ -87,6 +145,58 @@ get_header();
 		</div>
 	</div>
 </section>
+
+<?php
+$epb_special_pujas = post_type_exists( 'epb_puja' ) ? get_posts( array(
+	'post_type'      => 'epb_puja',
+	'posts_per_page' => 3,
+) ) : array();
+
+if ( $epb_special_pujas ) :
+	?>
+<section class="epb-section epb-special-pujas">
+	<div class="epb-container">
+		<h2 class="epb-section-title"><?php esc_html_e( 'Special Pujas', 'epoojabooking' ); ?></h2>
+		<p class="epb-section-sub"><?php esc_html_e( 'Participate in powerful pujas performed on auspicious dates at revered temples, in your name and for your family.', 'epoojabooking' ); ?></p>
+
+		<div class="epb-card-grid epb-grid-3">
+			<?php
+			foreach ( $epb_special_pujas as $epb_sp ) :
+				$epb_badge  = get_post_meta( $epb_sp->ID, 'epb_badge', true );
+				$epb_temple = get_post_meta( $epb_sp->ID, 'epb_temple_name', true );
+				$epb_date   = get_post_meta( $epb_sp->ID, 'epb_event_date', true );
+				$epb_link   = get_permalink( $epb_sp );
+				?>
+				<article class="epb-card epb-puja-card">
+					<a href="<?php echo esc_url( $epb_link ); ?>" class="epb-card-thumb" tabindex="-1" aria-hidden="true">
+						<?php if ( has_post_thumbnail( $epb_sp ) ) : ?>
+							<?php echo get_the_post_thumbnail( $epb_sp, 'medium_large', array( 'loading' => 'lazy', 'alt' => esc_attr( get_the_title( $epb_sp ) ) ) ); ?>
+						<?php else : ?>
+							<span class="epb-thumb-placeholder" aria-hidden="true">
+								<svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 3c-2.5 3-5 5.5-5 8.5a5 5 0 0 0 10 0C17 8.5 14.5 6 12 3Z"/><path d="M12 13a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 12 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 12 13Z"/></svg>
+							</span>
+						<?php endif; ?>
+					</a>
+					<?php if ( $epb_badge ) : ?>
+						<span class="epb-badge"><?php echo esc_html( $epb_badge ); ?></span>
+					<?php endif; ?>
+					<h3 class="epb-card-title"><a href="<?php echo esc_url( $epb_link ); ?>"><?php echo esc_html( get_the_title( $epb_sp ) ); ?></a></h3>
+					<p><?php echo esc_html( wp_trim_words( get_the_excerpt( $epb_sp ), 22 ) ); ?></p>
+					<ul class="epb-puja-meta">
+						<?php if ( $epb_temple ) : ?>
+							<li><?php epb_the_icon( 'bell' ); ?> <span><?php echo esc_html( $epb_temple ); ?></span></li>
+						<?php endif; ?>
+						<?php if ( $epb_date ) : ?>
+							<li><?php epb_the_icon( 'calendar' ); ?> <span><?php echo esc_html( $epb_date ); ?></span></li>
+						<?php endif; ?>
+					</ul>
+					<a class="epb-btn epb-btn-primary epb-participate" href="<?php echo esc_url( $epb_link ); ?>"><?php esc_html_e( 'Participate', 'epoojabooking' ); ?> →</a>
+				</article>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
 
 <section class="epb-section epb-how epb-section-cream">
 	<div class="epb-container">

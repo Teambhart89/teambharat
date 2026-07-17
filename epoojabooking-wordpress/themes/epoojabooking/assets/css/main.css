@@ -717,6 +717,197 @@ a:hover { color: var(--epb-saffron); }
 }
 .epb-pagination .current { background: var(--epb-saffron); color: var(--epb-white); border-color: var(--epb-saffron); }
 
+/* ---------- Banner slider ---------- */
+
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.epb-slider {
+	position: relative;
+	min-height: clamp(380px, 55vh, 540px);
+	overflow: hidden;
+	background: #2A1808;
+}
+
+.epb-slide {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 500ms ease-out, visibility 500ms;
+	background: linear-gradient(120deg, #3A2410, #6B3A12);
+	background-size: cover;
+	background-position: center;
+}
+.epb-slide.is-active { opacity: 1; visibility: visible; position: relative; }
+
+.epb-slide-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(26, 14, 4, 0.82) 0%, rgba(26, 14, 4, 0.55) 45%, rgba(26, 14, 4, 0.15) 100%);
+}
+
+.epb-slide-inner {
+	position: relative;
+	max-width: 72rem;
+	width: 100%;
+	padding-block: var(--epb-space-6);
+}
+.epb-slide-title {
+	font-family: var(--epb-font-display);
+	font-size: var(--epb-text-hero);
+	color: var(--epb-white);
+	max-width: 34rem;
+	margin-bottom: 0.4em;
+}
+.epb-slide-sub {
+	color: rgba(255, 249, 240, 0.92);
+	font-size: var(--epb-text-lg);
+	max-width: 32rem;
+	margin-bottom: var(--epb-space-3);
+}
+
+.epb-slider-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border: none;
+	border-radius: 50%;
+	background: rgba(255, 249, 240, 0.9);
+	color: var(--epb-ink);
+	cursor: pointer;
+	transition: background var(--epb-transition), transform var(--epb-transition);
+}
+.epb-slider-arrow:hover { background: var(--epb-white); }
+.epb-slider-prev { left: 14px; }
+.epb-slider-next { right: 14px; }
+
+.epb-slider-dots {
+	position: absolute;
+	bottom: 18px;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+}
+.epb-slider-dot {
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	border: none;
+	border-radius: 999px;
+	background: rgba(255, 249, 240, 0.5);
+	cursor: pointer;
+	transition: background var(--epb-transition), width var(--epb-transition);
+}
+.epb-slider-dot.is-active { background: var(--epb-white); width: 30px; }
+
+/* Trust strip under the slider */
+
+.epb-trust-strip {
+	background: linear-gradient(90deg, var(--epb-saffron-deep), var(--epb-saffron));
+	color: var(--epb-white);
+	border-bottom: 4px dotted rgba(255, 255, 255, 0.45);
+}
+.epb-trust-strip-inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.75rem var(--epb-space-6);
+	padding-block: 0.85rem;
+	font-weight: 600;
+	font-size: var(--epb-text-sm);
+}
+.epb-trust-strip-inner span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.epb-trust-strip-inner svg { width: 20px; height: 20px; }
+
+/* Secondary hero when the slider is present */
+.epb-hero-secondary { padding-top: var(--epb-space-6); }
+
+/* ---------- Special pujas ---------- */
+
+.epb-badge {
+	display: inline-block;
+	align-self: flex-start;
+	padding: 0.25rem 0.8rem;
+	margin-bottom: 0.5rem;
+	border-radius: 999px;
+	background: #FBECEA;
+	border: 1px solid #EFC7C2;
+	color: var(--epb-kumkum);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.epb-puja-meta {
+	list-style: none;
+	margin: 0 0 var(--epb-space-2);
+	padding: 0.75rem 0 0;
+	border-top: 1px dashed var(--epb-border);
+	display: grid;
+	gap: 0.5rem;
+	font-size: var(--epb-text-sm);
+	color: var(--epb-ink-soft);
+}
+.epb-puja-meta li { display: flex; align-items: flex-start; gap: 0.5rem; margin: 0; }
+.epb-puja-meta svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--epb-saffron-deep); margin-top: 1px; }
+
+.epb-puja-meta-hero {
+	border-top: 0;
+	padding-top: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem var(--epb-space-3);
+	margin-top: var(--epb-space-2);
+}
+
+.epb-participate { margin-top: auto; }
+.epb-puja-card p { flex-grow: 0; }
+
+/* ---------- Header account link ---------- */
+
+.epb-account-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	min-height: 44px;
+	padding: 0.4rem 0.6rem;
+	border-radius: 10px;
+	color: var(--epb-ink);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: var(--epb-text-sm);
+	transition: color var(--epb-transition), background var(--epb-transition);
+}
+.epb-account-link:hover { color: var(--epb-saffron-deep); background: var(--epb-cream-deep); }
+.epb-account-link svg { width: 22px; height: 22px; }
+
+@media (max-width: 480px) {
+	.epb-account-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.epb-slide { transition: none; }
+}
+
 /* ---------- Temple directory ---------- */
 
 .epb-city-filter {

@@ -55,6 +55,9 @@ Visit **Settings → ePoojaBooking** to configure:
 - **WhatsApp chat button** sitewide once you save your number.
 - **Pujas catalogue** post type for listing individual pujas with photos and prices.
 - **Temple directory** at `/temples/`: 18 famous temples pre-loaded with original descriptions (history, significance, what to experience), darshan and aarti timings, city filter chips, and HinduTemple schema markup. Manage them under **Temples** in wp-admin.
+- **Homepage banner slider**: manage slides under **Banners** in wp-admin. Each banner has a headline (the title), supporting text, button label and link, and a background photo set via the **Banner Image** (featured image) box. Reorder slides with the Order attribute. The slider auto-plays gently, pauses on hover and keyboard focus, respects reduced motion, and shows arrows and dots. A saffron trust strip appears below it.
+- **Special Pujas**: manage under **Pujas** in wp-admin. Each puja card shows a thumbnail (the **Featured Image**, your image upload option), a badge label (like "Shravan Special"), title, description, temple location, puja date and a Participate button. Three sample special pujas are pre-loaded; edit or replace them with your own events. Each puja gets its own page with details and the booking form.
+- **Login option**: a Login link with an account icon appears in the header, opening the WordPress login. Logged-in users see **My Account** instead. To let devotees register themselves, enable **Settings → General → Anyone can register** and set the new-user role to Subscriber. For full customer accounts with order history, add WooCommerce and its My Account page.
 
 ## Adding your own images (important for copyright)
 

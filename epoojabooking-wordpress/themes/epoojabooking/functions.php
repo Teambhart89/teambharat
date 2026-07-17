@@ -201,6 +201,9 @@ function epb_the_icon( $name ) {
 		'kalash'=> '<path d="M8 8h8l-1 9a3 3 0 0 1-3 3 3 3 0 0 1-3-3Z"/><path d="M7 8c0-2 2.5-3 5-3s5 1 5 3"/><path d="M12 5V3"/><path d="M9.5 3.5 12 3l2.5.5"/>',
 		'fire'  => '<path d="M4 21h16"/><path d="M6 21l2-4h8l2 4"/><path d="M12 4c-2 2.5-3.5 4.5-3.5 7a3.5 3.5 0 0 0 7 0C15.5 8.5 14 6.5 12 4Z"/>',
 		'bell'  => '<path d="M12 3a1.5 1.5 0 0 1 1.5 1.5V5a6 6 0 0 1 4.5 5.8V15l1.5 2H4.5L6 15v-4.2A6 6 0 0 1 10.5 5v-.5A1.5 1.5 0 0 1 12 3Z"/><path d="M10 20a2 2 0 0 0 4 0"/>',
+		'user'  => '<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/>',
+		'shield'=> '<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6Z"/><path d="M9 12l2 2 4-4"/>',
+		'calendar' => '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/>',
 	);
 
 	if ( isset( $icons[ $name ] ) ) {

@@ -26,6 +26,76 @@
 		} );
 	}
 
+	// Banner slider: fade slides, arrows, dots, gentle autoplay.
+	document.querySelectorAll( '.epb-slider' ).forEach( function ( slider ) {
+		var slides = slider.querySelectorAll( '.epb-slide' );
+		if ( slides.length < 2 ) {
+			return;
+		}
+
+		var dots = slider.querySelectorAll( '.epb-slider-dot' );
+		var current = 0;
+		var timer = null;
+		var reducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+
+		function goTo( index ) {
+			current = ( index + slides.length ) % slides.length;
+			slides.forEach( function ( slide, i ) {
+				slide.classList.toggle( 'is-active', i === current );
+				slide.setAttribute( 'aria-hidden', i === current ? 'false' : 'true' );
+			} );
+			dots.forEach( function ( dot, i ) {
+				dot.classList.toggle( 'is-active', i === current );
+			} );
+		}
+
+		function play() {
+			if ( reducedMotion ) {
+				return;
+			}
+			stop();
+			timer = window.setInterval( function () {
+				goTo( current + 1 );
+			}, 6000 );
+		}
+
+		function stop() {
+			if ( timer ) {
+				window.clearInterval( timer );
+				timer = null;
+			}
+		}
+
+		var prev = slider.querySelector( '.epb-slider-prev' );
+		var next = slider.querySelector( '.epb-slider-next' );
+		if ( prev ) {
+			prev.addEventListener( 'click', function () { goTo( current - 1 ); play(); } );
+		}
+		if ( next ) {
+			next.addEventListener( 'click', function () { goTo( current + 1 ); play(); } );
+		}
+		dots.forEach( function ( dot ) {
+			dot.addEventListener( 'click', function () {
+				goTo( parseInt( dot.getAttribute( 'data-slide' ), 10 ) );
+				play();
+			} );
+		} );
+
+		slider.addEventListener( 'mouseenter', stop );
+		slider.addEventListener( 'mouseleave', play );
+		slider.addEventListener( 'focusin', stop );
+		slider.addEventListener( 'focusout', play );
+		document.addEventListener( 'visibilitychange', function () {
+			if ( document.hidden ) {
+				stop();
+			} else {
+				play();
+			}
+		} );
+
+		play();
+	} );
+
 	// Temple directory: filter cards by city.
 	var filter = document.querySelector( '.epb-city-filter' );
 	if ( filter ) {

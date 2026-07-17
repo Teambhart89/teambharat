@@ -45,6 +45,17 @@
 		</nav>
 
 		<div class="epb-header-actions">
+			<?php if ( is_user_logged_in() ) : ?>
+				<a class="epb-account-link" href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>" aria-label="<?php esc_attr_e( 'My account', 'epoojabooking' ); ?>">
+					<?php epb_the_icon( 'user' ); ?>
+					<span class="epb-account-label"><?php esc_html_e( 'My Account', 'epoojabooking' ); ?></span>
+				</a>
+			<?php else : ?>
+				<a class="epb-account-link" href="<?php echo esc_url( wp_login_url( home_url( '/' ) ) ); ?>" aria-label="<?php esc_attr_e( 'Log in', 'epoojabooking' ); ?>">
+					<?php epb_the_icon( 'user' ); ?>
+					<span class="epb-account-label"><?php esc_html_e( 'Login', 'epoojabooking' ); ?></span>
+				</a>
+			<?php endif; ?>
 			<a class="epb-btn epb-btn-primary epb-header-cta" href="<?php echo esc_url( home_url( '/online-puja-booking/' ) ); ?>">
 				<?php esc_html_e( 'Book Puja Now', 'epoojabooking' ); ?>
 			</a>
