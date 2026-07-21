@@ -1,0 +1,25 @@
+/*
+Theme Name: Avdesh SEO
+Theme URI: https://example.com/
+Author: Avdesh Kumar
+Author URI: https://example.com/
+Description: A fast, responsive, SEO and AI-search optimized WordPress theme for Avdesh Kumar, SEO & AI Search Optimization Specialist based in Delhi, India. Portfolio-style layout with a warm marigold and cream palette, built-in Schema.org markup, GEO/AEO-ready content structure, and easy image replacement via the Customizer. Ready to upload and activate.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: avdesh-seo
+Tags: portfolio, business, seo, one-column, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, threaded-comments, translation-ready, block-styles, wide-blocks
+*/
+
+/*
+  The full design system lives in assets/css/main.css (enqueued from functions.php).
+  This file holds the required theme header above and a few base fallbacks below.
+*/
+
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; }
+img { max-width: 100%; height: auto; }
