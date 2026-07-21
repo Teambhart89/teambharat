@@ -1,0 +1,44 @@
+# Avdesh SEO Website (WordPress Theme)
+
+A ready to upload WordPress theme for **Avdesh Kumar, SEO & AI Search Optimization Specialist (Delhi, India)**. The design matches the supplied portfolio: cream background, navy text, warm orange accent, Poppins typography, lowercase section titles with an orange dot, numbered service cards, a dark stats bar and a service ticker.
+
+## Deliverable
+
+- **`avdesh-seo.zip`** - upload this in WordPress via `Appearance > Themes > Add New > Upload Theme`, then Activate. All pages, menu and SEO friendly URLs are created automatically.
+- **`avdesh-seo/`** - the theme source.
+
+Full install and image upload instructions are in `avdesh-seo/README.txt`.
+
+## Keyword research and SEO friendly URL map
+
+Each service targets a researched primary keyword and a clean, keyword rich URL.
+
+| Page | Primary keyword | SEO friendly URL |
+|------|-----------------|------------------|
+| Home | seo specialist / ai search optimization | `/` |
+| About | seo expert delhi india | `/about/` |
+| Services hub | seo services | `/services/` |
+| SEO Services | seo services | `/seo-services/` |
+| Technical SEO | technical seo services | `/technical-seo-services/` |
+| On-Page SEO | on-page seo services | `/on-page-seo-services/` |
+| Off-Page SEO | link building / off-page seo | `/off-page-seo-link-building/` |
+| Local SEO | local seo services | `/local-seo-services/` |
+| eCommerce SEO | ecommerce seo (shopify / woocommerce) | `/ecommerce-seo-services/` |
+| AI Search Optimization | ai search optimization / GEO | `/ai-search-optimization/` |
+| Google Ads | google ads management / ppc | `/google-ads-management/` |
+| Contact | seo consultation | `/contact/` |
+
+Supporting keywords woven naturally into the copy include: organic traffic, improve rankings, ROI, white hat SEO, keyword research, Core Web Vitals, Google Business Profile, map pack, WordPress SEO, Shopify SEO, Wix SEO, Squarespace SEO, GEO, AEO, Google AI Overviews, ChatGPT, Gemini, Perplexity, qualified traffic, leads and sales.
+
+## SEO and AI (GEO) features built in
+
+- One `H1` per page with a logical `H2` / `H3` / `H4` hierarchy on every service page.
+- Reader friendly content that avoids excessive dashes and reads naturally.
+- Meta description, Open Graph and Twitter Card tags.
+- Schema.org JSON-LD: `ProfessionalService`, `Person`, `BreadcrumbList` and `FAQPage`.
+- Answer ready FAQ blocks and concise "quick answer" summaries that help generative AI engines cite the content.
+- Clean permalinks, breadcrumbs, internal linking and a fast, mobile first responsive layout.
+
+## Image upload sections
+
+Every picture in the design is a Customizer controlled slot (`Appearance > Customize > Images`). Where an image has not been added yet, the site shows a clearly labelled dashed placeholder so the owner knows exactly where to upload or replace it.
