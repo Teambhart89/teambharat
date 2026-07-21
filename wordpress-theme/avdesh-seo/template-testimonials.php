@@ -28,7 +28,17 @@ $tst = array(
 
 <section class="section">
 	<div class="container">
-		<div class="grid grid-3">
+		<?php avdesh_testimonials_section( 'See what clients have to say' ); ?>
+	</div>
+</section>
+
+<section class="section section--tint">
+	<div class="container">
+		<div class="sec-head center reveal">
+			<span class="eyebrow">More reviews</span>
+			<h2 class="sec-title">Trusted by 500+ businesses</h2>
+		</div>
+		<div class="grid grid-3" style="margin-top:40px;">
 			<?php foreach ( $tst as $t ) : ?>
 				<div class="tcard reveal">
 					<div class="stars">★★★★★</div>

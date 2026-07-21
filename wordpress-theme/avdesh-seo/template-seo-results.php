@@ -47,6 +47,12 @@ get_header();
 
 <section class="section section--tint">
 	<div class="container">
+		<?php avdesh_ranking_keywords_section( 'Trusted clients — top ranking keywords' ); ?>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
 		<div class="sec-head center reveal">
 			<span class="eyebrow">Proof, not promises</span>
 			<h2 class="sec-title">Google Search Console &amp; Analytics</h2>

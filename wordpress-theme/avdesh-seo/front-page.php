@@ -180,25 +180,9 @@ $expertise = array( 'SEO', 'AI Search Optimization', 'GEO', 'Technical SEO', 'Lo
 <!-- ===================== INDUSTRIES ===================== -->
 <section class="section">
 	<div class="container">
-		<div class="sec-head center reveal">
-			<span class="eyebrow">Industries served</span>
-			<h2 class="sec-title">Experience across industries</h2>
-			<p class="sec-sub">I've helped businesses of every size and sector grow through search.</p>
-		</div>
-		<div class="grid grid-4 reveal" style="margin-top:40px;">
-			<?php
-			$industries = array(
-				array( '🛒', 'eCommerce & Retail' ), array( '💻', 'SaaS & Tech' ),
-				array( '🏥', 'Healthcare' ), array( '🏘️', 'Real Estate' ),
-				array( '⚖️', 'Legal & Finance' ), array( '🏨', 'Travel & Hospitality' ),
-				array( '🎓', 'Education' ), array( '🔧', 'Local Services' ),
-			);
-			foreach ( $industries as $ind ) : ?>
-				<div class="ind-card"><div class="ii"><?php echo esc_html( $ind[0] ); ?></div><h4><?php echo esc_html( $ind[1] ); ?></h4></div>
-			<?php endforeach; ?>
-		</div>
+		<?php avdesh_industries_section( 'Industries I have worked in', 'From startups and local brands to eCommerce, SaaS and international companies, I tailor SEO to each industry.', 12 ); ?>
 		<div style="text-align:center;margin-top:32px;">
-			<a class="btn btn-outline" href="<?php echo esc_url( home_url( '/industries/' ) ); ?>">Explore industries →</a>
+			<a class="btn btn-outline" href="<?php echo esc_url( home_url( '/industries/' ) ); ?>">Explore all industries →</a>
 		</div>
 	</div>
 </section>
@@ -222,27 +206,16 @@ $expertise = array( 'SEO', 'AI Search Optimization', 'GEO', 'Technical SEO', 'Lo
 <!-- ===================== TESTIMONIALS ===================== -->
 <section class="section">
 	<div class="container">
-		<div class="sec-head center reveal">
-			<span class="eyebrow">Testimonials</span>
-			<h2 class="sec-title">What clients say</h2>
-			<p class="sec-sub">Replace these with your real client testimonials and results.</p>
-		</div>
-		<div class="grid grid-3 reveal" style="margin-top:40px;">
-			<?php
-			$tst = array(
-				array( 'Avdesh transformed our organic traffic. We went from page three to the top three for our main keywords in under six months, and leads followed.', 'S. Mehta', 'Founder, SaaS Startup', 'S' ),
-				array( 'Professional, transparent and genuinely results-focused. Our eCommerce revenue from organic search more than doubled.', 'A. Khan', 'Director, eCommerce Brand', 'A' ),
-				array( 'The AI search work put us ahead of competitors. We now show up in AI answers where our rivals don\'t. Highly recommended.', 'M. Sharma', 'Marketing Lead, Agency', 'M' ),
-			);
-			foreach ( $tst as $t ) : ?>
-				<div class="tcard">
-					<div class="stars">★★★★★</div>
-					<blockquote>"<?php echo esc_html( $t[0] ); ?>"</blockquote>
-					<div class="who"><span class="av"><?php echo esc_html( $t[3] ); ?></span><div><b><?php echo esc_html( $t[1] ); ?></b><span><?php echo esc_html( $t[2] ); ?></span></div></div>
-				</div>
-			<?php endforeach; ?>
-		</div>
-		<div style="text-align:center;margin-top:32px;"><a class="btn btn-outline" href="<?php echo esc_url( home_url( '/testimonials/' ) ); ?>">Read more testimonials →</a></div>
+		<?php avdesh_testimonials_section( 'See what clients have to say' ); ?>
+		<div style="text-align:center;margin-top:34px;"><a class="btn btn-outline" href="<?php echo esc_url( home_url( '/testimonials/' ) ); ?>">Read more testimonials →</a></div>
+	</div>
+</section>
+
+<!-- ===================== TOP RANKING KEYWORDS ===================== -->
+<section class="section section--tint">
+	<div class="container">
+		<?php avdesh_ranking_keywords_section( 'Trusted clients — SEO case studies' ); ?>
+		<div style="text-align:center;margin-top:36px;"><a class="btn btn-primary btn-lg" href="<?php echo esc_url( home_url( '/seo-results/' ) ); ?>">See more SEO results →</a></div>
 	</div>
 </section>
 
@@ -299,11 +272,8 @@ $expertise = array( 'SEO', 'AI Search Optimization', 'GEO', 'Technical SEO', 'Lo
 			<span class="eyebrow">FAQ</span>
 			<h2 class="sec-title">Common questions</h2>
 		</div>
-		<div class="faq reveal" style="margin-top:36px;">
-			<details open><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">What makes your SEO approach different?</h3></summary><p>I take an AI-first, revenue-focused approach. Your content is optimized to rank on Google and to be cited by AI answer engines like ChatGPT, Gemini and Perplexity. Everything is white-hat and measured on leads and sales, not vanity rankings.</p></details>
-			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">Which platforms and countries do you work with?</h3></summary><p>WordPress, Shopify, Wix, Squarespace, WooCommerce and custom builds, for clients across India, USA, UK, Canada, Australia, UAE and Europe.</p></details>
-			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">How soon will I see results?</h3></summary><p>SEO usually shows early movement in 8 to 12 weeks and compounds from there. Google Ads can deliver leads within days. I recommend combining both for short and long-term growth.</p></details>
-			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">Do you offer a free consultation?</h3></summary><p>Yes. Book a free SEO audit and I'll show you exactly what's holding your rankings back and how to fix it, with no obligation.</p></details>
+		<div style="margin-top:36px;">
+			<?php avdesh_faq_grid( array_slice( avdesh_faq_list(), 0, 8 ) ); ?>
 		</div>
 		<div style="text-align:center;margin-top:28px;"><a class="btn btn-outline" href="<?php echo esc_url( home_url( '/faqs/' ) ); ?>">See all FAQs →</a></div>
 	</div>

@@ -199,6 +199,194 @@ function avdesh_float_contact() {
 	<?php
 }
 
+/* =========================================================
+   Extended section data + renderers (v3.1)
+   ========================================================= */
+
+/** Small multi-colour Google "G" mark. */
+function avdesh_google_g( $size = 17 ) {
+	return '<svg width="' . intval( $size ) . '" height="' . intval( $size ) . '" viewBox="0 0 48 48" aria-hidden="true" focusable="false">'
+		. '<path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>'
+		. '<path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>'
+		. '<path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>'
+		. '<path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>'
+		. '</svg>';
+}
+
+/** Industries data. Edit labels/icons here. */
+function avdesh_industries_data() {
+	return array(
+		array( '🏘️', 'Real Estate' ), array( '🏥', 'Healthcare' ), array( '🚗', 'Automotive' ), array( '🛋️', 'Interior & Fitouts' ),
+		array( '🧾', 'Tax & Accounting' ), array( '🎓', 'Education' ), array( '✈️', 'Travel & Tourism' ), array( '🛒', 'eCommerce' ),
+		array( '🍽️', 'F&B / Restaurants' ), array( '🎬', 'Events & Production' ), array( '💼', 'Professional Services' ), array( '💆', 'Beauty & Wellness' ),
+		array( '🏗️', 'Construction' ), array( '🪵', 'Flooring' ), array( '🌸', 'Fragrance' ), array( '💻', 'SaaS & Technology' ),
+	);
+}
+
+/** Render the industries grid. */
+function avdesh_industries_section( $heading = 'Industries I have worked in', $sub = '', $limit = 0 ) {
+	$items = avdesh_industries_data();
+	if ( $limit > 0 ) {
+		$items = array_slice( $items, 0, $limit );
+	}
+	?>
+	<div class="sec-head center reveal">
+		<span class="eyebrow">Industries served</span>
+		<h2 class="sec-title"><?php echo esc_html( $heading ); ?></h2>
+		<?php if ( $sub ) : ?><p class="sec-sub"><?php echo esc_html( $sub ); ?></p><?php endif; ?>
+	</div>
+	<div class="ind-grid reveal" style="margin-top:40px;">
+		<?php foreach ( $items as $ind ) : ?>
+			<div class="ind-tile"><div class="it-ic"><?php echo esc_html( $ind[0] ); ?></div><h4><?php echo esc_html( $ind[1] ); ?></h4></div>
+		<?php endforeach; ?>
+	</div>
+	<?php
+}
+
+/** Testimonials data (edit with your real Google reviews). */
+function avdesh_testimonials_data() {
+	return array(
+		'stat_pct'   => '98%',
+		'stat_text'  => 'of clients recommend my SEO &amp; AI search services',
+		'featured'   => array(
+			'quote' => 'Working with Avdesh, we have seen measurable improvements in our website traffic, better Google rankings and, most importantly, more qualified leads.',
+			'name'  => 'Keerthi Vinod',
+			'role'  => 'Marketing Manager',
+		),
+		'reviews'    => array(
+			array( 'S. Mehta', 'SaaS Founder', '2 months ago', 'I was able to build the ideal SEO plan with Avdesh\'s help. Undoubtedly brilliant and has a great range of experience across industries.' ),
+			array( 'A. Khan', 'eCommerce Director', '3 months ago', 'I am very much satisfied with his work. I trust the quality of his SEO and he is truly one of the best consultants I have worked with.' ),
+			array( 'Sindhu Sunny', 'Local Business Owner', '4 months ago', 'His communication is very simple and easy to understand. He explains the strategy clearly and delivers real results.' ),
+			array( 'Prince J', 'Agency Lead', '5 months ago', 'One of the best professionals I have worked with. Gets the work done in limited time with great quality and brought in a lot of clients.' ),
+		),
+	);
+}
+
+/** Render the testimonials section (97% card + featured + Google review cards). */
+function avdesh_testimonials_section( $heading = 'See what clients have to say' ) {
+	$t = avdesh_testimonials_data();
+	$g = avdesh_google_g( 15 );
+	?>
+	<div class="sec-head center reveal">
+		<span class="eyebrow">Testimonials</span>
+		<h2 class="sec-title"><?php echo esc_html( $heading ); ?></h2>
+	</div>
+
+	<div class="testi-hero reveal" style="margin-top:40px;">
+		<div class="testi-stat">
+			<span class="lbl">Testimonials</span>
+			<span class="big"><?php echo esc_html( $t['stat_pct'] ); ?></span>
+			<p><?php echo wp_kses_post( $t['stat_text'] ); ?></p>
+		</div>
+		<div class="testi-featured">
+			<div class="tf-img"><?php avdesh_image_area( 'avdesh_img_testimonial', 'Client photo', '', 'Happy SEO client' ); ?></div>
+			<div class="tf-body">
+				<div class="stars">★★★★★</div>
+				<blockquote>"<?php echo esc_html( $t['featured']['quote'] ); ?>"</blockquote>
+				<span class="tf-name"><?php echo esc_html( $t['featured']['name'] ); ?></span>
+				<span class="tf-role"><?php echo esc_html( $t['featured']['role'] ); ?></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="review-grid reveal">
+		<?php foreach ( $t['reviews'] as $r ) : ?>
+			<div class="review-card">
+				<div class="rc-top"><span class="stars">★★★★★</span><span class="verified" title="Verified">✔</span></div>
+				<p><?php echo esc_html( $r[3] ); ?></p>
+				<span class="rc-more">Read more</span>
+				<div class="rc-foot">
+					<span class="rc-av"><?php echo esc_html( strtoupper( substr( $r[0], 0, 1 ) ) ); ?><span class="rc-g"><?php echo $g; // phpcs:ignore ?></span></span>
+					<span class="rc-who"><b><?php echo esc_html( $r[0] ); ?></b><span><?php echo esc_html( $r[2] ); ?></span></span>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<?php
+}
+
+/** Top ranking keywords data (edit with your real client wins). */
+function avdesh_ranking_keywords_data() {
+	return array(
+		array(
+			'country' => 'India', 'client' => 'Client A', 'year' => '2024-2026',
+			'rows' => array(
+				array( 'seo expert in delhi', '1' ),
+				array( 'seo services india', '1' ),
+				array( 'ai search optimization', '2' ),
+				array( 'freelance seo consultant', '1' ),
+			),
+		),
+		array(
+			'country' => 'UAE', 'client' => 'Client B', 'year' => '2023-2025',
+			'rows' => array(
+				array( 'seo agency dubai', '2' ),
+				array( 'ecommerce seo uae', '1' ),
+				array( 'local seo dubai', '1' ),
+				array( 'google ads dubai', '3' ),
+			),
+		),
+		array(
+			'country' => 'UK / USA', 'client' => 'Client C', 'year' => '2022-2025',
+			'rows' => array(
+				array( 'saas seo consultant', '1' ),
+				array( 'generative engine optimization', '1' ),
+				array( 'international seo services', '2' ),
+				array( 'technical seo expert', '1' ),
+			),
+		),
+	);
+}
+
+/** Render the top ranking keywords section. */
+function avdesh_ranking_keywords_section( $heading = 'Top ranking keywords I have delivered' ) {
+	$data = avdesh_ranking_keywords_data();
+	?>
+	<div class="sec-head center reveal">
+		<span class="eyebrow">Top ranking keywords</span>
+		<h2 class="sec-title"><?php echo esc_html( $heading ); ?></h2>
+		<p class="sec-sub">A selection of keywords I have ranked on page one for clients through strategic, white-hat SEO. Replace with your own client data.</p>
+	</div>
+	<div class="kw-grid reveal" style="margin-top:40px;">
+		<?php foreach ( $data as $c ) : ?>
+			<div class="kw-card">
+				<div class="kw-panel">
+					<div class="kw-head">
+						<span class="kw-loc"><?php echo avdesh_google_g( 18 ); // phpcs:ignore ?> <?php echo esc_html( $c['country'] ); ?></span>
+						<span class="kw-cli"><b><?php echo esc_html( $c['client'] ); ?></b><span><?php echo esc_html( $c['year'] ); ?></span></span>
+					</div>
+					<div class="kw-table">
+						<div class="kw-th"><span>Keyword</span><span>Position</span></div>
+						<?php foreach ( $c['rows'] as $row ) : ?>
+							<div class="kw-tr"><span><?php echo esc_html( $row[0] ); ?></span><span class="kw-pos">#<?php echo esc_html( $row[1] ); ?></span></div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<?php
+}
+
+/** Render a two-column FAQ accordion from a list of q/a pairs. */
+function avdesh_faq_grid( $faqs, $open_first = true ) {
+	$half = (int) ceil( count( $faqs ) / 2 );
+	$cols = array( array_slice( $faqs, 0, $half ), array_slice( $faqs, $half ) );
+	echo '<div class="faq-2col reveal">';
+	foreach ( $cols as $ci => $col ) {
+		echo '<div class="faq-col">';
+		foreach ( $col as $i => $f ) {
+			$open = ( $open_first && 0 === $ci && 0 === $i ) ? ' open' : '';
+			echo '<details' . esc_attr( $open ) . '>';
+			echo '<summary><span>' . esc_html( $f['q'] ) . '</span><span class="qbtn">+</span></summary>';
+			echo '<p>' . esc_html( $f['a'] ) . '</p>';
+			echo '</details>';
+		}
+		echo '</div>';
+	}
+	echo '</div>';
+}
+
 /** Site-wide FAQ list (used by the FAQs page and FAQPage schema). */
 function avdesh_faq_list() {
 	return array(

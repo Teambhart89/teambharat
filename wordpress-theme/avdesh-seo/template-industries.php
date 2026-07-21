@@ -31,7 +31,18 @@ $industries = array(
 
 <section class="section">
 	<div class="container">
-		<div class="grid grid-3">
+		<?php avdesh_industries_section( 'Industries I have worked in', 'A snapshot of the sectors I have helped grow through SEO, AI search and Google Ads.' ); ?>
+	</div>
+</section>
+
+<section class="section section--tint">
+	<div class="container">
+		<div class="sec-head center reveal">
+			<span class="eyebrow">Tailored expertise</span>
+			<h2 class="sec-title">Industry-specific SEO strategy</h2>
+			<p class="sec-sub">Every industry searches, converts and competes differently. Here is how I adapt.</p>
+		</div>
+		<div class="grid grid-3" style="margin-top:40px;">
 			<?php foreach ( $industries as $ind ) : ?>
 				<div class="card reveal">
 					<div class="ic" style="width:58px;height:58px;border-radius:16px;background:var(--grad-soft);color:var(--primary);display:grid;place-items:center;font-size:1.6rem;margin-bottom:16px;"><?php echo esc_html( $ind[0] ); ?></div>

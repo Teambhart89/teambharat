@@ -9,9 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AVDESH_VER', '1.0.0' );
+define( 'AVDESH_VER', '3.1.0' );
 define( 'AVDESH_DIR', get_template_directory() );
 define( 'AVDESH_URI', get_template_directory_uri() );
+
+/** Cache-busting asset version = file modification time (falls back to theme version). */
+function avdesh_asset_ver( $rel ) {
+	$path = AVDESH_DIR . $rel;
+	return file_exists( $path ) ? (string) filemtime( $path ) : AVDESH_VER;
+}
 
 /* -------------------------------------------------------------------------
  *  Theme setup
@@ -65,11 +71,13 @@ function avdesh_assets() {
 		null
 	);
 
-	wp_enqueue_style( 'avdesh-main', AVDESH_URI . '/assets/css/main.css', array(), AVDESH_VER );
+	// Version assets by file modification time so browsers and caching plugins
+	// always fetch the latest CSS/JS after an update (no stale-cache surprises).
+	wp_enqueue_style( 'avdesh-main', AVDESH_URI . '/assets/css/main.css', array(), avdesh_asset_ver( '/assets/css/main.css' ) );
 	// style.css (theme header + base fallbacks).
-	wp_enqueue_style( 'avdesh-style', get_stylesheet_uri(), array( 'avdesh-main' ), AVDESH_VER );
+	wp_enqueue_style( 'avdesh-style', get_stylesheet_uri(), array( 'avdesh-main' ), avdesh_asset_ver( '/style.css' ) );
 
-	wp_enqueue_script( 'avdesh-main', AVDESH_URI . '/assets/js/main.js', array(), AVDESH_VER, true );
+	wp_enqueue_script( 'avdesh-main', AVDESH_URI . '/assets/js/main.js', array(), avdesh_asset_ver( '/assets/js/main.js' ), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

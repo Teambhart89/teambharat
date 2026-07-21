@@ -89,6 +89,7 @@ function avdesh_customize_register( $wp_customize ) {
 		'avdesh_img_about'   => 'About section photo',
 		'avdesh_img_about2'  => 'About page secondary photo',
 		'avdesh_img_cta'     => 'CTA / results background (optional)',
+		'avdesh_img_testimonial' => 'Featured testimonial photo',
 		'avdesh_img_og'      => 'Social share image (Open Graph, 1200x630)',
 	);
 	foreach ( $images as $key => $label ) {
