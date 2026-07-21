@@ -1,20 +1,16 @@
 <?php
 /**
- * Front page (homepage) — portfolio-style layout.
+ * Front page (homepage) — premium international SEO agency layout.
  *
  * @package Avdesh_SEO
  */
 
 get_header();
 
-$tagline = avdesh_opt( 'avdesh_tagline', 'SEO & AI Search Optimization Specialist' );
-$stats   = array(
-	array( avdesh_opt( 'avdesh_stat1_n', '8+' ),  avdesh_opt( 'avdesh_stat1_l', 'Years Experience' ) ),
-	array( avdesh_opt( 'avdesh_stat2_n', '250+' ), avdesh_opt( 'avdesh_stat2_l', 'Keywords Ranked #1' ) ),
-	array( avdesh_opt( 'avdesh_stat3_n', '120+' ), avdesh_opt( 'avdesh_stat3_l', 'Projects Delivered' ) ),
-	array( avdesh_opt( 'avdesh_stat4_n', '3X' ),   avdesh_opt( 'avdesh_stat4_l', 'Avg. Traffic Growth' ) ),
-	array( avdesh_opt( 'avdesh_stat5_n', '6+' ),   avdesh_opt( 'avdesh_stat5_l', 'Countries Served' ) ),
-);
+$audit   = home_url( '/book-free-seo-audit/' );
+$cases   = home_url( '/case-studies/' );
+$contact = home_url( '/contact/' );
+$expertise = array( 'SEO', 'AI Search Optimization', 'GEO', 'Technical SEO', 'Local SEO', 'eCommerce SEO', 'International SEO', 'Google Ads' );
 ?>
 
 <!-- ===================== HERO ===================== -->
@@ -22,101 +18,108 @@ $stats   = array(
 	<div class="container">
 		<div class="hero-grid">
 			<div class="hero-copy reveal">
-				<span class="hello">Hello 👋</span>
-				<h1>I'm Avdesh Kumar,<br>an <span class="hl">SEO &amp; AI Search</span> Specialist</h1>
-				<p class="role"><?php echo esc_html( $tagline ); ?> in Delhi, India. I drive organic traffic, higher rankings and real ROI with proven white-hat methods across Google and modern AI platforms.</p>
+				<span class="rating-badge"><span class="stars">★★★★★</span> Trusted by 500+ businesses worldwide</span>
+				<h1>I help brands <span class="gradient-text">rank higher</span> and grow revenue with SEO &amp; AI Search</h1>
+				<p class="role">I'm <strong>Avdesh Kumar</strong>, a freelance SEO, AI Search Optimization (AISO), GEO &amp; Google Ads consultant in Delhi, India, with 8+ years turning organic visibility into qualified leads and measurable revenue.</p>
+				<div class="hero-badges">
+					<?php foreach ( $expertise as $e ) : ?>
+						<span class="pill"><span class="pd"></span> <?php echo esc_html( $e ); ?></span>
+					<?php endforeach; ?>
+				</div>
 				<div class="hero-actions">
-					<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Get a free consultation</a>
-					<a class="btn btn-ghost" href="<?php echo esc_url( home_url( '/seo-services/' ) ); ?>">View services</a>
+					<a class="btn btn-primary btn-lg" href="<?php echo esc_url( $audit ); ?>">Book a free SEO audit</a>
+					<a class="btn btn-outline btn-lg" href="<?php echo esc_url( $cases ); ?>">View case studies</a>
+				</div>
+				<div class="hero-trust">
+					<div class="avatars">
+						<span class="av">A</span><span class="av">S</span><span class="av">M</span><span class="av">+</span>
+					</div>
+					<span>Ethical, white-hat SEO for clients across India, USA, UK, Canada, Australia, UAE &amp; Europe.</span>
 				</div>
 			</div>
 
 			<div class="hero-media reveal">
 				<div class="hero-photo">
-					<?php avdesh_image_area( 'avdesh_img_hero', 'Upload your portrait', '', 'Avdesh Kumar, SEO & AI Search Optimization Specialist in Delhi' ); ?>
+					<?php avdesh_image_area( 'avdesh_img_hero', 'Upload your professional photo', '', 'Avdesh Kumar, freelance SEO & AI Search consultant in Delhi, India' ); ?>
 				</div>
-				<span class="float-tag t1"><span class="d"></span> SEO</span>
-				<span class="float-tag t2"><span class="d"></span> AI Search / GEO</span>
-				<span class="float-tag t3"><span class="d"></span> Google Ads</span>
+				<div class="metric-card m1"><div class="mc-ic gr">📈</div><div><b>+312%</b><span>Organic traffic</span></div></div>
+				<div class="metric-card m2"><div class="mc-ic gp">🔑</div><div><b>250+</b><span>Keywords on page 1</span></div></div>
+				<div class="metric-card m3"><div class="mc-ic gd">⭐</div><div><b>#1</b><span>Rankings delivered</span></div></div>
 			</div>
 		</div>
 
-		<!-- Stats bar -->
-		<div class="stats-bar reveal">
-			<?php foreach ( $stats as $st ) : ?>
-				<div class="stat">
-					<b><?php echo esc_html( $st[0] ); ?></b>
-					<span><?php echo esc_html( $st[1] ); ?></span>
-				</div>
+		<!-- Animated stat strip -->
+		<div class="stat-strip reveal">
+			<div class="stat"><b><span class="u" data-count="8" data-suffix="+">8+</span></b><span>Years of experience</span></div>
+			<div class="stat"><b><span class="u" data-count="500" data-suffix="+">500+</span></b><span>Businesses helped</span></div>
+			<div class="stat"><b><span class="u" data-count="250" data-suffix="+">250+</span></b><span>Keywords ranked #1</span></div>
+			<div class="stat"><b><span class="u" data-count="10" data-suffix="+">10+</span></b><span>Countries served</span></div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== TRUST BAR ===================== -->
+<section class="trust-bar">
+	<div class="container">
+		<p>Experience across every major platform &amp; industry</p>
+		<div class="trust-logos">
+			<?php foreach ( array( 'WordPress', 'Shopify', 'Wix', 'Squarespace', 'WooCommerce', 'SaaS', 'Local Business', 'eCommerce' ) as $t ) : ?>
+				<div class="tl"><?php echo esc_html( $t ); ?></div>
 			<?php endforeach; ?>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== TAG STRIP ===================== -->
-<section style="padding:26px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream-2);">
-	<div class="container">
-		<div class="tag-strip">
-			<span>SEO</span><span class="sep">◆</span>
-			<span>AI SEARCH OPTIMIZATION</span><span class="sep">◆</span>
-			<span>GENERATIVE ENGINE OPTIMIZATION</span><span class="sep">◆</span>
-			<span>TECHNICAL SEO</span><span class="sep">◆</span>
-			<span>GOOGLE ADS</span><span class="sep">◆</span>
-			<span>CONTENT STRATEGY</span>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== ABOUT ===================== -->
-<section class="section" id="about">
-	<div class="container">
-		<div class="two-col" style="grid-template-columns:.9fr 1.3fr;align-items:center;">
-			<div class="reveal">
-				<div class="hero-photo" style="aspect-ratio:4/4.2;">
-					<?php avdesh_image_area( 'avdesh_img_about', 'Upload about photo', '', 'Avdesh Kumar SEO specialist at work' ); ?>
-				</div>
-			</div>
-			<div class="reveal">
-				<span class="eyebrow">About me</span>
-				<h2 class="sec-title">about<span class="dot">.</span></h2>
-				<p class="lead" style="margin-top:10px;">I'm Avdesh Kumar, an SEO and AI Search Optimization Specialist based in Delhi, India, with 8 years of hands-on experience in highly competitive markets.</p>
-				<p>I specialise in on-page, technical and overall SEO strategy across platforms like WordPress, Shopify, Wix and Squarespace. I take an AI-first approach to search, helping businesses grow visibility on Google and modern LLM platforms such as ChatGPT, Gemini and Perplexity.</p>
-				<p>My focus is simple: qualified traffic, leads and sales. I optimize for what truly drives performance and long-term revenue, not vanity rankings. Every project uses proven, white-hat methods built to last.</p>
-				<div class="grid grid-2" style="margin-top:22px;gap:14px;">
-					<div class="feat"><h4><span class="tick">✔</span> White-hat &amp; sustainable</h4></div>
-					<div class="feat"><h4><span class="tick">✔</span> AI-first search strategy</h4></div>
-					<div class="feat"><h4><span class="tick">✔</span> ROI over vanity metrics</h4></div>
-					<div class="feat"><h4><span class="tick">✔</span> Works across all platforms</h4></div>
-				</div>
-				<p style="margin-top:24px;"><a class="btn btn-primary" href="<?php echo esc_url( home_url( '/about/' ) ); ?>">More about me →</a></p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== WHAT I DO ===================== -->
-<section class="section section--tint" id="services">
+<!-- ===================== SERVICES ===================== -->
+<section class="section" id="services">
 	<div class="container">
 		<div class="sec-head center reveal">
-			<span class="eyebrow">Services</span>
-			<h2 class="sec-title">what i do<span class="dot">.</span></h2>
-			<p class="sec-sub">Full-funnel search growth. From technical foundations to AI search visibility, every service is built to turn organic reach into revenue.</p>
+			<span class="eyebrow">What I do</span>
+			<h2 class="sec-title">Full-funnel <span class="gradient-text">SEO &amp; AI search</span> services</h2>
+			<p class="sec-sub">From technical foundations to AI search visibility, every service is engineered to turn organic reach into leads, sales and long-term revenue.</p>
 		</div>
-		<div class="grid grid-3" style="margin-top:36px;">
+		<div class="grid grid-3" style="margin-top:40px;">
 			<?php
 			$home_services = array(
 				'seo-services', 'ai-search-optimization', 'technical-seo-services',
-				'on-page-seo-services', 'off-page-seo-link-building', 'local-seo-services',
+				'local-seo-services', 'ecommerce-seo-services', 'international-seo-services',
+				'google-ads-management', 'seo-audit-services', 'core-web-vitals-optimization',
 			);
-			$i = 1;
 			foreach ( $home_services as $slug ) {
-				avdesh_service_card( $slug, sprintf( '%02d', $i ) );
-				$i++;
+				avdesh_service_card( $slug );
 			}
 			?>
 		</div>
-		<div style="text-align:center;margin-top:34px;">
-			<a class="btn btn-ghost" href="<?php echo esc_url( home_url( '/seo-services/' ) ); ?>">See all services →</a>
+		<div style="text-align:center;margin-top:40px;">
+			<a class="btn btn-outline btn-lg" href="<?php echo esc_url( home_url( '/services/' ) ); ?>">See all 15 services →</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== WHY HIRE ME ===================== -->
+<section class="section section--tint">
+	<div class="container">
+		<div class="two-col" style="grid-template-columns:1fr 1fr;align-items:center;">
+			<div class="reveal">
+				<span class="eyebrow">Why hire me</span>
+				<h2 class="sec-title">A results-driven partner, not just another freelancer</h2>
+				<p class="lead" style="margin:12px 0 26px;">I focus on what truly moves the needle: qualified traffic, leads and revenue, using ethical white-hat methods that build durable, penalty-proof growth.</p>
+				<div class="grid" style="gap:22px;">
+					<div class="feat"><div class="fic">🎯</div><div><h4>Revenue over vanity metrics</h4><p>I optimize for leads and sales, not rankings that look good but don't convert.</p></div></div>
+					<div class="feat"><div class="fic">🤖</div><div><h4>AI-first &amp; future-proof</h4><p>Your brand is optimized for Google and AI engines like ChatGPT, Gemini and Perplexity.</p></div></div>
+					<div class="feat"><div class="fic">🛡️</div><div><h4>100% white-hat</h4><p>Sustainable strategies that protect your domain and keep rankings for the long term.</p></div></div>
+					<div class="feat"><div class="fic">🌍</div><div><h4>Global &amp; multi-platform</h4><p>WordPress, Shopify, Wix, Squarespace and custom builds, for clients worldwide.</p></div></div>
+				</div>
+			</div>
+			<div class="reveal">
+				<div class="chart-card">
+					<span class="badge-up">▲ +312% in 12 months</span>
+					<h3 style="margin-top:14px;">Organic traffic growth</h3>
+					<p class="csub">Representative client result, monthly organic sessions</p>
+					<?php echo avdesh_traffic_chart(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<div class="chart-legend"><span><i style="background:#10B981;"></i> Organic sessions</span><span><i style="background:#E6E8F2;"></i> Baseline</span></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -126,61 +129,76 @@ $stats   = array(
 	<div class="container">
 		<div class="sec-head center reveal">
 			<span class="eyebrow">How I work</span>
-			<h2 class="sec-title">my process<span class="dot">.</span></h2>
-			<p class="sec-sub">A clear, proven path from audit to measurable growth.</p>
+			<h2 class="sec-title">A proven SEO process</h2>
+			<p class="sec-sub">A clear, transparent path from audit to measurable growth, with reporting at every step.</p>
 		</div>
-		<div class="grid grid-4 reveal" style="margin-top:36px;">
-			<div class="step" style="padding-left:24px;padding-top:56px;"><h3>Audit &amp; research</h3><p>Deep keyword research and a full site audit to find the fastest routes to growth.</p></div>
-			<div class="step" style="padding-left:24px;padding-top:56px;"><h3>Strategy</h3><p>A prioritized roadmap tied to your revenue goals and realistic timelines.</p></div>
-			<div class="step" style="padding-left:24px;padding-top:56px;"><h3>Execution</h3><p>On-page, technical, content and off-page work delivered in focused sprints.</p></div>
-			<div class="step" style="padding-left:24px;padding-top:56px;"><h3>Measure &amp; scale</h3><p>Track rankings, traffic and conversions, then scale what drives ROI.</p></div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== RESULTS ===================== -->
-<section class="section section--tint">
-	<div class="container">
-		<div class="sec-head center reveal">
-			<span class="eyebrow">Impact</span>
-			<h2 class="sec-title">results that matter<span class="dot">.</span></h2>
-			<p class="sec-sub">Representative outcomes from SEO, GEO and paid campaigns. Update these with your own figures.</p>
-		</div>
-		<div class="results reveal" style="margin-top:34px;">
-			<div class="result"><b>3X</b><span>Organic traffic growth</span></div>
-			<div class="result"><b>250+</b><span>Page-one keywords</span></div>
-			<div class="result"><b>68%</b><span>More qualified leads</span></div>
-			<div class="result"><b>40%</b><span>Lower cost per lead</span></div>
+		<div class="grid grid-4 steps reveal" style="margin-top:40px;">
+			<div class="step"><div class="snum">1</div><h3>Audit &amp; research</h3><p>Deep site audit and keyword research to find the fastest routes to growth.</p></div>
+			<div class="step"><div class="snum">2</div><h3>Strategy</h3><p>A prioritized roadmap tied to your revenue goals and realistic timelines.</p></div>
+			<div class="step"><div class="snum">3</div><h3>Execution</h3><p>On-page, technical, content and off-page work delivered in focused sprints.</p></div>
+			<div class="step"><div class="snum">4</div><h3>Measure &amp; scale</h3><p>Track rankings, traffic and conversions, then scale what drives ROI.</p></div>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== CASE STUDIES ===================== -->
-<section class="section" id="case-studies">
+<!-- ===================== RESULTS (dark) ===================== -->
+<section class="section section--dark">
 	<div class="container">
 		<div class="sec-head center reveal">
-			<span class="eyebrow">Portfolio</span>
-			<h2 class="sec-title">case studies<span class="dot">.</span></h2>
-			<p class="sec-sub">Selected projects showcasing strategy, execution and measurable growth. Replace with your own case studies.</p>
+			<span class="eyebrow">Proven results</span>
+			<h2 class="sec-title" style="color:#fff;">Real growth, measurable outcomes</h2>
+			<p class="sec-sub" style="color:#AEB6DA;">Representative results from SEO, GEO and paid campaigns. Replace the graphs and numbers with your own Search Console and Analytics screenshots.</p>
 		</div>
-		<div class="case-grid reveal" style="margin-top:34px;">
+
+		<div class="grid grid-4 reveal" style="margin-top:40px;">
+			<div class="result-tile"><b data-count="312" data-prefix="+" data-suffix="%">+312%</b><span>Organic traffic growth</span></div>
+			<div class="result-tile"><b data-count="250" data-suffix="+">250+</b><span>Keywords on page one</span></div>
+			<div class="result-tile"><b data-count="68" data-suffix="%">68%</b><span>More qualified leads</span></div>
+			<div class="result-tile"><b data-count="40" data-suffix="%">40%</b><span>Lower cost per lead</span></div>
+		</div>
+
+		<div class="grid grid-2 reveal" style="margin-top:26px;">
+			<div class="chart-card">
+				<span class="badge-up">▲ Rankings improved</span>
+				<h3 style="margin-top:14px;">Before &amp; after rankings</h3>
+				<p class="csub">Average keyword position, before vs after</p>
+				<div style="margin-top:16px;"><?php echo avdesh_ranking_chart(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+				<div class="chart-legend"><span><i style="background:#C7CAF0;"></i> Before</span><span><i style="background:linear-gradient(90deg,#4F46E5,#10B981);"></i> After</span></div>
+			</div>
+			<div class="chart-card" style="display:flex;flex-direction:column;">
+				<h3>Search Console &amp; Analytics</h3>
+				<p class="csub">Upload your real growth screenshots here</p>
+				<div class="img-ph" style="flex:1;min-height:200px;margin-top:6px;"><span class="badge">📊 GSC clicks &amp; impressions screenshot</span></div>
+			</div>
+		</div>
+		<div style="text-align:center;margin-top:36px;">
+			<a class="btn btn-light btn-lg" href="<?php echo esc_url( home_url( '/seo-results/' ) ); ?>">See detailed SEO results →</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== INDUSTRIES ===================== -->
+<section class="section">
+	<div class="container">
+		<div class="sec-head center reveal">
+			<span class="eyebrow">Industries served</span>
+			<h2 class="sec-title">Experience across industries</h2>
+			<p class="sec-sub">I've helped businesses of every size and sector grow through search.</p>
+		</div>
+		<div class="grid grid-4 reveal" style="margin-top:40px;">
 			<?php
-			$cases = array(
-				array( 'Project One', 'SEO & Content' ),
-				array( 'Project Two', 'Technical SEO' ),
-				array( 'Project Three', 'Local SEO' ),
-				array( 'Project Four', 'Google Ads' ),
+			$industries = array(
+				array( '🛒', 'eCommerce & Retail' ), array( '💻', 'SaaS & Tech' ),
+				array( '🏥', 'Healthcare' ), array( '🏘️', 'Real Estate' ),
+				array( '⚖️', 'Legal & Finance' ), array( '🏨', 'Travel & Hospitality' ),
+				array( '🎓', 'Education' ), array( '🔧', 'Local Services' ),
 			);
-			foreach ( $cases as $c ) : ?>
-				<div class="case">
-					<div class="logo-ph"><?php echo esc_html( strtoupper( substr( $c[0], 0, 1 ) ) ); ?></div>
-					<h4><?php echo esc_html( $c[0] ); ?></h4>
-					<span><?php echo esc_html( $c[1] ); ?></span>
-				</div>
+			foreach ( $industries as $ind ) : ?>
+				<div class="ind-card"><div class="ii"><?php echo esc_html( $ind[0] ); ?></div><h4><?php echo esc_html( $ind[1] ); ?></h4></div>
 			<?php endforeach; ?>
 		</div>
-		<div style="text-align:center;margin-top:34px;">
-			<a class="btn btn-ghost" href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">View full portfolio →</a>
+		<div style="text-align:center;margin-top:32px;">
+			<a class="btn btn-outline" href="<?php echo esc_url( home_url( '/industries/' ) ); ?>">Explore industries →</a>
 		</div>
 	</div>
 </section>
@@ -189,30 +207,87 @@ $stats   = array(
 <section class="section section--tint">
 	<div class="container">
 		<div class="sec-head center reveal">
-			<span class="eyebrow">Toolkit</span>
-			<h2 class="sec-title">tools &amp; platforms<span class="dot">.</span></h2>
-			<p class="sec-sub">The stack I use to plan, execute and measure search growth.</p>
+			<span class="eyebrow">Tools &amp; tech</span>
+			<h2 class="sec-title">The stack I use every day</h2>
+			<p class="sec-sub">Enterprise-grade SEO, analytics and AI tools to plan, execute and measure growth.</p>
 		</div>
-		<div class="logo-grid reveal" style="margin-top:30px;">
-			<?php foreach ( array( 'Google Search Console', 'GA4', 'Ahrefs', 'SEMrush', 'Screaming Frog', 'Google Ads', 'ChatGPT', 'Perplexity', 'WordPress', 'Shopify', 'Wix', 'Squarespace' ) as $tool ) : ?>
-				<div class="logo-cell"><?php echo esc_html( $tool ); ?></div>
+		<div class="reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px;">
+			<?php foreach ( array( 'Google Search Console', 'Google Analytics 4', 'Ahrefs', 'SEMrush', 'Screaming Frog', 'Google Ads', 'Looker Studio', 'ChatGPT', 'Claude', 'AI SEO tools' ) as $tool ) : ?>
+				<div class="tool-pill"><span class="tdot"></span> <?php echo esc_html( $tool ); ?></div>
 			<?php endforeach; ?>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== BRANDS ===================== -->
+<!-- ===================== TESTIMONIALS ===================== -->
 <section class="section">
 	<div class="container">
 		<div class="sec-head center reveal">
-			<span class="eyebrow">Trusted by</span>
-			<h2 class="sec-title">featured brands<span class="dot">.</span></h2>
-			<p class="sec-sub">Brands and businesses I've helped grow. Replace these cells with client logos.</p>
+			<span class="eyebrow">Testimonials</span>
+			<h2 class="sec-title">What clients say</h2>
+			<p class="sec-sub">Replace these with your real client testimonials and results.</p>
 		</div>
-		<div class="logo-grid reveal" style="margin-top:30px;">
-			<?php for ( $b = 1; $b <= 12; $b++ ) : ?>
-				<div class="logo-cell">Logo <?php echo esc_html( $b ); ?></div>
-			<?php endfor; ?>
+		<div class="grid grid-3 reveal" style="margin-top:40px;">
+			<?php
+			$tst = array(
+				array( 'Avdesh transformed our organic traffic. We went from page three to the top three for our main keywords in under six months, and leads followed.', 'S. Mehta', 'Founder, SaaS Startup', 'S' ),
+				array( 'Professional, transparent and genuinely results-focused. Our eCommerce revenue from organic search more than doubled.', 'A. Khan', 'Director, eCommerce Brand', 'A' ),
+				array( 'The AI search work put us ahead of competitors. We now show up in AI answers where our rivals don\'t. Highly recommended.', 'M. Sharma', 'Marketing Lead, Agency', 'M' ),
+			);
+			foreach ( $tst as $t ) : ?>
+				<div class="tcard">
+					<div class="stars">★★★★★</div>
+					<blockquote>"<?php echo esc_html( $t[0] ); ?>"</blockquote>
+					<div class="who"><span class="av"><?php echo esc_html( $t[3] ); ?></span><div><b><?php echo esc_html( $t[1] ); ?></b><span><?php echo esc_html( $t[2] ); ?></span></div></div>
+				</div>
+			<?php endforeach; ?>
+		</div>
+		<div style="text-align:center;margin-top:32px;"><a class="btn btn-outline" href="<?php echo esc_url( home_url( '/testimonials/' ) ); ?>">Read more testimonials →</a></div>
+	</div>
+</section>
+
+<!-- ===================== CASE STUDIES ===================== -->
+<section class="section section--tint">
+	<div class="container">
+		<div class="sec-head center reveal">
+			<span class="eyebrow">Case studies</span>
+			<h2 class="sec-title">Selected client wins</h2>
+			<p class="sec-sub">Strategy, execution and measurable growth. Replace with your own projects.</p>
+		</div>
+		<div class="grid grid-3 reveal" style="margin-top:40px;">
+			<?php
+			$cs = array(
+				array( 'SaaS Organic Growth', 'SaaS / SEO', array( '+312% traffic', '250+ keywords' ) ),
+				array( 'eCommerce SEO Scale', 'Shopify / eCommerce', array( '+150% revenue', '2.4x ROAS' ) ),
+				array( 'Local SEO Domination', 'Local / GBP', array( 'Map pack #1', '5x calls' ) ),
+			);
+			foreach ( $cs as $c ) : ?>
+				<article class="cs-card">
+					<div class="cs-top"><div class="img-ph" style="min-height:180px;border-radius:0;border:0;"><span class="badge">📷 Project image</span></div><span class="cs-tag"><?php echo esc_html( $c[1] ); ?></span></div>
+					<div class="cs-body">
+						<h3><?php echo esc_html( $c[0] ); ?></h3>
+						<p>A short summary of the challenge, strategy and outcome for this project.</p>
+						<div class="cs-metrics"><?php foreach ( $c[2] as $m ) : ?><span><?php echo esc_html( $m ); ?></span><?php endforeach; ?></div>
+					</div>
+				</article>
+			<?php endforeach; ?>
+		</div>
+		<div style="text-align:center;margin-top:36px;"><a class="btn btn-primary btn-lg" href="<?php echo esc_url( $cases ); ?>">View all case studies →</a></div>
+	</div>
+</section>
+
+<!-- ===================== CERTIFICATIONS ===================== -->
+<section class="section">
+	<div class="container">
+		<div class="sec-head center reveal">
+			<span class="eyebrow">Certifications</span>
+			<h2 class="sec-title">Qualified &amp; always learning</h2>
+			<p class="sec-sub">Continuous learning keeps my strategies current with every algorithm and AI update. Replace with your badges.</p>
+		</div>
+		<div class="grid grid-4 reveal" style="margin-top:36px;">
+			<?php foreach ( array( 'Google Analytics', 'Google Ads', 'SEO Certification', 'Content Marketing' ) as $cert ) : ?>
+				<div class="tl" style="min-height:80px;"><?php echo esc_html( $cert ); ?></div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>
@@ -222,14 +297,15 @@ $stats   = array(
 	<div class="container">
 		<div class="sec-head center reveal">
 			<span class="eyebrow">FAQ</span>
-			<h2 class="sec-title">common questions<span class="dot">.</span></h2>
+			<h2 class="sec-title">Common questions</h2>
 		</div>
-		<div class="faq reveal" style="margin-top:30px;">
-			<details open><summary><h3 style="display:inline;font-size:1.02rem;margin:0;">What makes your SEO approach different?</h3></summary><p>I take an AI-first approach. Your content is optimized to rank on Google and to be cited by AI answer engines like ChatGPT, Gemini and Perplexity, so you stay visible as search behaviour changes. Everything is white-hat and focused on revenue, not vanity rankings.</p></details>
-			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;">Which platforms do you work with?</h3></summary><p>WordPress, Shopify, Wix, Squarespace, WooCommerce and custom builds. I adapt the technical work to each platform so your CMS never limits your rankings.</p></details>
-			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;">Do you work with international clients?</h3></summary><p>Yes. I'm based in Delhi, India, and work with clients across the UK, USA, UAE, Australia and beyond, remotely and reliably.</p></details>
-			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;">How soon will I see results?</h3></summary><p>SEO usually shows early movement in 8 to 12 weeks and compounds from there. Google Ads can deliver leads within days. I recommend combining both for short and long-term growth.</p></details>
+		<div class="faq reveal" style="margin-top:36px;">
+			<details open><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">What makes your SEO approach different?</h3></summary><p>I take an AI-first, revenue-focused approach. Your content is optimized to rank on Google and to be cited by AI answer engines like ChatGPT, Gemini and Perplexity. Everything is white-hat and measured on leads and sales, not vanity rankings.</p></details>
+			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">Which platforms and countries do you work with?</h3></summary><p>WordPress, Shopify, Wix, Squarespace, WooCommerce and custom builds, for clients across India, USA, UK, Canada, Australia, UAE and Europe.</p></details>
+			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">How soon will I see results?</h3></summary><p>SEO usually shows early movement in 8 to 12 weeks and compounds from there. Google Ads can deliver leads within days. I recommend combining both for short and long-term growth.</p></details>
+			<details><summary><h3 style="display:inline;font-size:1.02rem;margin:0;font-family:var(--display);">Do you offer a free consultation?</h3></summary><p>Yes. Book a free SEO audit and I'll show you exactly what's holding your rankings back and how to fix it, with no obligation.</p></details>
 		</div>
+		<div style="text-align:center;margin-top:28px;"><a class="btn btn-outline" href="<?php echo esc_url( home_url( '/faqs/' ) ); ?>">See all FAQs →</a></div>
 	</div>
 </section>
 

@@ -34,17 +34,26 @@ function avdesh_customize_register( $wp_customize ) {
 		$wp_customize->add_control( $key, array( 'label' => $data[0], 'section' => 'avdesh_contact', 'type' => 'text' ) );
 	}
 
-	// Optional contact-form shortcode (WPForms, Contact Form 7, etc.).
-	$wp_customize->add_setting( 'avdesh_form_shortcode', array( 'default' => '', 'sanitize_callback' => 'wp_kses_post' ) );
-	$wp_customize->add_control(
-		'avdesh_form_shortcode',
-		array(
-			'label'       => __( 'Contact form shortcode (optional)', 'avdesh-seo' ),
-			'description' => __( 'Paste a shortcode from a form plugin to replace the built-in form. Leave blank to keep the default form.', 'avdesh-seo' ),
-			'section'     => 'avdesh_contact',
-			'type'        => 'text',
-		)
+	// Optional contact-form shortcodes (WPForms, Contact Form 7, etc.).
+	foreach ( array(
+		'avdesh_form_shortcode'  => 'Contact form shortcode (optional)',
+		'avdesh_audit_shortcode' => 'Free-audit form shortcode (optional)',
+	) as $key => $label ) {
+		$wp_customize->add_setting( $key, array( 'default' => '', 'sanitize_callback' => 'wp_kses_post' ) );
+		$wp_customize->add_control( $key, array( 'label' => __( $label, 'avdesh-seo' ), 'section' => 'avdesh_contact', 'type' => 'text' ) );
+	}
+
+	/* ---------------- Pricing ---------------- */
+	$wp_customize->add_section( 'avdesh_pricing', array( 'title' => __( 'Pricing', 'avdesh-seo' ), 'priority' => 34 ) );
+	$price_fields = array(
+		'avdesh_price_currency' => array( 'Currency symbol', '$' ),
+		'avdesh_price_1'        => array( 'Starter price', '499' ),
+		'avdesh_price_2'        => array( 'Growth price', '999' ),
 	);
+	foreach ( $price_fields as $key => $data ) {
+		$wp_customize->add_setting( $key, array( 'default' => $data[1], 'sanitize_callback' => 'sanitize_text_field' ) );
+		$wp_customize->add_control( $key, array( 'label' => $data[0], 'section' => 'avdesh_pricing', 'type' => 'text' ) );
+	}
 
 	/* ---------------- Social links ---------------- */
 	$wp_customize->add_section(

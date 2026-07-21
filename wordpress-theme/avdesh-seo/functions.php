@@ -57,10 +57,10 @@ add_action( 'after_setup_theme', 'avdesh_content_width', 0 );
  *  Assets
  * ---------------------------------------------------------------------- */
 function avdesh_assets() {
-	// Google Fonts: Poppins (UI) + Caveat (script accent) — matches the portfolio.
+	// Premium type pairing: Sora (display) + Inter (text).
 	wp_enqueue_style(
 		'avdesh-fonts',
-		'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap',
 		array(),
 		null
 	);
@@ -91,12 +91,14 @@ require AVDESH_DIR . '/inc/setup-pages.php';
  * ---------------------------------------------------------------------- */
 function avdesh_fallback_menu() {
 	$items = array(
-		home_url( '/' )                       => __( 'Home', 'avdesh-seo' ),
-		home_url( '/about/' )                 => __( 'About', 'avdesh-seo' ),
-		home_url( '/seo-services/' )          => __( 'Services', 'avdesh-seo' ),
-		home_url( '/ai-search-optimization/' )=> __( 'AI Search', 'avdesh-seo' ),
-		home_url( '/portfolio/' )             => __( 'Portfolio', 'avdesh-seo' ),
-		home_url( '/contact/' )               => __( 'Contact', 'avdesh-seo' ),
+		home_url( '/' )              => __( 'Home', 'avdesh-seo' ),
+		home_url( '/about/' )        => __( 'About', 'avdesh-seo' ),
+		home_url( '/services/' )     => __( 'Services', 'avdesh-seo' ),
+		home_url( '/case-studies/' ) => __( 'Case Studies', 'avdesh-seo' ),
+		home_url( '/seo-results/' )  => __( 'SEO Results', 'avdesh-seo' ),
+		home_url( '/pricing/' )      => __( 'Pricing', 'avdesh-seo' ),
+		home_url( '/blog/' )         => __( 'Blog', 'avdesh-seo' ),
+		home_url( '/contact/' )      => __( 'Contact', 'avdesh-seo' ),
 	);
 	echo '<ul id="primary-menu" class="nav">';
 	foreach ( $items as $url => $label ) {

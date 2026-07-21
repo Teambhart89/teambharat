@@ -62,6 +62,15 @@ no stop words that add no value.
 | 8 | Google Ads Management | `/google-ads-management/` | Google Ads management | PPC management, search ads, ROI ad campaigns |
 | 9 | SEO Content Writing | `/seo-content-writing/` | SEO content writing | ai optimized content, GEO content, blog writing |
 | 10 | SEO Audit | `/seo-audit-services/` | SEO audit services | website audit, technical audit, seo health check |
+| 11 | International SEO | `/international-seo-services/` | international SEO services | multilingual seo, hreflang, multi-country seo |
+| 12 | Keyword Research | `/keyword-research-services/` | keyword research services | keyword strategy, search intent, keyword mapping |
+| 13 | Content Strategy | `/content-strategy-services/` | SEO content strategy | topic clusters, content calendar, content gap |
+| 14 | Website Migration | `/website-migration-services/` | website migration SEO | replatforming, 301 redirects, redesign seo |
+| 15 | Core Web Vitals | `/core-web-vitals-optimization/` | core web vitals optimization | site speed, LCP, INP, CLS, page experience |
+
+Additional conversion & trust pages (targeting brand + commercial-navigational intent):
+`/case-studies/`, `/seo-results/`, `/testimonials/`, `/industries/`, `/pricing/`,
+`/faqs/`, `/book-free-seo-audit/`, `/portfolio/`, `/about/`, `/contact/`.
 
 ## 4. Platform Keywords (worked into service copy)
 

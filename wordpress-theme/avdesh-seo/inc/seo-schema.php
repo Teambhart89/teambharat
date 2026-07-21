@@ -43,8 +43,24 @@ function avdesh_meta_description() {
 	if ( $s && ! empty( $s['meta_desc'] ) ) {
 		return $s['meta_desc'];
 	}
+	$page_meta = array(
+		'case-studies'        => 'SEO case studies and client wins by Avdesh Kumar. Real challenges, white-hat strategies and measurable results in traffic, rankings, leads and revenue.',
+		'seo-results'         => 'Proven SEO results by Avdesh Kumar: organic traffic growth, ranking improvements and lead generation, backed by Search Console and Analytics data.',
+		'testimonials'        => 'Client testimonials for Avdesh Kumar, freelance SEO and AI search consultant trusted by 500+ businesses across India, the USA, UK, Canada, Australia, UAE and Europe.',
+		'industries'          => 'SEO expertise across industries: eCommerce, SaaS, healthcare, real estate, legal, local services and more, tailored by Avdesh Kumar.',
+		'pricing'             => 'Simple, transparent SEO pricing and packages by Avdesh Kumar. Flexible plans for startups, local businesses, eCommerce and international brands.',
+		'faqs'                => 'Answers to common questions about SEO, AI search optimization, GEO and Google Ads services from freelance consultant Avdesh Kumar.',
+		'book-free-seo-audit' => 'Book a free, no-obligation SEO audit with Avdesh Kumar and get a clear, prioritized plan to grow your organic traffic, rankings and revenue.',
+		'about'               => 'Avdesh Kumar is a freelance SEO, AI Search (AISO), GEO and Google Ads consultant in Delhi, India, with 8+ years helping 500+ businesses grow.',
+		'services'            => 'Full-funnel SEO, AI Search Optimization, GEO and Google Ads services by Avdesh Kumar, for businesses worldwide across every major platform.',
+		'contact'             => 'Contact Avdesh Kumar, freelance SEO and AI search consultant in Delhi, India. Get in touch about SEO, GEO and Google Ads for your business.',
+	);
+	$cur = avdesh_current_slug();
+	if ( isset( $page_meta[ $cur ] ) ) {
+		return $page_meta[ $cur ];
+	}
 	if ( is_front_page() ) {
-		return 'Avdesh Kumar is an SEO and AI Search Optimization Specialist in Delhi, India, with 8 years of experience driving organic traffic, higher rankings and real ROI through white-hat SEO, GEO and Google Ads.';
+		return 'Avdesh Kumar is a freelance SEO, AI Search Optimization (AISO), GEO and Google Ads consultant in Delhi, India, with 8+ years helping 500+ businesses grow organic traffic, leads and revenue with white-hat strategies.';
 	}
 	if ( is_singular() ) {
 		$excerpt = get_the_excerpt();
@@ -120,10 +136,10 @@ function avdesh_schema() {
 		'@type'       => 'Person',
 		'@id'         => $home . '#person',
 		'name'        => 'Avdesh Kumar',
-		'jobTitle'    => 'SEO & AI Search Optimization Specialist',
-		'description' => 'SEO, GEO and Google Ads specialist with 8 years of experience delivering organic traffic growth, higher rankings and measurable ROI.',
+		'jobTitle'    => 'SEO, AI Search & GEO Consultant',
+		'description' => 'Freelance SEO, AI Search Optimization (AISO), GEO and Google Ads consultant with 8+ years of experience helping 500+ businesses grow organic traffic, leads and revenue with white-hat strategies.',
 		'url'         => $home,
-		'knowsAbout'  => array( 'Search Engine Optimization', 'Generative Engine Optimization', 'AI Search Optimization', 'Technical SEO', 'On-Page SEO', 'Link Building', 'Local SEO', 'Google Ads', 'Content Marketing' ),
+		'knowsAbout'  => array( 'Search Engine Optimization', 'AI Search Optimization', 'Generative Engine Optimization', 'Answer Engine Optimization', 'Technical SEO', 'On-Page SEO', 'Local SEO', 'eCommerce SEO', 'International SEO', 'Link Building', 'Keyword Research', 'Content Strategy', 'Website Migration', 'Core Web Vitals', 'Google Ads' ),
 		'address'     => array( '@type' => 'PostalAddress', 'addressLocality' => $loc, 'addressCountry' => 'IN' ),
 	);
 	if ( $img ) { $person['image'] = $img; }
@@ -142,7 +158,7 @@ function avdesh_schema() {
 		'telephone'    => $phone,
 		'email'        => $email,
 		'priceRange'   => '$$',
-		'areaServed'   => array( 'India', 'United Arab Emirates', 'United Kingdom', 'United States', 'Australia' ),
+		'areaServed'   => array( 'India', 'United States', 'United Kingdom', 'Canada', 'Australia', 'United Arab Emirates', 'Europe' ),
 		'address'      => array( '@type' => 'PostalAddress', 'addressLocality' => $loc, 'addressCountry' => 'IN' ),
 		'founder'      => array( '@id' => $home . '#person' ),
 		'sameAs'       => array_values( $socials ),
@@ -166,7 +182,7 @@ function avdesh_schema() {
 			'serviceType' => $s['menu'],
 			'description' => $s['meta_desc'],
 			'provider'    => array( '@id' => $home . '#person' ),
-			'areaServed'  => array( 'India', 'United Arab Emirates', 'United Kingdom', 'United States', 'Australia' ),
+			'areaServed'  => array( 'India', 'United States', 'United Kingdom', 'Canada', 'Australia', 'United Arab Emirates', 'Europe' ),
 			'url'         => get_permalink(),
 		);
 		if ( ! empty( $s['faq'] ) ) {
@@ -183,6 +199,19 @@ function avdesh_schema() {
 				'mainEntity' => $faqs,
 			);
 		}
+	}
+
+	// FAQPage schema on the dedicated FAQs page.
+	if ( 'faqs' === avdesh_current_slug() && function_exists( 'avdesh_faq_list' ) ) {
+		$faqs = array();
+		foreach ( avdesh_faq_list() as $f ) {
+			$faqs[] = array(
+				'@type'          => 'Question',
+				'name'           => $f['q'],
+				'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $f['a'] ),
+			);
+		}
+		$graph[] = array( '@type' => 'FAQPage', 'mainEntity' => $faqs );
 	}
 
 	$data = array( '@context' => 'https://schema.org', '@graph' => $graph );

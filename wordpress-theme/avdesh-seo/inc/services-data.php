@@ -563,6 +563,266 @@ function avdesh_services() {
 			),
 			'related'    => array( 'technical-seo-services', 'seo-services', 'on-page-seo-services' ),
 		),
+
+		/* ============================================================= 11 */
+		'international-seo-services' => array(
+			'menu'       => 'International SEO',
+			'icon'       => '🌍',
+			'card_desc'  => 'Rank in multiple countries and languages with hreflang, geo-targeting and localized content that wins global markets.',
+			'h1'         => 'International SEO Services',
+			'tagline'    => 'Expand into new countries the right way. Multi-region, multi-language SEO that captures demand across the USA, UK, Canada, Australia, UAE, Europe and beyond.',
+			'meta_title' => 'International SEO Services | Multi-Country & Multilingual',
+			'meta_desc'  => 'International SEO services by Avdesh Kumar. Rank across countries and languages with hreflang, geo-targeting and localized content built for global growth.',
+			'intro'      => array(
+				'h2'      => 'What is international SEO',
+				'paras'   => array(
+					'International SEO is the practice of optimizing your website so it ranks in the right language and country for each of your target markets. It combines hreflang tags, geo-targeting, localized content and the correct site structure so search engines serve the right version to the right audience.',
+					'Getting this wrong causes duplicate content, wrong-country rankings and lost traffic. I set up your international presence cleanly so every market sees the version built for them.',
+				),
+				'callout' => 'A single global site can quietly cannibalize itself. Correct international structure turns that confusion into compounding growth in every market.',
+			),
+			'includes'   => array(
+				'h2'    => 'What my international SEO service includes',
+				'items' => array(
+					array( 'h3' => 'Hreflang and structure', 'p' => 'Correct hreflang, canonical and URL structure so each country and language version ranks where it should.', 'h4' => 'The right page, the right market', 'h4p' => 'Clean signals stop the wrong version outranking the one built for that audience.' ),
+					array( 'h3' => 'Market and keyword research', 'p' => 'Local keyword research per country, because buyers search differently in each language and region.', 'h4' => 'Local intent, not translation', 'h4p' => 'Real local research beats direct translation for rankings and relevance.' ),
+					array( 'h3' => 'Content localization', 'p' => 'Content adapted to local language, culture, currency and buying habits, not just translated.', 'h4' => 'Content that converts locally', 'h4p' => 'Localized content earns trust and turns visitors into customers.' ),
+					array( 'h3' => 'Technical geo-targeting', 'p' => 'Search Console geo-targeting, ccTLD or subfolder strategy and server considerations handled correctly.', 'h4' => 'Foundations for scale', 'h4p' => 'The right architecture makes adding new markets simple later.' ),
+				),
+			),
+			'process'    => array(
+				'h2'    => 'My international SEO process',
+				'steps' => array(
+					array( 'h3' => 'Market strategy', 'p' => 'I define target countries, languages and the best URL structure for your goals.' ),
+					array( 'h3' => 'Technical setup', 'p' => 'I implement hreflang, geo-targeting and a clean, scalable structure.' ),
+					array( 'h3' => 'Localization', 'p' => 'I guide local keyword research and content adaptation per market.' ),
+					array( 'h3' => 'Measure per market', 'p' => 'I track rankings and traffic country by country and refine each one.' ),
+				),
+			),
+			'why'        => array(
+				'h2'    => 'Why international SEO matters',
+				'items' => array(
+					array( 'h4' => 'Reach new markets', 'p' => 'Tap demand in high-value countries you are not visible in yet.' ),
+					array( 'h4' => 'Avoid costly mistakes', 'p' => 'Correct setup prevents duplicate content and wrong-country rankings.' ),
+					array( 'h4' => 'Localized trust', 'p' => 'Buyers convert more when content speaks their language and context.' ),
+					array( 'h4' => 'Scalable growth', 'p' => 'A clean structure lets you add markets without rebuilding.' ),
+				),
+			),
+			'faq'        => array(
+				array( 'q' => 'Should I use ccTLDs, subfolders or subdomains?', 'a' => 'It depends on your resources and goals. Subfolders on one strong domain are often the most efficient for concentrating authority, while ccTLDs suit large brands committed to each market. I recommend the right structure for your situation.' ),
+				array( 'q' => 'Is translation enough for international SEO?', 'a' => 'No. Direct translation misses local search terms, culture and intent. I focus on true localization with local keyword research so each market gets content that ranks and converts.' ),
+				array( 'q' => 'How does hreflang help?', 'a' => 'Hreflang tells search engines which language and region each page targets, so the correct version is shown to each user. Done wrong, it causes serious ranking issues, so it needs careful implementation.' ),
+			),
+			'related'    => array( 'technical-seo-services', 'seo-services', 'content-strategy-services' ),
+		),
+
+		/* ============================================================= 12 */
+		'keyword-research-services' => array(
+			'menu'       => 'Keyword Research',
+			'icon'       => '🔑',
+			'card_desc'  => 'Data-driven keyword research that finds the searches with real commercial value and maps them to the right pages.',
+			'h1'         => 'Keyword Research Services',
+			'tagline'    => 'The foundation of every winning SEO campaign. I find the keywords your buyers actually use and turn them into a clear, rankable content plan.',
+			'meta_title' => 'Keyword Research Services | SEO Keyword Strategy',
+			'meta_desc'  => 'Professional keyword research by Avdesh Kumar. Find high-value, high-intent keywords and get a clear content map built to rank and convert.',
+			'intro'      => array(
+				'h2'      => 'Why keyword research comes first',
+				'paras'   => array(
+					'Keyword research is the process of finding the exact searches your potential customers use, then measuring their demand, difficulty and intent. It is the foundation every other SEO decision is built on.',
+					'I go beyond search volume. I prioritise keywords by commercial intent and realistic ranking potential, then map each one to the right page so your effort targets terms that actually drive revenue.',
+				),
+				'callout' => 'The wrong keywords waste months of effort. The right ones make every other SEO investment pay off faster.',
+			),
+			'includes'   => array(
+				'h2'    => 'What my keyword research includes',
+				'items' => array(
+					array( 'h3' => 'Seed and competitor analysis', 'p' => 'I expand from your core topics and mine competitor keywords for proven opportunities.', 'h4' => 'Learn from what already ranks', 'h4p' => 'Competitor gaps reveal the fastest, most realistic wins.' ),
+					array( 'h3' => 'Intent classification', 'p' => 'Every keyword is tagged by intent so buyers reach pages built to convert them.', 'h4' => 'Match the moment', 'h4p' => 'Aligning intent to page type lifts both rankings and conversions.' ),
+					array( 'h3' => 'Difficulty and priority', 'p' => 'I balance demand against difficulty to sequence quick wins and long-term targets.', 'h4' => 'A realistic roadmap', 'h4p' => 'You focus effort where it pays off soonest.' ),
+					array( 'h3' => 'Keyword-to-page mapping', 'p' => 'Each keyword is assigned to a specific page so nothing competes with itself.', 'h4' => 'No cannibalization', 'h4p' => 'Clear mapping stops your own pages fighting each other.' ),
+				),
+			),
+			'process'    => array(
+				'h2'    => 'My keyword research process',
+				'steps' => array(
+					array( 'h3' => 'Discovery', 'p' => 'I learn your business, offers and best customers to anchor the research.' ),
+					array( 'h3' => 'Research and expansion', 'p' => 'I build a full keyword universe from seeds, competitors and search tools.' ),
+					array( 'h3' => 'Prioritize and map', 'p' => 'I score by intent, difficulty and value, then map keywords to pages.' ),
+					array( 'h3' => 'Deliver the plan', 'p' => 'You get a clear content map and priority list ready to execute.' ),
+				),
+			),
+			'why'        => array(
+				'h2'    => 'Why my keyword research works',
+				'items' => array(
+					array( 'h4' => 'Revenue focus', 'p' => 'I prioritise commercial intent, not just high traffic.' ),
+					array( 'h4' => 'Realistic targets', 'p' => 'Difficulty scoring keeps the plan achievable.' ),
+					array( 'h4' => 'Ready to execute', 'p' => 'You leave with a clear content map, not a raw list.' ),
+					array( 'h4' => 'AI-aware', 'p' => 'I include the questions buyers ask AI engines, not just Google.' ),
+				),
+			),
+			'faq'        => array(
+				array( 'q' => 'How many keywords will I get?', 'a' => 'Quality matters more than quantity. You receive a prioritized, mapped set focused on the terms most likely to drive traffic and revenue, rather than a bloated list of low-value keywords.' ),
+				array( 'q' => 'Do you research keywords for AI search too?', 'a' => 'Yes. I include the natural-language questions people ask AI assistants, so your content is ready for both Google and generative engines.' ),
+				array( 'q' => 'Can I use this for content and ads?', 'a' => 'Absolutely. A solid keyword map informs your SEO content, site structure and Google Ads targeting all at once.' ),
+			),
+			'related'    => array( 'content-strategy-services', 'seo-services', 'on-page-seo-services' ),
+		),
+
+		/* ============================================================= 13 */
+		'content-strategy-services' => array(
+			'menu'       => 'Content Strategy',
+			'icon'       => '🗺️',
+			'card_desc'  => 'Topic clusters and editorial planning that build topical authority and rank you across entire subject areas.',
+			'h1'         => 'SEO Content Strategy Services',
+			'tagline'    => 'A clear plan for what to publish and why. Topic clusters and content roadmaps that build authority and rank you across your whole niche.',
+			'meta_title' => 'SEO Content Strategy Services | Topic Clusters & Planning',
+			'meta_desc'  => 'SEO content strategy by Avdesh Kumar. Topic clusters, content calendars and editorial planning that build topical authority and drive organic growth.',
+			'intro'      => array(
+				'h2'      => 'What is SEO content strategy',
+				'paras'   => array(
+					'SEO content strategy is the plan that decides what content to create, in what order, and how it connects, so your site builds authority around the topics that matter to your business. It turns scattered blog posts into a structured system that ranks.',
+					'I design pillar and cluster structures that signal genuine expertise to both Google and AI answer engines, then map them to a realistic publishing calendar you can actually follow.',
+				),
+				'callout' => 'Random posts rarely rank. A connected content strategy compounds, with each new piece strengthening the rest.',
+			),
+			'includes'   => array(
+				'h2'    => 'What my content strategy includes',
+				'items' => array(
+					array( 'h3' => 'Topic cluster architecture', 'p' => 'Pillar pages and supporting clusters that build topical authority across your niche.', 'h4' => 'Authority by design', 'h4p' => 'Clusters tell search engines you truly own a subject.' ),
+					array( 'h3' => 'Content gap analysis', 'p' => 'I find the valuable topics competitors rank for and you are missing.', 'h4' => 'Capture missed demand', 'h4p' => 'Gaps are ready-made opportunities to win new traffic.' ),
+					array( 'h3' => 'Editorial calendar', 'p' => 'A prioritized publishing plan tied to keywords, intent and business goals.', 'h4' => 'A plan you can follow', 'h4p' => 'Clear priorities keep content consistent and on-strategy.' ),
+					array( 'h3' => 'Internal linking plan', 'p' => 'A linking blueprint so authority flows to your most important pages.', 'h4' => 'Every piece supports the goal', 'h4p' => 'Smart internal links turn content into a ranking engine.' ),
+				),
+			),
+			'process'    => array(
+				'h2'    => 'My content strategy process',
+				'steps' => array(
+					array( 'h3' => 'Audit and research', 'p' => 'I review existing content, competitors and keyword opportunities.' ),
+					array( 'h3' => 'Cluster design', 'p' => 'I map pillars, clusters and the internal links that connect them.' ),
+					array( 'h3' => 'Calendar and briefs', 'p' => 'I prioritise topics and can provide briefs ready for writers.' ),
+					array( 'h3' => 'Review and adapt', 'p' => 'I track performance and evolve the plan as you grow.' ),
+				),
+			),
+			'why'        => array(
+				'h2'    => 'Why strategy beats random posting',
+				'items' => array(
+					array( 'h4' => 'Compounding results', 'p' => 'Connected content builds authority that lifts every page.' ),
+					array( 'h4' => 'Topical authority', 'p' => 'Owning a topic is how you rank for its most competitive terms.' ),
+					array( 'h4' => 'Efficient effort', 'p' => 'You publish with purpose instead of guessing.' ),
+					array( 'h4' => 'AI visibility', 'p' => 'Well-structured topics are easier for AI engines to cite.' ),
+				),
+			),
+			'faq'        => array(
+				array( 'q' => 'What are topic clusters?', 'a' => 'A topic cluster is a central pillar page on a broad subject, supported by detailed cluster pages on related subtopics, all interlinked. This structure signals expertise and helps you rank across an entire topic.' ),
+				array( 'q' => 'Do you write the content too?', 'a' => 'I can provide the strategy and briefs, and write the content, or work alongside your existing writers. The strategy works either way.' ),
+				array( 'q' => 'How often should I publish?', 'a' => 'Consistency beats volume. I set a realistic cadence you can sustain, because steady, quality publishing outperforms occasional bursts.' ),
+			),
+			'related'    => array( 'seo-content-writing', 'keyword-research-services', 'ai-search-optimization' ),
+		),
+
+		/* ============================================================= 14 */
+		'website-migration-services' => array(
+			'menu'       => 'Website Migration',
+			'icon'       => '🚚',
+			'card_desc'  => 'Redesign, replatform or move domains without losing rankings or traffic. Safe, carefully managed SEO migrations.',
+			'h1'         => 'Website Migration SEO Services',
+			'tagline'    => 'Redesigning, replatforming or changing domain? I protect your rankings and traffic through a carefully planned, low-risk migration.',
+			'meta_title' => 'Website Migration SEO Services | Safe Replatforming',
+			'meta_desc'  => 'Website migration SEO by Avdesh Kumar. Redesign, replatform or move domains without losing rankings or traffic, with a safe, carefully managed process.',
+			'intro'      => array(
+				'h2'      => 'Protect your rankings during a migration',
+				'paras'   => array(
+					'A website migration is any major change to your site: a redesign, a new platform, a new domain or a restructure of URLs. Handled poorly, migrations are one of the fastest ways to lose years of hard-won rankings and traffic overnight.',
+					'I plan and manage the SEO side of your migration end to end, from redirect mapping to post-launch monitoring, so you keep your rankings and often come out stronger.',
+				),
+				'callout' => 'Most traffic drops after a redesign are avoidable. A proper migration plan is the difference between keeping your rankings and rebuilding them.',
+			),
+			'includes'   => array(
+				'h2'    => 'What my migration service includes',
+				'items' => array(
+					array( 'h3' => 'Pre-migration audit', 'p' => 'I benchmark rankings, traffic and every URL so nothing is lost in the move.', 'h4' => 'Know what to protect', 'h4p' => 'A full baseline lets us verify success afterward.' ),
+					array( 'h3' => 'Redirect mapping', 'p' => 'A complete 301 redirect map so every old URL points to the right new one.', 'h4' => 'No broken equity', 'h4p' => 'Correct redirects preserve rankings and link value.' ),
+					array( 'h3' => 'Technical QA', 'p' => 'I check metadata, structure, schema and crawlability before and after launch.', 'h4' => 'Launch with confidence', 'h4p' => 'Careful QA catches issues before search engines do.' ),
+					array( 'h3' => 'Post-launch monitoring', 'p' => 'I watch rankings, errors and indexing closely to fix any issues fast.', 'h4' => 'Catch problems early', 'h4p' => 'Quick post-launch fixes prevent small dips becoming big losses.' ),
+				),
+			),
+			'process'    => array(
+				'h2'    => 'My migration process',
+				'steps' => array(
+					array( 'h3' => 'Plan and benchmark', 'p' => 'I document the current site and build the migration and redirect plan.' ),
+					array( 'h3' => 'Pre-launch checks', 'p' => 'I QA the new site on staging against the SEO checklist.' ),
+					array( 'h3' => 'Launch support', 'p' => 'I oversee go-live, redirects and indexing signals.' ),
+					array( 'h3' => 'Monitor and recover', 'p' => 'I track performance and resolve any issues quickly.' ),
+				),
+			),
+			'why'        => array(
+				'h2'    => 'Why migrations need an SEO',
+				'items' => array(
+					array( 'h4' => 'Avoid traffic loss', 'p' => 'A planned migration protects the rankings you have earned.' ),
+					array( 'h4' => 'Peace of mind', 'p' => 'You launch knowing the SEO risks are handled.' ),
+					array( 'h4' => 'Opportunity to improve', 'p' => 'Migrations are the perfect time to fix old technical debt.' ),
+					array( 'h4' => 'Fast recovery', 'p' => 'Close monitoring means any issues are caught and fixed early.' ),
+				),
+			),
+			'faq'        => array(
+				array( 'q' => 'Will I lose rankings when I redesign my site?', 'a' => 'Not with a proper plan. Ranking drops usually come from missing redirects, changed URLs or lost content. A managed migration protects your rankings and often improves them.' ),
+				array( 'q' => 'When should you be involved in a migration?', 'a' => 'As early as possible, ideally before design and development are finalised. Early involvement prevents the mistakes that are hardest to fix after launch.' ),
+				array( 'q' => 'How long does recovery take if there is a dip?', 'a' => 'With correct redirects and quick fixes, most sites stabilise within a few weeks. Early monitoring is key to a fast recovery.' ),
+			),
+			'related'    => array( 'technical-seo-services', 'seo-audit-services', 'core-web-vitals-optimization' ),
+		),
+
+		/* ============================================================= 15 */
+		'core-web-vitals-optimization' => array(
+			'menu'       => 'Core Web Vitals',
+			'icon'       => '⚡',
+			'card_desc'  => 'Faster, more stable pages that pass Core Web Vitals, lift rankings and improve conversion rates.',
+			'h1'         => 'Core Web Vitals Optimization Services',
+			'tagline'    => 'Speed is a ranking factor and a conversion factor. I make your pages fast, stable and Core Web Vitals compliant.',
+			'meta_title' => 'Core Web Vitals Optimization | Site Speed & Page Experience',
+			'meta_desc'  => 'Core Web Vitals optimization by Avdesh Kumar. Improve LCP, INP and CLS, pass Google page experience and boost both rankings and conversions.',
+			'intro'      => array(
+				'h2'      => 'What are Core Web Vitals',
+				'paras'   => array(
+					'Core Web Vitals are Google metrics that measure real-world page experience: loading speed (LCP), interactivity (INP) and visual stability (CLS). They are a confirmed ranking signal and a major influence on how visitors experience your site.',
+					'Slow, unstable pages lose both rankings and customers. I diagnose exactly what is slowing your site down and fix it, so you pass Core Web Vitals and give visitors a fast, smooth experience.',
+				),
+				'callout' => 'Every second of load time costs you rankings and conversions. Fixing Core Web Vitals improves both at once.',
+			),
+			'includes'   => array(
+				'h2'    => 'What my Core Web Vitals service includes',
+				'items' => array(
+					array( 'h3' => 'Performance audit', 'p' => 'I measure LCP, INP and CLS with lab and field data to find the real bottlenecks.', 'h4' => 'Fix the right things', 'h4p' => 'Real-user data ensures effort goes where it actually helps.' ),
+					array( 'h3' => 'Speed optimization', 'p' => 'Image, code, caching and server improvements that cut load times.', 'h4' => 'Faster on every device', 'h4p' => 'Optimizations target mobile, where most visitors and rankings are decided.' ),
+					array( 'h3' => 'Stability fixes', 'p' => 'I eliminate layout shifts and slow interactions that frustrate users.', 'h4' => 'Smooth, stable pages', 'h4p' => 'No jumping content or laggy taps means happier visitors.' ),
+					array( 'h3' => 'Ongoing validation', 'p' => 'I confirm passing scores in Search Console and guard against regressions.', 'h4' => 'Stay in the green', 'h4p' => 'Monitoring keeps your scores healthy as the site changes.' ),
+				),
+			),
+			'process'    => array(
+				'h2'    => 'My Core Web Vitals process',
+				'steps' => array(
+					array( 'h3' => 'Measure', 'p' => 'I gather lab and field data to see how real users experience your site.' ),
+					array( 'h3' => 'Diagnose', 'p' => 'I pinpoint what harms LCP, INP and CLS on your key templates.' ),
+					array( 'h3' => 'Optimize', 'p' => 'I implement or guide the fixes across images, code, caching and hosting.' ),
+					array( 'h3' => 'Validate', 'p' => 'I confirm passing scores and set up monitoring to keep them.' ),
+				),
+			),
+			'why'        => array(
+				'h2'    => 'Why Core Web Vitals matter',
+				'items' => array(
+					array( 'h4' => 'Ranking boost', 'p' => 'Passing scores support higher rankings, especially on mobile.' ),
+					array( 'h4' => 'Higher conversions', 'p' => 'Faster pages keep visitors and increase sales and leads.' ),
+					array( 'h4' => 'Lower bounce', 'p' => 'Speed and stability keep people engaged instead of leaving.' ),
+					array( 'h4' => 'Better ad performance', 'p' => 'Fast landing pages also improve Google Ads Quality Score.' ),
+				),
+			),
+			'faq'        => array(
+				array( 'q' => 'Do Core Web Vitals really affect rankings?', 'a' => 'Yes. They are part of Google page experience signals. While content relevance matters most, strong Core Web Vitals give you an edge, particularly in competitive niches and on mobile.' ),
+				array( 'q' => 'My site is slow. Where do you start?', 'a' => 'With measurement. I gather real-user and lab data to find the biggest bottlenecks, then fix those first for the fastest, most meaningful gains.' ),
+				array( 'q' => 'Will this work on WordPress and Shopify?', 'a' => 'Yes. I optimize Core Web Vitals across WordPress, Shopify, WooCommerce and custom sites, tailoring the fixes to each platform.' ),
+			),
+			'related'    => array( 'technical-seo-services', 'seo-audit-services', 'website-migration-services' ),
+		),
 	);
 
 	return $services;

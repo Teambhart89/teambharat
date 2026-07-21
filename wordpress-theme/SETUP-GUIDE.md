@@ -1,10 +1,10 @@
 # Avdesh SEO — WordPress Theme Setup Guide
 
-A fast, responsive, SEO and AI-search optimized WordPress theme built for
-**Avdesh Kumar, SEO & AI Search Optimization Specialist (Delhi, India)**.
-The design matches the uploaded portfolio: cream background, marigold orange
-accent, bold lowercase headings, Poppins + Caveat fonts, numbered service cards
-and a dark stats bar.
+A premium, fast, responsive WordPress theme that positions **Avdesh Kumar** as a
+world-class freelance **SEO, AI Search Optimization (AISO), GEO & Google Ads
+consultant**. Modern international-agency design: deep navy base, indigo → violet
+gradients, an emerald "growth" accent, Sora + Inter typography, animated counters,
+data-viz graphs, and sticky contact buttons.
 
 The deliverable is **`avdesh-seo.zip`** — ready to upload and activate.
 
@@ -12,86 +12,87 @@ The deliverable is **`avdesh-seo.zip`** — ready to upload and activate.
 
 ## 1. What you get
 
-- A complete custom WordPress theme (no page builder required, loads fast).
-- **17 pages created automatically** on activation, each with a clean,
-  keyword-rich, SEO-friendly URL.
-- Full **H1 → H2 → H3 → H4** heading structure on every service page.
-- **10 service pages** with reader-friendly, white-hat, GEO-optimized content.
-- Built-in **Schema.org** markup (Person, ProfessionalService, Service, FAQPage),
-  Open Graph and Twitter cards, so you are ready for Google **and** AI answer
-  engines (ChatGPT, Gemini, Perplexity, Google AI Overviews).
-- A homepage that mirrors the portfolio layout (hero, stats bar, services grid,
-  process, results, case studies, tools, brands, FAQ, CTA).
-- Easy **image replacement** — every image spot is a clearly marked upload box.
-- A **Customizer panel** for contact details, social links, images and stats.
-- Fully **responsive** and mobile friendly.
+- A premium custom theme (no page builder, loads fast, Core Web Vitals friendly).
+- **28 pages created automatically** on activation, each with a clean, keyword-rich URL.
+- **15 service pages** with full **H1 → H2 → H3 → H4** structure and white-hat, GEO-optimized copy.
+- Conversion-focused homepage: hero with rating badge + metric cards, animated
+  stat counters, trust bar, services grid, why-hire-me, SEO process, results with
+  **traffic & ranking graphs** and GSC/Analytics placeholders, industries, tools,
+  testimonials, case studies, certifications, FAQ and CTAs.
+- Dedicated pages: **Case Studies, SEO Results, Testimonials, Industries, Pricing
+  (3 packages), FAQs, Book a Free SEO Audit, About, Services, Portfolio, Blog, Contact.**
+- **Sticky floating contact buttons** (WhatsApp, Free Audit, Email) on every page.
+- Built-in **Schema.org** (Person, ProfessionalService, Service, FAQPage), Open
+  Graph and Twitter cards — ready for Google **and** AI answer engines.
+- Clearly marked **image-upload sections** everywhere a photo/screenshot belongs.
+- A **Customizer** panel for contact details, socials, images, stats and pricing.
+- Fully responsive, mobile-first and accessible (reduced-motion aware, focus states).
 
 ---
 
-## 2. Install the theme (2 minutes)
+## 2. Install (2 minutes)
 
-1. Log in to **WordPress Admin** (`yoursite.com/wp-admin`).
-2. Go to **Appearance → Themes → Add New → Upload Theme**.
-3. Choose **`avdesh-seo.zip`** and click **Install Now**.
-4. Click **Activate**.
+1. **WordPress Admin → Appearance → Themes → Add New → Upload Theme**.
+2. Choose **`avdesh-seo.zip`** → **Install Now** → **Activate**.
 
-On activation the theme automatically:
-- Creates all pages (Home, About, Services + 10 service pages, Portfolio, Blog, Contact).
-- Sets the homepage and blog page.
-- Builds the primary navigation menu (with a Services dropdown).
-- Switches permalinks to `/%postname%/` for clean URLs.
+On activation the theme auto-creates all pages, sets the homepage/blog, builds the
+navigation menu (with Services and Case Studies dropdowns) and switches permalinks
+to `/%postname%/`.
 
-> If menus or URLs look off, go to **Settings → Permalinks** and click **Save**
-> once to flush the rewrite rules.
+> If menus or URLs look off, open **Settings → Permalinks** and click **Save** once.
 
 ---
 
 ## 3. Add your details (Customizer)
 
-Go to **Appearance → Customize**:
+**Appearance → Customize**:
 
-- **Contact & Identity** — phone, WhatsApp, email, location, booking link.
+- **Contact & Identity** — phone, WhatsApp, email, location, booking link, form shortcodes.
 - **Social Links** — LinkedIn, Instagram, Facebook, X, YouTube.
-- **Site Images** — hero portrait, about photos, social share image.
-- **Homepage Stats Bar** — the five numbers shown under the hero.
+- **Site Images** — hero portrait, about photos, social share (Open Graph) image.
+- **Homepage Stats Bar** — the numbers under the hero.
+- **Pricing** — currency symbol and the Starter/Growth prices.
 
-Click **Publish** when done.
-
----
-
-## 4. Replace images
-
-Anywhere you see a dashed **"upload image"** box, add your own picture:
-
-- **Hero & About photos, social share image:** Customizer → **Site Images**.
-- **Blog / page featured images:** edit the page → set **Featured image**.
-- **Portfolio & logo placeholders:** see `assets/images/README.txt` inside the theme.
-
-Recommended sizes are listed in that README. Compress images before uploading
-to keep the site fast (good for Core Web Vitals and SEO).
+The sticky WhatsApp button appears once you set your WhatsApp number.
 
 ---
 
-## 5. Pages and their SEO-friendly URLs
+## 4. Replace images & screenshots
+
+Every dashed **"upload"** box is a spot for your own image:
+
+- **Hero / About / OG images:** Customizer → **Site Images**.
+- **SEO Results & Case Studies screenshots** (GSC, Analytics, keyword growth):
+  edit the page in the block editor and drop your images into the marked boxes,
+  or set page **Featured images**.
+- See `assets/images/README.txt` for recommended sizes. Compress before uploading.
+
+---
+
+## 5. Pages & SEO-friendly URLs
 
 | Page | URL |
 |------|-----|
 | Home | `/` |
 | About | `/about/` |
 | Services (overview) | `/services/` |
-| SEO Services | `/seo-services/` |
-| AI Search Optimization (GEO) | `/ai-search-optimization/` |
-| Technical SEO | `/technical-seo-services/` |
-| On-Page SEO | `/on-page-seo-services/` |
-| Off-Page SEO & Link Building | `/off-page-seo-link-building/` |
-| Local SEO | `/local-seo-services/` |
-| E-commerce SEO | `/ecommerce-seo-services/` |
-| Google Ads Management | `/google-ads-management/` |
-| SEO Content Writing | `/seo-content-writing/` |
-| SEO Audit | `/seo-audit-services/` |
+| Case Studies | `/case-studies/` |
+| SEO Results | `/seo-results/` |
 | Portfolio | `/portfolio/` |
+| Testimonials | `/testimonials/` |
+| Industries | `/industries/` |
+| Pricing | `/pricing/` |
+| FAQs | `/faqs/` |
+| Book a Free SEO Audit | `/book-free-seo-audit/` |
 | Blog | `/blog/` |
 | Contact | `/contact/` |
+
+**15 service pages:** `/seo-services/`, `/ai-search-optimization/`,
+`/technical-seo-services/`, `/on-page-seo-services/`, `/off-page-seo-link-building/`,
+`/local-seo-services/`, `/ecommerce-seo-services/`, `/international-seo-services/`,
+`/google-ads-management/`, `/seo-content-writing/`, `/content-strategy-services/`,
+`/keyword-research-services/`, `/website-migration-services/`,
+`/core-web-vitals-optimization/`, `/seo-audit-services/`.
 
 Full keyword mapping is in **`SEO-KEYWORD-STRATEGY.md`**.
 
@@ -99,46 +100,42 @@ Full keyword mapping is in **`SEO-KEYWORD-STRATEGY.md`**.
 
 ## 6. Edit service content
 
-Service page copy lives in one file so it stays consistent and easy to update:
+All service copy lives in one file so it stays consistent:
 
 ```
 avdesh-seo/inc/services-data.php
 ```
 
 Each service has its H1, tagline, meta title/description, feature blocks (H3/H4),
-process steps, benefits and FAQ. Edit the text there and every matching page,
-its Schema and its meta tags update together.
-
-Prefer editing in the dashboard? You can also rebuild any page with the block
-editor — but keep the primary keyword in the H1 and one clear H1 per page.
+process steps, benefits and FAQ. Edit there and the page, its Schema and its meta
+tags update together. Site-wide FAQs live in `inc/template-helpers.php`
+(`avdesh_faq_list()`), which also powers the FAQ schema.
 
 ---
 
-## 7. Contact form
+## 7. Contact & audit forms
 
-The Contact page ships with a working email (mailto) form so it functions out of
-the box. For a database-backed form with spam protection:
+Both the Contact and Book-a-Free-Audit pages ship with a working email (mailto)
+form. For a database-backed form with spam protection:
 
-1. Install a free plugin (**WPForms Lite** or **Contact Form 7**).
-2. Build your form and copy its **shortcode**.
-3. Paste it in **Customize → Contact & Identity → Contact form shortcode**.
-
-The theme will use your plugin form instead of the default one.
+1. Install **WPForms Lite** or **Contact Form 7**.
+2. Copy your form **shortcode**.
+3. Paste it in **Customize → Contact & Identity** (separate fields for the contact
+   form and the audit form).
 
 ---
 
-## 8. Recommended next steps for SEO & AI visibility
+## 8. SEO & AI visibility checklist
 
-- **Set the site title** under Settings → General (defaults to "Avdesh Kumar").
-- Install **Google Search Console** and submit your sitemap.
-- Add **Google Analytics 4** (GA4) for traffic tracking.
-- Optional: install **Rank Math** or **Yoast** for advanced SEO controls. If you
-  do, add `define( 'AVDESH_DISABLE_SEO', true );` to `wp-config.php` to let the
-  plugin own meta tags and avoid duplicates (Schema will then come from the plugin).
-- Publish blog posts targeting long-tail keywords and link them to your service
-  pages to build topical authority.
-- Keep your **name, phone and address consistent** everywhere for local SEO and
-  a stable AI knowledge-graph entry.
+- Set your **site title** under Settings → General.
+- Verify **Google Search Console** and submit your sitemap.
+- Add **Google Analytics 4**.
+- Optional: install **Rank Math** or **Yoast**; if you do, add
+  `define( 'AVDESH_DISABLE_SEO', true );` to `wp-config.php` so the plugin owns
+  meta tags (avoids duplicates).
+- Publish blog posts targeting long-tail keywords and link them to service pages.
+- Keep your **name, phone and address consistent** everywhere for a stable AI
+  knowledge-graph entry.
 
 ---
 
@@ -146,9 +143,8 @@ The theme will use your plugin form instead of the default one.
 
 - **Requires:** WordPress 6.0+, PHP 7.4+ (PHP 8.x supported).
 - **No paid dependencies.** Google Fonts load from Google's CDN.
-- **Standards-based:** uses the WordPress template hierarchy, Customizer API,
-  nav menus and Schema.org. Works with caching and most SEO plugins.
-- To disable the built-in SEO/meta output (when using an SEO plugin), define
-  `AVDESH_DISABLE_SEO` in `wp-config.php`.
+- **Performance:** minimal CSS/JS, inline SVG charts (no chart library), lazy images.
+- **Accessibility:** semantic headings, focus styles, `prefers-reduced-motion` support.
+- Disable the built-in SEO output with `AVDESH_DISABLE_SEO` when using an SEO plugin.
 
-Enjoy your new site. Everything is white-hat, fast and built to grow.
+Your premium SEO consultant site is ready to win clients worldwide.
