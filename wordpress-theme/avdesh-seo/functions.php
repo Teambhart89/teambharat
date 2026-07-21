@@ -84,7 +84,9 @@ require AVDESH_DIR . '/inc/customizer.php';
 require AVDESH_DIR . '/inc/services-data.php';
 require AVDESH_DIR . '/inc/template-helpers.php';
 require AVDESH_DIR . '/inc/seo-schema.php';
+require AVDESH_DIR . '/inc/leads.php';
 require AVDESH_DIR . '/inc/setup-pages.php';
+require AVDESH_DIR . '/inc/seed-posts.php';
 
 /* -------------------------------------------------------------------------
  *  Fallback primary menu (used until a menu is assigned)

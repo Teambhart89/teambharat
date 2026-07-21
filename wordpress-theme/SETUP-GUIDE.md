@@ -113,15 +113,36 @@ tags update together. Site-wide FAQs live in `inc/template-helpers.php`
 
 ---
 
-## 7. Contact & audit forms
+## 7. Contact & audit forms (built-in lead capture)
 
-Both the Contact and Book-a-Free-Audit pages ship with a working email (mailto)
-form. For a database-backed form with spam protection:
+Both the Contact and Book-a-Free-Audit pages ship with a **working, database-backed
+form, no plugin required**. When someone submits:
 
-1. Install **WPForms Lite** or **Contact Form 7**.
-2. Copy your form **shortcode**.
-3. Paste it in **Customize → Contact & Identity** (separate fields for the contact
-   form and the audit form).
+- The lead is saved under a new **Leads** menu in your WordPress dashboard.
+- A notification email is sent to your address (set it in Customize → Contact & Identity).
+- The visitor sees a success message; a honeypot and nonce block spam and CSRF.
+
+Prefer a dedicated form plugin instead? Install **WPForms Lite** or **Contact Form 7**,
+copy your form **shortcode**, and paste it in **Customize → Contact & Identity**
+(separate fields for the contact form and the audit form). The plugin form then
+replaces the built-in one automatically.
+
+> Tip: if notification emails don't arrive, install an SMTP plugin (e.g. WP Mail SMTP).
+> Shared hosts often block the default PHP mailer. Your leads are still saved either way.
+
+## 7b. Starter blog posts
+
+Six SEO-optimized starter articles are created on activation, filed under the
+**SEO Insights** category, each internally linking to your service pages:
+
+1. What Is Generative Engine Optimization (GEO)
+2. SEO vs AI Search: Staying Visible in ChatGPT, Gemini & Perplexity
+3. How Long Does SEO Take to Show Results?
+4. 10 Technical SEO Issues Hurting Your Rankings
+5. Local SEO Checklist: Ranking in the Google Map Pack
+6. eCommerce SEO: Getting Product Pages to Rank
+
+Edit or expand them under **Posts**, and add featured images for the blog grid.
 
 ---
 

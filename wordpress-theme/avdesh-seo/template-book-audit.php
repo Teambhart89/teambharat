@@ -48,27 +48,8 @@ $whatsapp = avdesh_opt( 'avdesh_whatsapp', '' );
 				if ( $shortcode ) {
 					echo do_shortcode( $shortcode );
 				} else {
-					$to = $email ? $email : get_option( 'admin_email' );
-					?>
-					<form action="mailto:<?php echo esc_attr( $to ); ?>" method="post" enctype="text/plain" style="margin-top:18px;">
-						<div class="field"><label for="af-name">Your name</label><input id="af-name" type="text" name="Name" required></div>
-						<div class="field"><label for="af-email">Email address</label><input id="af-email" type="email" name="Email" required></div>
-						<div class="field"><label for="af-site">Website URL</label><input id="af-site" type="url" name="Website" placeholder="https://" required></div>
-						<div class="field"><label for="af-goal">Main goal</label>
-							<select id="af-goal" name="Goal">
-								<option>More organic traffic</option>
-								<option>More leads / sales</option>
-								<option>Better rankings</option>
-								<option>AI search visibility</option>
-								<option>Fix a traffic drop</option>
-								<option>Site migration / redesign</option>
-							</select>
-						</div>
-						<div class="field"><label for="af-msg">Anything else? (optional)</label><textarea id="af-msg" name="Message" rows="4"></textarea></div>
-						<button class="btn btn-primary btn-block btn-lg" type="submit">Get my free audit →</button>
-					</form>
-					<p style="font-size:.82rem;color:var(--muted);margin-top:12px;text-align:center;">🔒 Your details are safe and never shared. Connect a form plugin in the Customizer for database storage.</p>
-					<?php
+					// Built-in form: saves to Leads in the dashboard + emails you.
+					avdesh_lead_form( 'audit', 'Get my free audit →' );
 				}
 				?>
 			</div>

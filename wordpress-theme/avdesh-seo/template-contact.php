@@ -49,23 +49,8 @@ $calendly = avdesh_opt( 'avdesh_calendly', '' );
 					if ( $shortcode ) {
 						echo do_shortcode( $shortcode );
 					} else {
-						$to = $email ? $email : get_option( 'admin_email' );
-						?>
-						<form action="mailto:<?php echo esc_attr( $to ); ?>" method="post" enctype="text/plain" style="margin-top:18px;">
-							<div class="field"><label for="cf-name">Your name</label><input id="cf-name" type="text" name="Name" required></div>
-							<div class="field"><label for="cf-email">Your email</label><input id="cf-email" type="email" name="Email" required></div>
-							<div class="field"><label for="cf-site">Website URL</label><input id="cf-site" type="text" name="Website"></div>
-							<div class="field"><label for="cf-service">Service needed</label>
-								<select id="cf-service" name="Service">
-									<?php foreach ( avdesh_services() as $srv ) : ?><option><?php echo esc_html( $srv['menu'] ); ?></option><?php endforeach; ?>
-									<option>Not sure yet</option>
-								</select>
-							</div>
-							<div class="field"><label for="cf-msg">Your message</label><textarea id="cf-msg" name="Message" rows="5" required></textarea></div>
-							<button class="btn btn-primary btn-block" type="submit">Send message →</button>
-						</form>
-						<p style="font-size:.82rem;color:var(--muted);margin-top:12px;">Tip: for a database-backed form, install WPForms or Contact Form 7 and paste its shortcode into Customize → Contact &amp; Identity.</p>
-						<?php
+						// Built-in form: saves to Leads in the dashboard + emails you.
+						avdesh_lead_form( 'contact', 'Send message →' );
 					}
 					?>
 				</div>
