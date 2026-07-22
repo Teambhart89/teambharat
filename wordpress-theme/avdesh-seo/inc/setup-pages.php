@@ -56,9 +56,14 @@ function avdesh_add_menu_item( $menu_id, $page_id, $title, $parent = 0 ) {
 	);
 }
 
-/** Run the full setup once when the theme is activated. */
-function avdesh_setup_pages() {
-
+/**
+ * Ensure every page exists and the front/blog/permalink options are set.
+ * Idempotent and menu-safe: it never touches the navigation menu, so it is
+ * also used to self-heal after a theme update without clobbering menu edits.
+ *
+ * @return array [ $ids, $service_ids ]
+ */
+function avdesh_ensure_pages() {
 	// 1. Core pages (Home uses front-page.php automatically).
 	$ids = array();
 	$ids['home']       = avdesh_ensure_page( 'home', 'Home', '', 'Homepage for Avdesh Kumar.' );
@@ -90,13 +95,32 @@ function avdesh_setup_pages() {
 		update_option( 'page_for_posts', $ids['blog'] );
 	}
 
-	// 4. SEO-friendly permalinks.
+	// 4. SEO-friendly permalink structure (rewrite rules flushed by the caller).
+	update_option( 'permalink_structure', '/%postname%/' );
+	global $wp_rewrite;
+	if ( isset( $wp_rewrite ) ) {
+		$wp_rewrite->set_permalink_structure( '/%postname%/' );
+	}
+
+	return array( $ids, $service_ids );
+}
+
+/** Flush rewrite rules so pretty permalinks (/case-studies/ etc.) resolve. */
+function avdesh_flush_rewrites() {
 	global $wp_rewrite;
 	update_option( 'permalink_structure', '/%postname%/' );
 	if ( isset( $wp_rewrite ) ) {
 		$wp_rewrite->set_permalink_structure( '/%postname%/' );
 		$wp_rewrite->flush_rules();
+	} else {
+		flush_rewrite_rules( false );
 	}
+}
+
+/** Full setup on activation: pages + permalinks + navigation menu. */
+function avdesh_setup_pages() {
+	list( $ids, $service_ids ) = avdesh_ensure_pages();
+	avdesh_flush_rewrites();
 
 	// 5. Primary navigation menu.
 	$menu_name = 'Avdesh Primary Menu';
@@ -146,5 +170,26 @@ function avdesh_setup_pages() {
 		update_option( 'blogname', 'Avdesh Kumar' );
 	}
 	update_option( 'blogdescription', 'SEO & AI Search Optimization Consultant' );
+
+	update_option( 'avdesh_setup_version', AVDESH_VER );
 }
 add_action( 'after_switch_theme', 'avdesh_setup_pages' );
+
+/**
+ * Self-heal after a theme UPDATE (not just activation).
+ *
+ * Re-uploading the theme ZIP overwrites files but does not fire
+ * after_switch_theme, so newly added pages would 404 and rewrite rules would
+ * go stale. On the next admin page load after a version change we make sure
+ * every page exists and flush the rewrite rules. The navigation menu is left
+ * untouched so any manual menu edits are preserved.
+ */
+function avdesh_maybe_heal() {
+	if ( get_option( 'avdesh_setup_version' ) === AVDESH_VER ) {
+		return;
+	}
+	avdesh_ensure_pages();
+	avdesh_flush_rewrites();
+	update_option( 'avdesh_setup_version', AVDESH_VER );
+}
+add_action( 'admin_init', 'avdesh_maybe_heal' );
