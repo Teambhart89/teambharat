@@ -30,7 +30,8 @@ function avdesh_render_service( $slug ) {
 				<a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">Services</a><span class="sep">/</span>
 				<span><?php echo esc_html( $s['menu'] ); ?></span>
 			</nav>
-			<span class="eyebrow"><?php echo esc_html( $s['icon'] . ' ' . $s['menu'] ); ?></span>
+			<div class="svc-hero-ic"><?php echo avdesh_service_icon( $slug ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<span class="eyebrow"><?php echo esc_html( $s['menu'] ); ?></span>
 			<h1><?php echo esc_html( $s['h1'] ); ?></h1>
 			<p class="lead"><?php echo esc_html( $s['tagline'] ); ?></p>
 			<div class="hero-actions" style="margin-top:24px;">
@@ -151,7 +152,7 @@ function avdesh_service_card( $slug, $num = '' ) {
 	}
 	?>
 	<a class="card svc-card reveal" href="<?php echo esc_url( home_url( '/' . $slug . '/' ) ); ?>">
-		<div class="ic"><?php echo esc_html( $s['icon'] ); ?></div>
+		<div class="ic"><?php echo avdesh_service_icon( $slug ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 		<h3><?php echo esc_html( $s['menu'] ); ?></h3>
 		<p><?php echo esc_html( $s['card_desc'] ); ?></p>
 		<span class="more">Learn more →</span>
@@ -202,6 +203,34 @@ function avdesh_float_contact() {
 /* =========================================================
    Extended section data + renderers (v3.1)
    ========================================================= */
+
+/**
+ * Custom line icon per service (inline SVG, inherits currentColor).
+ * More refined than emoji and crisp at any size.
+ *
+ * @param string $slug Service slug.
+ */
+function avdesh_service_icon( $slug ) {
+	$p = array(
+		'seo-services'                 => '<circle cx="10.5" cy="10.5" r="6.5"/><line x1="20" y1="20" x2="15.2" y2="15.2"/><path d="M8 11.5v1.5M10.5 9v4M13 10.5v2.5"/>',
+		'ai-search-optimization'       => '<rect x="4" y="7" width="16" height="12" rx="3"/><circle cx="9.5" cy="13" r="1.1"/><circle cx="14.5" cy="13" r="1.1"/><path d="M12 7V4"/><circle cx="12" cy="3" r="1.1"/><path d="M20 11l1 .4-1 .4M4 11l-1 .4 1 .4"/>',
+		'technical-seo-services'       => '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/>',
+		'on-page-seo-services'         => '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15.5h6M9 8.5h2"/>',
+		'off-page-seo-link-building'   => '<path d="M9.5 14.5a4 4 0 0 0 5.7 0l2.3-2.3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14.5 9.5a4 4 0 0 0-5.7 0l-2.3 2.3a4 4 0 0 0 5.7 5.7l1-1"/>',
+		'local-seo-services'           => '<path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>',
+		'ecommerce-seo-services'       => '<circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M3 4h2.2l2.3 11.5h10L20 8H6.2"/>',
+		'international-seo-services'    => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+		'google-ads-management'        => '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/>',
+		'seo-content-writing'          => '<path d="M4 20l1.2-4.2L15.5 5.5l3 3L8.2 18.8z"/><path d="M13.5 7.5l3 3"/><path d="M4 20l4.2-1.2"/>',
+		'content-strategy-services'    => '<circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 7.6l3.2 8.6M16.4 7.6l-3.2 8.6M8.2 6h7.6"/>',
+		'keyword-research-services'    => '<circle cx="8" cy="8" r="4.5"/><path d="M11.2 11.2L20 20"/><path d="M16.5 16.5l2-2M18.5 18.5l2-2"/>',
+		'website-migration-services'   => '<path d="M3 9h14l-3.5-3.5M21 15H7l3.5 3.5"/>',
+		'core-web-vitals-optimization' => '<path d="M13 2.5L4 14h6l-1.2 7.5L20 10h-6z"/>',
+		'seo-audit-services'           => '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.8 12l2 2 4-4"/>',
+	);
+	$inner = isset( $p[ $slug ] ) ? $p[ $slug ] : $p['seo-services'];
+	return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $inner . '</svg>';
+}
 
 /** Small multi-colour Google "G" mark. */
 function avdesh_google_g( $size = 17 ) {
@@ -428,17 +457,17 @@ function avdesh_traffic_chart( $points = array( 8, 14, 12, 22, 30, 28, 40, 52, 6
 	<svg viewBox="0 0 <?php echo esc_attr( $w . ' ' . $h ); ?>" width="100%" role="img" aria-label="Organic traffic growth trending upward over 12 months">
 		<defs>
 			<linearGradient id="tgFill" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#10B981" stop-opacity="0.28"/>
-				<stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+				<stop offset="0%" stop-color="#1C768F" stop-opacity="0.28"/>
+				<stop offset="100%" stop-color="#1C768F" stop-opacity="0"/>
 			</linearGradient>
 		</defs>
 		<?php for ( $g = 1; $g <= 3; $g++ ) : $gy = $pad + $g * ( $h - $pad * 2 ) / 4; ?>
-			<line x1="<?php echo esc_attr( $pad ); ?>" y1="<?php echo esc_attr( $gy ); ?>" x2="<?php echo esc_attr( $w - $pad ); ?>" y2="<?php echo esc_attr( $gy ); ?>" stroke="#E6E8F2" stroke-width="1"/>
+			<line x1="<?php echo esc_attr( $pad ); ?>" y1="<?php echo esc_attr( $gy ); ?>" x2="<?php echo esc_attr( $w - $pad ); ?>" y2="<?php echo esc_attr( $gy ); ?>" stroke="#EADFDB" stroke-width="1"/>
 		<?php endfor; ?>
 		<path d="<?php echo esc_attr( $area ); ?>" fill="url(#tgFill)"/>
-		<path d="<?php echo esc_attr( trim( $line ) ); ?>" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="<?php echo esc_attr( trim( $line ) ); ?>" fill="none" stroke="#1C768F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 		<?php $last = $coords[ $n - 1 ]; ?>
-		<circle cx="<?php echo esc_attr( $last[0] ); ?>" cy="<?php echo esc_attr( $last[1] ); ?>" r="5" fill="#10B981" stroke="#fff" stroke-width="2"/>
+		<circle cx="<?php echo esc_attr( $last[0] ); ?>" cy="<?php echo esc_attr( $last[1] ); ?>" r="5" fill="#1C768F" stroke="#fff" stroke-width="2"/>
 	</svg>
 	<?php
 	return ob_get_clean();
@@ -462,8 +491,8 @@ function avdesh_ranking_chart() {
 		echo '<div>';
 		echo '<div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:6px;"><span>' . esc_html( $r[0] ) . '</span><span><b style="color:var(--muted);">#' . esc_html( $r[1] ) . '</b> → <b style="color:var(--accent-d);">#' . esc_html( $r[2] ) . '</b></span></div>';
 		echo '<div style="height:10px;background:var(--bg-2);border-radius:50px;position:relative;overflow:hidden;">';
-		echo '<div style="position:absolute;left:0;top:0;bottom:0;width:' . esc_attr( $before_w ) . '%;background:#C7CAF0;border-radius:50px;"></div>';
-		echo '<div style="position:absolute;left:0;top:0;bottom:0;width:' . esc_attr( $after_w ) . '%;background:linear-gradient(90deg,#4F46E5,#10B981);border-radius:50px;"></div>';
+		echo '<div style="position:absolute;left:0;top:0;bottom:0;width:' . esc_attr( $before_w ) . '%;background:#E7D9CE;border-radius:50px;"></div>';
+		echo '<div style="position:absolute;left:0;top:0;bottom:0;width:' . esc_attr( $after_w ) . '%;background:linear-gradient(90deg,#1C768F,#FA991C);border-radius:50px;"></div>';
 		echo '</div></div>';
 	}
 	echo '</div>';
