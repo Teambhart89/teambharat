@@ -180,16 +180,18 @@ add_action( 'after_switch_theme', 'avdesh_setup_pages' );
  *
  * Re-uploading the theme ZIP overwrites files but does not fire
  * after_switch_theme, so newly added pages would 404 and rewrite rules would
- * go stale. On the next admin page load after a version change we make sure
- * every page exists and flush the rewrite rules. The navigation menu is left
- * untouched so any manual menu edits are preserved.
+ * go stale. On the next page load after a version change (front-end OR admin)
+ * we make sure every page exists and flush the rewrite rules. It runs once,
+ * guarded by a stored version option. The navigation menu is left untouched so
+ * any manual menu edits are preserved.
  */
 function avdesh_maybe_heal() {
 	if ( get_option( 'avdesh_setup_version' ) === AVDESH_VER ) {
 		return;
 	}
+	// Claim the run immediately so concurrent requests don't double-create.
+	update_option( 'avdesh_setup_version', AVDESH_VER );
 	avdesh_ensure_pages();
 	avdesh_flush_rewrites();
-	update_option( 'avdesh_setup_version', AVDESH_VER );
 }
-add_action( 'admin_init', 'avdesh_maybe_heal' );
+add_action( 'init', 'avdesh_maybe_heal', 20 );

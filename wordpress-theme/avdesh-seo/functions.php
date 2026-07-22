@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AVDESH_VER', '3.2.0' );
+define( 'AVDESH_VER', '3.2.1' );
 define( 'AVDESH_DIR', get_template_directory() );
 define( 'AVDESH_URI', get_template_directory_uri() );
 
