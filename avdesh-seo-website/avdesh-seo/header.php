@@ -52,7 +52,7 @@
 			?>
 
 			<div class="nav-cta">
-				<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Free Consultation</a>
+				<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Free SEO Audit</a>
 			</div>
 		</nav>
 	</div>

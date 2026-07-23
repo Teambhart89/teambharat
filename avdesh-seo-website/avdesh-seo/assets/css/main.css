@@ -172,6 +172,26 @@ section{ padding: clamp(56px, 8vw, 96px) 0; }
 .hero-years .big{ font-family:var(--font-head); font-weight:800; font-size:1.5rem; color:var(--navy); line-height:1; }
 .hero-years small{ display:block; color:var(--muted); font-size:.72rem; font-weight:600; }
 
+/* Segmented Portfolio / Hire me button */
+.hero-actions{ margin:22px 0 4px; display:flex; justify-content:center; }
+.hire-btn{
+  display:inline-flex; align-items:center; gap:4px;
+  background:var(--navy); border-radius:50px; padding:6px;
+  box-shadow:var(--shadow-sm);
+}
+.hire-btn a{ font-family:var(--font-head); line-height:1; transition:.2s ease; }
+.hire-btn .portfolio{
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--orange); color:#fff; font-weight:700; font-size:.98rem;
+  padding:12px 22px; border-radius:50px;
+}
+.hire-btn .portfolio:hover{ background:#fff; color:var(--navy); }
+.hire-btn .portfolio .arw{ font-size:.9em; }
+.hire-btn .hireme{
+  color:#fff; font-weight:600; font-size:.98rem; padding:12px 22px; border-radius:50px;
+}
+.hire-btn .hireme:hover{ color:var(--orange); }
+
 /* ---------- Stats bar ---------- */
 .stats-bar{ background:var(--navy); }
 .stats-grid{ display:grid; grid-template-columns:repeat(5,1fr); }

@@ -29,6 +29,6 @@ $links   = array(
 			<?php endforeach; ?>
 		</ul>
 		<p style="color:#cfc9d9;font-size:.92rem;">Ready to grow your organic traffic and revenue?</p>
-		<a class="btn btn-orange" style="width:100%;justify-content:center;" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Free Consultation</a>
+		<a class="btn btn-orange" style="width:100%;justify-content:center;" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Free SEO Audit</a>
 	</div>
 </aside>

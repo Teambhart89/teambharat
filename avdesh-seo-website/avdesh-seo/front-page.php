@@ -25,6 +25,13 @@ $home_content  = $home_id ? apply_filters( 'the_content', get_post_field( 'post_
 				<?php echo esc_html( $hero_tagline ); ?>
 			</p>
 
+			<div class="hero-actions">
+				<span class="hire-btn">
+					<a class="portfolio" href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">Portfolio <span class="arw">&#8599;</span></a>
+					<a class="hireme" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Hire me</a>
+				</span>
+			</div>
+
 			<div class="hero-photo-wrap">
 				<span class="hero-tag t1"><span class="tdot">●</span>On-Page SEO</span>
 				<span class="hero-tag t2"><span class="tdot">●</span>AI Search (GEO)</span>
