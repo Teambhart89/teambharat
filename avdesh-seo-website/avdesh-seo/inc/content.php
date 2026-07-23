@@ -58,14 +58,46 @@ function avseo_default_content( $slug ) {
 <h2>My experience</h2>
 <p>Eight years of measurable growth across India, Dubai, the UK, the USA and Australia, covering technical SEO, on-page SEO, keyword research, link building, local SEO, eCommerce SEO, AI search optimization and Google Ads.</p>
 
-<blockquote><p><strong>In one line:</strong> I help businesses generate qualified traffic, leads and sales by focusing on what truly drives performance, real ROI, not vanity rankings.</p></blockquote>';
+<blockquote><p><strong>In one line:</strong> I help businesses generate qualified traffic, leads and sales by focusing on what truly drives performance, real ROI, not vanity rankings.</p></blockquote>
+
+<h2>Frequently asked questions</h2>
+<h3>Where are you based and who do you work with?</h3>
+<p>I am based in Delhi, India and work with businesses locally and internationally, including clients in Dubai, the UK, the USA and Australia, across many industries.</p>
+<h3>What makes your SEO approach different?</h3>
+<p>I take an AI-first approach that combines traditional SEO with AI search optimization, and I focus on revenue and qualified leads rather than vanity rankings.</p>
+<h3>How can I start working with you?</h3>
+<p>Start with a free consultation. I will review your website and goals, then recommend a clear plan. You can reach me any time through the contact page.</p>';
 
 	/* -------------------- SERVICES HUB -------------------- */
 	$c['services'] = '
 <h2>How the services work together</h2>
 <p>Great results rarely come from a single tactic. A strong technical SEO foundation lets search engines crawl and index your site. On-page SEO then aligns your content with real search intent, while off-page SEO builds the authority that pushes those pages up the rankings.</p>
 <p>Local SEO and eCommerce SEO tailor the strategy to how your customers actually search and buy. On top of that, AI search optimization makes sure your brand shows up inside the AI answers that more and more buyers now rely on, and Google Ads brings qualified traffic while your organic results compound.</p>
-<blockquote><p><strong>Not sure where to start?</strong> Book a free consultation. I will review your website, your market and your goals, then recommend the exact mix of services that will bring the fastest, most sustainable return.</p></blockquote>';
+<blockquote><p><strong>Not sure where to start?</strong> Book a free consultation. I will review your website, your market and your goals, then recommend the exact mix of services that will bring the fastest, most sustainable return.</p></blockquote>
+
+<h2>Frequently asked questions</h2>
+<h3>Which SEO service do I need first?</h3>
+<p>Most websites start with a technical SEO and on-page foundation, then add content, link building and AI search optimization. A free audit will show your priorities.</p>
+<h3>Can I combine several services?</h3>
+<p>Yes. The services are designed to work together as one strategy, which delivers the strongest and most sustainable growth.</p>
+<h3>Do you offer monthly SEO packages?</h3>
+<p>Yes. SEO is an ongoing process, so most clients work on a monthly retainer, though one-off audits and projects are also available.</p>';
+
+	/* -------------------- CONTACT -------------------- */
+	$c['contact'] = '
+<h2>Work with an SEO specialist who focuses on results</h2>
+<p>Whether you need to grow organic traffic, climb the rankings, win more local customers or get cited by AI search engines, I can help. Tell me about your business using the form above and I will reply with clear, honest next steps.</p>
+<h3>Who I help</h3>
+<p>I work with startups, small businesses, eCommerce stores and established brands across India, Dubai, the UK, the USA and Australia, on WordPress, Shopify, WooCommerce, Wix, Squarespace and custom platforms.</p>
+<h3>What happens after you get in touch</h3>
+<p>I review your website and goals, then share a recommended plan and the results you can realistically expect. There is no obligation and no pressure, just useful advice.</p>
+<h2>Frequently asked questions</h2>
+<h3>How quickly will you respond?</h3>
+<p>I usually reply within one business day.</p>
+<h3>Do you offer a free consultation?</h3>
+<p>Yes. The first consultation is free and focused on understanding your goals and where the biggest opportunities are.</p>
+<h3>Which locations do you serve?</h3>
+<p>I am based in Delhi, India and work with clients worldwide, including Dubai, the UK, the USA and Australia.</p>';
 
 	/* -------------------- CASE STUDIES -------------------- */
 	$c['case-studies'] = '

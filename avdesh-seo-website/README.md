@@ -2,12 +2,14 @@
 
 A ready to upload WordPress theme for **Avdesh Kumar, SEO & AI Search Optimization Specialist (Delhi, India)**. The design matches the supplied portfolio: cream background, navy text, warm orange accent, Poppins typography, lowercase section titles with an orange dot, numbered service cards, a dark stats bar and a service ticker.
 
-## Deliverable
+## Deliverables
 
-- **`avdesh-seo.zip`** - upload this in WordPress via `Appearance > Themes > Add New > Upload Theme`, then Activate. All pages, menu and SEO friendly URLs are created automatically.
-- **`avdesh-seo/`** - the theme source.
+- **`avdesh-seo.zip`** - the main theme. Upload in WordPress via `Appearance > Themes > Add New > Upload Theme`, then Activate. All pages, posts, menu and SEO friendly URLs are created automatically.
+- **`avdesh-seo-child.zip`** - matching child theme. Activate this instead of the parent to keep custom CSS/PHP safe across theme updates.
+- **`avdesh-seo-demo-content.xml`** - optional WXR demo-content export for `Tools > Import` (backup / second-site use). Not needed for a normal install since content auto-creates on activation.
+- **`avdesh-seo/`** and **`avdesh-seo-child/`** - the theme sources.
 
-Full install and image upload instructions are in `avdesh-seo/README.txt`.
+Full install, child-theme and import instructions are in `avdesh-seo/README.txt`.
 
 ## Keyword research and SEO friendly URL map
 

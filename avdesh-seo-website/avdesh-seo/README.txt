@@ -181,6 +181,44 @@ Recommended next steps:
   - Submit your sitemap to Google.
 
 
+---------------------------------------------------------
+ 7. CHILD THEME (keep your changes safe on updates)
+---------------------------------------------------------
+
+A matching child theme (avdesh-seo-child.zip) is included. Use it if you
+plan to add custom CSS or PHP, so your changes are not lost when the main
+theme is updated.
+
+  1. Install and activate this parent theme first (so the pages, menu and
+     demo content are created automatically).
+  2. Then install the child:
+     Appearance > Themes > Add New > Upload Theme > avdesh-seo-child.zip
+  3. Activate the child. Your site looks identical, and you can now add
+     custom CSS in the child's style.css and custom PHP in its functions.php.
+
+
+---------------------------------------------------------
+ 8. DEMO CONTENT IMPORT (optional backup)
+---------------------------------------------------------
+
+The theme already creates all pages and posts automatically on activation,
+so you normally do NOT need to import anything.
+
+A backup demo-content file (avdesh-seo-demo-content.xml) is also included in
+case you ever want to load the content manually, for example on a second
+site:
+
+  1. Install the theme.
+  2. Go to  Tools > Import > WordPress  and install the importer if asked.
+  3. Upload  avdesh-seo-demo-content.xml  and run the import.
+  4. Assign the author and click Submit.
+  5. Set the homepage under  Settings > Reading  to the "Home" page and the
+     posts page to "Blog".
+
+This imports all pages, the 8 service pages, the Case Studies page and the
+3 starter blog posts.
+
+
 Questions or tweaks? Everything here is standard WordPress, so any developer
 can extend it easily.
 

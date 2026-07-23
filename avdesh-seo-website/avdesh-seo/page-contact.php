@@ -71,10 +71,13 @@ $name = avseo_info( 'name' );
 				<div class="contact-form">
 					<h3 style="text-transform:none;">Request a free SEO consultation</h3>
 					<?php
-					// If Contact Form 7 or another form shortcode is added to the page content, show it.
-					$content = get_the_content();
-					if ( has_shortcode( $content, 'contact-form-7' ) || trim( wp_strip_all_tags( $content ) ) ) {
-						echo apply_filters( 'the_content', $content );
+					// Render a form plugin shortcode if the page has one, otherwise a
+					// ready to use default form. Plain text content is shown lower down
+					// as SEO content, not treated as the form.
+					$avseo_raw      = get_post_field( 'post_content', get_the_ID() );
+					$avseo_has_form = has_shortcode( $avseo_raw, 'contact-form-7' ) || has_shortcode( $avseo_raw, 'wpforms' ) || has_shortcode( $avseo_raw, 'gravityform' ) || has_shortcode( $avseo_raw, 'forminator_form' );
+					if ( $avseo_has_form ) {
+						echo do_shortcode( $avseo_raw );
 					} else {
 						// Simple mailto form as a ready to use default.
 						?>
@@ -117,5 +120,18 @@ $name = avseo_info( 'name' );
 		</div>
 	</div>
 </section>
+
+<?php
+// SEO content (editable in Pages) shown below the form, unless the page
+// content is only a form shortcode.
+if ( ! $avseo_has_form && trim( wp_strip_all_tags( $avseo_raw ) ) ) : ?>
+	<section class="bg-white">
+		<div class="container">
+			<div class="prose entry-content mx-auto">
+				<?php echo apply_filters( 'the_content', $avseo_raw ); ?>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
