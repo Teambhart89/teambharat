@@ -127,6 +127,15 @@ function avseo_default_content( $slug ) {
 
 <h2>Platforms I work with</h2>
 <p>I deliver SEO across every major platform, so you get the same results whether you run a blog, a store or a custom build. This includes WordPress SEO, Shopify and WooCommerce SEO, Wix SEO, Squarespace SEO and custom or headless websites.</p>
+<h4>What is included in a typical SEO plan</h4>
+<ul>
+<li>A full technical and content audit of your website</li>
+<li>Keyword research mapped to clear, SEO friendly URLs</li>
+<li>On-page optimization and helpful, reader first content</li>
+<li>White hat link building to grow authority</li>
+<li>AI search optimization for the answer engines</li>
+<li>Monthly reporting tied to traffic, leads and revenue</li>
+</ul>
 
 <h2>My SEO process</h2>
 <h3>1. Audit and research</h3>
@@ -140,13 +149,25 @@ function avseo_default_content( $slug ) {
 
 <h2>Frequently asked questions about SEO services</h2>
 <h3>How long does SEO take to show results?</h3>
-<p>Most websites start to see meaningful movement in rankings and organic traffic within three to six months, with compounding growth after that. Timelines depend on your competition, your current authority and how quickly changes are implemented.</p>
+<p>Most websites start to see meaningful movement within three to six months, with growth compounding after that. Your timeline depends on your competition, your current authority and how quickly changes go live.</p>
+<h3>How much do your SEO services cost?</h3>
+<p>Pricing depends on your goals, your market and the scope of work. After a free review I share a clear proposal, so you know exactly what you get and what to expect before you commit.</p>
 <h3>Do you use white hat SEO methods?</h3>
-<p>Yes. Every strategy uses proven white hat methods that follow search engine guidelines. This protects your website from penalties and builds authority that lasts.</p>
-<h3>Which platforms do you support?</h3>
-<p>I work across WordPress, Shopify, WooCommerce, Wix, Squarespace and custom built websites, so the strategy fits whatever technology you use.</p>
+<p>Yes. Every strategy follows search engine guidelines. This protects your website from penalties and builds authority that keeps working for years.</p>
+<h3>Which platforms and website builders do you support?</h3>
+<p>I work across WordPress, Shopify, WooCommerce, Wix, Squarespace and custom built websites, so the strategy fits whatever technology you already use.</p>
 <h3>Do you also optimize for AI search and ChatGPT?</h3>
-<p>Yes. Alongside traditional SEO I offer AI search optimization, also called Generative Engine Optimization, so your brand appears inside answers on Google AI Overviews, ChatGPT, Gemini and Perplexity.</p>';
+<p>Yes. Alongside traditional SEO I offer AI search optimization, so your brand can appear inside answers on Google AI Overviews, ChatGPT, Gemini and Perplexity.</p>
+<h3>What is included in a monthly SEO plan?</h3>
+<p>A typical plan covers technical fixes, on-page optimization, content, link building and AI search work, plus a monthly report on your rankings, traffic and leads.</p>
+<h3>Do I still need SEO if I already run Google Ads?</h3>
+<p>Yes. Ads stop the moment your budget does, while SEO keeps bringing traffic over time. The two work well together and give you more total leads at a healthier cost.</p>
+<h3>Can you improve the SEO of an existing website?</h3>
+<p>Absolutely. Most of my work is improving live websites. I audit what you have, fix what is holding you back and build on the strengths you already own.</p>
+<h3>How do you measure SEO success?</h3>
+<p>I focus on the metrics that matter to your business: keyword rankings, organic traffic, enquiries and sales, all reported transparently so you can see the return.</p>
+<h3>Do you offer SEO for small businesses and startups?</h3>
+<p>Yes. I tailor the scope and pace to your budget and goals, so small businesses and startups can grow steadily without overspending.</p>';
 
 	/* -------------------- TECHNICAL SEO -------------------- */
 	$c['technical-seo-services'] = '
@@ -174,11 +195,25 @@ function avseo_default_content( $slug ) {
 
 <h2>Technical SEO FAQs</h2>
 <h3>What is technical SEO?</h3>
-<p>Technical SEO is the practice of optimizing your website so search engines can crawl, render and index it efficiently. It covers site speed, Core Web Vitals, mobile usability, structured data, crawlability and site architecture.</p>
+<p>Technical SEO is the practice of optimizing your website so search engines can crawl, render and index it efficiently. It covers site speed, Core Web Vitals, mobile usability, structured data and site architecture.</p>
 <h3>How is technical SEO different from on-page SEO?</h3>
-<p>Technical SEO focuses on the foundation that lets search engines access and understand your site. On-page SEO focuses on the content and keywords on each page. Both are needed for strong rankings.</p>
+<p>Technical SEO builds the foundation that lets search engines access and understand your site. On-page SEO focuses on the content and keywords on each page. You need both for strong, lasting rankings.</p>
 <h3>Do you provide a technical SEO audit?</h3>
-<p>Yes. Every technical SEO engagement starts with a full audit that identifies crawl issues, speed problems, indexing gaps and structured data opportunities, with a prioritised list of fixes.</p>';
+<p>Yes. Every engagement starts with a full audit that finds crawl issues, speed problems, indexing gaps and structured data opportunities, with a prioritised list of fixes.</p>
+<h3>How long does a technical SEO audit take?</h3>
+<p>A thorough audit usually takes a few days to a week, depending on the size of your site. You then receive a clear report and a plan you can act on right away.</p>
+<h3>Will technical SEO improve my site speed?</h3>
+<p>Yes. Faster loading is a core part of the work. I improve images, code, caching and hosting so pages load quickly for both visitors and search engines.</p>
+<h3>What are Core Web Vitals and do they matter?</h3>
+<p>Core Web Vitals measure loading, interactivity and visual stability. They influence rankings and, just as importantly, they affect how many visitors stay and convert.</p>
+<h3>Can technical SEO fix indexing problems?</h3>
+<p>Yes. If Google is not indexing your pages, I find the cause, whether it is crawl blocks, canonical issues or thin content, and put the right fixes in place.</p>
+<h3>Do I need technical SEO if my website is new?</h3>
+<p>A new site benefits greatly from a clean technical setup from day one, because it helps search engines trust and rank your pages faster.</p>
+<h3>Which tools do you use for technical SEO?</h3>
+<p>I rely on trusted tools such as Google Search Console, PageSpeed Insights and a crawler like Screaming Frog, backed by hands on checks of your website.</p>
+<h3>Will fixing technical SEO increase my rankings?</h3>
+<p>A healthy, fast, crawlable website gives your content the best chance to rank. Technical SEO rarely works alone, but it multiplies the impact of every other effort.</p>';
 
 	/* -------------------- ON-PAGE SEO -------------------- */
 	$c['on-page-seo-services'] = '
@@ -201,11 +236,25 @@ function avseo_default_content( $slug ) {
 
 <h2>On-page SEO FAQs</h2>
 <h3>What is on-page SEO?</h3>
-<p>On-page SEO is the process of optimizing the content and HTML elements of a page, such as keywords, headings, title tags, meta descriptions and internal links, so it ranks higher and serves the searcher better.</p>
+<p>On-page SEO is the process of optimizing the content and HTML of a page, including keywords, headings, title tags, meta descriptions and internal links, so it ranks higher and serves the reader better.</p>
 <h3>Why are H1 to H4 headings important?</h3>
-<p>Headings give your page a clear structure. A single H1 defines the topic while H2, H3 and H4 tags organise the sections and details. This helps readers scan the page and helps search engines understand it.</p>
+<p>Headings give your page a clear structure. A single H1 defines the topic while H2, H3 and H4 tags organise the sections and details. This helps readers scan and helps search engines understand the page.</p>
 <h3>Do you write the content or optimize existing pages?</h3>
-<p>Both. I can create new SEO content from scratch or optimize your existing pages, depending on what will bring the fastest results for your goals.</p>';
+<p>Both. I can create fresh SEO content or improve your existing pages, depending on what will bring the fastest results for your goals.</p>
+<h3>How many keywords should one page target?</h3>
+<p>Each page should focus on one main topic and a small group of closely related terms. Trying to target too many unrelated keywords on one page weakens all of them.</p>
+<h3>What makes a good title tag and meta description?</h3>
+<p>A good title is clear, includes the main keyword naturally and fits within the space Google shows. The meta description should read like an invitation that earns the click.</p>
+<h3>Does keyword density still matter?</h3>
+<p>Not in the old sense. I focus on covering a topic thoroughly and using language naturally, which serves readers and modern search engines far better than counting keywords.</p>
+<h3>How important is internal linking?</h3>
+<p>Very. Internal links pass authority to your key pages and guide visitors through your site, which improves both rankings and the user experience.</p>
+<h3>Can on-page SEO help older blog posts rank again?</h3>
+<p>Yes. Refreshing and re-optimizing older content is one of the fastest ways to win back rankings and traffic without starting from scratch.</p>
+<h3>Do images need optimization for SEO?</h3>
+<p>Yes. Descriptive file names, alt text and compressed sizes help pages load faster, rank in image search and stay accessible to every visitor.</p>
+<h3>How do you avoid keyword stuffing?</h3>
+<p>I write for people first and use keywords only where they fit naturally. Clear, genuinely helpful content reads well and performs better than stuffed pages.</p>';
 
 	/* -------------------- OFF-PAGE SEO -------------------- */
 	$c['off-page-seo-link-building'] = '
@@ -234,9 +283,23 @@ function avseo_default_content( $slug ) {
 <h3>What is off-page SEO?</h3>
 <p>Off-page SEO covers the activities outside your website that build its authority and reputation, mainly high quality backlinks, brand mentions and digital PR.</p>
 <h3>Are your backlinks safe and white hat?</h3>
-<p>Yes. I only build links through genuine, white hat outreach on relevant, trusted websites. This keeps your site safe from penalties and builds authority that lasts.</p>
+<p>Yes. I only build links through genuine outreach on relevant, trusted websites. This keeps your site safe from penalties and builds authority that lasts.</p>
 <h3>How many backlinks do I need?</h3>
-<p>There is no magic number. A few strong, relevant links from trusted sites are worth far more than a large volume of low quality links. The right amount depends on your competition.</p>';
+<p>There is no magic number. A few strong, relevant links from trusted sites are worth far more than hundreds of weak ones. The right amount depends on your competition.</p>
+<h3>How long does link building take to work?</h3>
+<p>Quality links take time to earn and time to show their full effect, often a few months. The payoff is authority that keeps supporting your rankings well into the future.</p>
+<h3>Do you buy links?</h3>
+<p>No. Paid link schemes break search engine guidelines and put your site at risk. I earn links through real relationships, useful content and digital PR.</p>
+<h3>What is domain authority and does it matter?</h3>
+<p>Domain authority is a third party score that estimates how strong a site is. It is a useful guide, not a ranking factor, so I focus on relevance and quality over any single number.</p>
+<h3>Can bad backlinks hurt my rankings?</h3>
+<p>They can. If your profile has spammy or toxic links, I audit it and disavow anything harmful so your authority rests on a clean foundation.</p>
+<h3>What is digital PR?</h3>
+<p>Digital PR earns coverage and links from reputable publications through newsworthy content, data and stories. It builds authority and brand awareness at the same time.</p>
+<h3>Do brand mentions without a link still help?</h3>
+<p>Yes. Search engines and AI answer engines notice when your brand is discussed across the web, so consistent mentions strengthen your authority even without a link.</p>
+<h3>How do you choose which sites to get links from?</h3>
+<p>I look for relevance, real traffic, genuine editorial standards and a healthy link profile, so every link adds trust rather than risk.</p>';
 
 	/* -------------------- LOCAL SEO -------------------- */
 	$c['local-seo-services'] = '
@@ -254,14 +317,36 @@ function avseo_default_content( $slug ) {
 <p>I make sure your name, address and phone number are accurate and consistent across directories and listings, which builds trust with search engines and customers.</p>
 <h3>Reviews and reputation</h3>
 <p>Reviews influence both rankings and buying decisions. I help you build a steady flow of genuine reviews and a simple process to respond to them.</p>
+<h4>What is included in my local SEO service</h4>
+<ul>
+<li>Google Business Profile setup and optimization</li>
+<li>Local keyword research and mapping</li>
+<li>Location and service area pages</li>
+<li>Citation building and cleanup for consistent business details</li>
+<li>A simple review strategy and ongoing monitoring</li>
+</ul>
 
 <h2>Local SEO FAQs</h2>
 <h3>What is local SEO?</h3>
-<p>Local SEO is the practice of optimizing your online presence to attract customers from local searches. It focuses on your Google Business Profile, local keywords, citations and reviews so you rank in the map pack and nearby results.</p>
+<p>Local SEO is the practice of optimizing your online presence to attract customers from local searches. It focuses on your Google Business Profile, local keywords, citations and reviews so you appear in the map pack and nearby results.</p>
 <h3>How do I rank in the Google map pack?</h3>
-<p>Ranking in the map pack depends on relevance, distance and prominence. That means a fully optimized Google Business Profile, consistent citations, local content and genuine reviews, which are all part of my local SEO service.</p>
+<p>The map pack rewards relevance, distance and prominence. That means a fully optimized Google Business Profile, consistent citations, local content and genuine reviews, all of which are part of my service.</p>
 <h3>Can you help a business with multiple locations?</h3>
-<p>Yes. I build a scalable local SEO strategy with optimized profiles and dedicated location pages for each area you serve.</p>';
+<p>Yes. I build a scalable strategy with optimized profiles and dedicated location pages for every area you serve.</p>
+<h3>How long does local SEO take?</h3>
+<p>Many businesses see movement within one to three months, though competitive areas take longer. Consistency with your profile, content and reviews is what wins over time.</p>
+<h3>Do I need a physical address to rank locally?</h3>
+<p>You need either a valid address or a defined service area. Service area businesses can rank well without displaying a public address.</p>
+<h3>How important are reviews for local SEO?</h3>
+<p>Very important. Reviews influence both your rankings and whether a customer chooses you, so a steady flow of genuine reviews is a priority.</p>
+<h3>What is a citation in local SEO?</h3>
+<p>A citation is any online mention of your business name, address and phone number. Keeping these consistent across the web builds trust with search engines and customers.</p>
+<h3>Can local SEO help a service area business?</h3>
+<p>Yes. Trades, home services and mobile businesses all benefit from local SEO through service area targeting and helpful, location focused content.</p>
+<h3>Do you optimize my Google Business Profile?</h3>
+<p>Yes. Your profile is the heart of local SEO, so I optimize your categories, services, description, photos and posts, and set up the right ranking signals.</p>
+<h3>Will local SEO work for a new business?</h3>
+<p>Yes. A new business can build local visibility quickly with a complete profile, accurate citations, early reviews and useful local content.</p>';
 
 	/* -------------------- ECOMMERCE SEO -------------------- */
 	$c['ecommerce-seo-services'] = '
@@ -288,11 +373,25 @@ function avseo_default_content( $slug ) {
 
 <h2>eCommerce SEO FAQs</h2>
 <h3>What is eCommerce SEO?</h3>
-<p>eCommerce SEO is the process of optimizing an online store so its product and category pages rank higher in search results for shopping keywords, bringing more qualified traffic and sales.</p>
+<p>eCommerce SEO is the process of optimizing an online store so its product and category pages rank higher for shopping keywords, bringing more qualified traffic and sales.</p>
 <h3>Do you optimize Shopify stores?</h3>
 <p>Yes. I provide Shopify SEO as well as WooCommerce SEO and support for other platforms, handling both the technical setup and the content that drives rankings.</p>
 <h3>How do you handle duplicate content from product filters?</h3>
-<p>I use canonical tags, smart indexing rules and a clean URL strategy to manage faceted navigation and variants, so filters do not create duplicate content that dilutes your rankings.</p>';
+<p>I use canonical tags, smart indexing rules and a clean URL strategy for faceted navigation and variants, so filters do not create duplicate content that dilutes your rankings.</p>
+<h3>Should I optimize product pages or category pages first?</h3>
+<p>Category pages often win the most valuable head terms, so they are usually the priority, followed by your best selling products. I map this out during the audit.</p>
+<h3>Can SEO reduce my reliance on paid ads?</h3>
+<p>Yes. As your organic rankings grow, more sales come in without paying for every click, which lowers your blended cost of acquiring customers over time.</p>
+<h3>How do you handle out of stock or discontinued products?</h3>
+<p>I use a clear plan of redirects, related product suggestions and status handling, so you keep the SEO value and avoid dead ends for shoppers.</p>
+<h3>Does eCommerce SEO work for small stores?</h3>
+<p>Yes. Smaller stores can win by focusing on specific, less competitive product keywords and building topical authority around their niche.</p>
+<h3>How do you do keyword research for products?</h3>
+<p>I look at how shoppers actually search, including product names, use cases and buying terms, then map those keywords to the right product and category pages.</p>
+<h3>Do you optimize product images?</h3>
+<p>Yes. Optimized images load faster, rank in image search and improve the shopping experience, all of which support more sales.</p>
+<h3>How long does eCommerce SEO take to grow sales?</h3>
+<p>Most stores see steady gains within a few months as rankings improve, with the strongest results compounding over six to twelve months.</p>';
 
 	/* -------------------- AI SEARCH OPTIMIZATION -------------------- */
 	$c['ai-search-optimization'] = '
@@ -325,11 +424,25 @@ function avseo_default_content( $slug ) {
 
 <h2>AI search optimization FAQs</h2>
 <h3>What is AI search optimization?</h3>
-<p>AI search optimization, also known as Generative Engine Optimization or GEO, is the practice of optimizing your content and structured data so AI answer engines such as Google AI Overviews, ChatGPT, Gemini and Perplexity cite and recommend your brand.</p>
+<p>AI search optimization, also known as Generative Engine Optimization or GEO, is the practice of shaping your content and structured data so AI answer engines such as Google AI Overviews, ChatGPT, Gemini and Perplexity cite and recommend your brand.</p>
 <h3>How is GEO different from SEO?</h3>
 <p>SEO focuses on ranking in traditional search results, while GEO focuses on being mentioned inside AI generated answers. The two work together, and a strong SEO foundation makes GEO more effective.</p>
 <h3>Can you get my brand mentioned in ChatGPT and Google AI Overviews?</h3>
-<p>I optimize your content, structure and authority signals to maximise the chance of being cited in AI answers. AI engines are constantly evolving, so I focus on the durable factors that consistently influence which sources they trust.</p>';
+<p>I optimize your content, structure and authority signals to improve the chance of being cited. AI engines keep evolving, so I focus on the durable factors that consistently shape which sources they trust.</p>
+<h3>What is the difference between GEO and AEO?</h3>
+<p>GEO focuses on being cited inside AI generated answers, while Answer Engine Optimization, or AEO, focuses on featured snippets and voice results. I combine both with your SEO.</p>
+<h3>Does AI search optimization replace traditional SEO?</h3>
+<p>No. It extends SEO rather than replacing it. Strong traditional SEO makes your content easier for AI engines to find, trust and quote.</p>
+<h3>How do AI engines decide which sources to cite?</h3>
+<p>They favour content that answers clearly, states facts plainly, is well structured and comes from a source with real authority and consistent mentions across the web.</p>
+<h3>Which AI platforms do you optimize for?</h3>
+<p>I focus on the major answer engines people use to research and buy, including Google AI Overviews, ChatGPT, Gemini and Perplexity.</p>
+<h3>Do I need structured data for AI search?</h3>
+<p>Structured data helps a lot. Schema markup makes your content easier for engines to understand and quote, so it is a core part of the work.</p>
+<h3>How do you measure AI search visibility?</h3>
+<p>I track whether your brand is mentioned for the questions that matter, watch referral patterns from AI tools and refine the content that earns citations.</p>
+<h3>Is AI search optimization worth it for small businesses?</h3>
+<p>Yes. Adoption is growing fast, so smaller brands that get cited early can gain visibility that is hard for slower competitors to displace later.</p>';
 
 	/* -------------------- GOOGLE ADS -------------------- */
 	$c['google-ads-management'] = '
@@ -357,11 +470,25 @@ function avseo_default_content( $slug ) {
 
 <h2>Google Ads FAQs</h2>
 <h3>How much should I spend on Google Ads?</h3>
-<p>Your budget depends on your industry, your goals and the cost per click in your market. I help you start at a sensible level, prove the return, then scale spend as the campaigns deliver profitable leads.</p>
+<p>Your budget depends on your industry, your goals and the cost per click in your market. I help you start at a sensible level, prove the return, then scale as the campaigns deliver profitable leads.</p>
 <h3>How do you lower cost per lead?</h3>
-<p>I improve Quality Score through tight campaign structure and relevant ads, cut wasted spend with negative keywords, and continuously optimize bids and targeting based on conversion data.</p>
+<p>I improve Quality Score through tight campaign structure and relevant ads, cut waste with negative keywords, and keep optimizing bids and targeting based on real conversion data.</p>
 <h3>Should I run Google Ads and SEO at the same time?</h3>
-<p>Yes. Google Ads brings qualified traffic right away while SEO builds lasting organic visibility. Together they cover more of the search results and generate more total leads.</p>';
+<p>Yes. Ads bring qualified traffic right away while SEO builds lasting organic visibility. Together they cover more of the results page and generate more total leads.</p>
+<h3>How quickly can Google Ads bring results?</h3>
+<p>Ads can start driving traffic and enquiries within days of going live, which makes them a fast complement to the slower, compounding growth of SEO.</p>
+<h3>What is Quality Score and why does it matter?</h3>
+<p>Quality Score reflects how relevant your keywords, ads and landing pages are. A higher score lowers your cost per click and helps your ads show more often.</p>
+<h3>Which campaign types are right for my business?</h3>
+<p>It depends on your goals. Search campaigns capture high intent demand, Performance Max widens reach, and remarketing brings visitors back. I recommend the right mix after a review.</p>
+<h3>Do you manage the budget or do I?</h3>
+<p>You set and control the budget, and I manage how it is spent for the best return. You always keep full ownership of your account.</p>
+<h3>How do you track conversions?</h3>
+<p>I set up accurate conversion tracking for calls, forms and sales, so every decision is based on what actually generates leads and revenue.</p>
+<h3>Can you audit an existing Google Ads account?</h3>
+<p>Yes. I review your structure, keywords, ads and tracking, then share clear recommendations to cut waste and improve results.</p>
+<h3>Do you write the ad copy?</h3>
+<p>Yes. I write responsive search ads that speak to your customer and stand out, supported by extensions that add trust and useful information.</p>';
 
 	// Enrich each service page with a "Results" block and internal links to
 	// related services. This adds informative content and strengthens the

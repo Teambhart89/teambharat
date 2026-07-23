@@ -13,24 +13,22 @@ Full install, child-theme and import instructions are in `avdesh-seo/README.txt`
 
 ## Keyword research and SEO friendly URL map
 
-Each service targets a researched primary keyword and a clean, keyword rich URL.
+Each service targets a researched primary keyword plus a set of natural secondary keywords, on a clean, keyword rich URL. Keywords are used naturally in the H1 to H4 headings and body copy, without stuffing.
 
-| Page | Primary keyword | SEO friendly URL |
-|------|-----------------|------------------|
-| Home | seo specialist / ai search optimization | `/` |
-| About | seo expert delhi india | `/about/` |
-| Services hub | seo services | `/services/` |
-| SEO Services | seo services | `/seo-services/` |
-| Technical SEO | technical seo services | `/technical-seo-services/` |
-| On-Page SEO | on-page seo services | `/on-page-seo-services/` |
-| Off-Page SEO | link building / off-page seo | `/off-page-seo-link-building/` |
-| Local SEO | local seo services | `/local-seo-services/` |
-| eCommerce SEO | ecommerce seo (shopify / woocommerce) | `/ecommerce-seo-services/` |
-| AI Search Optimization | ai search optimization / GEO | `/ai-search-optimization/` |
-| Google Ads | google ads management / ppc | `/google-ads-management/` |
-| Contact | seo consultation | `/contact/` |
+| Page | SEO friendly URL | Primary keyword | Secondary keywords |
+|------|------------------|-----------------|--------------------|
+| SEO Services | `/seo-services/` | seo services | seo expert, seo company, search engine optimization services, organic traffic, seo strategy, affordable seo |
+| Technical SEO | `/technical-seo-services/` | technical seo services | technical seo audit, core web vitals, site speed, crawlability, indexing, schema markup |
+| On-Page SEO | `/on-page-seo-services/` | on-page seo services | on-page optimization, content optimization, title tags, meta descriptions, internal linking, seo content |
+| Off-Page SEO | `/off-page-seo-link-building/` | link building services | off-page seo, white hat link building, backlinks, guest posting, digital pr, domain authority |
+| Local SEO | `/local-seo-services/` | local seo services | google business profile, map pack, near me searches, local citations, gmb optimization, local rankings |
+| eCommerce SEO | `/ecommerce-seo-services/` | ecommerce seo services | shopify seo, woocommerce seo, product page seo, category page seo, online store seo |
+| AI Search Optimization | `/ai-search-optimization/` | ai search optimization | generative engine optimization, geo, aeo, chatgpt seo, google ai overviews, ai visibility |
+| Google Ads | `/google-ads-management/` | google ads management | ppc management, google ads agency, pay per click, search ads, cost per lead, quality score |
 
-Supporting keywords woven naturally into the copy include: organic traffic, improve rankings, ROI, white hat SEO, keyword research, Core Web Vitals, Google Business Profile, map pack, WordPress SEO, Shopify SEO, Wix SEO, Squarespace SEO, GEO, AEO, Google AI Overviews, ChatGPT, Gemini, Perplexity, qualified traffic, leads and sales.
+Supporting pages: Home `/`, About `/about/`, Services hub `/services/`, Case Studies `/case-studies/`, Blog `/blog/`, Contact `/contact/`.
+
+**Content standards applied to every page:** one exact-match H1 (page title), a logical H2 / H3 / H4 structure, a "quick answer" summary for AI engines, **10 frequently asked questions with answers** on each service page, natural keyword use with no stuffing, and minimal use of dashes for clean, reader-friendly copy.
 
 ## SEO and AI (GEO) features built in
 
