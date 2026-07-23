@@ -138,7 +138,11 @@ p{margin-bottom:1rem;}
 .nav .sub-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:250px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-lg);padding:10px;display:none;flex-direction:column;gap:2px;}
 .nav .menu-item-has-children:hover .sub-menu{display:flex;}
 .nav .sub-menu a{font-size:.9rem;padding:10px 12px;}
-.header-cta{display:flex;align-items:center;gap:12px;}
+.header-cta{display:flex;align-items:center;gap:10px;}
+/* Small WhatsApp button (header + footer) */
+.wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:9px 15px;border-radius:10px;font-weight:600;font-size:.9rem;line-height:1;box-shadow:0 8px 20px rgba(37,211,102,.28);transition:transform .2s,box-shadow .2s,background .2s;}
+.wa-btn:hover{background:#1EBE5A;color:#fff;transform:translateY(-2px);box-shadow:0 12px 26px rgba(37,211,102,.36);}
+.wa-btn svg{width:18px;height:18px;flex:0 0 auto;}
 .menu-toggle{display:none;background:none;border:0;cursor:pointer;width:46px;height:46px;border-radius:10px;}
 .menu-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px auto;transition:.3s;border-radius:2px;}
 
@@ -399,6 +403,8 @@ p{margin-bottom:1rem;}
   .section{padding:64px 0;}
   .topbar .tb-left .hide-sm{display:none;}
   .nav,.header-cta .btn{display:none;}
+  .header-cta .wa-btn{padding:9px 12px;}
+  .header-cta .wa-label{display:none;}
   .menu-toggle{display:block;}
   .site-nav-wrap{position:fixed;inset:76px 0 auto 0;background:#fff;border-bottom:1px solid var(--border);transform:translateY(-140%);transition:transform .3s ease;z-index:75;box-shadow:var(--shadow-lg);max-height:80vh;overflow:auto;}
   .site-nav-wrap.open{transform:none;}

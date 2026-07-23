@@ -60,7 +60,12 @@ $socials  = array(
 				<?php if ( $email ) : ?><a href="mailto:<?php echo esc_attr( $email ); ?>">✉ <?php echo esc_html( $email ); ?></a><br><?php endif; ?>
 				<?php if ( $phone ) : ?><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>">✆ <?php echo esc_html( $phone ); ?></a><br><?php endif; ?>
 				<span style="display:inline-block;padding:4px 0;color:#AEB6DA;">📍 <?php echo esc_html( $location ); ?></span><br>
-				<a class="btn btn-primary" style="margin-top:14px;" href="<?php echo esc_url( home_url( '/book-free-seo-audit/' ) ); ?>">Book a free SEO audit</a>
+				<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">
+					<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/book-free-seo-audit/' ) ); ?>">Book a free SEO audit</a>
+					<?php $wa = avdesh_whatsapp_url(); if ( $wa ) : ?>
+						<a class="wa-btn" href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><?php echo avdesh_whatsapp_svg( 18 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span class="wa-label">Chat on WhatsApp</span></a>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 

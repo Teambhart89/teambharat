@@ -66,6 +66,11 @@ $location = avdesh_opt( 'avdesh_location', 'Delhi, India' );
 		</nav>
 
 		<div class="header-cta">
+			<?php $wa = avdesh_whatsapp_url(); if ( $wa ) : ?>
+				<a class="wa-btn" href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+					<?php echo avdesh_whatsapp_svg( 18 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span class="wa-label">WhatsApp</span>
+				</a>
+			<?php endif; ?>
 			<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/book-free-seo-audit/' ) ); ?>">Free SEO Audit</a>
 			<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'avdesh-seo' ); ?>" aria-expanded="false" aria-controls="primary-menu">
 				<span></span><span></span><span></span>
