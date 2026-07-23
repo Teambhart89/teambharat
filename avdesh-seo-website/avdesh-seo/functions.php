@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'AVSEO_VERSION', '1.5.0' );
+define( 'AVSEO_VERSION', '1.5.1' );
 
 /**
  * Theme setup.
@@ -80,6 +80,9 @@ require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/schema.php';
 require get_template_directory() . '/inc/activation.php';
+if ( is_admin() ) {
+	require get_template_directory() . '/inc/admin.php';
+}
 
 /**
  * Fallback menu when no primary menu is assigned.

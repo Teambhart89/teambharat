@@ -158,6 +158,9 @@ function avseo_activate_setup() {
 
 	// Build primary navigation menu.
 	avseo_build_menu( $ids );
+
+	// Show a one-time pointer to the content tools after activation.
+	set_transient( 'avseo_just_activated', 1, 60 );
 }
 add_action( 'after_switch_theme', 'avseo_activate_setup' );
 

@@ -219,6 +219,26 @@ This imports all pages, the 8 service pages, the Case Studies page and the
 3 starter blog posts.
 
 
+---------------------------------------------------------
+ 9. ONE-CLICK CONTENT RESET (after an update)
+---------------------------------------------------------
+
+After you upload a newer version of the theme, your existing pages keep the
+text they already have, so your edits are never lost. If you WANT the latest
+theme content instead, use the built in tool:
+
+  Go to  Tools > Avdesh SEO
+
+From there you can:
+  - Reset any page (or all pages) to the latest theme content in one click
+  - Reset the three starter blog posts to their latest version
+  - Re-run setup to create anything that is missing
+
+Resetting a page overwrites that page's current text with the newest theme
+content. It does not touch your images, menus or settings. A confirmation
+box appears before anything changes.
+
+
 Questions or tweaks? Everything here is standard WordPress, so any developer
 can extend it easily.
 
