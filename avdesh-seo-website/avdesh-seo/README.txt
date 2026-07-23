@@ -61,6 +61,18 @@ Tip: upload at about twice the display size so images stay sharp on modern
 phones and laptops, and compress them (for example at tinypng.com) so your
 page speed and SEO scores stay high.
 
+Testimonials with client photos:
+  Go to  Appearance > Customize > Testimonials.
+  Add up to 6 reviews, each with an optional photo (recommended 200 x 200 px,
+  square), a quote, a name and a role or company. Leave a quote blank to hide
+  that testimonial. Three sample reviews are filled in to start.
+
+Brand logos:
+  Go to  Appearance > Customize > Brand Logos.
+  Upload up to 12 client logos (recommended 200 x 100 px, PNG with a
+  transparent background). Empty slots show a friendly "Add logo" placeholder
+  on the site so you always know where they go.
+
 Images inside a service page or blog post:
   Add these directly in the page editor. Open the page in  Pages, click the
   plus (+) button where you want the image, choose Image, and upload.

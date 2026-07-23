@@ -61,3 +61,12 @@ Every picture in the design is a Customizer controlled slot (`Appearance > Custo
 | Logo | 220 × 60 px (PNG transparent) |
 
 Images inside a service page or blog post are added directly in the page editor.
+
+## Testimonials and brand logos
+
+- **Testimonials** (`Customize > Testimonials`) - up to 6 client reviews, each with an optional photo (200 × 200 px), quote, name and role. Empty quotes are hidden automatically.
+- **Brand logos** (`Customize > Brand Logos`) - up to 12 client logos (200 × 100 px, PNG transparent). Empty slots show an "Add logo" placeholder on the homepage.
+
+## Informative, SEO-friendly content
+
+Every page ships with substantial, reader-friendly and keyword-rich content: a clear H1/H2/H3/H4 structure, a "quick answer" summary for AI engines, an "Industries I serve" section on the homepage, a "Results you can expect" block and internal "Related services" links on each service page (which strengthens internal linking for SEO), plus FAQ sections that auto-generate FAQ schema.

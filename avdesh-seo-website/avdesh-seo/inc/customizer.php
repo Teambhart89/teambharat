@@ -127,5 +127,79 @@ function avseo_customize_register( $wp_customize ) {
 			'type'    => 'text',
 		) );
 	}
+
+	/* -------------------------------------------------
+	 * Section: Testimonials (with photo upload)
+	 * ------------------------------------------------- */
+	$wp_customize->add_section( 'avseo_testimonials', array(
+		'title'       => __( 'Testimonials', 'avdesh-seo' ),
+		'description' => __( 'Add up to 6 client reviews with an optional photo. Leave a quote empty to hide that testimonial. Recommended photo size 200 x 200 px (square).', 'avdesh-seo' ),
+		'priority'    => 34,
+	) );
+
+	$testi_defaults = array(
+		1 => array( 'Our organic traffic grew steadily month after month and we finally rank for the keywords that bring real customers.', 'Rahul Sharma', 'Founder, SaaS Company' ),
+		2 => array( 'A clear strategy, honest reporting and rankings that turned into actual leads and sales for our store.', 'Priya Nair', 'Owner, eCommerce Brand' ),
+		3 => array( 'The AI search work put us inside answers on ChatGPT and Google AI Overviews. Genuinely ahead of the curve.', 'James Miller', 'Marketing Head, Local Business' ),
+		4 => array( '', '', '' ),
+		5 => array( '', '', '' ),
+		6 => array( '', '', '' ),
+	);
+
+	for ( $i = 1; $i <= 6; $i++ ) {
+		$wp_customize->add_setting( "testi_{$i}_photo", array( 'default' => '', 'sanitize_callback' => 'esc_url_raw' ) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, "testi_{$i}_photo", array(
+			'label'   => "Testimonial {$i}: photo (200 x 200 px)",
+			'section' => 'avseo_testimonials',
+		) ) );
+
+		$wp_customize->add_setting( "testi_{$i}_quote", array( 'default' => $testi_defaults[ $i ][0], 'sanitize_callback' => 'sanitize_textarea_field' ) );
+		$wp_customize->add_control( "testi_{$i}_quote", array(
+			'label'   => "Testimonial {$i}: quote",
+			'section' => 'avseo_testimonials',
+			'type'    => 'textarea',
+		) );
+
+		$wp_customize->add_setting( "testi_{$i}_name", array( 'default' => $testi_defaults[ $i ][1], 'sanitize_callback' => 'sanitize_text_field' ) );
+		$wp_customize->add_control( "testi_{$i}_name", array(
+			'label'   => "Testimonial {$i}: name",
+			'section' => 'avseo_testimonials',
+			'type'    => 'text',
+		) );
+
+		$wp_customize->add_setting( "testi_{$i}_role", array( 'default' => $testi_defaults[ $i ][2], 'sanitize_callback' => 'sanitize_text_field' ) );
+		$wp_customize->add_control( "testi_{$i}_role", array(
+			'label'   => "Testimonial {$i}: role / company",
+			'section' => 'avseo_testimonials',
+			'type'    => 'text',
+		) );
+	}
+
+	/* -------------------------------------------------
+	 * Section: Brand Logos (upload)
+	 * ------------------------------------------------- */
+	$wp_customize->add_section( 'avseo_brands', array(
+		'title'       => __( 'Brand Logos', 'avdesh-seo' ),
+		'description' => __( 'Upload logos of brands you have worked with. Recommended size 200 x 100 px, PNG with a transparent background. Empty slots show an "Add logo" placeholder on the site.', 'avdesh-seo' ),
+		'priority'    => 35,
+	) );
+
+	$wp_customize->add_setting( 'brands_heading', array(
+		'default'           => 'Brands I have worked with',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+	$wp_customize->add_control( 'brands_heading', array(
+		'label'   => __( 'Section intro text', 'avdesh-seo' ),
+		'section' => 'avseo_brands',
+		'type'    => 'text',
+	) );
+
+	for ( $i = 1; $i <= 12; $i++ ) {
+		$wp_customize->add_setting( "brand_{$i}", array( 'default' => '', 'sanitize_callback' => 'esc_url_raw' ) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, "brand_{$i}", array(
+			'label'   => "Brand logo {$i} (200 x 100 px)",
+			'section' => 'avseo_brands',
+		) ) );
+	}
 }
 add_action( 'customize_register', 'avseo_customize_register' );

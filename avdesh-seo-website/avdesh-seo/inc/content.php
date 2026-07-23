@@ -26,9 +26,20 @@ function avseo_default_content( $slug ) {
 
 	/* -------------------- HOMEPAGE (about section text) -------------------- */
 	$c['home'] = '
-<p>Hi, I\'m Avdesh Kumar, an SEO and AI Search Optimization Specialist based in Delhi, India with 8 years of hands-on experience across highly competitive markets.</p>
+<p>Hi, I\'m Avdesh Kumar, an SEO and AI Search Optimization Specialist based in Delhi, India with 8 years of hands-on experience across highly competitive markets in India, Dubai, the UK, the USA and Australia.</p>
 <p>I take an AI-first approach to search, helping businesses increase visibility across Google and modern LLM platforms while keeping a strong focus on long-term, sustainable revenue growth. My work spans on-page, technical and off-page SEO across platforms like WordPress, Shopify, Wix and Squarespace.</p>
-<p>I focus on what truly drives performance: qualified traffic, leads and sales, not vanity rankings. Every strategy uses proven white hat methods that build lasting authority and real ROI.</p>';
+<p>I focus on what truly drives performance: qualified traffic, leads and sales, not vanity rankings. Every strategy uses proven white hat methods that build lasting authority and real ROI.</p>
+<p><strong>I can help you with:</strong></p>
+<ul>
+<li>Full SEO strategy, keyword research and search intent mapping</li>
+<li>Technical SEO, site speed and Core Web Vitals</li>
+<li>On-page SEO and content that ranks and converts</li>
+<li>White hat link building and off-page authority</li>
+<li>Local SEO and Google Business Profile growth</li>
+<li>eCommerce SEO for Shopify and WooCommerce</li>
+<li>AI search optimization for ChatGPT, Gemini, Perplexity and Google AI Overviews</li>
+<li>Google Ads that lower cost per lead</li>
+</ul>';
 
 	/* -------------------- ABOUT -------------------- */
 	$c['about'] = '
@@ -311,6 +322,56 @@ function avseo_default_content( $slug ) {
 <p>I improve Quality Score through tight campaign structure and relevant ads, cut wasted spend with negative keywords, and continuously optimize bids and targeting based on conversion data.</p>
 <h3>Should I run Google Ads and SEO at the same time?</h3>
 <p>Yes. Google Ads brings qualified traffic right away while SEO builds lasting organic visibility. Together they cover more of the search results and generate more total leads.</p>';
+
+	// Enrich each service page with a "Results" block and internal links to
+	// related services. This adds informative content and strengthens the
+	// internal linking that helps every page rank.
+	$related = array(
+		'seo-services'               => array( 'faq' => 'Frequently asked questions about SEO services', 'links' => array( 'technical-seo-services', 'on-page-seo-services', 'ai-search-optimization' ) ),
+		'technical-seo-services'     => array( 'faq' => 'Technical SEO FAQs', 'links' => array( 'seo-services', 'on-page-seo-services', 'ecommerce-seo-services' ) ),
+		'on-page-seo-services'       => array( 'faq' => 'On-page SEO FAQs', 'links' => array( 'technical-seo-services', 'off-page-seo-link-building', 'seo-services' ) ),
+		'off-page-seo-link-building' => array( 'faq' => 'Off-page SEO FAQs', 'links' => array( 'seo-services', 'local-seo-services', 'on-page-seo-services' ) ),
+		'local-seo-services'         => array( 'faq' => 'Local SEO FAQs', 'links' => array( 'seo-services', 'google-ads-management', 'on-page-seo-services' ) ),
+		'ecommerce-seo-services'     => array( 'faq' => 'eCommerce SEO FAQs', 'links' => array( 'technical-seo-services', 'on-page-seo-services', 'seo-services' ) ),
+		'ai-search-optimization'     => array( 'faq' => 'AI search optimization FAQs', 'links' => array( 'seo-services', 'on-page-seo-services', 'technical-seo-services' ) ),
+		'google-ads-management'      => array( 'faq' => 'Google Ads FAQs', 'links' => array( 'seo-services', 'local-seo-services', 'ecommerce-seo-services' ) ),
+	);
+
+	$titles = array(
+		'seo-services'               => 'SEO Services',
+		'technical-seo-services'     => 'Technical SEO',
+		'on-page-seo-services'       => 'On-Page SEO',
+		'off-page-seo-link-building' => 'Off-Page SEO and Link Building',
+		'local-seo-services'         => 'Local SEO',
+		'ecommerce-seo-services'     => 'eCommerce SEO',
+		'ai-search-optimization'     => 'AI Search Optimization',
+		'google-ads-management'      => 'Google Ads',
+	);
+
+	if ( isset( $c[ $slug ], $related[ $slug ] ) ) {
+		$link_html = array();
+		foreach ( $related[ $slug ]['links'] as $rslug ) {
+			$link_html[] = '<a href="/' . $rslug . '/">' . $titles[ $rslug ] . '</a>';
+		}
+		$results = '
+<h2>Results you can expect</h2>
+<ul>
+<li>Higher rankings for the keywords that bring real customers</li>
+<li>More qualified organic traffic from people ready to act</li>
+<li>A better on-site experience that turns visitors into leads and sales</li>
+<li>Clear, transparent reporting tied to real ROI, not vanity metrics</li>
+</ul>
+<h2>Related services</h2>
+<p>This works best alongside ' . implode( ', ', array_slice( $link_html, 0, 2 ) ) . ' and ' . end( $link_html ) . '. Combine them into one strategy for the strongest, most sustainable growth.</p>
+';
+		// Insert the enrichment just before the FAQ heading.
+		$faq_h2 = '<h2>' . $related[ $slug ]['faq'] . '</h2>';
+		if ( false !== strpos( $c[ $slug ], $faq_h2 ) ) {
+			$c[ $slug ] = str_replace( $faq_h2, $results . $faq_h2, $c[ $slug ] );
+		} else {
+			$c[ $slug ] .= $results;
+		}
+	}
 
 	return isset( $c[ $slug ] ) ? trim( $c[ $slug ] ) : '';
 }

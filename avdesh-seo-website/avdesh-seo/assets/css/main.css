@@ -324,8 +324,13 @@ section{ padding: clamp(56px, 8vw, 96px) 0; }
 /* ---------- Testimonials ---------- */
 .quote-card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:28px; height:100%; }
 .quote-card .stars{ color:var(--orange); margin-bottom:10px; letter-spacing:2px; }
-.quote-card .who{ font-family:var(--font-head); font-weight:700; color:var(--navy); margin-top:14px; }
+.quote-card .who-row{ display:flex; align-items:center; gap:12px; margin-top:16px; }
+.quote-card .who-photo{ width:48px; height:48px; border-radius:50%; object-fit:cover; flex:0 0 auto; border:2px solid var(--orange-soft); }
+.quote-card .who-initials{ background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-head); font-weight:700; font-size:1.1rem; }
+.quote-card .who{ font-family:var(--font-head); font-weight:700; color:var(--navy); }
 .quote-card .who small{ display:block; color:var(--muted); font-weight:500; }
+.logo-cell .logo-empty{ color:var(--muted); font-size:.82rem; font-weight:600; line-height:1.3; }
+.logo-cell .logo-empty small{ color:#b7b2c4; font-weight:500; font-size:.72rem; }
 
 /* ---------- Footer ---------- */
 .site-footer{ background:var(--navy-2); color:#c9c4d6; padding:64px 0 26px; }

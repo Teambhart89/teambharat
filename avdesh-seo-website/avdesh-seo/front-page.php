@@ -240,25 +240,92 @@ $home_content  = $home_id ? apply_filters( 'the_content', get_post_field( 'post_
 	</div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
+<!-- ============ INDUSTRIES I SERVE ============ -->
 <section class="bg-white">
 	<div class="container">
-		<?php avseo_section_title( 'client love', 'Results and relationships that speak for themselves.' ); ?>
-		<div class="grid-3">
+		<?php avseo_section_title( 'industries i serve', 'Proven SEO and AI search experience across a wide range of industries and business models.' ); ?>
+		<div class="grid-4">
 			<?php
-			$quotes = array(
-				array( 'Our organic traffic grew steadily month after month and we finally rank for the keywords that bring real customers.', 'Founder', 'SaaS Company' ),
-				array( 'A clear strategy, honest reporting and rankings that turned into actual leads and sales for our store.', 'Owner', 'eCommerce Brand' ),
-				array( 'The AI search work put us inside answers on ChatGPT and Google AI Overviews. Genuinely ahead of the curve.', 'Marketing Head', 'Local Business' ),
+			$industries = array(
+				array( '🏥', 'Healthcare &amp; Clinics', 'Local SEO and content that builds trust and brings patient enquiries.' ),
+				array( '🛍️', 'eCommerce &amp; Retail', 'Product and category SEO that grows qualified traffic and online sales.' ),
+				array( '🏠', 'Real Estate &amp; Interiors', 'Local and content SEO that generates high intent property leads.' ),
+				array( '💼', 'Professional Services', 'Authority content and rankings for legal, finance and consulting firms.' ),
+				array( '💻', 'SaaS &amp; Technology', 'Search and AI visibility strategies that drive sign ups and demos.' ),
+				array( '💇', 'Salons &amp; Beauty', 'Google Business Profile and local SEO that fill your appointment book.' ),
+				array( '🍽️', 'Restaurants &amp; Hospitality', 'Local search visibility that drives bookings and footfall.' ),
+				array( '🎓', 'Education &amp; Coaching', 'Content and SEO that grow enrolments and course sign ups.' ),
 			);
-			foreach ( $quotes as $q ) : ?>
-				<div class="quote-card">
-					<div class="stars">★★★★★</div>
-					<p>&ldquo;<?php echo esc_html( $q[0] ); ?>&rdquo;</p>
-					<div class="who"><?php echo esc_html( $q[1] ); ?><small><?php echo esc_html( $q[2] ); ?></small></div>
+			foreach ( $industries as $ind ) : ?>
+				<div class="svc-card">
+					<span class="card-ico" style="font-size:1.8rem;"><?php echo $ind[0]; ?></span>
+					<h3 style="font-size:1.1rem;margin-top:.4em;"><?php echo wp_kses_post( $ind[1] ); ?></h3>
+					<p><?php echo wp_kses_post( $ind[2] ); ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>
+	</div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<?php
+$testimonials = array();
+for ( $i = 1; $i <= 6; $i++ ) {
+	$quote = avseo_opt( "testi_{$i}_quote", '' );
+	if ( trim( $quote ) === '' ) {
+		continue;
+	}
+	$testimonials[] = array(
+		'photo' => avseo_opt( "testi_{$i}_photo", '' ),
+		'quote' => $quote,
+		'name'  => avseo_opt( "testi_{$i}_name", '' ),
+		'role'  => avseo_opt( "testi_{$i}_role", '' ),
+	);
+}
+if ( ! empty( $testimonials ) ) :
+	?>
+	<section class="bg-white">
+		<div class="container">
+			<?php avseo_section_title( 'client love', 'Real results and relationships from businesses I have helped grow with SEO and AI search.' ); ?>
+			<div class="grid-3">
+				<?php foreach ( $testimonials as $t ) : ?>
+					<div class="quote-card">
+						<div class="stars">★★★★★</div>
+						<p>&ldquo;<?php echo esc_html( $t['quote'] ); ?>&rdquo;</p>
+						<div class="who-row">
+							<?php if ( $t['photo'] ) : ?>
+								<img class="who-photo" src="<?php echo esc_url( $t['photo'] ); ?>" alt="<?php echo esc_attr( $t['name'] ); ?>" loading="lazy" />
+							<?php elseif ( $t['name'] ) : ?>
+								<span class="who-photo who-initials"><?php echo esc_html( mb_substr( $t['name'], 0, 1 ) ); ?></span>
+							<?php endif; ?>
+							<div class="who"><?php echo esc_html( $t['name'] ); ?><small><?php echo esc_html( $t['role'] ); ?></small></div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<!-- ============ FEATURED BRANDS ============ -->
+<section class="bg-cream">
+	<div class="container">
+		<?php avseo_section_title( 'featured brands', avseo_opt( 'brands_heading', 'Brands I have worked with across multiple industries.' ) ); ?>
+		<div class="logo-grid">
+			<?php
+			for ( $i = 1; $i <= 12; $i++ ) :
+				$logo = avseo_opt( "brand_{$i}", '' );
+				?>
+				<div class="logo-cell">
+					<?php if ( $logo ) : ?>
+						<img src="<?php echo esc_url( $logo ); ?>" alt="Client brand logo <?php echo esc_attr( $i ); ?>" loading="lazy" />
+					<?php else : ?>
+						<span class="logo-empty">+ Add logo<br><small>200 x 100 px</small></span>
+					<?php endif; ?>
+				</div>
+			<?php endfor; ?>
+		</div>
+		<p class="center" style="color:var(--muted);margin-top:22px;font-size:.9rem;">Upload your client logos in Appearance &rarr; Customize &rarr; Brand Logos.</p>
 	</div>
 </section>
 
