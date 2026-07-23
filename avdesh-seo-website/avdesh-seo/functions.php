@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'AVSEO_VERSION', '1.5.1' );
+define( 'AVSEO_VERSION', '1.6.0' );
 
 /**
  * Theme setup.
@@ -79,6 +79,7 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/schema.php';
+require get_template_directory() . '/inc/analytics.php';
 require get_template_directory() . '/inc/activation.php';
 if ( is_admin() ) {
 	require get_template_directory() . '/inc/admin.php';

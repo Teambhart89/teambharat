@@ -174,10 +174,22 @@ Built in SEO features:
   - Fast, responsive, mobile first layout
   - Content optimized for search engines and AI answer engines (GEO)
 
+Analytics and verification (built in):
+  Go to  Appearance > Customize > Analytics & Verification  to:
+  - Paste your Google Analytics 4 Measurement ID (starts with G-) to enable
+    tracking. Logged in administrators are not tracked, so your data stays clean.
+  - Paste your Google Search Console verification code to verify the site.
+  - Paste your Bing Webmaster verification code if you use Bing.
+
+XML sitemap:
+  WordPress creates one automatically at  /wp-sitemap.xml . If you install an
+  SEO plugin such as Rank Math or Yoast, use the sitemap it provides instead.
+
 Recommended next steps:
+  - Follow PRE-LAUNCH-CHECKLIST.md (included) step by step.
   - Install an SEO plugin such as Rank Math or Yoast for per page titles
-    and sitemaps (the theme works alongside them).
-  - Connect Google Search Console and Google Analytics 4.
+    and a richer sitemap (the theme works alongside them).
+  - Connect Google Search Console and Google Analytics 4 as above.
   - Submit your sitemap to Google.
 
 
