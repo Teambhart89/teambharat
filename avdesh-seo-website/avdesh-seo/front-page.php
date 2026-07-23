@@ -21,31 +21,35 @@ $home_content  = $home_id ? apply_filters( 'the_content', get_post_field( 'post_
 			<span class="hello-pill">Hello!</span>
 			<h1>I'm <span class="name"><?php echo esc_html( $name ); ?></span> 👋</h1>
 			<div class="hero-sub"><?php echo esc_html( avseo_info( 'role' ) ); ?></div>
-			<p class="lead mx-auto" style="max-width:640px;">
-				<?php echo esc_html( $hero_tagline ); ?>
-			</p>
 
-			<div class="hero-actions">
-				<span class="hire-btn">
-					<a class="portfolio" href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">Portfolio <span class="arw">&#8599;</span></a>
-					<a class="hireme" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Hire me</a>
-				</span>
-			</div>
+			<div class="hero-stage">
+				<div class="hero-quote">
+					<span class="q-mark">&ldquo;</span>
+					<p><?php echo esc_html( $hero_tagline ); ?></p>
+				</div>
 
-			<div class="hero-photo-wrap">
-				<span class="hero-tag t1"><span class="tdot">●</span>On-Page SEO</span>
-				<span class="hero-tag t2"><span class="tdot">●</span>AI Search (GEO)</span>
-				<span class="hero-tag t3"><span class="tdot">●</span>Technical SEO</span>
-				<span class="hero-tag t4"><span class="tdot">●</span>Link Building</span>
-				<span class="hero-tag t5"><span class="tdot">●</span>Local SEO</span>
-				<span class="hero-tag t6"><span class="tdot">●</span>Google Ads</span>
-				<div class="hero-years">
+				<div class="hero-photo-wrap">
+					<span class="hero-tag t1"><span class="tdot">●</span>On-Page SEO</span>
+					<span class="hero-tag t2"><span class="tdot">●</span>AI Search (GEO)</span>
+					<span class="hero-tag t3"><span class="tdot">●</span>Technical SEO</span>
+					<span class="hero-tag t4"><span class="tdot">●</span>Link Building</span>
+					<span class="hero-tag t5"><span class="tdot">●</span>Local SEO</span>
+					<span class="hero-tag t6"><span class="tdot">●</span>Google Ads</span>
+					<div class="hero-photo">
+						<div class="hero-photo-glow"></div>
+						<?php avseo_image_slot( 'img_hero', 'Add your hero portrait', $name . ' - SEO Specialist', 'hero-slot', '800 x 900 px' ); ?>
+					</div>
+					<div class="hero-cta-float">
+						<span class="hire-btn">
+							<a class="portfolio" href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">Portfolio <span class="arw">&#8599;</span></a>
+							<a class="hireme" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Hire me</a>
+						</span>
+					</div>
+				</div>
+
+				<div class="hero-years-col">
 					<div class="big">8+ Years</div>
 					<small>SEO &amp; Search Growth</small>
-				</div>
-				<div class="hero-photo">
-					<div class="hero-photo-glow"></div>
-					<?php avseo_image_slot( 'img_hero', 'Add your hero portrait', $name . ' - SEO Specialist', 'hero-slot', '800 x 900 px' ); ?>
 				</div>
 			</div>
 		</div>

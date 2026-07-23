@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'AVSEO_VERSION', '1.6.1' );
+define( 'AVSEO_VERSION', '1.6.2' );
 
 /**
  * Theme setup.

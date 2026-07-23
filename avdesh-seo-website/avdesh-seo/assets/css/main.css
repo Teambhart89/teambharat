@@ -164,13 +164,24 @@ section{ padding: clamp(56px, 8vw, 96px) 0; }
 .hero-tag .tdot{ color:var(--orange); margin-right:6px; }
 .hero-tag.t1{ top:14%; left:0; }
 .hero-tag.t2{ top:14%; right:0; }
-.hero-tag.t3{ top:44%; left:-4%; }
-.hero-tag.t4{ top:44%; right:-4%; }
+.hero-tag.t3{ top:44%; left:2%; }
+.hero-tag.t4{ top:44%; right:2%; }
 .hero-tag.t5{ bottom:14%; left:6%; }
 .hero-tag.t6{ bottom:14%; right:6%; }
 .hero-years{ position:absolute; top:26%; right:2%; text-align:right; z-index:2; }
 .hero-years .big{ font-family:var(--font-head); font-weight:800; font-size:1.5rem; color:var(--navy); line-height:1; }
 .hero-years small{ display:block; color:var(--muted); font-size:.72rem; font-weight:600; }
+
+/* Hero 3-column stage: quote | photo | years */
+.hero-stage{ display:grid; grid-template-columns:1fr minmax(300px,540px) 1fr; align-items:center; gap:16px; margin-top:22px; }
+.hero-stage .hero-photo-wrap{ margin:0 auto; max-width:540px; }
+.hero-quote{ justify-self:end; max-width:280px; text-align:left; }
+.hero-quote .q-mark{ display:block; font-family:var(--font-head); font-weight:800; font-size:3rem; color:var(--navy); line-height:.5; margin-bottom:6px; }
+.hero-quote p{ color:var(--muted); font-size:.98rem; margin:0; line-height:1.6; }
+.hero-years-col{ justify-self:start; text-align:left; }
+.hero-years-col .big{ font-family:var(--font-head); font-weight:800; font-size:1.9rem; color:var(--navy); line-height:1; }
+.hero-years-col small{ display:block; color:var(--muted); font-size:.8rem; font-weight:600; margin-top:4px; }
+.hero-cta-float{ position:absolute; left:50%; bottom:5%; transform:translateX(-50%); z-index:4; }
 
 /* Segmented Portfolio / Hire me button */
 .hero-actions{ margin:22px 0 4px; display:flex; justify-content:center; }
@@ -390,7 +401,10 @@ section{ padding: clamp(56px, 8vw, 96px) 0; }
   .stats-grid{ grid-template-columns:repeat(3,1fr); }
   .stat:nth-child(3){ border-right:0; }
   .sidebar-card{ position:static; }
-  .hero-years{ display:none; }
+  .hero-stage{ grid-template-columns:1fr; gap:24px; }
+  .hero-quote{ justify-self:center; text-align:center; max-width:460px; order:2; }
+  .hero-photo-wrap{ order:1; }
+  .hero-years-col{ justify-self:center; text-align:center; order:3; }
   .hero-tag.t3,.hero-tag.t4{ display:none; }
 }
 @media (max-width: 680px){
