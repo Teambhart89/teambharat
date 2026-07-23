@@ -67,6 +67,15 @@ Images inside a service page or blog post are added directly in the page editor.
 - **Testimonials** (`Customize > Testimonials`) - up to 6 client reviews, each with an optional photo (200 × 200 px), quote, name and role. Empty quotes are hidden automatically.
 - **Brand logos** (`Customize > Brand Logos`) - up to 12 client logos (200 × 100 px, PNG transparent). Empty slots show an "Add logo" placeholder on the homepage.
 
+## Blog and case studies
+
+- **Blog starter** - three ready-to-publish SEO articles are created on activation under an "SEO Insights" category (AI Search Optimization/GEO, a Technical SEO checklist, and a Local SEO map-pack guide), each with Article schema. Blog lives at `/blog/`.
+- **Case studies page** (`/case-studies/`) - headline metric cards (editable in `Customize > Case Study Metrics`), project cards with image-upload slots, and editable intro copy.
+
+## Sample images pre-loaded
+
+The theme bundles branded SVG placeholders (hero, about, profile, 4 case studies, 6 brand logos, 3 testimonial avatars) so the demo looks complete on first activation. Each is clearly marked as a sample; replace them anytime in `Customize > Images`, `Brand Logos`, or `Testimonials`.
+
 ## Informative, SEO-friendly content
 
 Every page ships with substantial, reader-friendly and keyword-rich content: a clear H1/H2/H3/H4 structure, a "quick answer" summary for AI engines, an "Industries I serve" section on the homepage, a "Results you can expect" block and internal "Related services" links on each service page (which strengthens internal linking for SEO), plus FAQ sections that auto-generate FAQ schema.

@@ -17,6 +17,34 @@ function avseo_opt( $key, $default = '' ) {
 }
 
 /**
+ * Return the bundled sample placeholder image URL for a given image setting,
+ * or an empty string if there is no sample. These make the freshly installed
+ * demo look complete before the owner uploads their own pictures.
+ */
+function avseo_sample_default( $key ) {
+	$dir = get_template_directory_uri() . '/assets/images/';
+	$map = array(
+		'img_hero'      => 'ph-hero.svg',
+		'img_about'     => 'ph-about.svg',
+		'img_profile'   => 'ph-profile.svg',
+		'img_case_1'    => 'ph-case-1.svg',
+		'img_case_2'    => 'ph-case-2.svg',
+		'img_case_3'    => 'ph-case-3.svg',
+		'img_case_4'    => 'ph-case-4.svg',
+		'brand_1'       => 'ph-logo-1.svg',
+		'brand_2'       => 'ph-logo-2.svg',
+		'brand_3'       => 'ph-logo-3.svg',
+		'brand_4'       => 'ph-logo-4.svg',
+		'brand_5'       => 'ph-logo-5.svg',
+		'brand_6'       => 'ph-logo-6.svg',
+		'testi_1_photo' => 'ph-avatar-1.svg',
+		'testi_2_photo' => 'ph-avatar-2.svg',
+		'testi_3_photo' => 'ph-avatar-3.svg',
+	);
+	return isset( $map[ $key ] ) ? $dir . $map[ $key ] : '';
+}
+
+/**
  * Business / contact details, centralised so they stay consistent
  * and are easy to change from the Customizer.
  */
@@ -73,7 +101,7 @@ function avseo_section_title( $text, $intro = '' ) {
  * @param string $size      Recommended image size, shown to the site owner.
  */
 function avseo_image_slot( $mod_key, $label, $alt = '', $extra_cls = '', $size = '' ) {
-	$url = avseo_opt( $mod_key, '' );
+	$url = avseo_opt( $mod_key, avseo_sample_default( $mod_key ) );
 	$alt = $alt ? $alt : $label;
 	if ( $url ) {
 		echo '<div class="img-slot filled ' . esc_attr( $extra_cls ) . '">';

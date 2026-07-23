@@ -74,6 +74,11 @@ function avseo_page_map() {
 			'parent' => 'services',
 			'excerpt'=> 'Google Ads management that lowers cost per lead and grows conversions with tightly targeted, high intent search campaigns.',
 		),
+		'case-studies' => array(
+			'title'  => 'Case Studies',
+			'parent' => '',
+			'excerpt'=> 'Real SEO and AI search results: the brands, campaigns and metrics behind measurable growth in traffic, rankings and revenue.',
+		),
 		'contact' => array(
 			'title'  => 'Contact',
 			'parent' => '',
@@ -148,10 +153,59 @@ function avseo_activate_setup() {
 		$wp_rewrite->flush_rules();
 	}
 
+	// Seed the starter blog posts.
+	avseo_create_sample_posts();
+
 	// Build primary navigation menu.
 	avseo_build_menu( $ids );
 }
 add_action( 'after_switch_theme', 'avseo_activate_setup' );
+
+/**
+ * Create the sample blog posts (once) under an "SEO Insights" category.
+ */
+function avseo_create_sample_posts() {
+	if ( ! function_exists( 'avseo_default_posts' ) ) {
+		return;
+	}
+	// Ensure a category exists.
+	$cat_id = 0;
+	$term   = term_exists( 'SEO Insights', 'category' );
+	if ( ! $term ) {
+		$term = wp_insert_term( 'SEO Insights', 'category', array( 'slug' => 'seo-insights' ) );
+	}
+	if ( ! is_wp_error( $term ) && ! empty( $term['term_id'] ) ) {
+		$cat_id = (int) $term['term_id'];
+	}
+
+	$offset = 0;
+	foreach ( avseo_default_posts() as $post ) {
+		// Skip if a post with this slug already exists.
+		$existing = get_posts( array(
+			'name'        => $post['slug'],
+			'post_type'   => 'post',
+			'post_status' => 'any',
+			'numberposts' => 1,
+			'fields'      => 'ids',
+		) );
+		if ( ! empty( $existing ) ) {
+			continue;
+		}
+		$post_id = wp_insert_post( array(
+			'post_title'   => $post['title'],
+			'post_name'    => $post['slug'],
+			'post_content' => $post['content'],
+			'post_excerpt' => $post['excerpt'],
+			'post_status'  => 'publish',
+			'post_type'    => 'post',
+			'post_date'    => gmdate( 'Y-m-d H:i:s', strtotime( "-{$offset} days" ) ),
+		) );
+		if ( $post_id && ! is_wp_error( $post_id ) && $cat_id ) {
+			wp_set_post_categories( $post_id, array( $cat_id ) );
+		}
+		$offset += 5;
+	}
+}
 
 /**
  * Create a page if one with the slug does not already exist.
@@ -195,7 +249,7 @@ function avseo_build_menu( $ids ) {
 		return;
 	}
 
-	$order = array( 'home', 'about', 'services', 'contact' );
+	$order = array( 'home', 'about', 'services', 'case-studies', 'contact' );
 	$parent_item_ids = array();
 
 	foreach ( $order as $slug ) {

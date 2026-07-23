@@ -67,6 +67,14 @@ function avseo_default_content( $slug ) {
 <p>Local SEO and eCommerce SEO tailor the strategy to how your customers actually search and buy. On top of that, AI search optimization makes sure your brand shows up inside the AI answers that more and more buyers now rely on, and Google Ads brings qualified traffic while your organic results compound.</p>
 <blockquote><p><strong>Not sure where to start?</strong> Book a free consultation. I will review your website, your market and your goals, then recommend the exact mix of services that will bring the fastest, most sustainable return.</p></blockquote>';
 
+	/* -------------------- CASE STUDIES -------------------- */
+	$c['case-studies'] = '
+<h2>Growth you can measure</h2>
+<p>Every project below focuses on outcomes that matter to a business: more qualified traffic, higher rankings for commercial keywords, and real leads and sales. These are examples of the kind of results a well planned SEO and AI search strategy can deliver.</p>
+<h3>How I approach every project</h3>
+<p>I start with research and a full audit, build a prioritised roadmap, then execute across technical SEO, on-page SEO, content, link building and AI search optimization. Throughout, I report transparently on the metrics tied to your revenue.</p>
+<blockquote><p><strong>Want results like these?</strong> Book a free consultation and I will show you the fastest path to measurable growth for your website.</p></blockquote>';
+
 	/* -------------------- SEO SERVICES -------------------- */
 	$c['seo-services'] = '
 <p>Search is where your customers start. Whether they type a query into Google or ask an AI assistant, your business needs to show up with a helpful answer at the exact moment they are ready to act. My SEO services are built to make that happen, then to keep it happening month after month.</p>
@@ -374,4 +382,114 @@ function avseo_default_content( $slug ) {
 	}
 
 	return isset( $c[ $slug ] ) ? trim( $c[ $slug ] ) : '';
+}
+
+/**
+ * Sample blog posts seeded on activation, so the blog is ready to rank
+ * from day one. Each is a genuinely useful, SEO friendly article.
+ *
+ * @return array List of posts.
+ */
+function avseo_default_posts() {
+	return array(
+		array(
+			'title'   => 'What Is AI Search Optimization (GEO) and Why It Matters Now',
+			'slug'    => 'what-is-ai-search-optimization-geo',
+			'excerpt' => 'AI search optimization, or GEO, helps your brand get cited inside ChatGPT, Gemini, Perplexity and Google AI Overviews. Here is what it is and how to start.',
+			'content' => '
+<p>Search is moving from a list of blue links to complete answers written by AI. If your brand is not part of those answers, you lose visibility before a buyer ever reaches a results page. This is where AI search optimization, also called Generative Engine Optimization or GEO, comes in.</p>
+<h2>What is AI search optimization?</h2>
+<p>AI search optimization is the practice of shaping your content and data so AI answer engines mention and recommend your brand. Those engines include Google AI Overviews, ChatGPT, Gemini and Perplexity. The goal is simple: become a source the AI trusts enough to quote.</p>
+<h2>How GEO is different from traditional SEO</h2>
+<p>Traditional SEO earns rankings in the search results. GEO earns citations inside AI generated answers. The two support each other, and a strong SEO foundation makes GEO far more effective. You are not replacing SEO, you are extending it.</p>
+<h3>Why it matters now</h3>
+<p>Adoption of AI answer engines is growing fast, and early movers gain an advantage that compounds. Getting cited today builds authority that is hard for competitors to displace later.</p>
+<h2>How to start with AI search optimization</h2>
+<h3>Structure content around clear questions</h3>
+<p>AI engines favour content that answers a question directly. Use a clean heading structure, lead with a concise answer, then add supporting detail below it.</p>
+<h3>Add facts, definitions and context</h3>
+<p>Include the specific facts, numbers and definitions AI models look for when choosing a source. Write naturally for people first, then make sure the key facts are easy to find.</p>
+<h3>Use schema markup</h3>
+<p>Structured data helps engines understand your entities and content. FAQ, article and organization schema all make your pages easier to quote.</p>
+<h3>Build authority signals</h3>
+<p>Mentions, reviews and quality backlinks tell AI engines your brand is credible. Reputation is a major factor in which sources get recommended.</p>
+<h2>Key takeaway</h2>
+<p>AI search optimization is no longer optional. Brands that structure helpful content, add clear facts and build authority will win visibility inside the AI answers that shape the next decade of search.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is GEO the same as SEO?</h3>
+<p>No. SEO focuses on ranking in search results, while GEO focuses on being cited inside AI answers. They work best together.</p>
+<h3>Can I optimize for ChatGPT and Google AI Overviews?</h3>
+<p>Yes. Clear structure, factual content, schema markup and strong authority signals all improve your chances of being cited across AI answer engines.</p>',
+		),
+		array(
+			'title'   => 'Technical SEO Checklist: 12 Fixes That Improve Rankings',
+			'slug'    => 'technical-seo-checklist',
+			'excerpt' => 'A practical technical SEO checklist covering crawlability, indexing, site speed and Core Web Vitals to help your website rank higher.',
+			'content' => '
+<p>Technical SEO is the foundation that lets search engines crawl, render and index your website. Get it right and every other SEO effort works harder. Here is a practical checklist you can work through.</p>
+<h2>Crawlability and indexing</h2>
+<h3>1. Check your robots.txt</h3>
+<p>Make sure you are not blocking important pages or resources that search engines need to render your site.</p>
+<h3>2. Fix broken links and redirect chains</h3>
+<p>Broken links waste crawl budget and hurt user experience. Replace or redirect them to the right destination.</p>
+<h3>3. Submit a clean XML sitemap</h3>
+<p>List only your indexable, canonical pages and submit the sitemap in Google Search Console.</p>
+<h3>4. Set canonical tags correctly</h3>
+<p>Canonicals tell search engines which version of a page to index and prevent duplicate content issues.</p>
+<h2>Site speed and Core Web Vitals</h2>
+<h3>5. Optimize and lazy load images</h3>
+<p>Compress images, serve modern formats and lazy load anything below the fold.</p>
+<h3>6. Reduce render blocking code</h3>
+<p>Minify and defer non critical CSS and JavaScript so pages paint faster.</p>
+<h3>7. Enable caching and a CDN</h3>
+<p>Caching and a content delivery network cut load times for repeat and distant visitors.</p>
+<h3>8. Improve Core Web Vitals</h3>
+<p>Track Largest Contentful Paint, Interaction to Next Paint and Cumulative Layout Shift, then fix the biggest offenders.</p>
+<h2>Mobile and structure</h2>
+<h3>9. Confirm mobile friendliness</h3>
+<p>With mobile-first indexing, your mobile version is what Google evaluates. Make sure it is fully responsive.</p>
+<h3>10. Use a logical site architecture</h3>
+<p>A clear hierarchy and SEO friendly URLs spread authority to your most important pages.</p>
+<h3>11. Add structured data</h3>
+<p>Schema markup can earn rich results and helps AI answer engines understand your content.</p>
+<h3>12. Fix duplicate and thin content</h3>
+<p>Consolidate or improve pages that add little value so your best content stands out.</p>
+<h2>Key takeaway</h2>
+<p>Work through this checklist regularly. A fast, crawlable, well structured website gives your content the best possible chance to rank.</p>
+<h2>Frequently asked questions</h2>
+<h3>How often should I run a technical SEO audit?</h3>
+<p>A full audit every quarter works for most sites, with quick checks after any major change to the website.</p>
+<h3>Do Core Web Vitals really affect rankings?</h3>
+<p>Yes. They are part of Google page experience signals and, just as importantly, they affect conversions.</p>',
+		),
+		array(
+			'title'   => 'Local SEO Guide: How to Rank in the Google Map Pack',
+			'slug'    => 'local-seo-guide-google-map-pack',
+			'excerpt' => 'Learn how to rank in the Google map pack with a practical local SEO guide covering your Google Business Profile, citations, reviews and local content.',
+			'content' => '
+<p>When people search for a service near them, they are ready to act. Ranking in the Google map pack, the block of three local businesses at the top of the results, puts you in front of those high intent buyers. Here is how to get there.</p>
+<h2>Optimize your Google Business Profile</h2>
+<p>Your Google Business Profile is the single most important factor in local SEO. Complete every field, choose the most accurate categories, add real photos and post updates regularly.</p>
+<h3>Choose the right categories</h3>
+<p>Your primary category has a big influence on which searches you appear for. Pick the one that best describes your core service.</p>
+<h2>Get your citations consistent</h2>
+<p>Citations are mentions of your business name, address and phone number across the web. Keep them accurate and consistent everywhere, because mismatches confuse search engines and customers.</p>
+<h2>Build genuine reviews</h2>
+<p>Reviews influence both rankings and buying decisions. Ask happy customers for reviews and reply to every one, positive or negative.</p>
+<h2>Create local content</h2>
+<h3>Location pages</h3>
+<p>If you serve several areas, build a helpful page for each one with genuine, useful content, not thin duplicates.</p>
+<h3>Answer local questions</h3>
+<p>Write content that answers the questions local customers actually ask, using clear headings and natural language.</p>
+<h2>Track and improve</h2>
+<p>Monitor your map pack rankings, calls and direction requests, then double down on what drives the most enquiries.</p>
+<h2>Key takeaway</h2>
+<p>Local SEO rewards consistency. A complete Google Business Profile, accurate citations, steady reviews and helpful local content will lift you into the map pack and keep you there.</p>
+<h2>Frequently asked questions</h2>
+<h3>How long does local SEO take?</h3>
+<p>Many businesses see movement within one to three months, though competitive areas take longer. Consistency is what wins.</p>
+<h3>Do I need a physical address to rank locally?</h3>
+<p>You need a valid business address or a defined service area. Service area businesses can rank without showing a public address.</p>',
+		),
+	);
 }

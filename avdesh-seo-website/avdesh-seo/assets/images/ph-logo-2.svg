@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+  <rect width="200" height="100" fill="#ffffff"/>
+  <circle cx="55" cy="50" r="20" fill="#e8973a"/>
+  <text x="85" y="58" font-family="Poppins,Arial,sans-serif" font-size="22" fill="#e8973a" font-weight="800">Peak</text>
+</svg>

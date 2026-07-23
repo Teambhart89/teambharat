@@ -36,6 +36,8 @@
 					<li><a href="<?php echo esc_url( home_url( '/ai-search-optimization/' ) ); ?>">AI Search Optimization</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/google-ads-management/' ) ); ?>">Google Ads</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">Case Studies</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
 				</ul>
 			</div>

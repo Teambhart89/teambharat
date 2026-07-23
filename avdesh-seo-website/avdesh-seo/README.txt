@@ -61,6 +61,24 @@ Tip: upload at about twice the display size so images stay sharp on modern
 phones and laptops, and compress them (for example at tinypng.com) so your
 page speed and SEO scores stay high.
 
+Sample images are already loaded:
+  The theme ships with tasteful sample placeholders (hero, about, profile,
+  case studies, brand logos and testimonial avatars) so your site looks
+  complete the moment it is activated. Replace them with your own pictures
+  in  Appearance > Customize  whenever you are ready. Each sample is clearly
+  marked so you know it should be swapped.
+
+Blog:
+  Three ready to publish SEO articles are created for you under the
+  "SEO Insights" category, so your blog can start ranking from day one.
+  Edit or add posts under  Posts  in the dashboard. The Blog page is at
+  /blog/.
+
+Case Studies:
+  A dedicated Case Studies page (/case-studies/) shows headline metrics and
+  project cards. Edit the metrics in  Customize > Case Study Metrics, the
+  images in  Customize > Images, and the intro text in  Pages > Case Studies.
+
 Testimonials with client photos:
   Go to  Appearance > Customize > Testimonials.
   Add up to 6 reviews, each with an optional photo (recommended 200 x 200 px,

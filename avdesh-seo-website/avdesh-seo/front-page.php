@@ -276,7 +276,7 @@ for ( $i = 1; $i <= 6; $i++ ) {
 		continue;
 	}
 	$testimonials[] = array(
-		'photo' => avseo_opt( "testi_{$i}_photo", '' ),
+		'photo' => avseo_opt( "testi_{$i}_photo", avseo_sample_default( "testi_{$i}_photo" ) ),
 		'quote' => $quote,
 		'name'  => avseo_opt( "testi_{$i}_name", '' ),
 		'role'  => avseo_opt( "testi_{$i}_role", '' ),
@@ -314,7 +314,7 @@ if ( ! empty( $testimonials ) ) :
 		<div class="logo-grid">
 			<?php
 			for ( $i = 1; $i <= 12; $i++ ) :
-				$logo = avseo_opt( "brand_{$i}", '' );
+				$logo = avseo_opt( "brand_{$i}", avseo_sample_default( "brand_{$i}" ) );
 				?>
 				<div class="logo-cell">
 					<?php if ( $logo ) : ?>

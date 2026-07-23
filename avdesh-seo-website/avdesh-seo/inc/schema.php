@@ -142,6 +142,45 @@ function avseo_page_schema() {
 add_action( 'wp_head', 'avseo_page_schema', 21 );
 
 /**
+ * Article (BlogPosting) schema on single blog posts.
+ */
+function avseo_article_schema() {
+	if ( ! is_single() ) {
+		return;
+	}
+	$post = get_post();
+	if ( ! $post ) {
+		return;
+	}
+	$img = get_the_post_thumbnail_url( $post, 'large' );
+	if ( ! $img ) {
+		$img = avseo_opt( 'img_profile', '' );
+	}
+	$schema = array(
+		'@context'         => 'https://schema.org',
+		'@type'            => 'BlogPosting',
+		'headline'         => get_the_title( $post ),
+		'description'      => wp_strip_all_tags( get_the_excerpt( $post ) ),
+		'datePublished'    => get_the_date( 'c', $post ),
+		'dateModified'     => get_the_modified_date( 'c', $post ),
+		'mainEntityOfPage' => get_permalink( $post ),
+		'author'           => array(
+			'@type' => 'Person',
+			'name'  => avseo_info( 'name' ),
+		),
+		'publisher'        => array(
+			'@type' => 'Organization',
+			'name'  => get_bloginfo( 'name' ),
+		),
+	);
+	if ( $img ) {
+		$schema['image'] = $img;
+	}
+	echo "\n" . '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'avseo_article_schema', 22 );
+
+/**
  * Extract FAQ question and answer pairs from page content.
  *
  * Any H3 or H4 heading that ends with a question mark, immediately followed by

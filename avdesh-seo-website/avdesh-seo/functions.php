@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'AVSEO_VERSION', '1.2.0' );
+define( 'AVSEO_VERSION', '1.3.0' );
 
 /**
  * Theme setup.
@@ -89,6 +89,7 @@ function avseo_fallback_menu() {
 	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">Home</a></li>';
 	echo '<li><a href="' . esc_url( home_url( '/about/' ) ) . '">About</a></li>';
 	echo '<li><a href="' . esc_url( home_url( '/services/' ) ) . '">Services</a></li>';
+	echo '<li><a href="' . esc_url( home_url( '/case-studies/' ) ) . '">Case Studies</a></li>';
 	echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">Contact</a></li>';
 	echo '</ul>';
 }

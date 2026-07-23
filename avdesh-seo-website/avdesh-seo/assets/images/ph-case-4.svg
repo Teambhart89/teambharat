@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#3d3d47"/>
+  <text x="300" y="150" font-family="Poppins,Arial,sans-serif" font-size="30" fill="#ffffff" text-anchor="middle" font-weight="800">Case Study 4</text>
+  <rect x="180" y="185" width="240" height="44" rx="22" fill="#e8973a"/>
+  <text x="300" y="214" font-family="Poppins,Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">Cited by AI</text>
+  <text x="300" y="275" font-family="Poppins,Arial,sans-serif" font-size="17" fill="#e8973a" text-anchor="middle" font-weight="600">AI Search</text>
+  <text x="300" y="340" font-family="Poppins,Arial,sans-serif" font-size="13" fill="#cfc9d9" text-anchor="middle">Sample image, replace in Customizer</text>
+</svg>
