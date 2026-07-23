@@ -70,8 +70,9 @@ function avseo_section_title( $text, $intro = '' ) {
  * @param string $label     Placeholder label shown when empty.
  * @param string $alt       Image alt text (good for SEO).
  * @param string $extra_cls Extra CSS classes.
+ * @param string $size      Recommended image size, shown to the site owner.
  */
-function avseo_image_slot( $mod_key, $label, $alt = '', $extra_cls = '' ) {
+function avseo_image_slot( $mod_key, $label, $alt = '', $extra_cls = '', $size = '' ) {
 	$url = avseo_opt( $mod_key, '' );
 	$alt = $alt ? $alt : $label;
 	if ( $url ) {
@@ -82,7 +83,10 @@ function avseo_image_slot( $mod_key, $label, $alt = '', $extra_cls = '' ) {
 		echo '<div class="img-slot ' . esc_attr( $extra_cls ) . '">';
 		echo '<span class="ph-ico">🖼️</span>';
 		echo '<strong>' . esc_html( $label ) . '</strong>';
-		echo '<small>Upload or replace this image in Appearance &rarr; Customize &rarr; Images.</small>';
+		if ( $size ) {
+			echo '<small>Recommended size: <strong>' . esc_html( $size ) . '</strong></small>';
+		}
+		echo '<small>Upload in Appearance &rarr; Customize &rarr; Images.</small>';
 		echo '</div>';
 	}
 }
@@ -128,30 +132,4 @@ function avseo_cta_band( $heading = '', $text = '' ) {
 		</div>
 	</section>
 	<?php
-}
-
-/**
- * Render an FAQ block and register the questions for FAQ schema output.
- *
- * @param array $faqs Array of array( 'q' => '', 'a' => '' ).
- */
-function avseo_faq_block( $faqs ) {
-	if ( empty( $faqs ) ) {
-		return;
-	}
-	// Store for schema (printed in footer).
-	global $avseo_faq_store;
-	if ( ! is_array( $avseo_faq_store ) ) {
-		$avseo_faq_store = array();
-	}
-	$avseo_faq_store = array_merge( $avseo_faq_store, $faqs );
-
-	echo '<div class="faq">';
-	foreach ( $faqs as $f ) {
-		echo '<details>';
-		echo '<summary>' . esc_html( $f['q'] ) . '</summary>';
-		echo '<div class="faq-body"><p>' . wp_kses_post( $f['a'] ) . '</p></div>';
-		echo '</details>';
-	}
-	echo '</div>';
 }

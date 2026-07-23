@@ -142,22 +142,51 @@ function avseo_page_schema() {
 add_action( 'wp_head', 'avseo_page_schema', 21 );
 
 /**
- * FAQ schema, built from questions registered by avseo_faq_block().
- * Printed in the footer once the page content has run.
+ * Extract FAQ question and answer pairs from page content.
+ *
+ * Any H3 or H4 heading that ends with a question mark, immediately followed by
+ * a paragraph, is treated as a FAQ item. This keeps the FAQ fully editable in
+ * the WordPress page editor while still generating valid FAQ schema.
+ *
+ * @param string $html Post content HTML.
+ * @return array List of array( 'q' => ..., 'a' => ... ).
+ */
+function avseo_faq_from_content( $html ) {
+	$faqs = array();
+	if ( ! $html ) {
+		return $faqs;
+	}
+	if ( preg_match_all( '#<h[34][^>]*>\s*([^<]*?\?)\s*</h[34]>\s*<p[^>]*>(.*?)</p>#is', $html, $matches, PREG_SET_ORDER ) ) {
+		foreach ( $matches as $m ) {
+			$q = trim( wp_strip_all_tags( $m[1] ) );
+			$a = trim( wp_strip_all_tags( $m[2] ) );
+			if ( $q && $a ) {
+				$faqs[] = array( 'q' => $q, 'a' => $a );
+			}
+		}
+	}
+	return $faqs;
+}
+
+/**
+ * FAQ schema, built from the current page's editable content.
  */
 function avseo_faq_schema() {
-	global $avseo_faq_store;
-	if ( empty( $avseo_faq_store ) || ! is_array( $avseo_faq_store ) ) {
+	if ( ! is_singular() ) {
+		return;
+	}
+	$faqs = avseo_faq_from_content( get_post_field( 'post_content', get_the_ID() ) );
+	if ( empty( $faqs ) ) {
 		return;
 	}
 	$items = array();
-	foreach ( $avseo_faq_store as $f ) {
+	foreach ( $faqs as $f ) {
 		$items[] = array(
 			'@type'          => 'Question',
-			'name'           => wp_strip_all_tags( $f['q'] ),
+			'name'           => $f['q'],
 			'acceptedAnswer' => array(
 				'@type' => 'Answer',
-				'text'  => wp_strip_all_tags( $f['a'] ),
+				'text'  => $f['a'],
 			),
 		);
 	}

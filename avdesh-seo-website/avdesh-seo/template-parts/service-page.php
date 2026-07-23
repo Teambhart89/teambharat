@@ -1,19 +1,20 @@
 <?php
 /**
- * About page template (slug: about). Content is editable in Pages.
+ * Shared service page layout.
+ *
+ * The design chrome (hero, sidebar, CTA) lives here, while the H1 comes from
+ * the page title and the body comes from the page content, so everything is
+ * editable from Pages in the WordPress dashboard without touching code.
  *
  * @package Avdesh_SEO
  */
-get_header();
-$name = avseo_info( 'name' );
 while ( have_posts() ) :
 	the_post();
 	?>
-
 	<section class="page-hero">
 		<div class="container">
 			<?php avseo_breadcrumbs(); ?>
-			<span class="eyebrow">About</span>
+			<span class="eyebrow">Services</span>
 			<h1><?php the_title(); ?></h1>
 			<?php if ( has_excerpt() ) : ?>
 				<p class="lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
@@ -23,18 +24,15 @@ while ( have_posts() ) :
 
 	<section class="bg-cream">
 		<div class="container">
-			<div class="about-grid">
+			<div class="content-cols">
 				<div class="prose entry-content">
 					<?php the_content(); ?>
 				</div>
-				<div>
-					<?php avseo_image_slot( 'img_about', 'Add your about photo', $name, 'about-photo', '700 x 800 px' ); ?>
-				</div>
+				<?php get_template_part( 'template-parts/service-sidebar' ); ?>
 			</div>
 		</div>
 	</section>
-
 	<?php
 endwhile;
+
 avseo_cta_band();
-get_footer();

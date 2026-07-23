@@ -99,6 +99,28 @@ function avseo_activate_setup() {
 		$ids[ $slug ] = avseo_ensure_page( $slug, $data['title'], $data['excerpt'] );
 	}
 
+	// Backfill editable content for any page that is still empty (handles
+	// upgrades from an earlier version where pages were created blank).
+	foreach ( $map as $slug => $data ) {
+		if ( empty( $ids[ $slug ] ) ) {
+			continue;
+		}
+		$existing_content = get_post_field( 'post_content', $ids[ $slug ] );
+		if ( '' === trim( (string) $existing_content ) ) {
+			$default = avseo_default_content( $slug );
+			$update  = array( 'ID' => $ids[ $slug ] );
+			if ( '' !== $default ) {
+				$update['post_content'] = $default;
+			}
+			if ( '' === trim( (string) get_post_field( 'post_excerpt', $ids[ $slug ] ) ) && ! empty( $data['excerpt'] ) ) {
+				$update['post_excerpt'] = $data['excerpt'];
+			}
+			if ( count( $update ) > 1 ) {
+				wp_update_post( $update );
+			}
+		}
+	}
+
 	// Second pass: set parents for child pages.
 	foreach ( $map as $slug => $data ) {
 		if ( ! empty( $data['parent'] ) && isset( $ids[ $data['parent'] ] ) && $ids[ $slug ] ) {
@@ -146,7 +168,7 @@ function avseo_ensure_page( $slug, $title, $excerpt = '' ) {
 		'post_name'    => $slug,
 		'post_status'  => 'publish',
 		'post_type'    => 'page',
-		'post_content' => '',
+		'post_content' => avseo_default_content( $slug ),
 		'post_excerpt' => $excerpt,
 		'comment_status' => 'closed',
 	) );

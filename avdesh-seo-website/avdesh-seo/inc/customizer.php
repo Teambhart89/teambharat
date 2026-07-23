@@ -56,18 +56,15 @@ function avseo_customize_register( $wp_customize ) {
 	) );
 
 	$image_fields = array(
-		'img_hero'        => 'Hero portrait (homepage top)',
-		'img_about'       => 'About section photo',
-		'img_profile'     => 'Contact / footer profile photo',
-		'img_case_1'      => 'Case study image 1',
-		'img_case_2'      => 'Case study image 2',
-		'img_case_3'      => 'Case study image 3',
-		'img_case_4'      => 'Case study image 4',
-		'img_result_1'    => 'Results / campaign image 1',
-		'img_result_2'    => 'Results / campaign image 2',
-		'img_seo_service' => 'SEO services page banner image',
-		'img_technical'   => 'Technical SEO page image',
-		'img_ai_search'   => 'AI search optimization page image',
+		'img_hero'     => 'Hero portrait, homepage top (recommended 800 x 900 px, PNG transparent)',
+		'img_about'    => 'About section photo (recommended 700 x 800 px)',
+		'img_profile'  => 'Contact / footer profile photo (recommended 600 x 600 px)',
+		'img_case_1'   => 'Case study image 1 (recommended 600 x 400 px)',
+		'img_case_2'   => 'Case study image 2 (recommended 600 x 400 px)',
+		'img_case_3'   => 'Case study image 3 (recommended 600 x 400 px)',
+		'img_case_4'   => 'Case study image 4 (recommended 600 x 400 px)',
+		'img_result_1' => 'Results / campaign image 1 (recommended 800 x 600 px)',
+		'img_result_2' => 'Results / campaign image 2 (recommended 800 x 600 px)',
 	);
 
 	foreach ( $image_fields as $key => $label ) {
@@ -82,11 +79,29 @@ function avseo_customize_register( $wp_customize ) {
 	}
 
 	/* -------------------------------------------------
+	 * Section: Homepage hero text
+	 * ------------------------------------------------- */
+	$wp_customize->add_section( 'avseo_hero', array(
+		'title'       => __( 'Homepage Hero Text', 'avdesh-seo' ),
+		'description' => __( 'The name and title come from Business Details. Edit the hero tagline below. The About paragraphs are edited in Pages > Home.', 'avdesh-seo' ),
+		'priority'    => 32,
+	) );
+	$wp_customize->add_setting( 'home_hero_tagline', array(
+		'default'           => 'I help businesses grow organic traffic, improve rankings and generate qualified leads and sales with proven white hat SEO, GEO and Google Ads.',
+		'sanitize_callback' => 'sanitize_textarea_field',
+	) );
+	$wp_customize->add_control( 'home_hero_tagline', array(
+		'label'   => __( 'Hero tagline', 'avdesh-seo' ),
+		'section' => 'avseo_hero',
+		'type'    => 'textarea',
+	) );
+
+	/* -------------------------------------------------
 	 * Section: Hero stats
 	 * ------------------------------------------------- */
 	$wp_customize->add_section( 'avseo_stats', array(
 		'title'    => __( 'Homepage Stats Bar', 'avdesh-seo' ),
-		'priority' => 32,
+		'priority' => 33,
 	) );
 
 	$stats = array(

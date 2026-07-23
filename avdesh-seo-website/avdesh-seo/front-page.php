@@ -8,7 +8,10 @@
  */
 get_header();
 
-$name = avseo_info( 'name' );
+$name          = avseo_info( 'name' );
+$hero_tagline  = avseo_opt( 'home_hero_tagline', 'I help businesses grow organic traffic, improve rankings and generate qualified leads and sales with proven white hat SEO, GEO and Google Ads.' );
+$home_id       = (int) get_option( 'page_on_front' );
+$home_content  = $home_id ? apply_filters( 'the_content', get_post_field( 'post_content', $home_id ) ) : '';
 ?>
 
 <!-- ============ HERO ============ -->
@@ -17,10 +20,9 @@ $name = avseo_info( 'name' );
 		<div class="hero-inner">
 			<span class="hello-pill">Hello!</span>
 			<h1>I'm <span class="name"><?php echo esc_html( $name ); ?></span> 👋</h1>
-			<div class="hero-sub">An SEO &amp; AI Search Optimization Specialist</div>
+			<div class="hero-sub"><?php echo esc_html( avseo_info( 'role' ) ); ?></div>
 			<p class="lead mx-auto" style="max-width:640px;">
-				I help businesses grow organic traffic, improve rankings and generate qualified
-				leads and sales with proven white hat SEO, GEO and Google Ads.
+				<?php echo esc_html( $hero_tagline ); ?>
 			</p>
 
 			<div class="hero-photo-wrap">
@@ -36,7 +38,7 @@ $name = avseo_info( 'name' );
 				</div>
 				<div class="hero-photo">
 					<div class="hero-photo-glow"></div>
-					<?php avseo_image_slot( 'img_hero', 'Add your hero portrait', $name . ' - SEO Specialist', 'hero-slot' ); ?>
+					<?php avseo_image_slot( 'img_hero', 'Add your hero portrait', $name . ' - SEO Specialist', 'hero-slot', '800 x 900 px' ); ?>
 				</div>
 			</div>
 		</div>
@@ -74,19 +76,16 @@ $name = avseo_info( 'name' );
 		<div class="about-grid">
 			<div>
 				<h2 class="section-title">about<span class="dot">.</span></h2>
-				<p class="lead">
-					Hi, I'm <?php echo esc_html( $name ); ?>, an SEO and AI Search Optimization Specialist based in Delhi, India
-					with 8 years of hands-on experience across highly competitive markets.
-				</p>
-				<p>
-					I take an AI-first approach to search, helping businesses increase visibility across Google and modern
-					LLM platforms while keeping a strong focus on long-term, sustainable revenue growth. My work spans on-page,
-					technical and off-page SEO across platforms like WordPress, Shopify, Wix and Squarespace.
-				</p>
-				<p>
-					I focus on what truly drives performance: qualified traffic, leads and sales, not vanity rankings.
-					Every strategy uses proven white hat methods that build lasting authority and real ROI.
-				</p>
+				<div class="entry-content">
+					<?php
+					// Editable from Pages > Home in the dashboard. Falls back to default copy if empty.
+					if ( trim( wp_strip_all_tags( $home_content ) ) ) {
+						echo wp_kses_post( $home_content );
+					} else {
+						echo '<p class="lead">Hi, I\'m ' . esc_html( $name ) . ', an SEO and AI Search Optimization Specialist based in Delhi, India with 8 years of hands-on experience across highly competitive markets.</p>';
+					}
+					?>
+				</div>
 				<div style="margin-top:8px;">
 					<span class="chip">SEO Strategy</span>
 					<span class="chip">Generative Engine Optimization</span>
@@ -99,7 +98,7 @@ $name = avseo_info( 'name' );
 				</div>
 			</div>
 			<div>
-				<?php avseo_image_slot( 'img_about', 'Add your about photo', $name . ' at work', 'about-photo' ); ?>
+				<?php avseo_image_slot( 'img_about', 'Add your about photo', $name . ' at work', 'about-photo', '700 x 800 px' ); ?>
 			</div>
 		</div>
 	</div>
@@ -200,7 +199,7 @@ $name = avseo_info( 'name' );
 			);
 			foreach ( $cases as $c ) : ?>
 				<div>
-					<?php avseo_image_slot( $c[0], $c[1], $c[2] ); ?>
+					<?php avseo_image_slot( $c[0], $c[1], $c[2], '', '600 x 400 px' ); ?>
 					<div style="text-align:center;margin-top:12px;">
 						<strong style="font-family:var(--font-head);color:var(--navy);display:block;"><?php echo esc_html( $c[2] ); ?></strong>
 						<small style="color:var(--muted);"><?php echo esc_html( $c[3] ); ?></small>

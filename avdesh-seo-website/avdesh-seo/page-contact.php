@@ -12,10 +12,11 @@ $name = avseo_info( 'name' );
 	<div class="container">
 		<?php avseo_breadcrumbs(); ?>
 		<span class="eyebrow">Contact</span>
-		<h1>Let's Grow Your Organic Traffic and Revenue</h1>
+		<h1><?php echo esc_html( get_the_title() ? get_the_title() : "Let's Grow Your Organic Traffic and Revenue" ); ?></h1>
 		<p class="lead">
-			Tell me about your business and your goals. I will reply with clear, honest next steps and a plan to bring you
-			qualified traffic, leads and sales.
+			<?php
+			echo esc_html( has_excerpt() ? get_the_excerpt() : 'Tell me about your business and your goals. I will reply with clear, honest next steps and a plan to bring you qualified traffic, leads and sales.' );
+			?>
 		</p>
 	</div>
 </section>
@@ -62,7 +63,7 @@ $name = avseo_info( 'name' );
 				<?php endif; ?>
 
 				<div style="margin-top:26px;">
-					<?php avseo_image_slot( 'img_profile', 'Add your profile photo', $name ); ?>
+					<?php avseo_image_slot( 'img_profile', 'Add your profile photo', $name, '', '600 x 600 px' ); ?>
 				</div>
 			</div>
 

@@ -46,19 +46,27 @@ you can add your own photo from the Customizer:
 
   Go to  Appearance  >  Customize  >  Images (upload / replace)
 
-Available image slots:
-  - Hero portrait (homepage top)
-  - About section photo
-  - Contact / footer profile photo
-  - Case study images 1 to 4
-  - Results / campaign images 1 and 2
-  - SEO services, Technical SEO and AI search page images
+Image slots and their recommended sizes:
+  - Hero portrait (homepage top) ......... 800 x 900 px  (PNG, transparent)
+  - About section photo .................. 700 x 800 px
+  - Contact / footer profile photo ....... 600 x 600 px
+  - Case study images 1 to 4 ............. 600 x 400 px each
+  - Results / campaign images 1 and 2 .... 800 x 600 px each
 
-Recommended sizes:
-  - Hero and profile portraits: about 800 x 900 px
-  - Case study images: about 600 x 400 px
+The recommended size is also shown right on each empty placeholder on the
+site and next to each control in the Customizer, so you always know the
+correct size at the exact spot you upload.
 
-To add your logo:  Appearance > Customize > Site Identity > Logo.
+Tip: upload at about twice the display size so images stay sharp on modern
+phones and laptops, and compress them (for example at tinypng.com) so your
+page speed and SEO scores stay high.
+
+Images inside a service page or blog post:
+  Add these directly in the page editor. Open the page in  Pages, click the
+  plus (+) button where you want the image, choose Image, and upload.
+
+To add your logo:  Appearance > Customize > Site Identity > Logo
+  (recommended about 220 x 60 px, PNG with a transparent background).
 
 
 ---------------------------------------------------------
@@ -78,24 +86,40 @@ Homepage stat numbers (500%, 8+, and so on) are under
 
 
 ---------------------------------------------------------
- 4. EDIT PAGE CONTENT
+ 4. EDIT PAGE TEXT (no code needed)
 ---------------------------------------------------------
 
-All service page content is written for SEO and for readers, with full
-H1 to H4 headings and FAQ sections. The core service copy lives in the
-theme templates so the design stays consistent. To adjust wording you can
-edit the matching file in the theme, for example:
+All page text is now editable from the normal WordPress editor. You never
+need to touch code to change wording.
 
-  page-seo-services.php            /seo-services/
-  page-technical-seo-services.php  /technical-seo-services/
-  page-on-page-seo-services.php    /on-page-seo-services/
-  page-off-page-seo-link-building.php  /off-page-seo-link-building/
-  page-local-seo-services.php      /local-seo-services/
-  page-ecommerce-seo-services.php  /ecommerce-seo-services/
-  page-ai-search-optimization.php  /ai-search-optimization/
-  page-google-ads-management.php   /google-ads-management/
+Homepage and service pages
+  1. Go to  Pages  in your dashboard.
+  2. Click the page you want to edit (for example "SEO Services").
+  3. Edit the headings and paragraphs like a normal document.
+  4. Click  Update.
 
-Tip: keep a child theme if you plan heavy edits, so updates are easy.
+The design, colours, sidebar and layout stay the same. Only the words change.
+
+  - The page TITLE is the H1 heading at the top of the page.
+  - The page EXCERPT is the short intro line under the H1. Open the
+    Excerpt panel from the editor sidebar (or Screen Options) to edit it.
+  - Everything in the main editor becomes the body of the page, with full
+    H2, H3 and H4 headings.
+
+FAQ sections and schema
+  Each service page ends with an FAQ. To keep the rich FAQ result in Google,
+  write each question as a Heading 3 that ends with a question mark, followed
+  by a normal paragraph answer. The theme turns those into FAQ schema
+  automatically.
+
+Homepage specifics
+  - The "about" paragraphs on the homepage are edited in  Pages > Home.
+  - The hero name and title come from  Customize > Business Details.
+  - The hero tagline is in  Customize > Homepage Hero Text.
+  - The stat numbers are in  Customize > Homepage Stats Bar.
+
+Tip: if you plan very heavy customisation of the layout itself, use a child
+theme so theme updates stay easy.
 
 
 ---------------------------------------------------------

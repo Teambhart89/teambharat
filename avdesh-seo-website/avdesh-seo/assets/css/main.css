@@ -287,6 +287,14 @@ section{ padding: clamp(56px, 8vw, 96px) 0; }
 .prose h4{ margin-top:1.2em; text-transform:none; color:var(--orange); }
 .prose ul{ padding-left:1.1em; }
 .prose li{ margin-bottom:.5em; }
+/* Editable content blockquotes render as the "quick answer" callout box */
+.prose blockquote, .entry-content blockquote{
+  background:var(--cream-2); border-left:4px solid var(--orange); border-radius:12px;
+  padding:18px 24px; margin:26px 0; font-style:normal; color:#3d3d47;
+}
+.prose blockquote p, .entry-content blockquote p{ margin:0; }
+.entry-content ul{ padding-left:1.1em; }
+.entry-content li{ margin-bottom:.5em; }
 .content-cols{ display:grid; grid-template-columns:1fr 320px; gap:48px; align-items:start; }
 .sidebar-card{ background:var(--navy); color:#efeaf5; border-radius:var(--radius); padding:28px; position:sticky; top:96px; }
 .sidebar-card h3{ color:#fff; }

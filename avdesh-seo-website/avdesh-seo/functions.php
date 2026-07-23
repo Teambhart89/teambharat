@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'AVSEO_VERSION', '1.0.0' );
+define( 'AVSEO_VERSION', '1.1.0' );
 
 /**
  * Theme setup.
@@ -76,6 +76,7 @@ add_action( 'widgets_init', 'avseo_widgets_init' );
  * Load helper modules.
  */
 require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/schema.php';
 require get_template_directory() . '/inc/activation.php';

@@ -39,6 +39,25 @@ Supporting keywords woven naturally into the copy include: organic traffic, impr
 - Answer ready FAQ blocks and concise "quick answer" summaries that help generative AI engines cite the content.
 - Clean permalinks, breadcrumbs, internal linking and a fast, mobile first responsive layout.
 
+## Editing text (no code)
+
+All page text is editable from the WordPress dashboard:
+
+- **Homepage & service pages** - edit in `Pages` like a normal document. The page **title** is the H1, the **excerpt** is the intro line, and the editor body holds the H2/H3/H4 content. FAQ schema is generated automatically from any H3 that ends with a question mark.
+- **Homepage "about" text** - `Pages > Home`.
+- **Hero name/title** - `Customize > Business Details`; **hero tagline** - `Customize > Homepage Hero Text`; **stats** - `Customize > Homepage Stats Bar`.
+
 ## Image upload sections
 
-Every picture in the design is a Customizer controlled slot (`Appearance > Customize > Images`). Where an image has not been added yet, the site shows a clearly labelled dashed placeholder so the owner knows exactly where to upload or replace it.
+Every picture in the design is a Customizer controlled slot (`Appearance > Customize > Images`). Where an image has not been added yet, the site shows a labelled dashed placeholder with the **recommended size** so the owner knows exactly where and what to upload.
+
+| Slot | Recommended size |
+|---|---|
+| Hero portrait (homepage top) | 800 × 900 px (PNG transparent) |
+| About section photo | 700 × 800 px |
+| Contact / footer profile | 600 × 600 px |
+| Case study images 1–4 | 600 × 400 px |
+| Results / campaign images | 800 × 600 px |
+| Logo | 220 × 60 px (PNG transparent) |
+
+Images inside a service page or blog post are added directly in the page editor.
