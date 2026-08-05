@@ -1,0 +1,22 @@
+/*
+Theme Name: PlantGift Pro
+Theme URI: https://example.com/plantgift-pro
+Author: PlantGift Pro
+Author URI: https://example.com
+Description: A fast, responsive and SEO friendly WooCommerce theme built for corporate plant gifting stores. Includes variable product support for pot material, pot size and pot design, service page templates, FAQ blocks with schema markup, and a lightweight front end with no external dependencies.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: plantgift-pro
+Tags: e-commerce, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready, block-styles, wide-blocks
+WC requires at least: 7.0
+WC tested up to: 9.5
+*/
+
+/*
+ * The compiled front end styles live in assets/css/main.css so that they can be
+ * cached separately from this stylesheet header. Add your own overrides below.
+ */

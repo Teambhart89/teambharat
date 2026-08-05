@@ -1,0 +1,115 @@
+keyword,cluster,intent,target_url,priority,notes
+corporate plant gifts,corporate gifting,commercial,/corporate-plant-gifting/,1,Head term. Run through Keyword Planner before budgeting.
+corporate plant gifting,corporate gifting,commercial,/corporate-plant-gifting/,1,Primary variant of head term
+plant gifts for employees,corporate gifting,commercial,/corporate-plant-gifting/,1,Strong buyer intent
+plants as corporate gifts,corporate gifting,commercial,/corporate-plant-gifting/,2,Same intent as head term
+corporate gifts plants,corporate gifting,commercial,/corporate-plant-gifting/,2,Word order variant
+eco friendly corporate gifts,corporate gifting,commercial,/corporate-plant-gifting/,2,Sustainability angle
+sustainable corporate gifting,corporate gifting,commercial,/corporate-plant-gifting/,2,Sustainability angle
+green corporate gifts,corporate gifting,commercial,/corporate-plant-gifting/,3,Lower volume supporting term
+plant gifts for colleagues,corporate gifting,commercial,/corporate-plant-gifting/,3,Long tail
+corporate gifting ideas for employees,corporate gifting,informational,/blog/,2,Target with a journal post not the hub
+bulk plant gifts for companies,bulk,commercial,/bulk-plant-gifts-for-companies/,1,Primary
+wholesale plant gifts,bulk,commercial,/bulk-plant-gifts-for-companies/,2,Supplier oriented query
+buy plants in bulk for corporate,bulk,transactional,/bulk-plant-gifts-for-companies/,2,High intent
+bulk succulent order,bulk,transactional,/plant-gifts/succulent-corporate-gifts/,3,Route to category not service page
+minimum order quantity plant gifts,bulk,informational,/bulk-plant-gifts-for-companies/,3,Answered in FAQ
+custom branded planters,branding,commercial,/custom-branded-planters/,1,Primary
+logo printed pots,branding,commercial,/custom-branded-planters/,1,High intent variant
+personalised planters,branding,commercial,/custom-branded-planters/,2,UK spelling variant
+custom logo plant pots,branding,commercial,/custom-branded-planters/,2,Variant
+laser engraved planter,branding,commercial,/custom-branded-planters/,3,Method specific
+employee onboarding plant gifts,onboarding,commercial,/employee-onboarding-plant-gifts/,1,Primary
+new joiner welcome kit,onboarding,commercial,/employee-onboarding-plant-gifts/,1,Adjacent head term
+welcome kit for new employees,onboarding,commercial,/employee-onboarding-plant-gifts/,2,Variant
+employee welcome kit plants,onboarding,transactional,/plant-gifts/employee-welcome-kit-plants/,2,Category owns this
+onboarding gift ideas,onboarding,informational,/blog/,3,Journal post
+client gifting plants,client,commercial,/client-gifting-programme/,1,Primary
+client appreciation gifts,client,commercial,/client-gifting-programme/,1,Adjacent head term
+client appreciation plant gifts,client,transactional,/plant-gifts/client-appreciation-plant-gifts/,2,Category owns this
+thank you gift for clients,client,commercial,/client-gifting-programme/,2,Variant
+corporate gifts for clients india,client,commercial,/client-gifting-programme/,2,Geo qualified
+event plant giveaways,events,commercial,/event-plant-giveaway-service/,1,Primary
+conference giveaway ideas,events,informational,/event-plant-giveaway-service/,1,Top of funnel but converts
+trade show giveaways,events,commercial,/event-plant-giveaway-service/,2,Variant
+booth giveaway ideas,events,informational,/event-plant-giveaway-service/,2,Variant
+corporate event plant giveaways,events,transactional,/plant-gifts/corporate-event-plant-giveaways/,2,Category owns this
+diwali corporate plant gifts,festive,commercial,/festival-corporate-plant-gifts/,1,Seasonal peak Sep to Oct
+diwali gifts for employees,festive,commercial,/festival-corporate-plant-gifts/,1,Large seasonal head term
+corporate diwali gift ideas,festive,informational,/festival-corporate-plant-gifts/,1,Build links Jul to Sep
+diwali plant gifts bulk,festive,transactional,/plant-gifts/diwali-corporate-plant-gifts/,2,Category owns this
+new year corporate gifts,festive,commercial,/festival-corporate-plant-gifts/,3,Secondary season
+office plant subscription,subscription,commercial,/office-plant-subscription/,1,Primary
+office plant rental,subscription,commercial,/office-plant-subscription/,1,Adjacent service term
+office plant maintenance service,subscription,commercial,/office-plant-subscription/,2,Variant
+indoor plant maintenance company,subscription,commercial,/office-plant-subscription/,3,Variant
+pan india plant delivery,delivery,commercial,/pan-india-plant-delivery/,2,Primary
+online plant delivery india,delivery,transactional,/pan-india-plant-delivery/,1,High volume adjacent
+plant delivery for corporates,delivery,commercial,/pan-india-plant-delivery/,2,Variant
+succulent corporate gifts,succulents,transactional,/plant-gifts/succulent-corporate-gifts/,1,Primary
+succulent gift set,succulents,transactional,/plant-gifts/succulent-corporate-gifts/,1,High intent
+mini succulent gifts,succulents,transactional,/plant-gifts/succulent-corporate-gifts/,2,Event oriented
+echeveria gift,succulents,transactional,/plant-gifts/succulent-corporate-gifts/,3,Species specific
+haworthia office plant,succulents,informational,/plant-gifts/succulent-corporate-gifts/,3,Species specific
+jade plant gift,succulents,transactional,/plant-gifts/succulent-corporate-gifts/,2,Festive crossover
+air plant gifts,air plants,transactional,/plant-gifts/air-plant-gifts/,1,Primary
+tillandsia gift,air plants,transactional,/plant-gifts/air-plant-gifts/,2,Species term
+air plant holder,air plants,transactional,/plant-gifts/air-plant-gifts/,2,Accessory intent
+soil free plant gift,air plants,informational,/plant-gifts/air-plant-gifts/,3,Benefit led
+desk plants for office,desk plants,transactional,/plant-gifts/desk-plants-for-office/,1,Primary
+best plants for office desk,desk plants,informational,/plant-gifts/desk-plants-for-office/,1,High volume informational
+small office plants,desk plants,transactional,/plant-gifts/desk-plants-for-office/,2,Variant
+cubicle plants,desk plants,transactional,/plant-gifts/desk-plants-for-office/,3,Variant
+plants for office with no windows,desk plants,informational,/plant-care-guide/,2,Care guide owns this
+air purifying plants for office,air purifying,transactional,/plant-gifts/air-purifying-plant-gifts/,1,Primary
+snake plant gift,air purifying,transactional,/plant-gifts/air-purifying-plant-gifts/,1,Highest volume species
+areca palm gift,air purifying,transactional,/plant-gifts/air-purifying-plant-gifts/,3,Species specific
+peace lily gift,air purifying,transactional,/plant-gifts/flowering-plant-gifts/,2,Flowering category owns this
+nasa air purifying plants,air purifying,informational,/plant-gifts/air-purifying-plant-gifts/,2,Handle honestly in body copy
+bonsai corporate gifts,bonsai,transactional,/plant-gifts/bonsai-corporate-gifts/,1,Primary
+ficus bonsai gift,bonsai,transactional,/plant-gifts/bonsai-corporate-gifts/,2,Species specific
+bonsai for office desk,bonsai,informational,/plant-gifts/bonsai-corporate-gifts/,2,Placement intent
+jade bonsai,bonsai,transactional,/plant-gifts/bonsai-corporate-gifts/,3,Species specific
+lucky bamboo corporate gifts,lucky bamboo,transactional,/plant-gifts/lucky-bamboo-gifts/,1,Primary
+lucky bamboo for office,lucky bamboo,transactional,/plant-gifts/lucky-bamboo-gifts/,2,Placement intent
+8 layer lucky bamboo,lucky bamboo,transactional,/plant-gifts/lucky-bamboo-gifts/,3,Spec specific
+is lucky bamboo real bamboo,lucky bamboo,informational,/plant-gifts/lucky-bamboo-gifts/,3,Answered in FAQ
+money plant corporate gift,money plant,transactional,/plant-gifts/money-plant-gifts/,1,Primary
+money plant in bottle,money plant,transactional,/plant-gifts/money-plant-gifts/,2,Format specific
+golden money plant,money plant,transactional,/plant-gifts/money-plant-gifts/,2,Variety specific
+pothos gift,money plant,transactional,/plant-gifts/money-plant-gifts/,3,Western term
+are pothos toxic to pets,money plant,informational,/plant-gifts/money-plant-gifts/,3,Answered in FAQ
+terrarium corporate gift,terrariums,transactional,/plant-gifts/terrarium-gift-sets/,1,Primary
+succulent terrarium,terrariums,transactional,/plant-gifts/terrarium-gift-sets/,2,Format specific
+closed terrarium gift,terrariums,transactional,/plant-gifts/terrarium-gift-sets/,3,Format specific
+moss terrarium,terrariums,transactional,/plant-gifts/terrarium-gift-sets/,3,Format specific
+low maintenance plant gifts,low maintenance,transactional,/plant-gifts/low-maintenance-plant-gifts/,1,Primary
+easy care indoor plants,low maintenance,informational,/plant-gifts/low-maintenance-plant-gifts/,1,High volume informational
+hard to kill plants,low maintenance,informational,/plant-gifts/low-maintenance-plant-gifts/,2,Variant
+plants that dont need much water,low maintenance,informational,/plant-care-guide/,2,Care guide owns this
+self watering pot plants,low maintenance,transactional,/plant-gifts/low-maintenance-plant-gifts/,2,Accessory intent
+flowering plant gifts corporate,flowering,transactional,/plant-gifts/flowering-plant-gifts/,1,Primary
+anthurium gift,flowering,transactional,/plant-gifts/flowering-plant-gifts/,2,Species specific
+plant instead of bouquet,flowering,informational,/plant-gifts/flowering-plant-gifts/,2,Comparison angle
+kalanchoe gift,flowering,transactional,/plant-gifts/flowering-plant-gifts/,3,Species specific
+hanging plant gifts office,hanging,transactional,/plant-gifts/hanging-plant-gifts/,1,Primary
+macrame planter gift,hanging,transactional,/plant-gifts/hanging-plant-gifts/,2,Format specific
+string of pearls gift,hanging,transactional,/plant-gifts/hanging-plant-gifts/,3,Species specific
+trailing plant gift,hanging,transactional,/plant-gifts/hanging-plant-gifts/,3,Variant
+plant gift hampers corporate,hampers,transactional,/plant-gifts/plant-gift-hampers/,1,Primary
+plant gift box,hampers,transactional,/plant-gifts/plant-gift-hampers/,1,High intent variant
+plant hamper for employees,hampers,transactional,/plant-gifts/plant-gift-hampers/,2,Variant
+plant gift basket,hampers,transactional,/plant-gifts/plant-gift-hampers/,3,Western term
+work anniversary plant gifts,anniversary,transactional,/plant-gifts/work-anniversary-plant-gifts/,1,Primary
+years of service gift ideas,anniversary,informational,/plant-gifts/work-anniversary-plant-gifts/,1,Adjacent head term
+employee milestone gifts,anniversary,commercial,/plant-gifts/work-anniversary-plant-gifts/,2,Variant
+5 year work anniversary gift,anniversary,transactional,/plant-gifts/work-anniversary-plant-gifts/,3,Long tail
+branded logo planters,branded pots,transactional,/plant-gifts/branded-logo-planters/,1,Primary
+how often to water a snake plant,care,informational,/plant-care-guide/,1,High volume informational
+why are my plant leaves turning yellow,care,informational,/plant-care-guide/,1,High volume troubleshooting
+brown tips on plant leaves,care,informational,/plant-care-guide/,2,Troubleshooting
+how to care for air plants,care,informational,/plant-care-guide/,1,Species care
+which pot material is best for succulents,care,informational,/plant-gifts/succulent-corporate-gifts/,2,Buying guide angle
+how to look after plants while on holiday,care,informational,/plant-care-guide/,2,Seasonal spike
+when to repot a plant,care,informational,/plant-care-guide/,3,Care guide section
+fungus gnats in houseplants,care,informational,/plant-care-guide/,3,Troubleshooting
