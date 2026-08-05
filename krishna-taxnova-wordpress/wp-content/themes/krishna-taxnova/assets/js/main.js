@@ -1,4 +1,4 @@
-/* Krishna TaxNova theme: mobile navigation and mega menu toggles */
+/* Eaccountingcart theme: mobile navigation and mega menu toggles */
 (function () {
 	'use strict';
 

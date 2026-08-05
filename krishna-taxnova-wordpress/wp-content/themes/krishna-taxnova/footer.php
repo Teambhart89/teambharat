@@ -10,8 +10,8 @@
 <footer class="ktn-footer">
 	<div class="wrap ktn-footer-grid">
 		<div class="ktn-footer-col ktn-footer-about">
-			<p class="ktn-footer-brand">Krishna <em>TaxNova</em></p>
-			<p><?php esc_html_e( 'Krishna TaxNova is a Delhi based CA firm offering accounting, income tax, GST, trademark, MCA and business compliance services to startups, businesses and professionals across India. Share your documents online or on WhatsApp and get expert help the same day.', 'krishna-taxnova' ); ?></p>
+			<p class="ktn-footer-brand">Eaccounting<em>cart</em></p>
+			<p><?php esc_html_e( 'Eaccountingcart is a Delhi based CA firm offering accounting, income tax, GST, trademark, MCA and business compliance services to startups, businesses and professionals across India. Share your documents online or on WhatsApp and get expert help the same day.', 'krishna-taxnova' ); ?></p>
 			<?php $address = ktn_get_option( 'address' ); ?>
 			<?php if ( $address ) : ?>
 				<p class="ktn-footer-address"><?php echo esc_html( $address ); ?></p>
@@ -76,8 +76,8 @@
 	</div>
 	<div class="ktn-footer-bottom">
 		<div class="wrap">
-			<p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Krishna TaxNova. <?php esc_html_e( 'All rights reserved.', 'krishna-taxnova' ); ?></p>
-			<p class="ktn-footer-disclaimer"><?php esc_html_e( 'Krishna TaxNova is a professional services firm. Information on this website is for general guidance only and does not constitute legal or tax advice.', 'krishna-taxnova' ); ?></p>
+			<p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Eaccountingcart. <?php esc_html_e( 'All rights reserved.', 'krishna-taxnova' ); ?></p>
+			<p class="ktn-footer-disclaimer"><?php esc_html_e( 'Eaccountingcart is a professional services firm. Information on this website is for general guidance only and does not constitute legal or tax advice.', 'krishna-taxnova' ); ?></p>
 		</div>
 	</div>
 </footer>

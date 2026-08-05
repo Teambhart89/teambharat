@@ -1,4 +1,4 @@
-# Krishna TaxNova — SEO Keyword Research and Content Map
+# Eaccountingcart — SEO Keyword Research and Content Map
 
 This document records the keyword strategy built into the website. Every service page ships with a mapped primary keyword, supporting keywords, an SEO friendly URL, a meta title and description, heading structure (H1 → H4) and 10 FAQs with FAQPage structured data.
 
@@ -18,7 +18,7 @@ The content is structured so AI assistants and search AI overviews can quote it 
 - Direct answer paragraphs immediately under each H2 (definition-style openings).
 - "At a glance" fact blocks (timeline, authority, validity, fees) in labelled H4 groups.
 - FAQPage, Service, BreadcrumbList and Organization/ProfessionalService JSON-LD on every relevant page.
-- Consistent entity naming ("Krishna TaxNova", service names matching common search phrasing).
+- Consistent entity naming ("Eaccountingcart", service names matching common search phrasing).
 - Plain sentence style with no decorative dashes and no filler.
 
 ## URL architecture
@@ -96,7 +96,7 @@ accounting and bookkeeping services · virtual cfo services india · payroll out
 ## On-page SEO checklist implemented on every service page
 
 - One H1 (service name with keyword)
-- H2 sections: What is / Who should apply / Benefits / Documents Required / Step by Step Process / At a Glance / Why Choose Krishna TaxNova / FAQs
+- H2 sections: What is / Who should apply / Benefits / Documents Required / Step by Step Process / At a Glance / Why Choose Eaccountingcart / FAQs
 - H3s: individual benefits, process steps, FAQ questions
 - H4s: quick fact labels (Timeline, Authority, Validity, Fees)
 - Meta title ≤ 60 chars, meta description ≤ 160 chars, canonical URL, Open Graph tags
@@ -107,7 +107,7 @@ accounting and bookkeeping services · virtual cfo services india · payroll out
 ## Recommended next steps after launch
 
 1. Install an XML sitemap plugin (Rank Math or Yoast — the theme steps aside automatically) and submit to Google Search Console.
-2. Create a Google Business Profile for "Krishna TaxNova" (Delhi) and link the site.
+2. Create a Google Business Profile for "Eaccountingcart" (Delhi) and link the site.
 3. Add a blog and publish supporting informational content (e.g. "GST registration documents checklist 2026") interlinked to service pages.
 4. Build citations on JustDial, Sulekha, IndiaMART and CA directories with a consistent NAP (name, address, phone).
 5. Collect Google reviews and add Review schema once genuine reviews exist.

@@ -1,4 +1,4 @@
-/* Krishna TaxNova theme styles */
+/* Eaccountingcart theme styles */
 
 :root{
 	--ktn-navy:#0f235f;
@@ -237,6 +237,15 @@ h4{font-size:.95rem}
 .ktn-hero-points li{padding-left:1.7rem;position:relative;font-weight:600;color:#eaf1ff}
 .ktn-hero-points li:before{content:"";position:absolute;left:0;top:.35rem;width:1rem;height:1rem;border-radius:50%;background:var(--ktn-gold) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230f235f" stroke-width="4"><path d="m5 13 4 4 10-10"/></svg>') center/70% no-repeat}
 .ktn-hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+
+/* Hero image (set in Customizer > Homepage Showcase > Hero image) */
+.ktn-hero-image{margin-top:1.75rem;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);min-height:170px;display:flex;align-items:center;justify-content:center}
+.ktn-hero-image img{width:100%;height:auto;display:block}
+.ktn-hero-image .ktn-showcase-placeholder{color:#9fb5e6;padding:2rem 1rem}
+
+/* Service featured image (770 x 300) */
+.ktn-service-feature{margin:0 0 1.75rem;border-radius:14px;overflow:hidden;border:1px solid var(--ktn-line);line-height:0}
+.ktn-service-feature img{width:100%;height:auto;display:block}
 
 /* Trust strip */
 .ktn-trust{background:var(--ktn-navy);color:#fff;padding:1.1rem 0}

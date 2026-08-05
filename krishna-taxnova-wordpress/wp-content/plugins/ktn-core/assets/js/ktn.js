@@ -1,4 +1,4 @@
-/* Krishna TaxNova Core: client side form validation and file list preview */
+/* Eaccountingcart Core: client side form validation and file list preview */
 (function () {
 	'use strict';
 

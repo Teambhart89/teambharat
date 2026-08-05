@@ -38,6 +38,11 @@ while ( have_posts() ) :
 
 	<div class="wrap ktn-service-layout">
 		<article class="ktn-service-content" id="post-<?php the_ID(); ?>">
+			<?php if ( has_post_thumbnail() ) : ?>
+				<figure class="ktn-service-feature">
+					<?php the_post_thumbnail( 'ktn-service-feature', array( 'alt' => esc_attr( get_the_title() ) ) ); ?>
+				</figure>
+			<?php endif; ?>
 			<?php the_content(); ?>
 			<?php ktn_render_faqs( ktn_get_service_faqs( get_the_ID() ), sprintf( __( '%s: Frequently Asked Questions', 'krishna-taxnova' ), get_the_title() ) ); ?>
 

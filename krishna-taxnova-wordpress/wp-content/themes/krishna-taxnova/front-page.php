@@ -19,7 +19,7 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 		<div class="ktn-hero-copy">
 			<p class="ktn-hero-eyebrow"><?php echo esc_html( $get( 'eyebrow', 'CA firm in Delhi, serving all India' ) ); ?></p>
 			<h1><?php echo esc_html( $get( 'h1', 'Online CA Services for Tax, GST, Trademark, MCA and Business Compliance' ) ); ?></h1>
-			<p class="ktn-hero-sub"><?php echo esc_html( $get( 'sub', 'Krishna TaxNova helps startups, businesses and professionals register, stay compliant and save tax. Fill your details online, upload your documents or WhatsApp them to us, and a qualified expert takes it from there.' ) ); ?></p>
+			<p class="ktn-hero-sub"><?php echo esc_html( $get( 'sub', 'Eaccountingcart helps startups, businesses and professionals register, stay compliant and save tax. Fill your details online, upload your documents or WhatsApp them to us, and a qualified expert takes it from there.' ) ); ?></p>
 			<ul class="ktn-hero-points">
 				<li><?php esc_html_e( 'Upload documents online in minutes', 'krishna-taxnova' ); ?></li>
 				<li><?php esc_html_e( 'WhatsApp support for every service', 'krishna-taxnova' ); ?></li>
@@ -28,6 +28,9 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 			<div class="ktn-hero-cta">
 				<a class="ktn-btn ktn-btn-primary" href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>"><?php esc_html_e( 'Explore All Services', 'krishna-taxnova' ); ?></a>
 				<?php echo ktn_whatsapp_button(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			</div>
+			<div class="ktn-hero-image">
+				<?php echo ktn_showcase_image( 'ktn_hero_img', 'large' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</div>
 		</div>
 		<div class="ktn-hero-form">
@@ -139,7 +142,7 @@ $get  = function ( $key, $default = '' ) use ( $home ) {
 
 <section class="ktn-section">
 	<div class="wrap">
-		<h2 class="ktn-section-title"><?php esc_html_e( 'Why Businesses Choose Krishna TaxNova', 'krishna-taxnova' ); ?></h2>
+		<h2 class="ktn-section-title"><?php esc_html_e( 'Why Businesses Choose Eaccountingcart', 'krishna-taxnova' ); ?></h2>
 		<div class="ktn-why-grid">
 			<div class="ktn-why-card"><h3><?php esc_html_e( 'Qualified CA Team', 'krishna-taxnova' ); ?></h3><p><?php esc_html_e( 'Your work is reviewed and signed off by experienced Chartered Accountants, so filings are right the first time.', 'krishna-taxnova' ); ?></p></div>
 			<div class="ktn-why-card"><h3><?php esc_html_e( 'Document Upload and WhatsApp', 'krishna-taxnova' ); ?></h3><p><?php esc_html_e( 'No courier, no office visits. Upload documents on the website or WhatsApp them from your phone.', 'krishna-taxnova' ); ?></p></div>

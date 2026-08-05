@@ -40,7 +40,7 @@ function ktn_render_importer_page() {
 	}
 	?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'Import Krishna TaxNova Site Content', 'ktn-core' ); ?></h1>
+		<h1><?php esc_html_e( 'Import Eaccountingcart Site Content', 'ktn-core' ); ?></h1>
 		<?php if ( $done && ! empty( $result ) ) : ?>
 			<div class="notice notice-success"><p>
 				<?php
@@ -491,7 +491,7 @@ function ktn_compose_service_content( $s ) {
 	}
 
 	// Why choose us, tailored line plus standing points.
-	$html .= "<h2>Why Choose Krishna TaxNova for " . esc_html( $name ) . "?</h2>\n";
+	$html .= "<h2>Why Choose Eaccountingcart for " . esc_html( $name ) . "?</h2>\n";
 	if ( ! empty( $s['why_us'] ) ) {
 		$html .= '<p>' . $s['why_us'] . "</p>\n";
 	}
@@ -543,7 +543,7 @@ function ktn_build_service_faqs( $s ) {
 	if ( ! empty( $s['authority'] ) ) {
 		$generated[] = array(
 			'q' => 'Which authority handles ' . $name . '?',
-			'a' => $name . ' falls under ' . $s['authority'] . '. Krishna TaxNova prepares and files your application in the required format and responds to any queries raised by the department.',
+			'a' => $name . ' falls under ' . $s['authority'] . '. Eaccountingcart prepares and files your application in the required format and responds to any queries raised by the department.',
 		);
 	}
 	if ( ! empty( $s['validity'] ) ) {

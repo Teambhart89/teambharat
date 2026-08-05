@@ -38,8 +38,8 @@
 				<?php the_custom_logo(); ?>
 			<?php else : ?>
 				<a class="ktn-logo-text" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<span class="ktn-logo-mark" aria-hidden="true">KT</span>
-					<span class="ktn-logo-name">Krishna <em>TaxNova</em><small><?php esc_html_e( 'Tax | Compliance | Advisory', 'krishna-taxnova' ); ?></small></span>
+					<span class="ktn-logo-mark" aria-hidden="true">EA</span>
+					<span class="ktn-logo-name">Eaccounting<em>cart</em><small><?php esc_html_e( 'Tax | Compliance | Advisory', 'krishna-taxnova' ); ?></small></span>
 				</a>
 			<?php endif; ?>
 		</div>

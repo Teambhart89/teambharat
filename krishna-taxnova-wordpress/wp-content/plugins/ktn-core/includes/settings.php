@@ -1,6 +1,6 @@
 <?php
 /**
- * Krishna TaxNova settings page: contact details, WhatsApp number, email.
+ * Eaccountingcart settings page: contact details, WhatsApp number, email.
  *
  * @package ktn-core
  */
@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function ktn_register_settings_page() {
 	add_menu_page(
-		__( 'Krishna TaxNova', 'ktn-core' ),
-		__( 'Krishna TaxNova', 'ktn-core' ),
+		__( 'Eaccountingcart', 'ktn-core' ),
+		__( 'Eaccountingcart', 'ktn-core' ),
 		'manage_options',
 		'ktn-settings',
 		'ktn_render_settings_page',
@@ -69,7 +69,7 @@ function ktn_render_settings_page() {
 	$options = get_option( 'ktn_settings', array() );
 	?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'Krishna TaxNova Settings', 'ktn-core' ); ?></h1>
+		<h1><?php esc_html_e( 'Eaccountingcart Settings', 'ktn-core' ); ?></h1>
 		<p><?php esc_html_e( 'Business contact details used across the website, forms and WhatsApp buttons.', 'ktn-core' ); ?></p>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'ktn_settings_group' ); ?>

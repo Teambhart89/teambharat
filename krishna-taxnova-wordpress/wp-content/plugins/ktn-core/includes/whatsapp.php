@@ -17,11 +17,11 @@ function ktn_whatsapp_url( $service_name = '' ) {
 	$number = ktn_get_option( 'whatsapp', '919999999999' );
 	if ( $service_name ) {
 		$message = sprintf(
-			'Hello Krishna TaxNova, I am interested in %s. I would like to share my documents and get a quote.',
+			'Hello Eaccountingcart, I am interested in %s. I would like to share my documents and get a quote.',
 			$service_name
 		);
 	} else {
-		$message = 'Hello Krishna TaxNova, I need help with a tax or compliance service. Can we chat?';
+		$message = 'Hello Eaccountingcart, I need help with a tax or compliance service. Can we chat?';
 	}
 	return 'https://wa.me/' . rawurlencode( $number ) . '?text=' . rawurlencode( $message );
 }
@@ -58,7 +58,7 @@ function ktn_floating_whatsapp() {
 	printf(
 		'<a class="ktn-wa-float" href="%1$s" target="_blank" rel="noopener nofollow" aria-label="%2$s">%3$s<span class="ktn-wa-float-label">%4$s</span></a>',
 		esc_url( ktn_whatsapp_url( $service ) ),
-		esc_attr__( 'Chat with Krishna TaxNova on WhatsApp', 'ktn-core' ),
+		esc_attr__( 'Chat with Eaccountingcart on WhatsApp', 'ktn-core' ),
 		ktn_whatsapp_icon(), // phpcs:ignore WordPress.Security.EscapeOutput
 		esc_html__( 'WhatsApp Us', 'ktn-core' )
 	);

@@ -1,4 +1,4 @@
-# Krishna TaxNova WordPress Website — Installation Guide
+# Eaccountingcart WordPress Website — Installation Guide
 
 Everything you need is in the ZIP: a custom theme, a core plugin (services, forms, WhatsApp, SEO, schema) and one click content import that creates all 10 categories, 90 service pages, the homepage, About, Contact and Privacy Policy pages.
 
@@ -30,7 +30,7 @@ krishna-taxnova-wordpress.zip
 2. Choose `krishna-taxnova-theme.zip`, click **Install Now**, then **Activate**.
 
 ### Step 3 — Enter your business details
-1. Go to the new **Krishna TaxNova** menu in the admin sidebar.
+1. Go to the new **Eaccountingcart** menu in the admin sidebar.
 2. Fill in:
    - **Phone number** (shown in header, footer and click to call)
    - **WhatsApp number** — digits only with country code, e.g. `919876543210`. Every WhatsApp button on the site uses this.
@@ -40,7 +40,7 @@ krishna-taxnova-wordpress.zip
 3. Click **Save Changes**.
 
 ### Step 4 — Import all content (one click)
-1. Go to **Krishna TaxNova → Import Content**.
+1. Go to **Eaccountingcart → Import Content**.
 2. Click **Import All Content Now**.
 3. Wait for the success message. This creates:
    - 10 service categories with SEO descriptions
@@ -61,7 +61,7 @@ krishna-taxnova-wordpress.zip
 |---|---|
 | View enquiries + uploaded documents | **Enquiries** menu in admin |
 | Edit a service page or its FAQs | **Services** menu (FAQs are in the SEO and Service Details box) |
-| Change phone/WhatsApp/email | **Krishna TaxNova** settings |
+| Change phone/WhatsApp/email | **Eaccountingcart** settings |
 | Add a new service | Services → Add New, assign a category; it appears in menus automatically |
 | Upload your logo | Appearance → Customize → Site Identity |
 
@@ -77,6 +77,7 @@ krishna-taxnova-wordpress.zip
 - **Forms and document upload** are built into the plugin — no form plugin needed. Uploads accept PDF, JPG, PNG, DOC/DOCX, XLS/XLSX and ZIP, up to 5 files of 10 MB each, with spam protection.
 - **WhatsApp buttons** appear site wide (floating button) and on every service page ("WhatsApp Us Your Documents") with a pre-filled message naming the service.
 - **Structured data** (Organization, Service, FAQPage, BreadcrumbList) is output automatically for rich results.
+- **Images you can change from the backend**: the homepage hero image and the two showcase photos live in **Appearance → Customize → Homepage Showcase**. Each service page has its own banner image: open the service under **Services**, set the **Featured Image**, and upload at **770 x 300 pixels** (the theme crops to that size automatically). Services without a featured image simply show no banner.
 - **Menus are automatic**: the header mega menu and footer link columns build themselves from your service categories, so new services appear without touching menu settings.
 - **Online tools** live at /tools/ (GST calculator, income tax old vs new regime, HRA exemption, business loan EMI). Each is a shortcode (`[ktn_gst_calculator]` etc.) you can also place on any page. The income tax slabs sit in a clearly marked CONFIG block in the plugin's `includes/tools.php`; verify them after every Union Budget.
 

@@ -228,7 +228,7 @@ function ktn_handle_enquiry() {
 
 	// Notify admin.
 	$to      = ktn_get_option( 'email', get_option( 'admin_email' ) );
-	$subject = sprintf( '[Krishna TaxNova] New enquiry: %s from %s', $service, $name );
+	$subject = sprintf( '[Eaccountingcart] New enquiry: %s from %s', $service, $name );
 	$lines   = array(
 		'New enquiry received on the website.',
 		'',

@@ -1,6 +1,6 @@
 <?php
 /**
- * Krishna TaxNova theme setup.
+ * Eaccountingcart theme setup.
  *
  * @package krishna-taxnova
  */
@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KTN_THEME_VERSION', '1.3.0' );
+define( 'KTN_THEME_VERSION', '1.4.0' );
 
 function ktn_theme_setup() {
 	add_theme_support( 'title-tag' );
@@ -17,6 +17,8 @@ function ktn_theme_setup() {
 	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 	add_theme_support( 'custom-logo', array( 'height' => 64, 'width' => 220, 'flex-width' => true, 'flex-height' => true ) );
 	add_theme_support( 'automatic-feed-links' );
+	// Featured image size used at the top of every service page.
+	add_image_size( 'ktn-service-feature', 770, 300, true );
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Menu (optional, mega menu is automatic)', 'krishna-taxnova' ),
@@ -106,6 +108,20 @@ function ktn_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'ktn_showcase_text', array( 'default' => 'We simplify complex tax and compliance rules into clear guidance and fixed price plans that fit your business. One qualified team, accountable end to end.', 'sanitize_callback' => 'sanitize_textarea_field' ) );
 	$wp_customize->add_control( 'ktn_showcase_text', array( 'label' => __( 'Intro text', 'krishna-taxnova' ), 'section' => 'ktn_showcase', 'type' => 'textarea' ) );
+
+	$wp_customize->add_setting( 'ktn_hero_img', array( 'default' => '', 'sanitize_callback' => 'absint' ) );
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'ktn_hero_img',
+			array(
+				'label'       => __( 'Hero image (below the hero buttons)', 'krishna-taxnova' ),
+				'description' => __( 'Wide image, around 900 x 420 pixels works best.', 'krishna-taxnova' ),
+				'section'     => 'ktn_showcase',
+				'mime_type'   => 'image',
+			)
+		)
+	);
 
 	$wp_customize->add_setting( 'ktn_showcase_img1', array( 'default' => '', 'sanitize_callback' => 'absint' ) );
 	$wp_customize->add_control(
