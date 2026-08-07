@@ -48,7 +48,7 @@ while ( have_posts() ) :
 					<div class="widget widget--quote">
 						<h2 class="widget-title"><?php esc_html_e( 'Need help choosing?', 'plantgift-pro' ); ?></h2>
 						<p class="pg-small"><?php esc_html_e( 'Tell us the headcount, budget per gift and the delivery city. We will send a shortlist with photos.', 'plantgift-pro' ); ?></p>
-						<a class="pg-btn pg-btn--action pg-btn--block" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Ask the gifting desk', 'plantgift-pro' ); ?></a>
+						<a class="pg-btn pg-btn--action pg-btn--block" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>"><?php esc_html_e( 'Ask the gifting desk', 'plantgift-pro' ); ?></a>
 					</div>
 				</aside>
 			</div>

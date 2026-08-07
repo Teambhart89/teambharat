@@ -1924,6 +1924,222 @@ label {
 
 .pg-callout--info strong { color: var(--pg-forest-900); }
 
+/* 15b. Corporate gifting landing page --------------------------------------
+   Full width B2B layout. The enquiry form sits in the hero because a buyer
+   arriving from search already knows what they want and should not have to
+   scroll to ask for it.
+   -------------------------------------------------------------------------- */
+
+.pg-lp-hero {
+	position: relative;
+	background:
+		radial-gradient(900px 520px at 78% -18%, var(--pg-lime-100), transparent 62%),
+		linear-gradient(178deg, var(--pg-sand) 0%, var(--pg-paper) 88%);
+	padding-block: clamp(2.25rem, 1.5rem + 3.5vw, 4.5rem);
+	border-bottom: 1px solid var(--pg-line);
+}
+
+.pg-lp-hero__grid {
+	display: grid;
+	gap: clamp(2rem, 1.2rem + 3vw, 3.5rem);
+	align-items: start;
+}
+
+@media (min-width: 60em) {
+	.pg-lp-hero__grid { grid-template-columns: 1.05fr 0.95fr; }
+	.pg-lp-hero__copy { padding-top: 0.75rem; }
+}
+
+.pg-lp-hero h1 { margin-bottom: 0.45em; }
+
+.pg-lp-hero__lede {
+	font-size: var(--pg-step-1);
+	line-height: 1.55;
+	color: var(--pg-ink-700);
+	max-width: 46ch;
+	margin-bottom: 1.5rem;
+}
+
+.pg-lp-hero__points { margin-bottom: 1.6rem; }
+.pg-lp-hero__points li { font-size: 0.97rem; }
+
+.pg-lp-hero__proof {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	flex-wrap: wrap;
+	font-size: var(--pg-step--1);
+	color: var(--pg-ink-600);
+}
+
+.pg-lp-hero__proof strong { color: var(--pg-ink-900); }
+
+/* The form card ----------------------------------------------------------- */
+
+.pg-quote-form {
+	background: #fff;
+	border: 1px solid var(--pg-line);
+	border-radius: var(--pg-r-lg);
+	box-shadow: var(--pg-shadow-lg);
+	padding: clamp(1.35rem, 1rem + 1.4vw, 2rem);
+	position: relative;
+}
+
+.pg-lp-hero__form .pg-quote-form::before {
+	content: "";
+	position: absolute;
+	inset: -1px -1px auto;
+	height: 5px;
+	border-radius: var(--pg-r-lg) var(--pg-r-lg) 0 0;
+	background: linear-gradient(90deg, var(--pg-yellow-500), var(--pg-lime-500));
+}
+
+.pg-quote-form__title {
+	font-size: var(--pg-step-2);
+	margin-bottom: 0.35rem;
+}
+
+.pg-quote-form__intro {
+	font-size: 0.94rem;
+	color: var(--pg-muted);
+	margin-bottom: 1.35rem;
+}
+
+.pg-quote-form__grid {
+	display: grid;
+	gap: 0.9rem;
+	margin-bottom: 1.25rem;
+}
+
+@media (min-width: 30em) {
+	.pg-quote-form__grid { grid-template-columns: 1fr 1fr; }
+	.pg-field--wide { grid-column: 1 / -1; }
+}
+
+.pg-quote-form .pg-field + .pg-field { margin-top: 0; }
+
+.pg-quote-form label {
+	font-size: var(--pg-step--2);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: var(--pg-ink-600);
+	margin-bottom: 0.3rem;
+}
+
+.pg-quote-form input,
+.pg-quote-form select,
+.pg-quote-form textarea { font-size: 0.94rem; padding: 0.7rem 0.85rem; }
+
+.pg-req { color: var(--pg-ember-700); margin-left: 0.15em; }
+
+.pg-quote-form__note {
+	font-size: var(--pg-step--2);
+	color: var(--pg-muted);
+	text-align: center;
+	margin: 0.85rem 0 0;
+}
+
+.pg-quote-form__error {
+	background: #fdf1ef;
+	border-left: 3px solid var(--pg-danger);
+	color: #6d241a;
+	padding: 0.7rem 0.9rem;
+	border-radius: var(--pg-r-xs);
+	font-size: 0.9rem;
+	margin-bottom: 1rem;
+}
+
+/* Honeypot. Off screen rather than display none, so bots still fill it. */
+.pg-hp {
+	position: absolute !important;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.pg-quote-form__done { text-align: center; padding: 1.25rem 0.5rem; }
+
+.pg-quote-form__done h3 { font-size: var(--pg-step-2); margin-bottom: 0.5rem; }
+.pg-quote-form__done p { color: var(--pg-muted); margin: 0; }
+
+.pg-quote-form__tick {
+	display: block;
+	width: 58px;
+	height: 58px;
+	margin: 0 auto 1.1rem;
+	border-radius: 50%;
+	background: var(--pg-lime-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2319381F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 12 5 5L20 6'/%3E%3C/svg%3E") center / 28px no-repeat;
+}
+
+/* Logo strip -------------------------------------------------------------- */
+
+.pg-lp-logos {
+	background: var(--pg-paper);
+	padding-block: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem);
+	border-bottom: 1px solid var(--pg-line-soft);
+}
+
+.pg-lp-logos__label {
+	text-align: center;
+	font-size: var(--pg-step--2);
+	font-weight: 700;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+	color: var(--pg-ink-400);
+	margin-bottom: 1.35rem;
+}
+
+/* Long form prose inside the landing page --------------------------------- */
+
+.pg-lp-prose {
+	max-width: 74ch;
+	margin: clamp(2rem, 1.4rem + 2vw, 3.25rem) auto 0;
+	padding-top: 2rem;
+	border-top: 1px solid var(--pg-line);
+}
+
+/* Branding method grid ---------------------------------------------------- */
+
+.pg-lp-brandgrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+	gap: 0.85rem;
+}
+
+.pg-lp-brandgrid__item {
+	background: rgba(255, 255, 255, 0.07);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: var(--pg-r);
+	padding: 1.15rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.pg-lp-brandgrid__item strong { color: #fff; font-size: 1.02rem; }
+.pg-lp-brandgrid__item span { color: var(--pg-forest-200); font-size: var(--pg-step--1); }
+
+.pg-lp-brandgrid__item em {
+	font-style: normal;
+	font-size: var(--pg-step--2);
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--pg-lime-300);
+	margin-top: 0.35rem;
+}
+
+/* Closing lead box -------------------------------------------------------- */
+
+.pg-lp-close .pg-quote-form {
+	box-shadow: none;
+	border-color: transparent;
+}
+
+.pg-lp-close .pg-quote-form__done h3 { color: var(--pg-ink-900); }
+
 /* 16. Utilities ------------------------------------------------------------ */
 
 .pg-center { text-align: center; }

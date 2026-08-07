@@ -514,7 +514,11 @@ class PGC_Installer {
 		$order    = 0;
 
 		foreach ( $services as $page ) {
-			$page['template'] = 'page-templates/template-service.php';
+			// A page can declare its own template, otherwise it gets the
+			// standard long form service layout.
+			if ( empty( $page['template'] ) ) {
+				$page['template'] = 'page-templates/template-service.php';
+			}
 			if ( self::build_page( $page, ++$order ) ) {
 				$created++;
 			}

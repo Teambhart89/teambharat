@@ -33,7 +33,7 @@ $pg_shop    = $pg_has_woo ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
 			</ul>
 
 			<div class="pg-btn-row">
-				<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+				<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>">
 					<?php plantgift_pro_the_icon( 'gift', 19 ); ?>
 					<?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?>
 				</a>
@@ -372,7 +372,7 @@ $pg_home_faqs = array(
 			<h2><?php esc_html_e( 'Ready to gift greenery that outlives the gifting season?', 'plantgift-pro' ); ?></h2>
 			<p><?php esc_html_e( 'Send us your headcount and budget. You will have a shortlist, a branded mockup and a landed cost in your inbox by the next working day.', 'plantgift-pro' ); ?></p>
 			<div class="pg-btn-row">
-				<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+				<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>">
 					<?php plantgift_pro_the_icon( 'gift', 19 ); ?>
 					<?php esc_html_e( 'Request a gifting quote', 'plantgift-pro' ); ?>
 				</a>

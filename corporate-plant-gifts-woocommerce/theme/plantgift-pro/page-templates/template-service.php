@@ -34,7 +34,7 @@ while ( have_posts() ) :
 				<p class="pg-lede"><?php echo esc_html( get_the_excerpt() ); ?></p>
 			<?php endif; ?>
 			<div class="pg-btn-row pg-mt-2">
-				<a class="pg-btn pg-btn--action" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+				<a class="pg-btn pg-btn--action" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>">
 					<?php plantgift_pro_the_icon( 'gift', 18 ); ?>
 					<?php esc_html_e( 'Request a quote', 'plantgift-pro' ); ?>
 				</a>
@@ -86,7 +86,7 @@ while ( have_posts() ) :
 					<div class="widget widget--quote">
 						<h2 class="widget-title"><?php esc_html_e( 'Talk to the gifting desk', 'plantgift-pro' ); ?></h2>
 						<p class="pg-small"><?php esc_html_e( 'Send your headcount, budget per gift and delivery cities. We reply with a shortlist and a branded mockup within one working day.', 'plantgift-pro' ); ?></p>
-						<a class="pg-btn pg-btn--action pg-btn--block" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Get a quote', 'plantgift-pro' ); ?></a>
+						<a class="pg-btn pg-btn--action pg-btn--block" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>"><?php esc_html_e( 'Get a quote', 'plantgift-pro' ); ?></a>
 						<?php $pg_phone = get_theme_mod( 'plantgift_phone', '' ); ?>
 						<?php if ( $pg_phone ) : ?>
 							<p class="pg-small pg-mt-2 pg-mb-0"><?php esc_html_e( 'Or call', 'plantgift-pro' ); ?> <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $pg_phone ) ); ?>"><?php echo esc_html( $pg_phone ); ?></a></p>
@@ -154,7 +154,7 @@ while ( have_posts() ) :
 				<h2><?php esc_html_e( 'Get a plant gifting plan for your next round', 'plantgift-pro' ); ?></h2>
 				<p><?php esc_html_e( 'One brief is enough. We handle the sourcing, the branding, the packing and the delivery tracking so your team only signs off on the design.', 'plantgift-pro' ); ?></p>
 				<div class="pg-btn-row">
-					<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Start the conversation', 'plantgift-pro' ); ?></a>
+					<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>"><?php esc_html_e( 'Start the conversation', 'plantgift-pro' ); ?></a>
 				</div>
 			</div>
 		</div>

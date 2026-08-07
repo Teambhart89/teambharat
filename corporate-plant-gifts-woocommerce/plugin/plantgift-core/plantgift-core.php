@@ -36,12 +36,14 @@ function plantgift_core_bootstrap() {
 	require_once PLANTGIFT_CORE_DIR . 'includes/class-pgc-schema.php';
 	require_once PLANTGIFT_CORE_DIR . 'includes/class-pgc-seo.php';
 	require_once PLANTGIFT_CORE_DIR . 'includes/class-pgc-shortcodes.php';
+	require_once PLANTGIFT_CORE_DIR . 'includes/class-pgc-leads.php';
 
 	PGC_Admin::init();
 	PGC_Meta::init();
 	PGC_Schema::init();
 	PGC_SEO::init();
 	PGC_Shortcodes::init();
+	PGC_Leads::init();
 }
 add_action( 'plugins_loaded', 'plantgift_core_bootstrap', 20 );
 

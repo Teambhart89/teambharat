@@ -90,6 +90,8 @@ return array(
 <h3>Before you commit</h3>
 <p>A physical sample for orders above two hundred units, with the cost credited against your final invoice.</p>
 
+[plantgift_quote_form title="Send your brief" intro="Fill this in and it reaches the gifting desk directly. Nothing is shared with anyone else."]
+
 <h2>Other ways to reach us</h2>
 <p>Call or email the gifting desk during working hours using the details in the site footer. If your question is about an order already placed, quote the order number and we will pick it up faster.</p>
 

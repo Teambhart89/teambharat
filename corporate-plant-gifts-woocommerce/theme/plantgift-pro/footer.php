@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			<div>
 				<div class="pg-btn-row">
-					<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?></a>
+					<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>"><?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?></a>
 					<a class="pg-btn pg-btn--ghost pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Talk to the gifting desk', 'plantgift-pro' ); ?></a>
 				</div>
 				<?php if ( is_active_sidebar( 'footer-notice' ) ) : ?>

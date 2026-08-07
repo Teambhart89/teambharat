@@ -27,6 +27,18 @@ function plantgift_pro_cro_body_class( $classes ) {
 add_filter( 'body_class', 'plantgift_pro_cro_body_class' );
 
 /**
+ * Where every primary call to action points.
+ *
+ * The corporate gifting landing page carries the enquiry form, so that is the
+ * destination rather than the contact page. Filterable if you move the form.
+ *
+ * @return string
+ */
+function plantgift_pro_quote_url() {
+	return apply_filters( 'plantgift_pro_quote_url', home_url( '/corporate-plant-gifting/#quote' ) );
+}
+
+/**
  * The contact number in a form a tel: or wa.me link accepts.
  *
  * @return string
@@ -97,7 +109,7 @@ function plantgift_pro_sticky_bar() {
 				<?php esc_html_e( 'Choose pot and buy', 'plantgift-pro' ); ?>
 			</a>
 		<?php else : ?>
-			<a class="pg-btn pg-btn--action" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+			<a class="pg-btn pg-btn--action" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>">
 				<?php plantgift_pro_the_icon( 'gift', 18 ); ?>
 				<?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?>
 			</a>
@@ -117,11 +129,11 @@ function plantgift_pro_float_cta() {
 	if ( function_exists( 'is_cart' ) && ( is_cart() || is_checkout() ) ) {
 		return;
 	}
-	if ( is_page( 'contact' ) ) {
+	if ( is_page( 'contact' ) || is_page( 'corporate-plant-gifting' ) ) {
 		return;
 	}
 	?>
-	<a class="pg-float-cta" data-pg-float-cta data-show="false" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+	<a class="pg-float-cta" data-pg-float-cta data-show="false" href="<?php echo esc_url( plantgift_pro_quote_url() ); ?>">
 		<?php plantgift_pro_the_icon( 'gift', 19 ); ?>
 		<?php echo esc_html( get_theme_mod( 'plantgift_float_cta_text', __( 'Get a bulk quote', 'plantgift-pro' ) ) ); ?>
 	</a>
