@@ -212,63 +212,84 @@ gives tactile feedback that flat buttons do not.
 
 ## 6. Typography
 
-### The two typefaces
+### The typeface
 
-Both are self hosted, subset to Latin and Latin Extended A, and served as WOFF2.
-There are **no external font requests**, so nothing leaks to Google Fonts and
-there is no third party blocking your first paint.
+One family across headings and body, which is how the reference design uses it.
 
 | Role | Family | Licence | File | Size |
 |---|---|---|---|---|
-| Display | **Young Serif** | SIL OFL 1.1 | `pg-display-400.woff2` | 19 KB |
-| Interface and body | **Instrument Sans** | SIL OFL 1.1 | `pg-sans-400.woff2` | 18 KB |
-| Bold | Instrument Sans Bold | SIL OFL 1.1 | `pg-sans-700.woff2` | 18 KB |
-| Italic | Instrument Sans Italic | SIL OFL 1.1 | `pg-sans-400i.woff2` | 19 KB |
+| Body, captions | **Montserrat** Regular | SIL OFL 1.1 | `pg-400.woff2` | 15 KB |
+| Buttons, labels, nav | Montserrat SemiBold | SIL OFL 1.1 | `pg-600.woff2` | 15 KB |
+| H1 to H6, prices, stats | Montserrat Bold | SIL OFL 1.1 | `pg-700.woff2` | 15 KB |
+| Emphasis | Montserrat Italic | SIL OFL 1.1 | `pg-400i.woff2` | 15 KB |
 
-**Total font payload: 74 KB.** The two files needed for first paint are
-preloaded from `wp_head`; bold and italic load normally, because preloading
-everything delays the files that actually matter.
+**Total font payload: 62 KB.** Self hosted, subset to Latin and Latin Extended A,
+served as WOFF2. Regular and Bold are preloaded from `wp_head`; SemiBold and
+Italic load normally, because preloading everything delays the files that
+actually matter. **No external requests**, nothing loaded from Google at
+runtime.
 
-**Why Young Serif.** It has thick, slightly organic strokes and blunt terminals.
-It reads as grown rather than manufactured, which suits a plant business, and it
-holds up at very large sizes where a delicate serif would look weak. It is used
-for H1, H2, H3, big statistics and pull quotes only.
+**Coverage matters here.** The fonts are built from the complete family in the
+google/fonts repository rather than the Google Fonts CSS API. The API's Latin
+subset omits the rupee sign, which would make every price on the store fall
+back to a system font mid-line. All four files carry U+20B9, curly quotes, the
+em dash and the non breaking space. The installer verifies this and warns if a
+swap ever loses them.
 
-**Why Instrument Sans.** A neutral modern grotesque with a tall x height and
-open apertures, which is what you want for product names, prices, variant
-labels and long body copy. It has a true italic rather than a slanted roman.
+**Why Montserrat.** Geometric, wide, with a large x height and near circular
+bowls. It reads as clean and commercial rather than crafted, and it holds up at
+both 3.3rem headline sizes and 0.9rem captions, which is what lets one family
+carry the whole site.
 
-**Why not a serif for body copy.** Serif body text at 16px on a phone screen
-loses legibility, and roughly two thirds of a store like this is read on a
-phone. The serif stays where it earns its keep, in headlines.
+### Weight roles
+
+Rather than hardcoding weights, the CSS uses role tokens, so a font swap is a
+one line change per role:
+
+```css
+--pg-w-body:   400;   /* body copy                       */
+--pg-w-medium: 600;   /* buttons, nav, labels, blockquote */
+--pg-w-bold:   700;   /* H4 to H6, prices, strong        */
+--pg-w-head:   700;   /* H1 to H3                        */
+```
 
 ### The scale
 
-Fluid, using `clamp()`, so it responds to viewport width without breakpoints.
+Fluid, using `clamp()`. Montserrat sets wider and with a larger x height than a
+serif at the same pixel size, so the top of the scale is pulled back compared
+with a serif setting.
 
 | Token | Min | Max | Used for |
 |---|---|---|---|
 | `--pg-step--2` | 0.72rem | 0.78rem | Badges, uppercase micro labels |
-| `--pg-step--1` | 0.84rem | 0.92rem | Captions, metadata, table body |
-| `--pg-step-0` | 1.00rem | 1.09rem | Body copy |
-| `--pg-step-1` | 1.15rem | 1.38rem | H4, lede paragraphs, card titles |
-| `--pg-step-2` | 1.38rem | 1.90rem | H3, product price |
-| `--pg-step-3` | 1.72rem | 2.70rem | H2 |
-| `--pg-step-4` | 2.10rem | 3.90rem | H1 |
-| `--pg-step-5` | 2.50rem | 4.90rem | Hero display, optional |
+| `--pg-step--1` | 0.83rem | 0.90rem | Captions, metadata, table body |
+| `--pg-step-0` | 0.97rem | 1.05rem | Body copy |
+| `--pg-step-1` | 1.10rem | 1.30rem | H4, lede paragraphs, card titles |
+| `--pg-step-2` | 1.30rem | 1.75rem | H3, product price |
+| `--pg-step-3` | 1.60rem | 2.40rem | H2 |
+| `--pg-step-4` | 1.95rem | 3.30rem | H1 |
+| `--pg-step-5` | 2.30rem | 4.20rem | Hero display, optional |
 
-Line heights: `1.08` for the H1, `1.16` for other display headings, `1.68` for
-body. Letter spacing is `-0.015em` on display headings, because large serif type
-sets too loose at default tracking.
+### Tracking
+
+Geometric sans needs negative letter spacing as it gets larger, or headlines
+look gappy. Three tokens handle it:
+
+```css
+--pg-tr-display: -0.025em;  /* H1 and large statistics */
+--pg-tr-head:    -0.018em;  /* H2, H3, product titles  */
+--pg-tr-body:    -0.003em;  /* body and H4 to H6       */
+```
+
+Line heights: `1.12` for the H1, `1.22` for other headings, `1.70` for body.
 
 ### Heading rules
 
-- H1, H2, H3 use Young Serif at weight 400. There is no bold cut, and none is
-  needed at these sizes
-- H4, H5, H6 switch to Instrument Sans Bold. They function as labels rather than
-  statements, and a serif at 1.2rem competes with the H3 above it
-- H4 is coloured `--pg-forest-800` so the fourth level is visually distinct from
-  body copy without needing more size
+- H1 to H3 use Bold at `--pg-tr-head` or tighter. There is no serif on the site
+- H4 to H6 use Bold at body tracking, and H4 is coloured `--pg-forest-800` so
+  the fourth level stays distinct without needing more size
+- Buttons use SemiBold rather than Bold. Montserrat Bold at 0.93rem inside a
+  pill button reads as shouty, SemiBold holds the weight without it
 
 ### The highlight marker
 
@@ -394,11 +415,29 @@ Edit `--pg-action` and `--pg-action-ink` together. If you move from yellow to a
 dark colour, set `--pg-action-ink` to `#FFFFFF` and update
 `--pg-shadow-action` to a darker shade of your new colour.
 
-### Change the fonts
-Replace the WOFF2 files in `assets/fonts/` keeping the same filenames, or edit
-the `@font-face` blocks at the top of `main.css` and `editor.css`. If you drop
-the custom fonts entirely, the stack falls back to system fonts and nothing
-breaks.
+### Change the font
+Run the installer with any Google Font family name:
+
+```bash
+./tools/swap-font.sh "Poppins"
+./tools/swap-font.sh "Plus Jakarta Sans"
+./tools/swap-font.sh "Figtree"
+```
+
+It downloads the complete family from the google/fonts repository, instances
+variable fonts to weights 400, 600 and 700 plus a 400 italic, subsets them,
+converts to WOFF2 and writes over the four files the CSS already points at.
+**No CSS edits are needed**, because the `@font-face` rules reference the
+filenames rather than the font name. It also refreshes the licence file and
+warns if the new family is missing the rupee sign or curly quotes.
+
+After a swap, check two things. If headings wrap awkwardly the new family sets
+wider or narrower, so adjust `--pg-step-3` and `--pg-step-4`. If large headings
+look gappy or cramped, tune `--pg-tr-display` and `--pg-tr-head`. Humanist
+faces generally want less negative tracking than geometric ones.
+
+To split headings onto a second family again, point `--pg-font-display` at it.
+Every component reads that token, so nothing else needs touching.
 
 ### Add a colour to the block editor
 Add it to the palette array in `theme.json`. It then appears in the editor

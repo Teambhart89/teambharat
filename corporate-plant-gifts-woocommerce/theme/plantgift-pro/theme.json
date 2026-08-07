@@ -80,12 +80,12 @@
 			"fontFamilies": [
 				{
 					"slug": "display",
-					"name": "PG Display (Young Serif)",
-					"fontFamily": "\"PG Display\", \"Iowan Old Style\", Georgia, serif"
+					"name": "Display (Montserrat Bold)",
+					"fontFamily": "\"PG Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
 				},
 				{
 					"slug": "sans",
-					"name": "PG Sans (Instrument Sans)",
+					"name": "Body (Montserrat)",
 					"fontFamily": "\"PG Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
 				}
 			],
@@ -93,10 +93,10 @@
 				{ "slug": "x-small", "size": "0.86rem", "name": "Extra small" },
 				{ "slug": "small", "size": "0.94rem", "name": "Small" },
 				{ "slug": "medium", "size": "1.06rem", "name": "Medium" },
-				{ "slug": "large", "size": "1.38rem", "name": "Large" },
-				{ "slug": "x-large", "size": "1.9rem", "name": "Extra large" },
-				{ "slug": "xx-large", "size": "2.7rem", "name": "Display" },
-				{ "slug": "hero", "size": "3.9rem", "name": "Hero" }
+				{ "slug": "large", "size": "1.3rem", "name": "Large" },
+				{ "slug": "x-large", "size": "1.75rem", "name": "Extra large" },
+				{ "slug": "xx-large", "size": "2.4rem", "name": "Display" },
+				{ "slug": "hero", "size": "3.3rem", "name": "Hero" }
 			]
 		},
 		"spacing": {
@@ -123,15 +123,15 @@
 				":hover": { "color": { "text": "var(--wp--preset--color--forest-600)" } }
 			},
 			"h1": {
-				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "400", "lineHeight": "1.08" },
+				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "700", "lineHeight": "1.12", "letterSpacing": "-0.025em" },
 				"color": { "text": "var(--wp--preset--color--ink-900)" }
 			},
 			"h2": {
-				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "400", "lineHeight": "1.16" },
+				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "700", "lineHeight": "1.22", "letterSpacing": "-0.018em" },
 				"color": { "text": "var(--wp--preset--color--ink-900)" }
 			},
 			"h3": {
-				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "400", "lineHeight": "1.16" },
+				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "700", "lineHeight": "1.22", "letterSpacing": "-0.018em" },
 				"color": { "text": "var(--wp--preset--color--ink-900)" }
 			},
 			"h4": {

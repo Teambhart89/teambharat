@@ -288,8 +288,10 @@ ul.products {
 
 .woocommerce div.product .product_title {
 	font-family: var(--pg-font-display);
+	font-weight: var(--pg-w-head);
 	font-size: var(--pg-step-3);
 	line-height: var(--pg-lh-head);
+	letter-spacing: var(--pg-tr-head);
 	margin-bottom: 0.35em;
 }
 

@@ -20,23 +20,20 @@
    ========================================================================== */
 
 /* 1. Fonts ----------------------------------------------------------------
-   Self hosted and subset to Latin plus Latin Extended A. No external requests.
-   Young Serif is the display face, Instrument Sans carries everything else.
-   Both are SIL Open Font License, see assets/fonts/ for the licences.
+   Montserrat, self hosted and subset to Latin plus Latin Extended A.
+   No external requests, nothing loaded from Google.
+   SIL Open Font License 1.1, see assets/fonts/Montserrat-OFL.txt.
+
+   One family carries headings and body, which is how the reference design
+   uses it. The two family tokens below are kept separate so you can split
+   headings onto a different face later without touching any component CSS.
+
+   To swap the whole site to another font, run tools/swap-font.sh.
    -------------------------------------------------------------------------- */
 
 @font-face {
-	font-family: "PG Display";
-	src: url("../fonts/pg-display-400.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-	size-adjust: 100%;
-}
-
-@font-face {
 	font-family: "PG Sans";
-	src: url("../fonts/pg-sans-400.woff2") format("woff2");
+	src: url("../fonts/pg-400.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -44,7 +41,15 @@
 
 @font-face {
 	font-family: "PG Sans";
-	src: url("../fonts/pg-sans-700.woff2") format("woff2");
+	src: url("../fonts/pg-600.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "PG Sans";
+	src: url("../fonts/pg-700.woff2") format("woff2");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -52,7 +57,7 @@
 
 @font-face {
 	font-family: "PG Sans";
-	src: url("../fonts/pg-sans-400i.woff2") format("woff2");
+	src: url("../fonts/pg-400i.woff2") format("woff2");
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
@@ -138,22 +143,38 @@
 	--pg-danger: #b23c2b;
 	--pg-star: var(--pg-ember-500);
 
-	/* --- Type ----------------------------------------------------------- */
-	--pg-font-display: "PG Display", "Iowan Old Style", Georgia, serif;
+	/* --- Type -----------------------------------------------------------
+	   Both tokens resolve to the same family. Point --pg-font-display at a
+	   different face to split headings off again.
+	   ------------------------------------------------------------------- */
+	--pg-font-display: "PG Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 	--pg-font-sans: "PG Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 
-	--pg-step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
-	--pg-step--1: clamp(0.84rem, 0.81rem + 0.14vw, 0.92rem);
-	--pg-step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
-	--pg-step-1:  clamp(1.15rem, 1.07rem + 0.4vw, 1.38rem);
-	--pg-step-2:  clamp(1.38rem, 1.22rem + 0.78vw, 1.9rem);
-	--pg-step-3:  clamp(1.72rem, 1.42rem + 1.45vw, 2.7rem);
-	--pg-step-4:  clamp(2.1rem, 1.6rem + 2.5vw, 3.9rem);
-	--pg-step-5:  clamp(2.5rem, 1.75rem + 3.6vw, 4.9rem);
+	/* Weight roles, so a font swap is a one line change per role. */
+	--pg-w-body: 400;
+	--pg-w-medium: 600;
+	--pg-w-bold: 700;
+	--pg-w-head: 700;
 
-	--pg-lh-tight: 1.08;
-	--pg-lh-head: 1.16;
-	--pg-lh-body: 1.68;
+	/* Montserrat sets wider and with a larger x height than a serif at the
+	   same pixel size, so the top of the scale is pulled back slightly. */
+	--pg-step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+	--pg-step--1: clamp(0.83rem, 0.8rem + 0.14vw, 0.9rem);
+	--pg-step-0:  clamp(0.97rem, 0.94rem + 0.18vw, 1.05rem);
+	--pg-step-1:  clamp(1.1rem, 1.03rem + 0.36vw, 1.3rem);
+	--pg-step-2:  clamp(1.3rem, 1.15rem + 0.72vw, 1.75rem);
+	--pg-step-3:  clamp(1.6rem, 1.34rem + 1.28vw, 2.4rem);
+	--pg-step-4:  clamp(1.95rem, 1.52rem + 2.15vw, 3.3rem);
+	--pg-step-5:  clamp(2.3rem, 1.65rem + 3.1vw, 4.2rem);
+
+	--pg-lh-tight: 1.12;
+	--pg-lh-head: 1.22;
+	--pg-lh-body: 1.7;
+
+	/* Geometric sans needs negative tracking as it gets larger. */
+	--pg-tr-display: -0.025em;
+	--pg-tr-head: -0.018em;
+	--pg-tr-body: -0.003em;
 
 	/* --- Shape and depth ------------------------------------------------ */
 	--pg-r-xs: 6px;
@@ -198,6 +219,7 @@ body {
 	font-family: var(--pg-font-sans);
 	font-size: var(--pg-step-0);
 	line-height: var(--pg-lh-body);
+	letter-spacing: var(--pg-tr-body);
 	color: var(--pg-text);
 	background: var(--pg-bg);
 	-webkit-font-smoothing: antialiased;
@@ -222,24 +244,28 @@ img, picture, video, svg, iframe {
 h1, h2, h3, h4, h5, h6 {
 	color: var(--pg-heading);
 	margin: 0 0 0.55em;
-	font-weight: 400;
+	font-weight: var(--pg-w-head);
 	text-wrap: balance;
 }
 
 h1, h2, h3 {
 	font-family: var(--pg-font-display);
-	letter-spacing: -0.015em;
+	letter-spacing: var(--pg-tr-head);
 	line-height: var(--pg-lh-head);
 }
 
 h4, h5, h6 {
 	font-family: var(--pg-font-sans);
-	font-weight: 700;
-	letter-spacing: -0.005em;
-	line-height: 1.3;
+	font-weight: var(--pg-w-bold);
+	letter-spacing: var(--pg-tr-body);
+	line-height: 1.34;
 }
 
-h1 { font-size: var(--pg-step-4); line-height: var(--pg-lh-tight); }
+h1 {
+	font-size: var(--pg-step-4);
+	line-height: var(--pg-lh-tight);
+	letter-spacing: var(--pg-tr-display);
+}
 h2 { font-size: var(--pg-step-3); }
 h3 { font-size: var(--pg-step-2); }
 h4 { font-size: var(--pg-step-1); }
@@ -281,8 +307,10 @@ blockquote {
 	border-left: 3px solid var(--pg-lime-500);
 	padding: 0.2rem 0 0.2rem 1.4rem;
 	font-family: var(--pg-font-display);
+	font-weight: var(--pg-w-medium);
 	font-size: var(--pg-step-1);
-	line-height: 1.45;
+	line-height: 1.5;
+	letter-spacing: var(--pg-tr-body);
 	color: var(--pg-forest-800);
 }
 
@@ -546,9 +574,10 @@ pre { padding: 1rem; overflow-x: auto; }
 
 .pg-brand__name {
 	font-family: var(--pg-font-display);
-	font-size: 1.28rem;
+	font-weight: var(--pg-w-bold);
+	font-size: 1.2rem;
 	color: var(--pg-forest-900);
-	letter-spacing: -0.01em;
+	letter-spacing: -0.02em;
 }
 
 .pg-brand__tag {
@@ -763,10 +792,10 @@ pre { padding: 1rem; overflow-x: auto; }
 	background: var(--pg-forest-900);
 	color: #fff;
 	font-family: var(--pg-font-sans);
-	font-size: 0.95rem;
-	font-weight: 700;
+	font-size: 0.93rem;
+	font-weight: var(--pg-w-medium);
 	line-height: 1.25;
-	letter-spacing: -0.005em;
+	letter-spacing: 0;
 	text-decoration: none;
 	cursor: pointer;
 	transition: background-color 0.18s var(--pg-ease), transform 0.18s var(--pg-ease),
@@ -1173,10 +1202,10 @@ label {
 	display: block;
 	font-family: var(--pg-font-display);
 	font-size: var(--pg-step-2);
-	font-weight: 400;
+	font-weight: var(--pg-w-bold);
 	color: var(--pg-forest-800);
 	line-height: 1.05;
-	letter-spacing: -0.02em;
+	letter-spacing: var(--pg-tr-display);
 }
 
 .pg-hero__trust div span {
@@ -1304,10 +1333,11 @@ label {
 	top: 1.25rem;
 	left: 1.45rem;
 	font-family: var(--pg-font-display);
-	font-size: 1.5rem;
+	font-weight: var(--pg-w-bold);
+	font-size: 1.4rem;
 	color: var(--pg-forest-300);
 	line-height: 1;
-	letter-spacing: -0.03em;
+	letter-spacing: var(--pg-tr-display);
 }
 
 .pg-steps li::after {
@@ -1348,8 +1378,10 @@ label {
 	border-radius: var(--pg-r);
 	padding: 1.75rem;
 	font-family: var(--pg-font-display);
+	font-weight: var(--pg-w-medium);
 	font-size: var(--pg-step-1);
-	line-height: 1.45;
+	line-height: 1.5;
+	letter-spacing: var(--pg-tr-body);
 	color: var(--pg-clay-800);
 }
 
@@ -1458,9 +1490,10 @@ label {
 
 .pg-logos span {
 	font-family: var(--pg-font-display);
-	font-size: 1.25rem;
+	font-weight: var(--pg-w-bold);
+	font-size: 1.15rem;
 	color: var(--pg-ink-500);
-	letter-spacing: -0.01em;
+	letter-spacing: var(--pg-tr-head);
 }
 
 .pg-testimonial {
@@ -1719,10 +1752,11 @@ label {
 
 .pg-footer__brand > p:first-child {
 	font-family: var(--pg-font-display);
-	font-size: 1.45rem;
+	font-weight: var(--pg-w-bold);
+	font-size: 1.32rem;
 	color: #fff;
 	margin-bottom: 0.6rem;
-	letter-spacing: -0.01em;
+	letter-spacing: var(--pg-tr-head);
 }
 
 .pg-footer ul { list-style: none; margin: 0; padding: 0; }
@@ -1901,7 +1935,7 @@ label {
 .pg-flow > * + * { margin-top: 1.15em; }
 .pg-muted { color: var(--pg-muted); }
 .pg-small { font-size: var(--pg-step--1); }
-.pg-display { font-family: var(--pg-font-display); font-weight: 400; }
+.pg-display { font-family: var(--pg-font-display); font-weight: var(--pg-w-bold); letter-spacing: var(--pg-tr-head); }
 .pg-nums { font-variant-numeric: tabular-nums; }
 
 .pg-table-scroll {

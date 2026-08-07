@@ -15,6 +15,9 @@ corporate-plant-gifts-woocommerce/
 │   └── plantgift-pro.zip          upload at Appearance, Themes, Add New
 ├── plugin/
 │   └── plantgift-core.zip         upload at Plugins, Add New
+├── tools/
+│   ├── swap-font.sh               change the site font in one command
+│   └── install-font.py            the installer it calls
 ├── docs/
 │   ├── 01-INSTALLATION.md         start here
 │   ├── 02-KEYWORD-RESEARCH.md     clusters, intent and the keyword to URL map
@@ -123,10 +126,20 @@ Four button levels, used strictly:
 | Tertiary | Ghost, forest text, soft green border | 10.13:1 | Alternate paths |
 | Urgent | Ember fill, white text | 4.93:1 | Festive cut off dates only |
 
-**Typography.** Young Serif for display headings, Instrument Sans for interface
-and body. Both SIL Open Font Licence, self hosted, subset to Latin and Latin
-Extended A, served as WOFF2. **74 KB total**, with the two first paint files
-preloaded. No Google Fonts, no external requests anywhere on the site.
+**Typography.** Montserrat across headings and body, in Regular, SemiBold, Bold
+and Italic. SIL Open Font Licence, self hosted, subset to Latin and Latin
+Extended A, served as WOFF2. **62 KB total**, with Regular and Bold preloaded.
+No Google Fonts at runtime, no external requests anywhere on the site.
+
+The files are built from the complete family rather than the Google Fonts CSS
+API, because that API's Latin subset omits the rupee sign and every price on
+the store would fall back to a system font mid-line.
+
+Changing the font is one command, with no CSS edits:
+
+```bash
+./tools/swap-font.sh "Poppins"
+```
 
 Full reference with every hex, RGB, HSL, contrast ratio and usage rule is in
 `docs/06-DESIGN-SYSTEM.md`, with a visual sheet at `docs/colour-system.png`.

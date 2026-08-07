@@ -13,7 +13,7 @@ done < <(find theme plugin -name '*.php')
 
 echo "Building zips..."
 rm -rf dist
-mkdir -p dist/corporate-plant-gifts-woocommerce/{theme,plugin,docs,source}
+mkdir -p dist/corporate-plant-gifts-woocommerce/{theme,plugin,docs,source,tools}
 D="$PWD/dist/corporate-plant-gifts-woocommerce"
 
 ( cd theme  && zip -rq "$D/theme/plantgift-pro.zip"   plantgift-pro   -x '*.DS_Store' )
@@ -22,6 +22,8 @@ D="$PWD/dist/corporate-plant-gifts-woocommerce"
 cp -r theme/plantgift-pro   "$D/source/"
 cp -r plugin/plantgift-core "$D/source/"
 cp -r docs/. "$D/docs/"
+cp -r tools/. "$D/tools/"
+chmod +x "$D/tools/"*.sh "$D/tools/"*.py
 cp README.md "$D/"
 
 ( cd dist && zip -rq ../../corporate-plant-gifts-woocommerce.zip corporate-plant-gifts-woocommerce )

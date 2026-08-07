@@ -83,7 +83,7 @@ add_action( 'enqueue_block_editor_assets', 'plantgift_pro_editor_assets' );
  * All fonts are self hosted, so there is nothing to preconnect to.
  */
 function plantgift_pro_preload_fonts() {
-	$fonts = array( 'pg-display-400.woff2', 'pg-sans-400.woff2' );
+	$fonts = array( 'pg-400.woff2', 'pg-700.woff2' );
 
 	foreach ( $fonts as $font ) {
 		if ( ! file_exists( PLANTGIFT_PRO_DIR . '/assets/fonts/' . $font ) ) {
