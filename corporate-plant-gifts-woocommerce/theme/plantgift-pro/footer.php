@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			<div>
 				<div class="pg-btn-row">
-					<a class="pg-btn pg-btn--lg" href="<?php echo esc_url( home_url( '/corporate-plant-gifting/' ) ); ?>"><?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?></a>
+					<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?></a>
 					<a class="pg-btn pg-btn--ghost pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Talk to the gifting desk', 'plantgift-pro' ); ?></a>
 				</div>
 				<?php if ( is_active_sidebar( 'footer-notice' ) ) : ?>
@@ -38,9 +38,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="pg-footer__grid">
 
 				<div class="pg-footer__brand">
-					<p style="font-family:var(--pg-font-head);font-size:1.3rem;color:#fff;margin-bottom:0.5rem;">
-						<?php bloginfo( 'name' ); ?>
-					</p>
+					<p><?php bloginfo( 'name' ); ?></p>
 					<p><?php echo esc_html( get_theme_mod( 'plantgift_footer_about', __( 'Live plant gifts for workplaces. We grow, pot, brand and deliver low maintenance greenery for employees, clients and events.', 'plantgift-pro' ) ) ); ?></p>
 					<div class="pg-social">
 						<?php

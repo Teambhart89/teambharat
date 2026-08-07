@@ -5,7 +5,7 @@
 		"appearanceTools": true,
 		"layout": {
 			"contentSize": "780px",
-			"wideSize": "1220px"
+			"wideSize": "1240px"
 		},
 		"color": {
 			"custom": true,
@@ -13,71 +13,148 @@
 			"defaultPalette": false,
 			"defaultGradients": false,
 			"palette": [
-				{ "slug": "ink", "color": "#16211b", "name": "Ink" },
-				{ "slug": "body", "color": "#40514a", "name": "Body text" },
-				{ "slug": "muted", "color": "#6c7d75", "name": "Muted" },
-				{ "slug": "green-900", "color": "#12291b", "name": "Deep forest" },
-				{ "slug": "green-700", "color": "#1f5136", "name": "Forest" },
-				{ "slug": "green-500", "color": "#2f8055", "name": "Leaf" },
-				{ "slug": "green-200", "color": "#a9d7bb", "name": "Soft leaf" },
-				{ "slug": "green-50", "color": "#f0f7f2", "name": "Mint tint" },
-				{ "slug": "clay-500", "color": "#c4714c", "name": "Terracotta" },
-				{ "slug": "clay-100", "color": "#f7e6dd", "name": "Clay tint" },
-				{ "slug": "sand", "color": "#faf7f1", "name": "Sand" },
-				{ "slug": "white", "color": "#ffffff", "name": "White" }
+				{ "slug": "forest-950", "color": "#0B2412", "name": "Deep forest" },
+				{ "slug": "forest-900", "color": "#19381F", "name": "Forest (brand)" },
+				{ "slug": "forest-800", "color": "#1F4A2B", "name": "Forest dark" },
+				{ "slug": "forest-700", "color": "#286539", "name": "Forest link" },
+				{ "slug": "forest-600", "color": "#33874A", "name": "Forest mid" },
+				{ "slug": "forest-500", "color": "#4C934C", "name": "Leaf" },
+				{ "slug": "forest-400", "color": "#53A548", "name": "Leaf bright" },
+				{ "slug": "forest-200", "color": "#AEDCA1", "name": "Leaf soft" },
+				{ "slug": "forest-100", "color": "#D9EFCF", "name": "Leaf tint" },
+				{ "slug": "forest-50", "color": "#F1F8EE", "name": "Mint wash" },
+
+				{ "slug": "lime-600", "color": "#74AC2E", "name": "Lime deep" },
+				{ "slug": "lime-500", "color": "#91CB3E", "name": "Lime (accent, fill only)" },
+				{ "slug": "lime-100", "color": "#E9F7D2", "name": "Lime tint" },
+
+				{ "slug": "yellow-500", "color": "#EEE82C", "name": "Signal yellow (action, fill only)" },
+				{ "slug": "yellow-300", "color": "#F6F274", "name": "Yellow highlight" },
+				{ "slug": "yellow-100", "color": "#FCFBD6", "name": "Yellow tint" },
+
+				{ "slug": "ember-700", "color": "#B4551D", "name": "Ember deep" },
+				{ "slug": "ember-600", "color": "#D0692A", "name": "Ember (urgency)" },
+				{ "slug": "ember-500", "color": "#E27B3A", "name": "Terracotta orange (fill only)" },
+				{ "slug": "ember-200", "color": "#F8DCC6", "name": "Ember tint" },
+
+				{ "slug": "clay-800", "color": "#6E3C27", "name": "Clay dark" },
+				{ "slug": "clay-600", "color": "#A5674A", "name": "Clay" },
+				{ "slug": "clay-400", "color": "#C7A492", "name": "Clay soft" },
+				{ "slug": "clay-100", "color": "#F6ECE4", "name": "Clay wash" },
+
+				{ "slug": "ink-900", "color": "#14201A", "name": "Ink (headings)" },
+				{ "slug": "ink-800", "color": "#26332C", "name": "Body text" },
+				{ "slug": "ink-600", "color": "#55655C", "name": "Muted text" },
+				{ "slug": "ink-500", "color": "#6F6A6D", "name": "Warm grey" },
+				{ "slug": "line", "color": "#E4E9E3", "name": "Hairline" },
+				{ "slug": "sand", "color": "#FBF6F1", "name": "Sand" },
+				{ "slug": "paper", "color": "#FFFFFF", "name": "Paper" }
 			],
 			"gradients": [
 				{
-					"slug": "forest",
-					"name": "Forest",
-					"gradient": "linear-gradient(135deg, #17381f 0%, #276643 100%)"
+					"slug": "forest-depth",
+					"name": "Forest depth",
+					"gradient": "linear-gradient(145deg, #33874A 0%, #19381F 70%)"
 				},
 				{
-					"slug": "leaf-tint",
-					"name": "Leaf tint",
-					"gradient": "linear-gradient(180deg, #faf7f1 0%, #ffffff 100%)"
+					"slug": "night-garden",
+					"name": "Night garden",
+					"gradient": "linear-gradient(160deg, #0B2412 0%, #1F4A2B 100%)"
+				},
+				{
+					"slug": "leaf-wash",
+					"name": "Leaf wash",
+					"gradient": "linear-gradient(180deg, #FBF6F1 0%, #FFFFFF 82%)"
+				},
+				{
+					"slug": "lime-lift",
+					"name": "Lime lift",
+					"gradient": "linear-gradient(145deg, #E9F7D2 0%, #D9EFCF 100%)"
 				}
 			]
 		},
 		"typography": {
 			"customFontSize": true,
 			"lineHeight": true,
+			"dropCap": false,
+			"fontFamilies": [
+				{
+					"slug": "display",
+					"name": "PG Display (Young Serif)",
+					"fontFamily": "\"PG Display\", \"Iowan Old Style\", Georgia, serif"
+				},
+				{
+					"slug": "sans",
+					"name": "PG Sans (Instrument Sans)",
+					"fontFamily": "\"PG Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
+				}
+			],
 			"fontSizes": [
-				{ "slug": "small", "size": "0.9rem", "name": "Small" },
-				{ "slug": "medium", "size": "1.05rem", "name": "Medium" },
-				{ "slug": "large", "size": "1.4rem", "name": "Large" },
-				{ "slug": "x-large", "size": "1.85rem", "name": "Extra large" },
-				{ "slug": "xx-large", "size": "2.45rem", "name": "Display" }
+				{ "slug": "x-small", "size": "0.86rem", "name": "Extra small" },
+				{ "slug": "small", "size": "0.94rem", "name": "Small" },
+				{ "slug": "medium", "size": "1.06rem", "name": "Medium" },
+				{ "slug": "large", "size": "1.38rem", "name": "Large" },
+				{ "slug": "x-large", "size": "1.9rem", "name": "Extra large" },
+				{ "slug": "xx-large", "size": "2.7rem", "name": "Display" },
+				{ "slug": "hero", "size": "3.9rem", "name": "Hero" }
 			]
 		},
 		"spacing": {
 			"padding": true,
 			"margin": true,
+			"blockGap": true,
 			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
 		},
-		"border": {
-			"color": true,
-			"radius": true,
-			"style": true,
-			"width": true
-		}
+		"border": { "color": true, "radius": true, "style": true, "width": true }
 	},
 	"styles": {
 		"color": {
-			"background": "var(--wp--preset--color--white)",
-			"text": "var(--wp--preset--color--body)"
+			"background": "var(--wp--preset--color--paper)",
+			"text": "var(--wp--preset--color--ink-800)"
 		},
 		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--sans)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
 			"lineHeight": "1.68"
 		},
 		"elements": {
 			"link": {
-				"color": { "text": "var(--wp--preset--color--green-700)" }
+				"color": { "text": "var(--wp--preset--color--forest-700)" },
+				":hover": { "color": { "text": "var(--wp--preset--color--forest-600)" } }
 			},
-			"h1": { "color": { "text": "var(--wp--preset--color--ink)" } },
-			"h2": { "color": { "text": "var(--wp--preset--color--ink)" } },
-			"h3": { "color": { "text": "var(--wp--preset--color--ink)" } },
-			"h4": { "color": { "text": "var(--wp--preset--color--ink)" } }
+			"h1": {
+				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "400", "lineHeight": "1.08" },
+				"color": { "text": "var(--wp--preset--color--ink-900)" }
+			},
+			"h2": {
+				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "400", "lineHeight": "1.16" },
+				"color": { "text": "var(--wp--preset--color--ink-900)" }
+			},
+			"h3": {
+				"typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "400", "lineHeight": "1.16" },
+				"color": { "text": "var(--wp--preset--color--ink-900)" }
+			},
+			"h4": {
+				"typography": { "fontFamily": "var(--wp--preset--font-family--sans)", "fontWeight": "700" },
+				"color": { "text": "var(--wp--preset--color--forest-800)" }
+			},
+			"h5": {
+				"typography": { "fontFamily": "var(--wp--preset--font-family--sans)", "fontWeight": "700" },
+				"color": { "text": "var(--wp--preset--color--ink-900)" }
+			},
+			"h6": {
+				"typography": { "fontFamily": "var(--wp--preset--font-family--sans)", "fontWeight": "700", "textTransform": "uppercase", "letterSpacing": "0.09em" },
+				"color": { "text": "var(--wp--preset--color--ink-600)" }
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--yellow-500)",
+					"text": "var(--wp--preset--color--ink-900)"
+				},
+				"typography": { "fontWeight": "700" },
+				"border": { "radius": "999px" },
+				"spacing": { "padding": { "top": "0.85rem", "bottom": "0.85rem", "left": "1.6rem", "right": "1.6rem" } }
+			}
 		}
 	}
 }

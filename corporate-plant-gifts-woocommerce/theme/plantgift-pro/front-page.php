@@ -25,14 +25,33 @@ $pg_shop    = $pg_has_woo ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
 			<p class="pg-hero__lede">
 				<?php echo esc_html( get_theme_mod( 'plantgift_hero_text', __( 'Surprise your teams and your clients with low maintenance greenery that lives on their desk long after the gifting season ends. Choose succulents, air plants and air purifying favourites, then pick the pot size, material and design that suits your brand.', 'plantgift-pro' ) ) ); ?>
 			</p>
+
+			<ul class="pg-hero__points">
+				<li><?php esc_html_e( 'From 25 units', 'plantgift-pro' ); ?></li>
+				<li><?php esc_html_e( 'Logo on the pot', 'plantgift-pro' ); ?></li>
+				<li><?php esc_html_e( 'Quote in one working day', 'plantgift-pro' ); ?></li>
+			</ul>
+
 			<div class="pg-btn-row">
-				<a class="pg-btn pg-btn--lg" href="<?php echo esc_url( $pg_shop ); ?>"><?php esc_html_e( 'Shop plant gifts', 'plantgift-pro' ); ?></a>
-				<a class="pg-btn pg-btn--ghost pg-btn--lg" href="<?php echo esc_url( home_url( '/bulk-plant-gifts-for-companies/' ) ); ?>"><?php esc_html_e( 'Bulk order pricing', 'plantgift-pro' ); ?></a>
+				<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+					<?php plantgift_pro_the_icon( 'gift', 19 ); ?>
+					<?php esc_html_e( 'Get a bulk quote', 'plantgift-pro' ); ?>
+				</a>
+				<a class="pg-btn pg-btn--ghost pg-btn--lg" href="<?php echo esc_url( $pg_shop ); ?>"><?php esc_html_e( 'Browse plant gifts', 'plantgift-pro' ); ?></a>
 			</div>
+
+			<p class="pg-btn-note" style="margin-top:0.9rem;">
+				<?php plantgift_pro_the_icon( 'check', 15 ); ?>
+				<?php esc_html_e( 'No commitment. Send your headcount and budget, get a shortlist with real photos.', 'plantgift-pro' ); ?>
+			</p>
+
 			<div class="pg-hero__trust">
 				<div><strong>25+</strong><span><?php esc_html_e( 'Minimum units per bulk order', 'plantgift-pro' ); ?></span></div>
 				<div><strong>48 hrs</strong><span><?php esc_html_e( 'Branded mockup turnaround', 'plantgift-pro' ); ?></span></div>
-				<div><strong>4.8/5</strong><span><?php esc_html_e( 'Average buyer rating', 'plantgift-pro' ); ?></span></div>
+				<div>
+					<strong>4.8<span style="font-size:0.6em;">/5</span></strong>
+					<span><?php plantgift_pro_stars( 4.8 ); ?> <?php esc_html_e( 'Average buyer rating', 'plantgift-pro' ); ?></span>
+				</div>
 			</div>
 		</div>
 		<div class="pg-hero__art">
@@ -42,11 +61,18 @@ $pg_shop    = $pg_has_woo ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
 				?>
 				<img src="<?php echo esc_url( $pg_hero_img ); ?>" alt="<?php esc_attr_e( 'Succulents and air plants in branded ceramic pots arranged as corporate gifts', 'plantgift-pro' ); ?>" fetchpriority="high" width="900" height="720">
 			<?php endif; ?>
+			<span class="pg-hero__ribbon"><?php esc_html_e( 'Free mockup', 'plantgift-pro' ); ?></span>
 			<div class="pg-hero__badge">
 				<strong><?php esc_html_e( 'Your logo on every pot', 'plantgift-pro' ); ?></strong>
 				<?php esc_html_e( 'Laser engraving, sleeve printing and custom care cards included.', 'plantgift-pro' ); ?>
 			</div>
 		</div>
+	</div>
+</section>
+
+<section class="pg-section pg-section--tight" style="padding-top:0;" aria-label="<?php esc_attr_e( 'What is included', 'plantgift-pro' ); ?>">
+	<div class="pg-wrap" style="margin-top:-1.5rem;position:relative;z-index:2;">
+		<?php plantgift_pro_value_strip(); ?>
 	</div>
 </section>
 
@@ -234,6 +260,52 @@ endwhile;
 	</div>
 </section>
 
+<section class="pg-section pg-section--dark" aria-labelledby="pg-proof-title">
+	<div class="pg-wrap">
+		<div class="pg-section-head pg-section-head--center">
+			<p class="pg-eyebrow"><?php esc_html_e( 'What buyers say', 'plantgift-pro' ); ?></p>
+			<h2 id="pg-proof-title"><?php esc_html_e( 'Gifting rounds that landed the way they were meant to', 'plantgift-pro' ); ?></h2>
+		</div>
+
+		<?php
+		$pg_quotes = array(
+			array(
+				__( 'We sent 340 succulents across nine cities for Diwali. Two arrived damaged and both were replaced within the week without us having to chase anyone. The branded pots looked exactly like the mockup.', 'plantgift-pro' ),
+				__( 'People Operations Lead', 'plantgift-pro' ),
+				__( 'IT services company, 900 employees', 'plantgift-pro' ),
+			),
+			array(
+				__( 'They talked us out of ferns for an air conditioned floor and put snake plants in instead. A year later almost all of them are still alive, which has never happened with a gifting supplier before.', 'plantgift-pro' ),
+				__( 'Workplace Manager', 'plantgift-pro' ),
+				__( 'Financial services, Mumbai', 'plantgift-pro' ),
+			),
+			array(
+				__( 'The welcome kits ship against our joiner list every month, so nobody on my team has to think about it. New starters get a plant on the desk on day one and they mention it in the thirty day check in.', 'plantgift-pro' ),
+				__( 'Head of Talent', 'plantgift-pro' ),
+				__( 'SaaS company, hiring 20 a month', 'plantgift-pro' ),
+			),
+		);
+		?>
+
+		<div class="pg-grid pg-grid--3">
+			<?php foreach ( $pg_quotes as $pg_quote ) : ?>
+				<article class="pg-testimonial">
+					<?php plantgift_pro_stars( 5 ); ?>
+					<blockquote><?php echo esc_html( $pg_quote[0] ); ?></blockquote>
+					<div class="pg-testimonial__who">
+						<strong><?php echo esc_html( $pg_quote[1] ); ?></strong>
+						<span><?php echo esc_html( $pg_quote[2] ); ?></span>
+					</div>
+				</article>
+			<?php endforeach; ?>
+		</div>
+
+		<p class="pg-center pg-small pg-mt-2" style="color:var(--pg-forest-200);">
+			<?php esc_html_e( 'Replace these with your own client quotes before launch. Real names and companies convert considerably better than anonymous roles.', 'plantgift-pro' ); ?>
+		</p>
+	</div>
+</section>
+
 <?php
 $pg_home_faqs = array(
 	array(
@@ -300,9 +372,16 @@ $pg_home_faqs = array(
 			<h2><?php esc_html_e( 'Ready to gift greenery that outlives the gifting season?', 'plantgift-pro' ); ?></h2>
 			<p><?php esc_html_e( 'Send us your headcount and budget. You will have a shortlist, a branded mockup and a landed cost in your inbox by the next working day.', 'plantgift-pro' ); ?></p>
 			<div class="pg-btn-row">
-				<a class="pg-btn pg-btn--light pg-btn--lg" href="<?php echo esc_url( home_url( '/corporate-plant-gifting/' ) ); ?>"><?php esc_html_e( 'Request a gifting quote', 'plantgift-pro' ); ?></a>
-				<a class="pg-btn pg-btn--clay pg-btn--lg" href="<?php echo esc_url( $pg_shop ); ?>"><?php esc_html_e( 'Browse the catalogue', 'plantgift-pro' ); ?></a>
+				<a class="pg-btn pg-btn--action pg-btn--lg" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+					<?php plantgift_pro_the_icon( 'gift', 19 ); ?>
+					<?php esc_html_e( 'Request a gifting quote', 'plantgift-pro' ); ?>
+				</a>
+				<a class="pg-btn pg-btn--outline-light pg-btn--lg" href="<?php echo esc_url( $pg_shop ); ?>"><?php esc_html_e( 'Browse the catalogue', 'plantgift-pro' ); ?></a>
 			</div>
+			<p class="pg-btn-note">
+				<?php plantgift_pro_the_icon( 'clock', 15 ); ?>
+				<?php esc_html_e( 'Most quotes go out within one working day.', 'plantgift-pro' ); ?>
+			</p>
 		</div>
 	</div>
 </section>

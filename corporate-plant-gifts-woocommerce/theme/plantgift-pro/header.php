@@ -90,7 +90,7 @@ defined( 'ABSPATH' ) || exit;
 				$cta_text = get_theme_mod( 'plantgift_header_cta_text', __( 'Request a quote', 'plantgift-pro' ) );
 				if ( $cta_text ) :
 					?>
-					<a class="pg-btn pg-header__cta" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta_text ); ?></a>
+					<a class="pg-btn pg-btn--action pg-header__cta" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta_text ); ?></a>
 				<?php endif; ?>
 
 				<button class="pg-icon-btn pg-burger" data-pg-nav-toggle type="button" aria-expanded="false" aria-controls="site-navigation">

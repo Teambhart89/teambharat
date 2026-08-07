@@ -156,6 +156,99 @@ function plantgift_pro_customize_register( $wp_customize ) {
 		)
 	);
 
+	/* Conversion --------------------------------------------------------- */
+
+	$wp_customize->add_section(
+		'plantgift_cro',
+		array(
+			'title'       => __( 'Conversion helpers', 'plantgift-pro' ),
+			'description' => __( 'The sticky bar and floating button appear once a visitor scrolls, and hide again over the footer.', 'plantgift-pro' ),
+			'panel'       => 'plantgift_panel',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'plantgift_sticky_bar',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'wp_validate_boolean',
+		)
+	);
+	$wp_customize->add_control(
+		'plantgift_sticky_bar',
+		array(
+			'label'       => __( 'Sticky action bar on phones', 'plantgift-pro' ),
+			'description' => __( 'Call, WhatsApp and the main action, pinned to the bottom of small screens.', 'plantgift-pro' ),
+			'section'     => 'plantgift_cro',
+			'type'        => 'checkbox',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'plantgift_float_cta',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'wp_validate_boolean',
+		)
+	);
+	$wp_customize->add_control(
+		'plantgift_float_cta',
+		array(
+			'label'   => __( 'Floating quote button on desktop', 'plantgift-pro' ),
+			'section' => 'plantgift_cro',
+			'type'    => 'checkbox',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'plantgift_float_cta_text',
+		array(
+			'default'           => __( 'Get a bulk quote', 'plantgift-pro' ),
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'plantgift_float_cta_text',
+		array(
+			'label'   => __( 'Floating button text', 'plantgift-pro' ),
+			'section' => 'plantgift_cro',
+			'type'    => 'text',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'plantgift_whatsapp',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'plantgift_whatsapp',
+		array(
+			'label'       => __( 'WhatsApp number', 'plantgift-pro' ),
+			'description' => __( 'Digits only, including the country code, for example 919876543210. Leave empty to reuse the phone number.', 'plantgift-pro' ),
+			'section'     => 'plantgift_cro',
+			'type'        => 'text',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'plantgift_whatsapp_text',
+		array(
+			'default'           => __( 'Hi, I would like a quote for corporate plant gifts.', 'plantgift-pro' ),
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'plantgift_whatsapp_text',
+		array(
+			'label'   => __( 'Prefilled WhatsApp message', 'plantgift-pro' ),
+			'section' => 'plantgift_cro',
+			'type'    => 'text',
+		)
+	);
+
 	/* Footer ----------------------------------------------------------- */
 
 	$wp_customize->add_section(

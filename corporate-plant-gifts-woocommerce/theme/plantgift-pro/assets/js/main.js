@@ -196,7 +196,6 @@
 				b.className = 'pg-qty-btn';
 				b.textContent = label;
 				b.setAttribute('aria-label', delta > 0 ? 'Increase quantity' : 'Decrease quantity');
-				b.style.cssText = 'border:0;background:transparent;font-size:1.2rem;line-height:1;padding:0 0.9rem;cursor:pointer;color:#1f5136;';
 				b.addEventListener('click', function () {
 					var step = parseFloat(input.getAttribute('step')) || 1;
 					var min = parseFloat(input.getAttribute('min'));
@@ -226,6 +225,65 @@
 		});
 	}
 
+	/* Reveal the sticky bar and floating CTA once the visitor has scrolled --- */
+
+	function initStickyCta() {
+		var bar = doc.querySelector('[data-pg-sticky-bar]');
+		var float = doc.querySelector('[data-pg-float-cta]');
+		if (!bar && !float) {
+			return;
+		}
+
+		var footer = doc.querySelector('.pg-footer');
+		var shown = null;
+
+		function update() {
+			// Show after one viewport of scrolling, hide once the footer is in view
+			// so the buttons never sit on top of the contact details.
+			var scrolled = window.scrollY > window.innerHeight * 0.6;
+			var atFooter = false;
+
+			if (footer) {
+				var rect = footer.getBoundingClientRect();
+				atFooter = rect.top < window.innerHeight - 80;
+			}
+
+			var show = scrolled && !atFooter;
+			if (show === shown) {
+				return;
+			}
+			shown = show;
+
+			if (bar) { bar.setAttribute('data-show', show ? 'true' : 'false'); }
+			if (float) { float.setAttribute('data-show', show ? 'true' : 'false'); }
+		}
+
+		window.addEventListener('scroll', update, { passive: true });
+		window.addEventListener('resize', update, { passive: true });
+		update();
+	}
+
+	/* Sticky bar buy button scrolls to the variation form ------------------- */
+
+	function initScrollTo() {
+		doc.querySelectorAll('[data-pg-scroll-to]').forEach(function (link) {
+			link.addEventListener('click', function (e) {
+				var target = doc.querySelector(link.getAttribute('data-pg-scroll-to'));
+				if (!target) {
+					return;
+				}
+				e.preventDefault();
+				target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+				// Move focus to the first control so keyboard users land there too.
+				var field = target.querySelector('select, input, button');
+				if (field) {
+					window.setTimeout(function () { field.focus({ preventScroll: true }); }, 420);
+				}
+			});
+		});
+	}
+
 	ready(function () {
 		initNav();
 		initFaq();
@@ -233,6 +291,8 @@
 		initHeaderScroll();
 		initQuantity();
 		initLazy();
+		initStickyCta();
+		initScrollTo();
 	});
 
 	// WooCommerce replaces DOM after AJAX events, so rebind what matters.

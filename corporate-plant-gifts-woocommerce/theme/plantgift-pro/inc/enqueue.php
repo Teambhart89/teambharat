@@ -76,12 +76,23 @@ function plantgift_pro_editor_assets() {
 add_action( 'enqueue_block_editor_assets', 'plantgift_pro_editor_assets' );
 
 /**
- * Preload the main stylesheet and the variable font stack fallback.
+ * Preload the two fonts needed for the first paint.
+ *
+ * Only the display face and the regular sans are preloaded. Bold and italic
+ * load normally, because preloading everything delays the files that matter.
+ * All fonts are self hosted, so there is nothing to preconnect to.
  */
-function plantgift_pro_resource_hints( $urls, $relation ) {
-	if ( 'preconnect' === $relation ) {
-		return $urls;
+function plantgift_pro_preload_fonts() {
+	$fonts = array( 'pg-display-400.woff2', 'pg-sans-400.woff2' );
+
+	foreach ( $fonts as $font ) {
+		if ( ! file_exists( PLANTGIFT_PRO_DIR . '/assets/fonts/' . $font ) ) {
+			continue;
+		}
+		printf(
+			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+			esc_url( PLANTGIFT_PRO_URI . '/assets/fonts/' . $font )
+		);
 	}
-	return $urls;
 }
-add_filter( 'wp_resource_hints', 'plantgift_pro_resource_hints', 10, 2 );
+add_action( 'wp_head', 'plantgift_pro_preload_fonts', 1 );

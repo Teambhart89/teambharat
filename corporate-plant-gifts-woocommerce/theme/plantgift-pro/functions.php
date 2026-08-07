@@ -16,5 +16,6 @@ require_once PLANTGIFT_PRO_DIR . '/inc/enqueue.php';
 require_once PLANTGIFT_PRO_DIR . '/inc/template-tags.php';
 require_once PLANTGIFT_PRO_DIR . '/inc/customizer.php';
 require_once PLANTGIFT_PRO_DIR . '/inc/woocommerce.php';
+require_once PLANTGIFT_PRO_DIR . '/inc/cro.php';
 require_once PLANTGIFT_PRO_DIR . '/inc/seo.php';
 require_once PLANTGIFT_PRO_DIR . '/inc/performance.php';

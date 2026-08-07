@@ -21,6 +21,8 @@ corporate-plant-gifts-woocommerce/
 │   ├── 03-URL-STRUCTURE.md        every URL, slug rules, internal link graph
 │   ├── 04-CONTENT-AND-SEO.md      heading structure, schema, editing guide
 │   ├── 05-LAUNCH-CHECKLIST.md     what to do before going live
+│   ├── 06-DESIGN-SYSTEM.md        every colour, font and component explained
+│   ├── colour-system.png          visual palette sheet with contrast data
 │   └── keyword-seed-list.csv      120 keywords mapped to target URLs
 └── source/                        unpacked theme and plugin, for editing
 ```
@@ -100,21 +102,66 @@ do not create variations.
 
 ---
 
-## Design and front end
+## Design system
+
+Built from the two palettes you supplied. All five of your exact hex values are
+used unchanged: `19381F`, `EEE82C`, `91CB3E`, `53A548`, `4C934C`, extended into
+a full scale so body text, borders and hover states stay readable.
+
+**The colour rule that shapes everything.** Your two brightest values fail as
+text: `EEE82C` measures 1.30:1 on white and `91CB3E` measures 1.94:1. So they
+are used as **fills with near black text on top**, which turns the weakness into
+the strongest asset on the page. The primary button is yellow with `#14201A`
+text at **12.96:1, AAA**, and it is the highest contrast object on any screen.
+
+Four button levels, used strictly:
+
+| Level | Look | Contrast | Where |
+|---|---|---|---|
+| Primary | Yellow fill, near black text, 4px hard shadow | 12.96:1 | One per screen. Get a quote, Add to cart |
+| Secondary | Forest `19381F` fill, white text | 12.91:1 | Browse catalogue, View category |
+| Tertiary | Ghost, forest text, soft green border | 10.13:1 | Alternate paths |
+| Urgent | Ember fill, white text | 4.93:1 | Festive cut off dates only |
+
+**Typography.** Young Serif for display headings, Instrument Sans for interface
+and body. Both SIL Open Font Licence, self hosted, subset to Latin and Latin
+Extended A, served as WOFF2. **74 KB total**, with the two first paint files
+preloaded. No Google Fonts, no external requests anywhere on the site.
+
+Full reference with every hex, RGB, HSL, contrast ratio and usage rule is in
+`docs/06-DESIGN-SYSTEM.md`, with a visual sheet at `docs/colour-system.png`.
+
+## Built to convert
+
+- **Sticky action bar on phones** with call, WhatsApp and the primary action.
+  Appears after a scroll, hides over the footer. On a product page it scrolls
+  back to the pot picker and moves keyboard focus there
+- **Floating quote button on desktop**, same reveal logic
+- **WhatsApp integration** with a prefilled message, set from the Customizer
+- **Value strip** under the hero and every category header, answering the four
+  objections a corporate buyer has before they will click anything
+- **Hero benefit pills and star rating** above the fold
+- **Pot options tag** on variable product cards, so shoppers know there is a
+  choice before they open the product
+- **Reassurance line under add to cart** covering the replacement promise and
+  the bulk threshold, placed exactly where hesitation happens
+- **Testimonial section** with star ratings, ready for your real client quotes
+- **Sticky sidebar quote card** that follows the reader down long service pages
+
+## Front end quality
 
 - Responsive from 320px upward, with a proper mobile drawer navigation
-- No external requests. No CDN fonts, no icon libraries, no tracking. Everything
-  is local, which keeps the site fast and simplifies privacy compliance
-- Accessible: skip link, visible focus outlines, keyboard operable menu and
-  accordions, WCAG AA contrast on body text, reduced motion support
+- Accessible: skip link, 3px focus rings, 44px touch targets, keyboard operable
+  menu and accordions, AAA contrast on body text, reduced motion support
+- FAQ uses native `<details>`, so it works with JavaScript disabled
 - Print stylesheet
-- Block editor styles matched to the front end
-- `theme.json` with the colour palette and type scale exposed to the editor
+- Block editor styles and `theme.json` matched to the front end, so the editor
+  preview looks like the published page
 
 Performance work included: emoji scripts removed, block library CSS dropped on
 pages without blocks, cart fragments dequeued outside shop pages, the theme
-script deferred, the first image kept eager with high fetch priority, and
-realistic `sizes` attributes on card images.
+script deferred, fonts preloaded, the first image kept eager with high fetch
+priority, and realistic `sizes` attributes on card images.
 
 ---
 
@@ -129,7 +176,9 @@ storage and no lock in.
   eyebrow label, highlight strip, related categories and meta title
 - **Prices**: the Variations tab on any product, with bulk actions for shifting
   every variation at once
-- **Design**: Appearance, Customize
+- **Design**: Appearance, Customize. Colours are CSS custom properties on
+  `:root` in `assets/css/main.css`, with a semantic layer so changing one line
+  retones the whole site
 - **Shortcodes** for category grids, FAQ blocks, the bulk pricing table, the pot
   size guide and CTA blocks. Listed in `docs/04-CONTENT-AND-SEO.md`
 
@@ -145,6 +194,9 @@ Three things genuinely must not be skipped:
    placeholders, not a pricing strategy
 3. **Replace the placeholder details in the Privacy Policy and Terms pages**,
    and have them reviewed by a qualified adviser
+4. **Replace the placeholder testimonials** on the home page with real client
+   quotes. Named people and companies convert considerably better than
+   anonymous job titles
 
 The keyword volume figures in the research document are **estimated bands from
 SERP research, not measured data**. No paid keyword API was available when this

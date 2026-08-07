@@ -84,6 +84,9 @@ function plantgift_pro_shop_header() {
 			<?php plantgift_pro_child_category_pills(); ?>
 		</div>
 	</div>
+	<div class="pg-wrap" style="margin-top:-1.25rem;position:relative;z-index:2;">
+		<?php plantgift_pro_value_strip(); ?>
+	</div>
 	<?php
 }
 add_action( 'woocommerce_before_main_content', 'plantgift_pro_shop_header', 5 );

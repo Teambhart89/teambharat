@@ -37,7 +37,24 @@ function plantgift_pro_icon( $name, $size = 24 ) {
 		'star'     => '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9Z"/>',
 		'calendar' => '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/>',
 		'recycle'  => '<path d="M7 19H5a2 2 0 0 1-1.7-3l1.6-2.7"/><path d="m9 22 3-3-3-3"/><path d="M17 5h2a2 2 0 0 1 1.7 3l-1 1.7"/><path d="m15 2-3 3 3 3"/><path d="M12 12.5 9.5 8.2a2 2 0 0 0-3.4 0L5 10"/><path d="M19 14.5 17.4 17a2 2 0 0 1-1.7 1H12"/>',
+		'chat'     => '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.8-.9L3 20.5l1.6-4.9A8.4 8.4 0 0 1 3.6 11.5a8.4 8.4 0 0 1 8.9-8.4 8.4 8.4 0 0 1 8.5 8.4Z"/>',
+		'sparkle'  => '<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6.3 6.3 2.8 2.8M14.9 14.9l2.8 2.8M17.7 6.3l-2.8 2.8M9.1 14.9l-2.8 2.8"/>',
+		'clock'    => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+		'tag'      => '<path d="M20.6 13.3 12.7 21a1.7 1.7 0 0 1-2.4 0l-7.6-7.6a1.7 1.7 0 0 1-.5-1.2V4.4c0-1 .8-1.7 1.7-1.7h7.8c.5 0 .9.2 1.2.5l7.7 7.7a1.7 1.7 0 0 1 0 2.4Z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
 	);
+
+	// Solid icons that fill rather than stroke.
+	$solid = array(
+		'star' => '<path d="m12 2.6 2.9 5.9 6.5 1-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-1Z"/>',
+	);
+
+	if ( isset( $solid[ $name ] ) ) {
+		return sprintf(
+			'<svg xmlns="http://www.w3.org/2000/svg" width="%1$d" height="%1$d" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">%2$s</svg>',
+			absint( $size ),
+			$solid[ $name ]
+		);
+	}
 
 	if ( ! isset( $paths[ $name ] ) ) {
 		return '';

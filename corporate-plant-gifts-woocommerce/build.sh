@@ -21,7 +21,7 @@ D="$PWD/dist/corporate-plant-gifts-woocommerce"
 
 cp -r theme/plantgift-pro   "$D/source/"
 cp -r plugin/plantgift-core "$D/source/"
-cp docs/*.md docs/*.csv "$D/docs/"
+cp -r docs/. "$D/docs/"
 cp README.md "$D/"
 
 ( cd dist && zip -rq ../../corporate-plant-gifts-woocommerce.zip corporate-plant-gifts-woocommerce )
