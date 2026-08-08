@@ -1,0 +1,114 @@
+{
+  "slug": "services/corporate-plant-gifting",
+  "file": "corporate-gifting",
+  "type": "service",
+  "nav_label": "Corporate plant gifting",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.8",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Corporate Plant Gifting in India | Logo Printed Pots | Online Plants Cart",
+  "description": "Plants as corporate gifts with your logo printed on the pot. Bulk gifting for Diwali, onboarding and client thank yous, packed and delivered across India.",
+
+  "h1": "Corporate plant gifting with your logo on the pot",
+  "lede": "A plant is the rare corporate gift that is still on the desk a year later. Ours arrive potted, branded, boxed and ready to hand over, with a care card so the recipient knows what to do with it.",
+
+  "service_name": "Corporate plant gifting and branded planters",
+  "service_type": "Bulk corporate gifting with customised and logo printed planters",
+  "audience": "HR teams, marketing teams, event organisers, corporate buyers",
+
+  "answer": "Corporate plant gifting means supplying live plants in branded pots as gifts for employees, clients or event attendees. Online Plants Cart handles plant selection, logo printing on the planter, gift packing and delivery, from a practical minimum of around fifty units. Popular choices are succulents, snake plant, ZZ plant, lucky bamboo and small aglaonema, all of which survive a desk with little attention.",
+
+  "facts": {
+    "Practical minimum": "About 50 units for branded pots",
+    "Branding options": "Printing, engraving, sleeves, tags",
+    "Lead time": "10 to 15 days with logo printing",
+    "Packing": "Individual boxes or bulk cartons",
+    "Delivery": "Delhi NCR direct, pan India by courier"
+  },
+
+  "related": [
+    "services/bulk-wholesale-plants-delhi-ncr",
+    "services/office-plants-on-rent",
+    "services/plants-on-rent-for-events"
+  ],
+
+  "cta_heading": "Plan your gifting well before the season",
+  "cta_text": "Tell us the headcount, the budget per unit and the date you need them in hand. Diwali orders should start in August, when stock and printing slots are still open.",
+
+  "faqs": [
+    {
+      "q": "What is the minimum order for corporate plant gifting?",
+      "a": [
+        "Around fifty units is the practical minimum once logo printing is involved, because the setup cost on a printing run has to spread across enough pieces to make sense.",
+        "Without custom branding we can supply smaller quantities in standard decorative pots with a printed tag, which works well for client gifts and smaller teams."
+      ]
+    },
+    {
+      "q": "Which plants work best as corporate gifts?",
+      "a": [
+        "Succulents, snake plant, ZZ plant, lucky bamboo, jade and small aglaonema. They survive an air conditioned office, tolerate irregular watering, and stay compact enough to live on a desk without becoming a nuisance.",
+        "We steer clients away from flowering plants and anything that needs bright light. They look wonderful on handover day and turn into a small disappointment three weeks later."
+      ]
+    },
+    {
+      "q": "How is the logo applied to the pot?",
+      "a": [
+        "Printing is the usual method and works on ceramic, fibre and metal planters. Engraving suits wood and some ceramic finishes and gives a more understated result. For smaller runs, a printed sleeve or a hanging tag carries the branding without the setup cost of a print run.",
+        "Send us your logo as a vector file if you have one. A screenshot pulled off a website rarely prints well at pot size."
+      ]
+    },
+    {
+      "q": "How long does a branded gifting order take?",
+      "a": [
+        "Ten to fifteen days from artwork approval for a printed order, including a sample for you to sign off before the full run.",
+        "Around Diwali this stretches, sometimes considerably, because printing capacity across the market is booked out. Orders placed in August and early September get the comfortable timeline."
+      ]
+    },
+    {
+      "q": "Can you deliver to individual employee addresses?",
+      "a": [
+        "Yes. Remote and hybrid teams are a common reason clients call us now. Send a spreadsheet of names and addresses and we ship individually, with each box packed to survive a courier.",
+        "Individual shipping costs more per unit than a single bulk delivery to your office, so it is worth deciding early which way you are going."
+      ]
+    },
+    {
+      "q": "Do the plants come with care instructions?",
+      "a": [
+        "Every gift includes a small care card written for someone who has never kept a plant alive. It says how often to water, where to put it, and what the first sign of trouble looks like.",
+        "It is a small thing that noticeably improves how many of the plants are still alive at the six month mark."
+      ]
+    },
+    {
+      "q": "Can we include a personalised message with each plant?",
+      "a": [
+        "Yes. A common message on a printed card is straightforward. Individually personalised cards with recipient names are possible too and add a little to the timeline and the cost.",
+        "For onboarding gifts, a card that names the new joiner reads far better than a generic welcome, and is usually worth the extra step."
+      ]
+    },
+    {
+      "q": "What is a sensible budget per plant gift?",
+      "a": [
+        "It depends entirely on what you want the gift to say. A desk succulent in a simple branded pot is an everyday appreciation gift. A larger plant in a good ceramic planter with proper boxing is a senior client gift.",
+        "Rather than quoting a range that will be out of date, tell us your per unit budget and we will show you the best version of a gift at that number."
+      ]
+    },
+    {
+      "q": "Do you supply plants for plantation drives and CSR activity?",
+      "a": [
+        "Yes, saplings in volume for company and school plantation drives, along with the tools and on ground support to run the day.",
+        "We can supply photographs and quantity records afterwards for your CSR reporting, which is usually needed and usually remembered too late."
+      ]
+    },
+    {
+      "q": "Can we see a sample before confirming the full order?",
+      "a": [
+        "We recommend it on every branded order. You approve a physical sample with your logo on the actual pot before we print the rest.",
+        "The sample is chargeable and adjusted against the final invoice when the order goes ahead."
+      ]
+    }
+  ]
+}

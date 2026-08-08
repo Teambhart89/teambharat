@@ -1,0 +1,3727 @@
+<title>Online Plants Cart, full site preview</title>
+<style>
+/* ==========================================================================
+   Online Plants Cart
+   Single stylesheet. No external requests, no webfonts, no JavaScript needed.
+   Committed light theme with every colour painted explicitly.
+   ========================================================================== */
+
+:root {
+  /* Colour. Neutrals carry a slight green bias so they sit with the brand. */
+  --ground:      #ffffff;
+  --surface:     #f2f6f0;
+  --surface-2:   #e7efe4;
+  --ink:         #17301f;
+  --ink-2:       #4a5a4e;
+  --ink-3:       #7a8a7d;
+  --brand:       #2c7a4b;
+  --brand-deep:  #17452c;
+  --accent:      #d9a213;
+  --line:        #dce5da;
+  --line-soft:   #eaf0e8;
+
+  /* Type */
+  --display: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Scale */
+  --step--1: 0.875rem;
+  --step-0:  1.0625rem;
+  --step-1:  1.25rem;
+  --step-2:  1.5rem;
+  --step-3:  1.9rem;
+  --step-4:  2.4rem;
+  --step-5:  3rem;
+
+  /* Space */
+  --sp-1: 0.5rem;
+  --sp-2: 0.85rem;
+  --sp-3: 1.35rem;
+  --sp-4: 2rem;
+  --sp-5: 3rem;
+  --sp-6: 4.5rem;
+
+  --wrap: 1120px;
+  --prose: 68ch;
+  --radius: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink-2);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--brand-deep); }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--brand-deep); color: #ffffff;
+  padding: var(--sp-2) var(--sp-3); z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: var(--sp-2); top: var(--sp-2); color: #ffffff; }
+
+/* --------------------------------------------------------- Typography ---- */
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.22;
+  text-wrap: balance;
+  margin: 0;
+}
+
+h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
+h2 { font-size: var(--step-3); letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); }
+h4 {
+  font-size: var(--step-0);
+  font-family: var(--body);
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+
+p { margin: 0 0 var(--sp-3); }
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.eyebrow {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin: 0 0 var(--sp-2);
+}
+
+strong { color: var(--ink); font-weight: 650; }
+
+/* ------------------------------------------------------------- Layout ---- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--sp-3);
+}
+
+.stack > * + * { margin-top: var(--sp-3); }
+
+.grid {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+
+section { padding-block: var(--sp-6); }
+section.tight { padding-block: var(--sp-5); }
+section.tinted { background: var(--surface); }
+
+/* ------------------------------------------------------------- Header ---- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--ground);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-2);
+}
+
+.brand {
+  font-family: var(--display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.brand:hover { color: var(--brand-deep); }
+.brand small {
+  display: block;
+  font-family: var(--body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Leaf mark, drawn in CSS so there is no image request. */
+.leaf {
+  width: 22px; height: 22px;
+  background: var(--brand);
+  border-radius: 0 100% 0 100%;
+  flex: none;
+  transform: rotate(-8deg);
+}
+
+.site-nav {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-1) var(--sp-3);
+}
+.site-nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: var(--step--1);
+  font-weight: 600;
+  padding-block: var(--sp-1);
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--brand); }
+
+/* -------------------------------------------------------------- Hero ----- */
+
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--sp-6);
+}
+.hero h1 { max-width: 20ch; }
+.hero .lede { max-width: 60ch; margin-top: var(--sp-3); }
+.hero-home h1 { font-size: var(--step-5); max-width: 17ch; }
+
+.breadcrumb {
+  font-size: var(--step--1);
+  color: var(--ink-3);
+  margin-bottom: var(--sp-3);
+}
+.breadcrumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.breadcrumb li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: var(--line); }
+.breadcrumb a { color: var(--ink-3); text-decoration: none; }
+.breadcrumb a:hover { color: var(--brand); text-decoration: underline; }
+
+/* ------------------------------------------------------------ Buttons ---- */
+
+.actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-4); }
+
+.btn {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: var(--step-0);
+  font-weight: 650;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn-primary { background: var(--brand-deep); color: #ffffff; }
+.btn-primary:hover { background: var(--brand); color: #ffffff; }
+.btn-secondary { background: var(--ground); color: var(--brand-deep); border-color: var(--brand); }
+.btn-secondary:hover { background: var(--surface-2); color: var(--brand-deep); }
+.btn-accent { background: var(--accent); color: #2a2103; }
+.btn-accent:hover { background: #c28f0c; color: #2a2103; }
+
+/* ------------------------------------------------ Service page layout ---- */
+
+.service-layout {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+@media (min-width: 940px) {
+  .service-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: var(--sp-6); }
+  .rail { position: sticky; top: 88px; }
+}
+
+.prose { max-width: var(--prose); }
+.prose > section { padding-block: 0; margin-bottom: var(--sp-5); }
+.prose h2 { margin-bottom: var(--sp-3); position: relative; }
+.prose h3 { margin-top: var(--sp-4); margin-bottom: var(--sp-2); color: var(--brand-deep); }
+.prose h4 { margin-top: var(--sp-3); margin-bottom: var(--sp-1); }
+.prose ul, .prose ol { margin: 0 0 var(--sp-3); padding-left: 1.35rem; }
+.prose li { margin-bottom: 0.5rem; }
+.prose li::marker { color: var(--brand); }
+
+/* The leaf marker on H2 is the one repeated flourish, keyed to the brand mark. */
+.prose h2::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 0.62em;
+  width: 12px; height: 12px;
+  background: var(--accent);
+  border-radius: 0 100% 0 100%;
+  transform: rotate(-8deg);
+}
+@media (max-width: 700px) {
+  .prose h2 { padding-left: 0; }
+  .prose h2::before { display: none; }
+}
+
+/* --------------------------------------------------------------- Rail ---- */
+
+.rail-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+}
+.rail-card + .rail-card { margin-top: var(--sp-3); }
+.rail-card h2, .rail-card h3 {
+  font-size: var(--step-0);
+  font-family: var(--body);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: var(--sp-2);
+}
+.rail-card h2::before { display: none; }
+
+.facts { margin: 0; font-size: var(--step--1); }
+.facts dt {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.facts dd { margin: 0.15rem 0 var(--sp-2); color: var(--ink-2); }
+.facts dd:last-child { margin-bottom: 0; }
+
+.rail-links { list-style: none; margin: 0; padding: 0; font-size: var(--step--1); }
+.rail-links li { border-top: 1px solid var(--line); }
+.rail-links li:first-child { border-top: 0; }
+.rail-links a { display: block; padding: 0.55rem 0; text-decoration: none; color: var(--ink-2); font-weight: 600; }
+.rail-links a:hover { color: var(--brand); }
+
+/* --------------------------------------------------------------- Card ---- */
+
+.card {
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+}
+.card h3 { font-size: var(--step-1); margin-bottom: var(--sp-1); }
+.card h3 a { text-decoration: none; color: var(--ink); }
+.card h3 a:hover { color: var(--brand); }
+.card p:last-child { margin-bottom: 0; }
+.card .more { font-size: var(--step--1); font-weight: 650; }
+section.tinted .card { background: var(--ground); }
+
+/* ------------------------------------------------------- Answer block ---- */
+/* Short, quotable summary near the top of each page. Helps readers skim and
+   gives AI assistants a clean passage to lift. */
+
+.answer {
+  background: var(--surface-2);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+.answer p:last-child { margin-bottom: 0; }
+.answer .eyebrow { color: var(--brand-deep); }
+
+/* -------------------------------------------------------------- Steps ---- */
+
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li {
+  counter-increment: step;
+  padding-left: 3rem;
+  position: relative;
+  margin-bottom: var(--sp-3);
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  width: 2rem; height: 2rem;
+  background: var(--brand-deep); color: #ffffff;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 0.85rem; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.steps h3, .steps h4 { margin: 0 0 0.2rem; font-size: var(--step-0); font-family: var(--body); color: var(--brand-deep); }
+.steps p { margin: 0; }
+
+/* -------------------------------------------------------------- Table ---- */
+
+.table-scroll { overflow-x: auto; margin-bottom: var(--sp-3); border: 1px solid var(--line); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: var(--step--1); min-width: 480px; background: var(--ground); }
+caption { text-align: left; font-size: var(--step--1); color: var(--ink-3); padding-bottom: var(--sp-1); }
+th, td { padding: 0.7rem 0.9rem; text-align: left; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+thead th { background: var(--brand-deep); color: #ffffff; font-weight: 650; border-bottom: 0; }
+tbody tr:last-child td { border-bottom: 0; }
+td.num, th.num { font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- FAQ ---- */
+
+.faq { border-top: 1px solid var(--line); }
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: var(--sp-2) 0;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--ink);
+  padding: var(--sp-1) 2.2rem var(--sp-1) 0;
+  position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute; right: 0.3rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--body);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--brand);
+  line-height: 1;
+}
+.faq details[open] summary::after { content: "\2013"; }
+.faq details[open] summary { color: var(--brand-deep); }
+.faq .answer-body { padding: var(--sp-1) 2.2rem var(--sp-2) 0; max-width: var(--prose); }
+.faq .answer-body p:last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------------- Tokens ---- */
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0 0 var(--sp-3); list-style: none; }
+.tags li {
+  background: var(--surface-2);
+  color: var(--brand-deep);
+  border-radius: 30px;
+  padding: 0.25rem 0.8rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------- CTA band ---- */
+
+.cta-band {
+  background: var(--brand-deep);
+  color: #d9e7dd;
+  border-radius: var(--radius);
+  padding: var(--sp-5) var(--sp-4);
+}
+.cta-band h2, .cta-band h3 { color: #ffffff; }
+.cta-band h2::before { display: none; }
+.cta-band p { color: #cbe0d3; max-width: 58ch; }
+.cta-band a:not(.btn) { color: #ffffff; }
+
+/* ------------------------------------------------------------- Footer ---- */
+
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  padding-block: var(--sp-5) var(--sp-4);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.footer-grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-bottom: var(--sp-4);
+}
+.site-footer h2 {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: var(--sp-2);
+}
+.site-footer h2::before { display: none; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer li { margin-bottom: 0.4rem; }
+.site-footer a { color: var(--ink-2); text-decoration: none; }
+.site-footer a:hover { color: var(--brand); text-decoration: underline; }
+.footer-base {
+  border-top: 1px solid var(--line);
+  padding-top: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  justify-content: space-between;
+  color: var(--ink-3);
+}
+
+.updated { font-size: var(--step--1); color: var(--ink-3); }
+
+/* --------------------------------------------------------- Responsive ---- */
+
+@media (max-width: 700px) {
+  :root { --step-4: 1.95rem; --step-5: 2.2rem; --step-3: 1.55rem; --sp-6: 3rem; }
+  .site-nav { margin-left: 0; width: 100%; gap: var(--sp-1) var(--sp-3); }
+  .actions .btn { flex: 1 1 100%; text-align: center; }
+}
+
+
+/* Preview chrome only. None of this ships with the site. */
+.preview-page { border-top: 6px solid var(--brand-deep); }
+.preview-page:first-of-type { border-top: 0; }
+.preview-page .site-header { position: static; }
+.preview-label {
+  background: var(--ink); color: #ffffff;
+  font-family: var(--body); font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.55rem 1.35rem;
+  display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; justify-content: space-between;
+}
+.preview-label span { font-weight: 400; letter-spacing: 0.02em; text-transform: none; opacity: 0.72; }
+.preview-note {
+  background: var(--accent); color: #2a2103;
+  font-family: var(--body); font-size: 0.9rem;
+  padding: 0.9rem 1.35rem; text-align: center;
+}
+</style>
+<div class="preview-note">
+  Preview build. All 12 pages stacked into one file, navigation rewritten to in page links.
+  The real site is the <strong>dist</strong> folder.
+</div>
+<div class="preview-page" id="page-home">
+  <div class="preview-label">/<span>Online Plants Cart | Plant Nursery and Garden Services in Delhi NCR</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home" aria-current="page">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero hero-home">
+  <div class="wrap">
+    <h1>A plant nursery for Delhi NCR, and a team that keeps the plants alive</h1>
+    <p class="lede">We grow and supply plants in bulk, and we stay on afterwards to design, install and maintain the spaces they go into. Homes, offices, hotels, societies and project sites, all across the National Capital Region.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="lede" style="max-width:62ch">Eight services that between them cover a plant's whole life with you: choosing it, delivering it, planting it, and keeping it alive afterwards.</p>
+    <div class="grid grid-2" style="margin-top:2rem">
+
+      <article class="card">
+        <h3><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></h3>
+        <p>Grower rates from twenty five plants upward, for landscapers, offices, builders and resellers across the NCR.</p>
+        <p class="more"><a href="#page-services-bulk-wholesale-plants-delhi-ncr">See wholesale rates</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-office-plants-on-rent">Office plants on rent</a></h3>
+        <p>One monthly figure covering the plants, the planters, the visits and the replacement of anything that fades.</p>
+        <p class="more"><a href="#page-services-office-plants-on-rent">See rental plans</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></h3>
+        <p>Villas, societies and campuses. Design, ground preparation, planting and a settling in period before handover.</p>
+        <p class="more"><a href="#page-services-landscaping-and-garden-design">See how projects run</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-plant-maintenance-services">Plant maintenance</a></h3>
+        <p>A trained gardener on a fixed schedule, with a written note after every visit so you can see the care happening.</p>
+        <p class="more"><a href="#page-services-plant-maintenance-services">See contract options</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></h3>
+        <p>Live, artificial and moss walls, built with the irrigation and the maintenance access settled before the first plant.</p>
+        <p class="more"><a href="#page-services-vertical-garden-and-green-wall">See wall systems</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></h3>
+        <p>Rooftops, terraces and balconies, starting with waterproofing, drainage and load rather than with the plant list.</p>
+        <p class="more"><a href="#page-services-terrace-and-balcony-garden-design">See what we check first</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></h3>
+        <p>Weddings, exhibitions, launches and shoots. We deliver, place and take everything away afterwards.</p>
+        <p class="more"><a href="#page-services-plants-on-rent-for-events">See event hire</a></p>
+      </article>
+
+      <article class="card">
+        <h3><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></h3>
+        <p>Plants in branded pots with a care card, packed and delivered for Diwali, onboarding and client gifts.</p>
+        <p class="more"><a href="#page-services-corporate-plant-gifting">See gifting options</a></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="wrap">
+    <h2>How we work</h2>
+    <div class="grid" style="margin-top:2rem">
+      <div>
+        <h3>We ask about the site before the plants</h3>
+        <p>Light, water, air conditioning and who will actually be looking after them. Almost every plant that fails in Delhi NCR failed because it was put somewhere it was never going to survive, not because it was a poor plant.</p>
+      </div>
+      <div>
+        <h3>We will talk you out of things</h3>
+        <p>If a species will not last in your lobby, or your terrace needs waterproofing before it needs a design, you will hear it at the quotation stage rather than the following summer.</p>
+      </div>
+      <div>
+        <h3>We stay after the delivery</h3>
+        <p>Supply and care sit with the same team, so there is no gap where a healthy plant is handed to nobody in particular. One number covers the order, the site visit and anything that goes wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Where we work</h2>
+    <p>We supply and service across the National Capital Region, and ship plants in volume beyond it.</p>
+    <ul class="tags">
+      <li>Delhi</li>
+      <li>Gurugram</li>
+      <li>Noida</li>
+      <li>Greater Noida</li>
+      <li>Ghaziabad</li>
+      <li>Faridabad</li>
+      <li>Sonipat</li>
+      <li>Manesar</li>
+    </ul>
+    <p>For orders of roughly two hundred plants and above we ship pan India by surface transport, with freight quoted before you confirm. Below that quantity the freight usually costs more than the wholesale discount saves, and we will say so.</p>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="wrap">
+    <h2>Who we supply</h2>
+    <div class="grid" style="margin-top:2rem">
+      <div class="card">
+        <h3>Businesses</h3>
+        <p>Corporate offices, co working spaces, hotels, restaurants, showrooms and clinics, from a single reception planting to a full floor on a rental contract.</p>
+      </div>
+      <div class="card">
+        <h3>Projects and trade</h3>
+        <p>Landscapers, builders, contractors, facility teams and retail nurseries buying at trade rates against a standing rate list.</p>
+      </div>
+      <div class="card">
+        <h3>Homes and societies</h3>
+        <p>Villas, apartments, RWA common areas and terrace gardens, with maintenance available where nobody wants to take it on themselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Tell us what your space needs</h2>
+      <p>Whether it is twenty plants for a new office or a full landscape for a housing society, the first step is the same. Share the site and the timeline, and we will send you an itemised quotation.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services">
+  <div class="preview-label">/services/<span>Plant and Garden Services in Delhi NCR | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services" aria-current="page">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li aria-current="page">Services</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">What we do</p>
+    <h1>Our plant and garden services</h1>
+    <p class="lede">Eight services, one team, one phone number. Most clients start with one of them and add a second within the year, because plants that arrive well need to be looked after well.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Supplying plants</h2>
+    <p>Getting healthy stock to your site at a price that reflects the quantity you are buying, and packing it so it arrives in the condition it left in.</p>
+    <div class="grid grid-2" style="margin-top:1.5rem">
+      <article class="card">
+        <h3><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants in Delhi NCR</a></h3>
+        <p>Grower rates from a minimum of twenty five plants, with GST billing, NCR wide delivery and free replacement of transit damage. Used by landscapers, corporate offices, builders, hotels, schools and retail nurseries.</p>
+        <p class="more"><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale rates and slabs</a></p>
+      </article>
+      <article class="card">
+        <h3><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></h3>
+        <p>Live plants in pots carrying your logo, packed with a care card and delivered to your office or to individual employee addresses across India. Plan Diwali orders by August.</p>
+        <p class="more"><a href="#page-services-corporate-plant-gifting">Gifting and branding options</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="wrap">
+    <h2>Building green spaces</h2>
+    <p>Design and installation, from a balcony to a whole society campus.</p>
+    <div class="grid grid-2" style="margin-top:1.5rem">
+      <article class="card">
+        <h3><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></h3>
+        <p>Site assessment, planting plan, ground preparation, planting and a settling in period. For villas, housing societies, corporate campuses, hotels and builder projects across the NCR.</p>
+        <p class="more"><a href="#page-services-landscaping-and-garden-design">How a project runs</a></p>
+      </article>
+      <article class="card">
+        <h3><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony garden design</a></h3>
+        <p>Rooftop and balcony gardens that start with waterproofing, drainage and load, then get designed around where people will sit. Includes terrace kitchen gardens.</p>
+        <p class="more"><a href="#page-services-terrace-and-balcony-garden-design">What we check first</a></p>
+      </article>
+      <article class="card">
+        <h3><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></h3>
+        <p>Live, artificial and preserved moss walls for receptions, facades, restaurants and balconies, with the irrigation and maintenance access designed in from the start.</p>
+        <p class="more"><a href="#page-services-vertical-garden-and-green-wall">Live, artificial or moss</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Keeping plants alive</h2>
+    <p>The part most suppliers leave to somebody else, which is why so many good plantings quietly fail.</p>
+    <div class="grid grid-2" style="margin-top:1.5rem">
+      <article class="card">
+        <h3><a href="#page-services-office-plants-on-rent">Office plants on rent</a></h3>
+        <p>Greenery, planters, scheduled gardener visits and free replacement, all inside one monthly figure. Nothing to buy and nothing left as an asset when you move office.</p>
+        <p class="more"><a href="#page-services-office-plants-on-rent">Rental plans</a></p>
+      </article>
+      <article class="card">
+        <h3><a href="#page-services-plant-maintenance-services">Plant maintenance and garden AMC</a></h3>
+        <p>Weekly, fortnightly or monthly visits covering watering, pruning, feeding and pest control, with a written note after each one. Available even where the original supplier was someone else.</p>
+        <p class="more"><a href="#page-services-plant-maintenance-services">Contract options</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="wrap">
+    <h2>Short term and one off</h2>
+    <div class="grid grid-2" style="margin-top:1.5rem">
+      <article class="card">
+        <h3><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></h3>
+        <p>Weddings, exhibitions, product launches and shoots. Hire from a single day, with delivery, on site placement and removal included in one figure. Book two to three weeks ahead in wedding season.</p>
+        <p class="more"><a href="#page-services-plants-on-rent-for-events">Event hire</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Which service do you need?</h2>
+    <p>Several of these overlap, and the right starting point usually comes down to one question: who is going to look after the space once we have finished with it. If you are still unsure after reading this, call and describe the site. It takes two minutes to sort out on the phone.</p>
+    <div class="table-scroll">
+      <table>
+        <caption>A quick guide when more than one service could fit.</caption>
+        <thead>
+          <tr>
+            <th scope="col">If this is your situation</th>
+            <th scope="col">Start here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>You want greenery in an office and nobody will look after it</td>
+            <td><a href="#page-services-office-plants-on-rent">Office plants on rent</a></td>
+          </tr>
+          <tr>
+            <td>You want greenery in an office and your team will look after it</td>
+            <td><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></td>
+          </tr>
+          <tr>
+            <td>Your existing planting is struggling</td>
+            <td><a href="#page-services-plant-maintenance-services">Plant maintenance</a></td>
+          </tr>
+          <tr>
+            <td>You have open ground to develop</td>
+            <td><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></td>
+          </tr>
+          <tr>
+            <td>You have a roof, a terrace or a balcony</td>
+            <td><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></td>
+          </tr>
+          <tr>
+            <td>You have a blank wall and want it green</td>
+            <td><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></td>
+          </tr>
+          <tr>
+            <td>You need plants for one day or one week</td>
+            <td><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></td>
+          </tr>
+          <tr>
+            <td>You need a few hundred gifts with your logo on them</td>
+            <td><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Not sure which service you need?</h2>
+      <p>Describe the space and we will tell you honestly what it needs, including when the answer is fewer plants than you had in mind.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-about">
+  <div class="preview-label">/about/<span>About Online Plants Cart | Plant Nursery and Green Services, Delhi NCR</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about" aria-current="page">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li aria-current="page">About</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Who we are</p>
+    <h1>We would rather sell you fewer plants that live</h1>
+    <p class="lede">Online Plants Cart grew out of nursery supply and moved into services for a simple reason. We kept delivering healthy plants to places that had no plan for keeping them healthy.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<!--
+  REPLACE the bracketed details in this file with your real history and numbers.
+  Everything else is written to be true of how you already work. Do not publish
+  claims you cannot back up, particularly client names and project counts.
+-->
+<section>
+  <div class="wrap">
+    <div class="prose">
+
+      <h2>How we ended up doing more than selling plants</h2>
+      <p>We started where most nurseries start, growing and supplying plants. The work that followed came from watching what happened to those plants afterwards.</p>
+      <p>A client would order forty plants for a new office. They would arrive healthy. Six months later we would be back on the same floor, quoting to replace half of them, and the reason was never the plants. It was that nobody had been given the job of watering them, or the areca palm had been placed in a windowless corner because that was where the gap in the furniture was.</p>
+      <p>So we learned the rest of it. Soil, drainage, irrigation, pest management, and how to design a planting that a real office or a real family can actually keep alive. Today the supply side and the service side are the same team, which is the only arrangement that stops plants falling into the gap between them.</p>
+
+      <h2>What we believe about plants</h2>
+
+      <h3>The site decides, not the catalogue</h3>
+      <p>Nearly every plant that fails in Delhi NCR failed because it was put somewhere it was never going to survive. Light is the constraint people underestimate most, followed by who is actually going to water it. We ask about both before we quote.</p>
+
+      <h3>Fewer plants, better placed</h3>
+      <p>Most spaces we visit want more plants than they can support. A smaller number in the right positions, kept healthy, looks better than a full plant list slowly declining. This costs us revenue on the first order and earns it back on the fifth.</p>
+
+      <h3>Say the inconvenient thing early</h3>
+      <p>If your terrace needs waterproofing before it needs a design, if your reception has no light for a living wall, if the species you have set your heart on will not last a Delhi summer, you should hear it at the quotation stage. It is a shorter conversation then.</p>
+
+      <h3>Ground preparation is not the boring part</h3>
+      <p>It is the part that determines whether the garden still looks right in year three. On most of our landscaping projects, more of the budget goes below the surface than into the planting, and clients who understand why are the ones who end up happiest.</p>
+
+      <h2>Who we work with</h2>
+      <p>Corporate offices and co working spaces across Gurugram, Delhi and Noida. Housing societies and RWAs. Builders and landscape contractors buying at trade rates. Hotels, restaurants and showrooms. Schools, hospitals and institutions. And a steady number of homeowners with a terrace, a balcony or a small garden they would like to enjoy more than they currently do.</p>
+      <p>[REPLACE: add a line here with your real numbers, for example the year you started and roughly how many bulk orders you have delivered. Real figures build more trust than adjectives.]</p>
+
+      <h2>Where we work</h2>
+      <p>Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad, along with the surrounding belt including Sonipat and Manesar. Plant supply extends pan India by surface transport for larger orders. Site services stay within the NCR, because a maintenance contract we cannot reach reliably is not a contract worth selling.</p>
+
+      <h2>Visiting us</h2>
+      <p>You are welcome at the nursery, and large buyers often want to see the actual stock before committing, particularly for feature plants going into a reception or a lobby. Call ahead so someone is free to walk you through it rather than catching us mid dispatch.</p>
+      <p>[REPLACE: add your nursery address and directions here, and embed a map if you have a Google Business Profile.]</p>
+
+      <h2>Start a conversation</h2>
+      <p>The quickest route into any of this is to describe the space and what you want from it. From there we will point you at the right <a href="#page-services">service</a>, or tell you honestly that what you need is simpler than you thought.</p>
+
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Come and see the stock</h2>
+      <p>You are welcome at the nursery. Call ahead so someone is free to walk you through it properly.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-contact">
+  <div class="preview-label">/contact/<span>Contact Online Plants Cart | Plant Supply and Services, Delhi NCR</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li aria-current="page">Contact</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Get in touch</p>
+    <h1>Talk to us about your space</h1>
+    <p class="lede">One number, one team. Tell us what you need and roughly when, and you will get a real answer rather than a callback promise.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap service-layout">
+    <div class="prose">
+
+      <h2>Reach us directly</h2>
+      <p>Calling is the fastest route, and there is a person on the other end rather than a queue. WhatsApp works well for sending photographs of a space, which is usually more useful to us than a description.</p>
+
+      <h3>Phone</h3>
+      <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a>, Monday to Saturday, 9 am to 7 pm.</p>
+
+      <h3>WhatsApp</h3>
+      <p><a href="https://wa.me/918700301784">Message us on WhatsApp</a> with photographs, a floor plan or a plant list. Answered through the working day.</p>
+
+      <h3>Email</h3>
+      <!-- REPLACE with your real email address, here and in _src/site.json -->
+      <p><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a>, best for formal quotations, purchase orders and anything your procurement team needs on record.</p>
+
+      <h3>Visit the nursery</h3>
+      <!-- REPLACE with your nursery address, and embed your Google Business Profile map below it -->
+      <p>[REPLACE with your address.] Please call before coming so someone is free to show you around properly.</p>
+
+      <h2>What to include in your enquiry</h2>
+      <p>You will get a faster and far more accurate answer if the first message covers these. None of it needs to be precise.</p>
+      <ul>
+        <li><strong>The space.</strong> An office floor, a terrace, a society garden, a wedding venue. Photographs beat descriptions every time.</li>
+        <li><strong>Rough size or quantity.</strong> Floor area, square footage, or an approximate plant count.</li>
+        <li><strong>Location.</strong> The pin code is enough. It tells us delivery, travel and whether we can service it properly.</li>
+        <li><strong>Your timeline.</strong> Particularly if there is a fixed date such as an event, an office opening or a festival.</li>
+        <li><strong>Who will look after the plants.</strong> This changes our recommendation more than almost anything else.</li>
+      </ul>
+
+      <h2>Send an enquiry</h2>
+      <!--
+        REPLACE the form action below with a real endpoint before publishing.
+        A static site cannot process form submissions on its own. Options:
+          - A form service such as Formspree, Basin or Web3Forms, which give you
+            a URL to paste into the action attribute
+          - Your own script if the site is hosted somewhere that runs code
+        Until then, this form will not send anything. If you would rather not set
+        one up, delete this whole form block. The phone and WhatsApp links above
+        are enough to launch with.
+      -->
+      <form action="REPLACE_WITH_YOUR_FORM_ENDPOINT" method="post" class="stack">
+        <p>
+          <label for="name"><strong>Your name</strong></label><br>
+          <input id="name" name="name" type="text" required autocomplete="name" style="width:100%;max-width:32rem;padding:0.6rem;border:1px solid #dce5da;border-radius:6px;font:inherit;background:#ffffff;color:#17301f">
+        </p>
+        <p>
+          <label for="phone"><strong>Phone number</strong></label><br>
+          <input id="phone" name="phone" type="tel" required autocomplete="tel" style="width:100%;max-width:32rem;padding:0.6rem;border:1px solid #dce5da;border-radius:6px;font:inherit;background:#ffffff;color:#17301f">
+        </p>
+        <p>
+          <label for="service"><strong>What do you need?</strong></label><br>
+          <select id="service" name="service" style="width:100%;max-width:32rem;padding:0.6rem;border:1px solid #dce5da;border-radius:6px;font:inherit;background:#ffffff;color:#17301f">
+            <option>Wholesale and bulk plants</option>
+            <option>Office plants on rent</option>
+            <option>Landscaping and garden design</option>
+            <option>Plant maintenance</option>
+            <option>Vertical garden or green wall</option>
+            <option>Terrace or balcony garden</option>
+            <option>Plants on rent for an event</option>
+            <option>Corporate plant gifting</option>
+            <option>Not sure yet</option>
+          </select>
+        </p>
+        <p>
+          <label for="message"><strong>Tell us about the space</strong></label><br>
+          <textarea id="message" name="message" rows="5" style="width:100%;max-width:32rem;padding:0.6rem;border:1px solid #dce5da;border-radius:6px;font:inherit;background:#ffffff;color:#17301f"></textarea>
+        </p>
+        <p><button type="submit" class="btn btn-primary" style="cursor:pointer">Send enquiry</button></p>
+      </form>
+
+      <h2>Areas we cover</h2>
+      <p>Site services run across Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad, along with Sonipat and Manesar. Plant supply extends beyond the NCR by surface transport for orders of roughly two hundred plants and above.</p>
+      <p>If you are outside this area, ask anyway. We will tell you plainly whether we can serve you properly rather than taking the order and disappointing you later.</p>
+
+    </div>
+
+    <aside class="rail" aria-label="Contact summary">
+      <div class="rail-card">
+        <h2>Quick contact</h2>
+        <dl class="facts">
+          <dt>Phone</dt>
+          <dd><a href="tel:+918700301784">+91 87003 01784</a></dd>
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/918700301784">Send a message</a></dd>
+          <dt>Hours</dt>
+          <dd>Monday to Saturday, 9 am to 7 pm</dd>
+          <dt>Response time</dt>
+          <dd>Most quotes go out the same working day</dd>
+        </dl>
+      </div>
+      <div class="rail-card">
+        <h2>Browse services</h2>
+        <ul class="rail-links">
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Prefer to just call?</h2>
+      <p>That is usually the fastest route. We are on the phone Monday to Saturday and answer WhatsApp through the day.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-bulk-wholesale-plants-delhi-ncr">
+  <div class="preview-label">/services/bulk-wholesale-plants-delhi-ncr/<span>Wholesale Plants in Delhi NCR | Bulk Plant Supplier | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Wholesale and bulk plants</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Wholesale plants in Delhi NCR, supplied in bulk from our own nursery</h1>
+    <p class="lede">If you need more than twenty five plants at once, you should not be paying retail. We sell at grower rates, deliver across the National Capital Region, and bill everything on a proper GST invoice.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>Online Plants Cart supplies plants at wholesale rates across Delhi NCR, starting at a minimum order of twenty five plants. Regular buyers include landscapers, builders, corporate offices, hotels, schools and retail nurseries. Every order is billed with a GST invoice, stocked varieties are dispatched within 24 to 72 hours, and delivery covers Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</p>
+</div>
+
+<section>
+  <h2>Who buys plants from us in bulk</h2>
+  <p>Bulk supply is not one kind of customer. A landscaper ordering three hundred shrubs for a site and an HR team ordering forty desk plants want completely different things from us, and the only thing they share is that neither should be paying single unit prices.</p>
+
+  <h3>Landscapers and garden contractors</h3>
+  <p>You need consistent stock, predictable sizes and a rate you can quote your own client from. Trade buyers get a standing rate list rather than a fresh quotation every week, and we hold regular varieties so a repeat order does not turn into a sourcing exercise.</p>
+
+  <h3>Corporate offices and workspaces</h3>
+  <p>Reception statements, cabin plants, meeting room greenery and something at the end of every corridor. We suggest species that survive continuous air conditioning and a floor plate with limited daylight, which rules out a surprising amount of what looks good in a catalogue.</p>
+
+  <h3>Builders, societies and facility teams</h3>
+  <p>Sample flats, club houses, entrance plazas and common greens, usually against a budget that has already been approved and a date that has already been announced. Large orders can be delivered in phases so your site is not storing plants it cannot plant yet.</p>
+
+  <h3>Hotels, cafes and restaurants</h3>
+  <p>Hardy indoor species that hold up to heavy footfall, constant air conditioning and the occasional spilled drink, chosen to sit with your interior palette rather than argue with it.</p>
+
+  <h3>Schools, hospitals and institutions</h3>
+  <p>Campus planting, herbal and medicinal gardens for teaching, and air purifying plants for classrooms, wards and waiting areas. Institutional buyers usually need a formal quotation and GST invoice for their procurement process, which we provide as standard.</p>
+
+  <h3>Retail nurseries and florists</h3>
+  <p>Wholesale stock for resale, in the sizes and quantities that move through a retail counter. If you buy from us regularly, a running account saves a payment cycle on every order.</p>
+</section>
+
+<section>
+  <h2>What you can order at wholesale rates</h2>
+  <p>Everything in our range is available in bulk, and you can mix categories within a single order to reach a quantity slab. There is no requirement to order twenty five of one variety.</p>
+
+  <h3>Indoor plants</h3>
+  <p>The bulk of office and hospitality orders. These are the varieties that tolerate low light and steady air conditioning without slowly thinning out.</p>
+  <h4>Most requested indoor varieties</h4>
+  <p>Money plant, snake plant, ZZ plant, aglaonema, syngonium, philodendron, peace lily, dracaena, areca palm and raphis palm.</p>
+
+  <h3>Outdoor and landscaping stock</h3>
+  <p>Ficus, ashoka, bottle palm, bougainvillea, hedge and border plants, ground cover and lawn grass. Sizes run from small liners for mass planting up to established specimens for entrances and feature positions.</p>
+  <h4>A note on specimen sizes</h4>
+  <p>Large specimens are worth ordering early. They are the item most likely to be out of stock at short notice, and growing one on to size is not something we can do inside your project timeline.</p>
+
+  <h3>Flowering and seasonal plants</h3>
+  <p>Winter and summer seasonals, roses, hibiscus and marigold, used heavily by societies and event teams. Availability follows the growing calendar rather than the order date, so plan seasonal colour a few weeks ahead.</p>
+
+  <h3>Succulents, cacti and small plants</h3>
+  <p>The volume category for corporate gifting and for anyone furnishing a lot of desks at once. Low maintenance, compact, and forgiving of the watering habits of an average office.</p>
+
+  <h3>Pots, planters and growing supplies</h3>
+  <p>Ceramic, fibre, FRP, metal and plastic planters, plus potting mix, cocopeat, vermicompost, fertiliser, pebbles and basic tools. Ordering plants and planters together usually saves a delivery and always saves the argument about which pot fits which plant.</p>
+</section>
+
+<section>
+  <h2>How wholesale pricing works</h2>
+  <p>Discounts apply against the listed retail price and are calculated on the total quantity in your order, not per variety. A mixed order counts in full.</p>
+
+  <h3>Quantity slabs</h3>
+  <div class="table-scroll">
+    <table>
+      <caption>Indicative slabs. Final rates depend on species, size, pot type and delivery location.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Order quantity</th>
+          <th scope="col">Typical buyer</th>
+          <th scope="col">Indicative discount</th>
+          <th scope="col">Delivery</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">25 to 99</td>
+          <td>Small office or home garden</td>
+          <td>Up to 10 percent</td>
+          <td>Free within Delhi NCR</td>
+        </tr>
+        <tr>
+          <td class="num">100 to 499</td>
+          <td>Corporate office, cafe or school</td>
+          <td>Up to 18 percent</td>
+          <td>Free, with placement help</td>
+        </tr>
+        <tr>
+          <td class="num">500 to 999</td>
+          <td>Builder, hotel or large campus</td>
+          <td>Up to 25 percent</td>
+          <td>Free, with installation</td>
+        </tr>
+        <tr>
+          <td class="num">1000 and above</td>
+          <td>Project, reseller or CSR drive</td>
+          <td>Project rate on request</td>
+          <td>Scheduled in phases</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>What moves the final rate</h4>
+  <p>Species we grow in volume ourselves carry the deepest discount. Imported and slow growing varieties carry the least. Pot choice can change the line item more than the plant does, and a delivery to a site with no vehicle access costs more to complete than one with a loading bay.</p>
+</section>
+
+<section>
+  <h2>How to place a bulk order</h2>
+  <ol class="steps">
+    <li>
+      <h3>Share the requirement</h3>
+      <p>Call or send a message with the quantity, the type of site and your timeline. Photographs of the space help more than a description does.</p>
+    </li>
+    <li>
+      <h3>Free plant consultation</h3>
+      <p>We suggest species suited to the light, water and air conditioning at your site. Where a plant you have asked for will not survive there, we say so before you buy it.</p>
+    </li>
+    <li>
+      <h3>Written quotation</h3>
+      <p>An itemised quote showing plant, pot, quantity, rate and GST. Valid for fifteen days, with no charges appearing later that were not on it.</p>
+    </li>
+    <li>
+      <h3>Selection and packing</h3>
+      <p>Plants are hand picked from the nursery, hardened for transit and packed with root ball protection. We will send photographs of the actual stock before dispatch if you ask.</p>
+    </li>
+    <li>
+      <h3>Delivery and placement</h3>
+      <p>Delivered to site and placed where they need to go, with a written care sheet for whoever will be looking after them.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Delivery across Delhi NCR and beyond</h2>
+
+  <h3>Inside the National Capital Region</h3>
+  <p>We deliver to Delhi, Gurugram, Noida, Greater Noida, Ghaziabad, Faridabad and the surrounding belt including Sonipat and Manesar. Stocked varieties usually reach site within 24 to 72 hours of confirmation.</p>
+
+  <h3>Outside the NCR</h3>
+  <p>For orders of roughly two hundred plants and above we ship pan India by surface transport, with freight charged at actuals and quoted before you confirm. Below that quantity the freight generally costs more than the wholesale discount saves, and we will tell you so rather than take the order.</p>
+</section>
+
+<section>
+  <h2>Why buyers keep coming back</h2>
+  <ul>
+    <li><strong>Nursery sourcing without a middleman.</strong> You are buying from the people growing the plants, which is where the price difference actually comes from.</li>
+    <li><strong>Hardened stock.</strong> Plants are acclimatised before dispatch so the move to your site is not the shock that kills them.</li>
+    <li><strong>Species matched to the site.</strong> We would rather talk you out of a plant than sell it to you twice.</li>
+    <li><strong>Clean paperwork.</strong> GST invoice on every order, with purchase order references printed where procurement needs them.</li>
+    <li><strong>One point of contact.</strong> The same number for the quotation, the dispatch and anything that goes wrong afterwards.</li>
+  </ul>
+  <p>If you also need the plants looked after once they arrive, our <a href="#page-services-plant-maintenance-services">plant maintenance service</a> covers offices and gardens across the NCR. For full site work, see <a href="#page-services-landscaping-and-garden-design">landscaping and garden design</a>.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What is the minimum quantity for a wholesale plant order?</summary>
+      <div class="answer-body">
+      <p>Wholesale pricing starts at twenty five plants in a single order. You do not need twenty five of the same variety. The slab is worked out on the total quantity, so a mixed order of ten money plants, ten snake plants and five palms qualifies just as well.</p>
+      <p>Below twenty five plants we are happy to supply you, but at our normal retail rates.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much lower are wholesale rates compared to retail?</summary>
+      <div class="answer-body">
+      <p>It depends on the variety, the pot and the quantity, but most buyers see somewhere between ten and twenty five percent off the listed retail price, with larger project orders quoted separately. Species that we grow in volume ourselves carry the deepest discount. Imported or slow growing varieties carry the least.</p>
+      <p>The honest answer is that we quote per order rather than publish one fixed percentage, because pretending otherwise would mean padding the base price first.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How quickly can you deliver a bulk order in Delhi NCR?</summary>
+      <div class="answer-body">
+      <p>Stocked varieties are usually dispatched within 24 to 72 hours of order confirmation and reach anywhere in the NCR the same or next day.</p>
+      <p>Large project orders of five hundred plants or more, or orders that need a specific size we have to grow on, generally take five to seven working days. Those can be delivered in phases so your site is not holding stock it cannot plant yet.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you supply to landscapers, contractors and other nurseries?</summary>
+      <div class="answer-body">
+      <p>Yes, and they make up a good share of what we send out every week. Trade buyers get a standing rate list rather than a fresh quote each time, so you can price your own client work without waiting on us.</p>
+      <p>If you buy regularly, ask about a running account. It saves a payment cycle on every order.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can I mix different plants and pot sizes in one order?</summary>
+      <div class="answer-body">
+      <p>Yes. Mixing is normal and it does not cost you the discount. Most office and society orders are a blend of indoor foliage, a few statement plants for reception areas and a run of outdoor stock for the entrance.</p>
+      <p>The only thing worth grouping is delivery timing. Tender indoor plants and heavy outdoor stock travel better on separate trips if the quantity is large.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you provide a GST invoice?</summary>
+      <div class="answer-body">
+      <p>Every order is billed on a proper GST tax invoice, so procurement teams can claim input credit and close their paperwork without chasing us. Purchase order numbers and cost centre references can be printed on the invoice if your finance team needs them.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What happens if plants arrive damaged?</summary>
+      <div class="answer-body">
+      <p>Send us photographs within seven days of delivery and we replace transit damaged plants at no cost. Consignments are packed with root ball protection and staking, so this stays rare, but long summer trips and rough roads do occasionally take a toll.</p>
+      <p>Damage caused by the site after delivery, such as a plant left in direct afternoon sun for a week without water, is not covered. We will still tell you how to save it.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you deliver wholesale plants outside Delhi NCR?</summary>
+      <div class="answer-body">
+      <p>Yes, for orders of around two hundred plants and above we ship pan India by surface transport. Freight is charged at actuals and quoted before you confirm, so there is no surprise at the end.</p>
+      <p>For smaller quantities outside the NCR the freight usually costs more than the discount saves, and we will tell you that rather than take the order.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can I visit the nursery and select plants myself?</summary>
+      <div class="answer-body">
+      <p>You are welcome to. Large buyers often want to see the actual stock before committing, especially for feature plants going into a reception or a lobby. Call ahead so we know you are coming and can have the relevant sections ready.</p>
+      <p>If a visit is not practical, we will send photographs of the exact plants before dispatch.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What are the payment terms on a large order?</summary>
+      <div class="answer-body">
+      <p>Standard bulk orders are confirmed with an advance, with the balance settled before or on delivery. We accept UPI, bank transfer and cheque.</p>
+      <p>Registered companies buying regularly can request credit terms against a purchase order. That is agreed case by case, usually after the first two or three orders have gone through cleanly.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Minimum order</dt>
+      <dd>25 plants</dd>
+      <dt>Dispatch time</dt>
+      <dd>24 to 72 hours for stocked varieties</dd>
+      <dt>Delivery</dt>
+      <dd>Free across Delhi NCR, pan India on request</dd>
+      <dt>Billing</dt>
+      <dd>GST invoice on every order</dd>
+      <dt>Replacement</dt>
+      <dd>Transit damage replaced within 7 days</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+      <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+      <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Get wholesale rates on your next order</h2>
+      <p>Send us the plant list, the quantity and the delivery pin code. If you are not sure what to order, tell us the site and we will build the list for you.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-corporate-plant-gifting">
+  <div class="preview-label">/services/corporate-plant-gifting/<span>Corporate Plant Gifting in India | Logo Printed Pots | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Corporate plant gifting</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Corporate plant gifting with your logo on the pot</h1>
+    <p class="lede">A plant is the rare corporate gift that is still on the desk a year later. Ours arrive potted, branded, boxed and ready to hand over, with a care card so the recipient knows what to do with it.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>Corporate plant gifting means supplying live plants in branded pots as gifts for employees, clients or event attendees. Online Plants Cart handles plant selection, logo printing on the planter, gift packing and delivery, from a practical minimum of around fifty units. Popular choices are succulents, snake plant, ZZ plant, lucky bamboo and small aglaonema, all of which survive a desk with little attention.</p>
+</div>
+
+<section>
+  <h2>Why a plant works as a corporate gift</h2>
+  <p>Most corporate gifts have a short life. The hamper is eaten, the diary goes in a drawer, the branded bottle is used twice. A plant sits on the desk, gets watered, gets noticed by the people walking past, and is still there at the next appraisal cycle with your logo on it.</p>
+  <p>It only works if the plant survives. That is the whole difference between a good plant gift and a slightly awkward one, and it comes down to choosing species that tolerate an air conditioned office and irregular watering.</p>
+
+  <h3>When companies order</h3>
+  <h4>Festive gifting</h4>
+  <p>Diwali is the largest window by a wide margin, followed by New Year. Both are worth planning early, because printing capacity across the market gets booked out and the comfortable timelines belong to whoever ordered in August.</p>
+  <h4>Onboarding and welcome kits</h4>
+  <p>A plant in a branded pot on a new joiner's desk on day one, ideally with a card that names them. Steady volumes through the year rather than a seasonal spike, which makes them easy to schedule.</p>
+  <h4>Client and partner gifts</h4>
+  <p>Smaller quantities, higher value per unit, usually a larger plant in a good ceramic planter with proper boxing.</p>
+  <h4>Events, conferences and CSR</h4>
+  <p>Attendee giveaways, speaker gifts and plantation drive saplings. Volume is high and the per unit budget is usually tight, which suits succulents and small foliage plants well.</p>
+</section>
+
+<section>
+  <h2>Plants that survive a desk</h2>
+  <p>This is a shorter list than clients expect, and keeping to it is why our gift plants are still alive months later.</p>
+
+  <h3>The reliable choices</h3>
+  <p>Succulents, snake plant, ZZ plant, lucky bamboo, jade and small aglaonema. Every one of them tolerates low light, forgives a fortnight without water, and stays compact enough to live beside a monitor without becoming a nuisance.</p>
+
+  <h3>What we steer clients away from</h3>
+  <p>Flowering plants, anything needing bright light, and anything that outgrows a desk within a few months. They photograph beautifully on handover day and turn into a small disappointment three weeks later, which is the opposite of what the gift was for.</p>
+
+  <h4>For remote and hybrid teams</h4>
+  <p>Plants shipped individually need to survive a courier as well as a desk. Succulents and snake plant travel best. We pack each box to hold the plant and its soil in place, because a plant that arrives with soil across the packaging starts the relationship badly.</p>
+</section>
+
+<section>
+  <h2>Getting your branding onto the pot</h2>
+
+  <h3>Printing</h3>
+  <p>The usual method, and it works well on ceramic, fibre and metal planters. Full colour is possible, though a single colour logo on a plain pot usually looks more considered than a full colour print does.</p>
+
+  <h3>Engraving</h3>
+  <p>Suits wood and certain ceramic finishes. More understated, more expensive, and the right choice for senior client gifts where restraint reads better than a large logo.</p>
+
+  <h3>Sleeves, tags and cards</h3>
+  <p>For smaller runs where a printing setup is not worth it, a printed sleeve around the pot or a hanging tag carries the branding at a fraction of the cost. Often the better answer below fifty units.</p>
+
+  <h4>What we need from your team</h4>
+  <p>Your logo as a vector file, in the colours you actually use rather than approximations. A logo pulled off a website rarely holds up at pot size, and fixing it later costs a day in the schedule.</p>
+
+  <h4>Approve a physical sample</h4>
+  <p>On every branded order we make one sample with your logo on the actual pot before printing the rest. It is chargeable and adjusted against the final invoice. Skipping it saves a few days and occasionally costs an entire run.</p>
+</section>
+
+<section>
+  <h2>Packing, delivery and the care card</h2>
+
+  <h3>Packing options</h3>
+  <p>Individual gift boxes where each plant is handed over separately, or bulk cartons where your team distributes them internally. Individual boxing costs more per unit and looks considerably better in the recipient's hands.</p>
+
+  <h3>Delivery</h3>
+  <p>Direct delivery across Delhi NCR to your office or event venue. For teams spread across the country, send a spreadsheet of names and addresses and we ship individually by courier. Individual shipping costs more per unit than a single bulk delivery, so it is worth deciding which route you are taking before the quote is built.</p>
+
+  <h3>The care card</h3>
+  <p>Every gift includes a small card written for someone who has never kept a plant alive. How often to water, where to put it, and what the first sign of trouble looks like. It costs almost nothing and it noticeably improves how many of your gifts are still alive six months on, which is the only measure of this that matters.</p>
+</section>
+
+<section>
+  <h2>Planning your order</h2>
+  <p>Branded orders take ten to fifteen days from artwork approval, including the sample. Around Diwali that stretches, sometimes considerably. If your gifting date is fixed, start the conversation six to eight weeks ahead and you will get both the stock and the timeline you want.</p>
+  <p>For volume plant supply without gifting or branding, see <a href="#page-services-bulk-wholesale-plants-delhi-ncr">wholesale and bulk plants</a>. If the same event also needs the venue dressed, <a href="#page-services-plants-on-rent-for-events">plants on rent for events</a> covers that side of it.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What is the minimum order for corporate plant gifting?</summary>
+      <div class="answer-body">
+      <p>Around fifty units is the practical minimum once logo printing is involved, because the setup cost on a printing run has to spread across enough pieces to make sense.</p>
+      <p>Without custom branding we can supply smaller quantities in standard decorative pots with a printed tag, which works well for client gifts and smaller teams.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Which plants work best as corporate gifts?</summary>
+      <div class="answer-body">
+      <p>Succulents, snake plant, ZZ plant, lucky bamboo, jade and small aglaonema. They survive an air conditioned office, tolerate irregular watering, and stay compact enough to live on a desk without becoming a nuisance.</p>
+      <p>We steer clients away from flowering plants and anything that needs bright light. They look wonderful on handover day and turn into a small disappointment three weeks later.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How is the logo applied to the pot?</summary>
+      <div class="answer-body">
+      <p>Printing is the usual method and works on ceramic, fibre and metal planters. Engraving suits wood and some ceramic finishes and gives a more understated result. For smaller runs, a printed sleeve or a hanging tag carries the branding without the setup cost of a print run.</p>
+      <p>Send us your logo as a vector file if you have one. A screenshot pulled off a website rarely prints well at pot size.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How long does a branded gifting order take?</summary>
+      <div class="answer-body">
+      <p>Ten to fifteen days from artwork approval for a printed order, including a sample for you to sign off before the full run.</p>
+      <p>Around Diwali this stretches, sometimes considerably, because printing capacity across the market is booked out. Orders placed in August and early September get the comfortable timeline.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can you deliver to individual employee addresses?</summary>
+      <div class="answer-body">
+      <p>Yes. Remote and hybrid teams are a common reason clients call us now. Send a spreadsheet of names and addresses and we ship individually, with each box packed to survive a courier.</p>
+      <p>Individual shipping costs more per unit than a single bulk delivery to your office, so it is worth deciding early which way you are going.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do the plants come with care instructions?</summary>
+      <div class="answer-body">
+      <p>Every gift includes a small care card written for someone who has never kept a plant alive. It says how often to water, where to put it, and what the first sign of trouble looks like.</p>
+      <p>It is a small thing that noticeably improves how many of the plants are still alive at the six month mark.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can we include a personalised message with each plant?</summary>
+      <div class="answer-body">
+      <p>Yes. A common message on a printed card is straightforward. Individually personalised cards with recipient names are possible too and add a little to the timeline and the cost.</p>
+      <p>For onboarding gifts, a card that names the new joiner reads far better than a generic welcome, and is usually worth the extra step.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is a sensible budget per plant gift?</summary>
+      <div class="answer-body">
+      <p>It depends entirely on what you want the gift to say. A desk succulent in a simple branded pot is an everyday appreciation gift. A larger plant in a good ceramic planter with proper boxing is a senior client gift.</p>
+      <p>Rather than quoting a range that will be out of date, tell us your per unit budget and we will show you the best version of a gift at that number.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you supply plants for plantation drives and CSR activity?</summary>
+      <div class="answer-body">
+      <p>Yes, saplings in volume for company and school plantation drives, along with the tools and on ground support to run the day.</p>
+      <p>We can supply photographs and quantity records afterwards for your CSR reporting, which is usually needed and usually remembered too late.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can we see a sample before confirming the full order?</summary>
+      <div class="answer-body">
+      <p>We recommend it on every branded order. You approve a physical sample with your logo on the actual pot before we print the rest.</p>
+      <p>The sample is chargeable and adjusted against the final invoice when the order goes ahead.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Practical minimum</dt>
+      <dd>About 50 units for branded pots</dd>
+      <dt>Branding options</dt>
+      <dd>Printing, engraving, sleeves, tags</dd>
+      <dt>Lead time</dt>
+      <dd>10 to 15 days with logo printing</dd>
+      <dt>Packing</dt>
+      <dd>Individual boxes or bulk cartons</dd>
+      <dt>Delivery</dt>
+      <dd>Delhi NCR direct, pan India by courier</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+      <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+      <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Plan your gifting well before the season</h2>
+      <p>Tell us the headcount, the budget per unit and the date you need them in hand. Diwali orders should start in August, when stock and printing slots are still open.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-landscaping-and-garden-design">
+  <div class="preview-label">/services/landscaping-and-garden-design/<span>Landscaping Services in Delhi NCR | Garden Design | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Landscaping and garden design</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Landscaping and garden design across Delhi NCR</h1>
+    <p class="lede">From a courtyard behind a villa to the common greens of a whole housing society. We design it, prepare the ground properly, plant it with stock from our own nursery, and stay on to see it establish.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>Online Plants Cart designs and builds gardens across Delhi NCR for villas, housing societies, corporate campuses and hotels. A project runs through five stages: site visit and soil assessment, design and planting plan, ground preparation, planting, and a settling in period before handover. Because the plants come from our own nursery, the design is drawn around stock we know performs in the Delhi climate.</p>
+</div>
+
+<section>
+  <h2>What a landscaping project involves</h2>
+  <p>Most people picture landscaping as choosing plants. In practice the plants are the last and least risky decision. What determines whether a garden still looks good in three years is what happens under the surface in the weeks before anything is planted.</p>
+
+  <h3>Site visit and assessment</h3>
+  <p>We look at four things: how the sun tracks across the space through the day, where water goes when it rains hard, what the soil is actually made of, and how the space will be used. That last one changes designs more than anything else. A garden that will host forty people twice a year is a different garden from one where two people drink tea on a Sunday.</p>
+
+  <h3>Design and planting plan</h3>
+  <p>You get a layout, a planting plan naming every species and quantity, and an itemised quotation. This is the stage to argue, change your mind and ask difficult questions. Everything is cheap to change on paper.</p>
+
+  <h3>Ground preparation</h3>
+  <p>Levelling, drainage, removal of construction debris, and building up a proper planting medium. On new builds in Delhi NCR this stage is frequently larger than clients expect, because what is described as garden soil turns out to be builder rubble with a covering of earth.</p>
+
+  <h3>Planting</h3>
+  <p>The visible week. Plants come from our own nursery, which means the design is drawn around stock we know performs in this climate rather than around a catalogue.</p>
+
+  <h3>Settling in and handover</h3>
+  <p>We return through the first four to six weeks to correct anything struggling, then hand over with a written care plan. A garden that gets the right attention through its first summer will forgive a great deal afterwards.</p>
+</section>
+
+<section>
+  <h2>Where the budget actually goes</h2>
+  <p>On a typical project, ground preparation and hard elements account for more of the cost than the plants do. Paving, edging, drainage, soil replacement, irrigation, lighting and any structure such as a pergola or seating are what move the number.</p>
+  <p>This is worth knowing when comparing quotations. A conspicuously low quote usually prices the plants properly and leaves the ground work to be discovered later, which is how a project ends up costing more than the higher quote you turned down.</p>
+
+  <h3>Where to spend, and where to hold back</h3>
+  <p>Two clients with identical budgets can end up with very different gardens depending on where the money lands. This is the split we recommend most often.</p>
+
+  <h4>Worth spending more on</h4>
+  <p>Soil, drainage and a small number of large specimen plants. Those three do more for how a garden looks and lasts than a longer plant list ever will.</p>
+
+  <h4>Worth spending less on</h4>
+  <p>Lawn area, decorative features that need constant upkeep, and quantity of small plants. A lawn is the most expensive square footage in a Delhi garden to keep alive through summer.</p>
+</section>
+
+<section>
+  <h2>The kinds of projects we take on</h2>
+
+  <h3>Villas and independent houses</h3>
+  <p>Front lawns, rear gardens, courtyards and driveway planting. Usually one continuous project with the owner closely involved, which suits us.</p>
+
+  <h3>Housing societies and RWA projects</h3>
+  <p>Common greens, entrance plazas, walking paths, children's play areas and club house surrounds. Society work runs on committee approvals and phased budgets, so we quote the full scheme and can execute it in stages across financial years.</p>
+
+  <h3>Corporate campuses and offices</h3>
+  <p>Entrance landscaping, courtyards, terrace decks and the planted areas visitors see first. Corporate sites usually need the work done outside business hours, and we plan for that from the start rather than discovering it on day one.</p>
+
+  <h3>Hotels, resorts and restaurants</h3>
+  <p>Arrival areas, dining courtyards and poolside planting, where the garden is part of what the guest is paying for. These projects tend to be phased around occupancy.</p>
+
+  <h3>Builders and project sites</h3>
+  <p>Sample flats, marketing suites and handover landscaping, working to a launch date that will not move. Where the timeline is genuinely tight we will tell you what can and cannot establish in that window.</p>
+</section>
+
+<section>
+  <h2>Designing for the Delhi NCR climate</h2>
+  <p>This region asks a lot of a garden. A May afternoon can pass 45 degrees, January nights drop close to freezing, and the monsoon delivers months of rain in a few weeks. A planting scheme that ignores any one of those three fails in that season every year.</p>
+
+  <h3>Choosing species that survive all three</h3>
+  <p>We build schemes around plants proven in NCR conditions, with tender species used only where they are sheltered and can be looked after. It is a less exotic plant list than some clients arrive expecting, and it is the reason the gardens still look right in year three.</p>
+
+  <h3>Planning for water</h3>
+  <p>Plants are grouped by water requirement so that irrigation can be zoned sensibly, rather than watering a drought tolerant bed on the same schedule as a lawn. On larger sites this makes a substantial difference to the running cost.</p>
+
+  <h3>The right season to plant</h3>
+  <p>October to March is the strong window, when roots establish before the heat arrives. Work in other months is possible with shade netting and heavier watering, and it costs a little more in care. We would rather tell you to wait six weeks than plant into a Delhi June and watch the survival rate.</p>
+</section>
+
+<section>
+  <h2>After the garden is handed over</h2>
+  <p>A new garden is at its most vulnerable in its first year. If you have a gardener, we brief them properly on what has been planted and what it needs. If you do not, our <a href="#page-services-plant-maintenance-services">garden maintenance contracts</a> pick it up on a monthly or quarterly schedule.</p>
+  <p>For rooftop and balcony spaces, see <a href="#page-services-terrace-and-balcony-garden-design">terrace and balcony garden design</a>, which has its own structural considerations. Where a wall is doing the work instead of the ground, look at <a href="#page-services-vertical-garden-and-green-wall">vertical gardens and green walls</a>.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What does a landscaping project actually involve?</summary>
+      <div class="answer-body">
+      <p>Five stages. A site visit where we look at light, drainage and soil. A design with a planting plan and a written quote. Ground preparation, which is where most of the unseen work happens. Planting. Then a settling in period of four to six weeks where we come back to correct anything that is struggling.</p>
+      <p>The design stage is where you should push back hardest. Changes cost nothing on paper and a great deal once the ground is open.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much does landscaping cost in Gurugram or Delhi?</summary>
+      <div class="answer-body">
+      <p>It varies too widely for a single figure to be honest. A simple planting refresh on an existing bed is a fraction of the cost of a garden that needs levelling, soil replacement, drainage and irrigation.</p>
+      <p>What we can tell you is where the money goes. On most projects, ground preparation and hard elements account for more than the plants do. Anyone quoting you a low number without seeing the soil is quoting for plants and will find the rest later.</p>
+      </div>
+    </details>
+    <details>
+      <summary>When is the best time to start a garden in Delhi NCR?</summary>
+      <div class="answer-body">
+      <p>October through March is the strongest window. The heat has broken, roots establish before summer arrives, and the survival rate on new planting is far higher.</p>
+      <p>Work can be done in other months. Summer planting needs shade netting and much more watering, and monsoon planting needs the drainage sorted first. Both are possible, both cost a little more in care.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you handle the soil and drainage, or only the plants?</summary>
+      <div class="answer-body">
+      <p>Both. Skipping the soil is the single most common reason a garden looks tired within a year. Delhi NCR soil is often heavy, compacted and low on organic matter, and a great deal of it around new construction is builder debris with topsoil scattered on it.</p>
+      <p>We test what is there, remove what cannot be improved, and build up a proper planting medium before anything goes in the ground.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can you design a low maintenance garden?</summary>
+      <div class="answer-body">
+      <p>Yes, and it is worth being clear about what low maintenance means. It does not mean no gardener. It means choosing species suited to the climate, grouping plants by water need, using ground cover instead of large lawn areas, and avoiding anything that needs constant clipping to look right.</p>
+      <p>Lawns are the biggest maintenance cost in most Delhi gardens. Reducing the lawn is usually the single most effective change we can suggest.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you work on housing society and RWA projects?</summary>
+      <div class="answer-body">
+      <p>Regularly. Society work has its own rhythm, with committee approvals, resident expectations and phased budgets, and we plan for that rather than being surprised by it.</p>
+      <p>We can quote the whole scheme and execute it in phases across financial years, which is usually easier to get approved than one large number.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How long does a garden take to look finished?</summary>
+      <div class="answer-body">
+      <p>The structure looks right on handover day. The garden looks like the drawing after one full growing season, roughly eight to twelve months.</p>
+      <p>Anyone promising an instantly mature garden is either using very large specimen plants, which is expensive and legitimate, or overplanting, which looks wonderful for a year and then becomes a thinning job.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you install irrigation systems?</summary>
+      <div class="answer-body">
+      <p>We plan the layout and install drip and sprinkler systems for beds and lawns where the project justifies it. For smaller gardens we often advise against automation and suggest a simple hose plan instead, because a system nobody maintains fails worse than no system at all.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Who looks after the garden after handover?</summary>
+      <div class="answer-body">
+      <p>Your gardener, if you have one, and we will brief them properly before we leave. If you do not, our maintenance service picks it up on a monthly or quarterly contract.</p>
+      <p>The first year matters most. A garden that gets the right care through its first summer will forgive a lot afterwards.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can you work with an architect or interior designer we have already appointed?</summary>
+      <div class="answer-body">
+      <p>Yes, and it usually goes well. Architects tend to hand us a layout and a mood, and we bring the horticulture, which species will actually survive in that corner and how large it will be in three years.</p>
+      <p>The earlier we join, the better. Being brought in after the paving is laid limits what the planting can do.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Project sizes</dt>
+      <dd>From 200 square feet to full society greens</dd>
+      <dt>Typical timeline</dt>
+      <dd>2 to 6 weeks on site</dd>
+      <dt>Includes</dt>
+      <dd>Design, soil work, planting, irrigation advice</dd>
+      <dt>Best season</dt>
+      <dd>October to March for most planting</dd>
+      <dt>After handover</dt>
+      <dd>Optional maintenance contract</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+      <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+      <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Start with a site visit</h2>
+      <p>Send us the address and a few photographs. We will tell you what the space can realistically hold, and roughly what it will cost, before anyone commits to a design.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-office-plants-on-rent">
+  <div class="preview-label">/services/office-plants-on-rent/<span>Office Plants on Rent in Gurgaon, Delhi and Noida | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Office plants on rent</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Office plants on rent in Gurgaon, Delhi and Noida</h1>
+    <p class="lede">You get the greenery. We get the responsibility. One monthly figure covers the plants, the pots, the visits and the replacement of anything that stops looking its best.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>Office plants on rent means you pay a fixed monthly charge instead of buying plants outright. Online Plants Cart supplies the plants and planters, sends a trained gardener on a scheduled visit to water, clean and prune them, and swaps out any plant that fades, at no extra cost. Plans run across Gurgaon, Delhi, Noida, Ghaziabad and Faridabad, and there is no purchase cost at the start.</p>
+</div>
+
+<section>
+  <h2>Why offices rent plants instead of buying them</h2>
+  <p>Almost every office that buys plants outright ends up in the same place about eight months later. Half the plants look tired, nobody is quite sure whose job the watering was, and someone in admin is getting quotes to replace them. Renting removes that cycle by making the plants somebody else's responsibility, permanently.</p>
+
+  <h3>What the monthly figure covers</h3>
+  <p>One charge covers the plants, the planters, delivery and placement, a scheduled visit by our gardener, and replacement of anything that stops looking well. There is no separate maintenance invoice and no per plant replacement charge.</p>
+
+  <h3>How it looks on your books</h3>
+  <p>Renting shifts the spend from a capital purchase to a monthly operating expense, which is often easier to approve than a one time number. It also removes the awkward asset that nobody wants to account for when the office is refitted.</p>
+
+  <h4>When buying makes more sense</h4>
+  <p>If you have a facility team who genuinely look after the plants, and you expect to stay in the same office for years, buying is cheaper over a long enough horizon. We will supply the plants at <a href="#page-services-bulk-wholesale-plants-delhi-ncr">wholesale rates</a> and sell you a maintenance contract separately. It is a perfectly reasonable way to do it and we will not push you off it.</p>
+</section>
+
+<section>
+  <h2>Choosing plants for a real office, not a photograph</h2>
+  <p>The constraint in most offices is light, not floor space. A large open floor with glass on one side has a bright edge and a dim middle, and the plants that thrive in the first three metres will slowly fail at fifteen. Matching the species to the position is most of the job.</p>
+
+  <h3>Plants for cabins and workstations</h3>
+  <p>Snake plant, ZZ plant, money plant and small aglaonema. Compact, tolerant of low light, and undemanding enough to survive a week when the occupant is travelling.</p>
+
+  <h3>Plants for reception and lobbies</h3>
+  <p>Areca palm, raphis palm, dracaena and large ficus in a good planter. Reception is where a plant does the most work for you, and it is worth spending more per plant and fewer of them.</p>
+
+  <h3>Plants for meeting rooms and corridors</h3>
+  <p>Peace lily, philodendron and syngonium. Peace lily earns its place in a meeting room by visibly drooping when it is thirsty, which makes it the one plant your team can read without training.</p>
+
+  <h3>Air purifying plants</h3>
+  <p>Snake plant, areca palm, money plant, peace lily and spider plant are the varieties most often asked for under this heading. They are excellent office plants for many reasons. The air purification effect in an occupied, ventilated office is real but modest, and we would rather say that plainly than sell it as a filtration system.</p>
+
+  <h4>What we avoid recommending</h4>
+  <p>Flowering plants for permanent indoor positions, anything needing direct sun in an interior cabin, and large specimens in narrow corridors where they will be knocked every day. All three look good in a proposal and disappoint within a season.</p>
+</section>
+
+<section>
+  <h2>How many plants your office needs</h2>
+  <p>A workable starting point is one medium plant for every three to four workstations, plus larger floor plants at reception, in each meeting room, and at the ends of long corridors. Then the plan gets adjusted for the thing that actually decides it, which is where the daylight falls.</p>
+  <p>Send us a floor plan or a short walkthrough video and you will get a plant count that reflects your office rather than a formula. On most sites the number comes out a little lower than the client expected, and the result looks better for it.</p>
+</section>
+
+<section>
+  <h2>How the rental works</h2>
+  <ol class="steps">
+    <li>
+      <h3>Site visit or photographs</h3>
+      <p>We look at light, layout and how the space is used. For smaller offices, clear photographs and a floor area are enough to start.</p>
+    </li>
+    <li>
+      <h3>Plant plan and one monthly figure</h3>
+      <p>You get a proposed plant list by position, a planter selection, and a single monthly rental covering everything.</p>
+    </li>
+    <li>
+      <h3>Delivery and placement</h3>
+      <p>We deliver and place the plants outside your working hours where possible, so nobody is working around a trolley.</p>
+    </li>
+    <li>
+      <h3>Scheduled care visits</h3>
+      <p>Weekly or fortnightly, for watering, cleaning, pruning and pest checks, with a short written note left after each visit.</p>
+    </li>
+    <li>
+      <h3>Replacement without a conversation</h3>
+      <p>If a plant fades, it is swapped on the next visit. You do not need to report it, approve it or pay for it.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Where we provide office plant rental</h2>
+  <p>We run plant rental across Gurugram, Delhi, Noida, Greater Noida, Ghaziabad and Faridabad, including the business districts where most of our clients sit: Cyber City and Golf Course Road in Gurugram, Sector 62 and the Noida Expressway corridor, Aerocity, Nehru Place and Connaught Place in Delhi.</p>
+  <p>Sites outside this belt are possible where the size justifies the travel. Ask, and we will give you a straight answer about whether we can service it properly rather than taking it on and visiting late.</p>
+</section>
+
+<section>
+  <h2>Rental, or maintenance for plants you already own</h2>
+  <p>Not every office needs a rental. If you already have plants and simply need someone competent to keep them alive, our <a href="#page-services-plant-maintenance-services">plant maintenance contracts</a> cover exactly that, including plants we did not supply.</p>
+  <p>For a striking feature in a reception area, a <a href="#page-services-vertical-garden-and-green-wall">vertical garden</a> often does more than any number of floor plants. For short term offices and events, look at <a href="#page-services-plants-on-rent-for-events">event plant rental</a> instead.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What is included in the monthly office plant rental?</summary>
+      <div class="answer-body">
+      <p>The plants, the planters, delivery, placement, and a scheduled visit by our gardener for watering, cleaning, pruning and pest checks. If a plant stops looking healthy, we replace it during that visit and you pay nothing extra.</p>
+      <p>There is no separate maintenance bill. One number covers the lot.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Is renting cheaper than buying office plants?</summary>
+      <div class="answer-body">
+      <p>Over a two year horizon, buying is usually cheaper on paper. Renting wins when you count the things the paper leaves out: the plants that die because nobody was sure whose job it was to water them, the pots that no longer match after a refit, and the admin time spent arranging replacements.</p>
+      <p>Renting also moves the cost from capital expenditure to a monthly operating expense, which many finance teams prefer.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How many plants does an office actually need?</summary>
+      <div class="answer-body">
+      <p>As a rough starting point, one medium plant for every three to four workstations, plus larger floor plants at reception, in meeting rooms and at the ends of long corridors.</p>
+      <p>But the useful answer comes from the floor plan. Light is the real constraint, not area. A deep floor plate with few windows will take fewer plants than its size suggests, and forcing more in just gives you plants that slowly decline.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Which plants work best in an air conditioned office?</summary>
+      <div class="answer-body">
+      <p>Snake plant, ZZ plant, aglaonema, money plant, philodendron and areca palm handle continuous air conditioning and low natural light better than almost anything else. Peace lily works well too and has the advantage of visibly drooping when thirsty, which makes it a useful indicator plant.</p>
+      <p>We avoid recommending anything that needs direct sun or high humidity for a standard office cabin, however good it looks in the catalogue.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How often does your gardener visit?</summary>
+      <div class="answer-body">
+      <p>Weekly or fortnightly, depending on the plan you choose and how the plants are doing. Newly installed plants settle better with weekly visits for the first month, after which many offices move to fortnightly.</p>
+      <p>Visits are scheduled outside your peak hours wherever possible, so nobody is working around a watering can during a client meeting.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is the minimum contract period?</summary>
+      <div class="answer-body">
+      <p>Six months is the usual minimum, and twelve months carries a better monthly rate. Shorter terms are possible for temporary offices and project sites, priced a little higher because the logistics cost the same whether the plants stay six weeks or six months.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you provide the pots, or do we?</summary>
+      <div class="answer-body">
+      <p>We provide them as part of the rental, and you choose the finish from our range so the planters suit your interiors rather than fighting them.</p>
+      <p>If your architect has already specified planters, we are happy to work with those instead. In that case the rental drops slightly, and we take no responsibility for drainage problems caused by planters without proper holes.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What if a plant dies?</summary>
+      <div class="answer-body">
+      <p>We replace it, free, as part of the contract. That is the point of renting rather than buying.</p>
+      <p>The one exception is damage from something outside normal office use, such as a plant knocked over during a move or used as an ashtray. Even then we usually just replace it and mention it once.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can we rent plants for a short term project office?</summary>
+      <div class="answer-body">
+      <p>Yes. Project offices, site offices and temporary floors are common requests, and we handle both the installation and the removal at the end.</p>
+      <p>For anything under a month, look at our event plant rental instead. It is built for short durations and priced for them.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do office plants really improve air quality?</summary>
+      <div class="answer-body">
+      <p>Modestly, and less dramatically than most marketing suggests. The often quoted NASA study was run in sealed chambers, and you would need a very large number of plants to match the effect of a decent ventilation system in a real office.</p>
+      <p>What the research does support more strongly is the effect on people. Employees in offices with plants report better concentration and lower stress, and that is usually the reason worth spending on.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>How it works</dt>
+      <dd>Fixed monthly rental, nothing to buy</dd>
+      <dt>Included</dt>
+      <dd>Plants, planters, visits, replacement</dd>
+      <dt>Visit schedule</dt>
+      <dd>Weekly or fortnightly, your choice</dd>
+      <dt>Typical contract</dt>
+      <dd>6 or 12 months</dd>
+      <dt>Coverage</dt>
+      <dd>Gurgaon, Delhi, Noida and wider NCR</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+      <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+      <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Get a monthly rental figure for your office</h2>
+      <p>Send us your floor area or a few photographs of the space. We will come back with a plant plan and one monthly number that covers everything.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-plant-maintenance-services">
+  <div class="preview-label">/services/plant-maintenance-services/<span>Plant Maintenance Services in Delhi NCR | Garden AMC | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Plant maintenance</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Plant maintenance services and garden AMC in Delhi NCR</h1>
+    <p class="lede">Most plants do not die of neglect all at once. They fade over a few quiet months while everyone assumes somebody else is watering them. A maintenance contract is simply the decision to make it somebody in particular.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>A plant maintenance contract from Online Plants Cart puts a trained gardener on your site on a fixed schedule. Each visit covers watering, pruning, cleaning of leaves, soil health, pest and disease checks, and seasonal feeding. Contracts run monthly, quarterly or annually across Delhi, Gurugram, Noida and the wider NCR, and most include replacement of plants that fail while under our care.</p>
+</div>
+
+<section>
+  <h2>What happens on a maintenance visit</h2>
+  <p>A visit is not a person with a watering can. Our gardener works through a fixed routine, and the order matters, because half the job is noticing problems while they are still small.</p>
+
+  <h3>Watering, properly</h3>
+  <p>Watering to depth rather than wetting the surface, and only where the soil actually needs it. More office plants die of overwatering in Delhi NCR than of drought, which surprises almost everyone. If the top two inches are still damp, the plant is skipped that visit.</p>
+
+  <h3>Pruning, cleaning and shaping</h3>
+  <p>Dead leaves removed, growth shaped, and dust wiped off the foliage. Leaf cleaning sounds cosmetic and is not. A layer of Delhi dust measurably reduces how much light a leaf can use, and indoor plants here have very little light to spare.</p>
+
+  <h3>Soil and feeding</h3>
+  <p>Soil condition checked, topped up or replaced where it has compacted, and seasonal feeding applied. Feeding is reduced through peak summer, because a plant under heat stress cannot use it and the salts do more harm than the nutrients do good.</p>
+
+  <h3>Pest and disease checks</h3>
+  <p>Mealybug, spider mite, scale and fungal spotting are the common problems in NCR offices and gardens. Caught in the first week they are a five minute job. Caught in the sixth they are a replacement.</p>
+
+  <h4>The visit note</h4>
+  <p>Every visit ends with a short written note saying what was done and what needs watching. Clients tell us this is the part they value most, because it turns plant care from something invisible into something they can actually see happening.</p>
+</section>
+
+<section>
+  <h2>Choosing a contract that fits the site</h2>
+
+  <h3>Weekly visits</h3>
+  <p>Suited to offices with a large number of indoor plants, newly installed planting in its first month, and any site where nobody on the premises will touch a plant between visits.</p>
+
+  <h3>Fortnightly visits</h3>
+  <p>The most common choice for established offices. Frequent enough to catch problems, infrequent enough to keep the cost sensible.</p>
+
+  <h3>Monthly visits</h3>
+  <p>Works for homes and small gardens that already have someone doing basic watering, where our role is the skilled work rather than the daily routine.</p>
+
+  <h4>Seasonal adjustment</h4>
+  <p>Schedules are not fixed for the year. Frequency rises through May and June and eases through the cooler months, and outdoor sites move to early morning visits in summer. Watering an exposed garden at midday in a Delhi May does more harm than skipping it.</p>
+</section>
+
+<section>
+  <h2>What a contract covers, and what it does not</h2>
+
+  <h3>Included</h3>
+  <ul>
+    <li>All scheduled visits at the agreed frequency</li>
+    <li>Watering, pruning, cleaning, feeding and repotting where needed</li>
+    <li>Pest and disease treatment</li>
+    <li>Replacement of plants that fail through normal causes on annual contracts</li>
+    <li>A written note after every visit and a named contact you can call between visits</li>
+  </ul>
+
+  <h3>Charged separately</h3>
+  <ul>
+    <li>New plants added to expand the planting rather than replace it</li>
+    <li>Losses from causes outside our control, such as construction dust, a burst pipe, or a plant moved into a dark store room</li>
+    <li>Major one time work such as re landscaping a bed or replacing all the soil in a large planter</li>
+  </ul>
+  <p>We would rather set this out plainly at the start than have the conversation later with an invoice in hand.</p>
+</section>
+
+<section>
+  <h2>Taking over plants that are already struggling</h2>
+  <p>About half our maintenance clients come to us with planting that has been neglected for a while, sometimes for years. That is a normal way to start and it does not embarrass anybody.</p>
+  <h3>The audit comes first</h3>
+  <p>The first visit is an audit. You get an honest assessment of which plants are worth saving, which are healthy but in the wrong position and should be moved, and which are past recovering. Then a recovery plan with realistic timelines.</p>
+  <h4>What to expect in the first three months</h4>
+  <p>Slower progress than you want. Recovering neglected planting takes longer than starting fresh, because a stressed plant has to rebuild its root system before it can put out the growth you will actually notice. Month one looks like tidying. Month three starts to look like a garden.</p>
+</section>
+
+<section>
+  <h2>Who we maintain plants for</h2>
+  <p>Corporate offices and co working spaces, housing societies and RWA common areas, independent villas and apartments, hotels and restaurants, schools and hospitals, and showrooms where the planting is part of how the space presents itself.</p>
+  <p>If your plants came from us as part of an <a href="#page-services-office-plants-on-rent">office plant rental</a>, maintenance is already included and there is nothing further to arrange. If we built your garden through our <a href="#page-services-landscaping-and-garden-design">landscaping service</a>, a maintenance contract for the first year is the single best thing you can do to protect that investment.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What does a plant maintenance contract cover?</summary>
+      <div class="answer-body">
+      <p>Watering to the right depth rather than a daily splash, pruning and shaping, cleaning dust off leaves so they can actually photosynthesise, checking soil condition, seasonal feeding, and catching pests and disease early.</p>
+      <p>You also get a short written note after each visit saying what was done and what needs watching. It is the part clients say they value most, because it turns plant care into something you can actually see happening.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How often should office plants be watered?</summary>
+      <div class="answer-body">
+      <p>Less often than most people think, and more thoroughly when you do. For typical indoor office plants in Delhi NCR, once a week in winter and twice a week through peak summer suits the majority of species.</p>
+      <p>Overwatering kills far more office plants than drought. If the top two inches of soil are still damp, the plant does not need water yet, whatever the schedule on the wall says.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is the difference between an AMC and paying per visit?</summary>
+      <div class="answer-body">
+      <p>An annual maintenance contract fixes the price, guarantees the schedule and usually includes replacement of plants that fail while we are looking after them. Per visit work costs less on any single visit and includes none of that.</p>
+      <p>Per visit suits a garden that already has a regular gardener and needs occasional expert attention. An AMC suits anywhere that has nobody responsible day to day.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much does monthly garden maintenance cost?</summary>
+      <div class="answer-body">
+      <p>It scales with area, plant count and visit frequency rather than following a fixed rate. A small office with twenty indoor plants on a fortnightly visit sits at one end. A society with lawns, hedges and seasonal beds needing twice weekly attention sits far at the other.</p>
+      <p>We quote after seeing the site, because quoting before seeing it means either overcharging you or discovering the real scope later and asking for more.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you replace plants that die under contract?</summary>
+      <div class="answer-body">
+      <p>On annual contracts, yes, replacement is included for plants that fail through normal causes while under our care. That is the whole logic of the arrangement. If we are responsible for the health of the plant, we should carry the cost when it does not survive.</p>
+      <p>Losses from causes outside our control, such as construction dust, a burst pipe or a plant moved into a dark store room, are charged at cost.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can you maintain plants you did not supply?</summary>
+      <div class="answer-body">
+      <p>Yes, and about half our maintenance clients came to us that way. We start with an audit that tells you honestly which plants are worth saving, which are in the wrong place and should be moved, and which are already too far gone.</p>
+      <p>Expect the first two or three months to look like slow progress. Recovering a neglected planting takes longer than starting fresh.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Will the same gardener come every time?</summary>
+      <div class="answer-body">
+      <p>We keep the same person on a site wherever we can, because someone who knows your plants spots a problem weeks before a stranger would. Leave and rotation mean it cannot be an absolute promise, so every site has written notes that travel with the job.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What happens to plants during peak summer in Delhi?</summary>
+      <div class="answer-body">
+      <p>May and June are the hardest months here and the schedule changes to suit. Watering frequency goes up, feeding is reduced because plants under heat stress cannot use it well, exposed plants get shade netting, and pruning is kept light.</p>
+      <p>We usually move outdoor sites to early morning visits through summer. Watering at midday in a Delhi May does more harm than good.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you handle pest control on plants?</summary>
+      <div class="answer-body">
+      <p>Yes, as part of every visit. Mealybug, spider mite, scale and fungal spotting are the common ones in NCR offices and we treat them at the first sign rather than after they have spread.</p>
+      <p>We use the mildest effective treatment first, which in an occupied office usually means a soap based spray and manual removal rather than a strong chemical.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can we start with a one time visit before committing?</summary>
+      <div class="answer-body">
+      <p>Certainly. A single audit and clean up visit is a sensible way to see how we work, and it gives you a written assessment of your plants that is useful even if you go no further with us.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Contract options</dt>
+      <dd>Monthly, quarterly or annual</dd>
+      <dt>Visit frequency</dt>
+      <dd>Weekly, fortnightly or monthly</dd>
+      <dt>Each visit covers</dt>
+      <dd>Water, prune, clean, feed, pest check</dd>
+      <dt>Replacement</dt>
+      <dd>Included on most annual contracts</dd>
+      <dt>Reporting</dt>
+      <dd>Written note after every visit</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+      <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+      <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Put your plants on a schedule</h2>
+      <p>Tell us roughly how many plants you have and where they are. We will suggest a visit frequency and quote a monthly figure.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-plants-on-rent-for-events">
+  <div class="preview-label">/services/plants-on-rent-for-events/<span>Plants on Rent for Events and Weddings in Delhi NCR | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Plants on rent for events</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Plants on rent for weddings, exhibitions and events</h1>
+    <p class="lede">You need the venue to look established, not decorated. We bring grown plants in finished planters, place them, and take them away when the last guest has gone.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>Event plant rental is short term hire of grown plants and planters for weddings, exhibitions, product launches, corporate events and shoots. Online Plants Cart delivers, places and removes the plants across Delhi NCR, with hire periods from a single day upward. Booking two to three weeks ahead is advised during wedding season, though same day supply is often possible for smaller quantities.</p>
+</div>
+
+<section>
+  <h2>What event plant rental covers</h2>
+  <p>You tell us the venue, the date and the look. We bring grown plants in finished planters, place them to your decorator's layout, and return afterwards to take everything away. Delivery, placement and removal are quoted as one line, so there is no separate labour charge appearing on the day.</p>
+
+  <h3>Weddings and receptions</h3>
+  <p>Entrance avenues, mandap and stage surrounds, walkway edging, seating areas and photo corners. Large plants in matched pairs still do more for an entrance than any quantity of scattered small ones, which is worth knowing when a budget is being split.</p>
+
+  <h3>Exhibitions and trade shows</h3>
+  <p>Stand dressing that makes a booth read as established rather than assembled that morning. We work to the venue build up and break down slots, move through service entrances, and keep the stand clear of soil and water. On multi day shows we can come back mid run to water and tidy, which matters by day three in a hot hall.</p>
+
+  <h3>Product launches and corporate events</h3>
+  <p>Stage and backdrop planting, reception areas and press walls. Usually a short window for setup and a hard deadline, which is fine as long as we know about it when quoting rather than on the morning.</p>
+
+  <h3>Film, television and photo shoots</h3>
+  <p>Hire by the day, early delivery for set builds, and a team used to working around a crew. Tell us what the camera needs to see, because the plant that reads best on screen is not always the healthiest one in the nursery.</p>
+
+  <h3>Temporary and project offices</h3>
+  <p>Short duration office greening where a full rental contract does not fit. For anything running beyond a month, our <a href="#page-services-office-plants-on-rent">office plant rental</a> works out better on price and includes ongoing care.</p>
+</section>
+
+<section>
+  <h2>The plants that do the work at events</h2>
+
+  <h3>For height and presence</h3>
+  <p>Areca palm, raphis palm and tall dracaena. These are what make an entrance feel like an entrance and a stage feel finished.</p>
+
+  <h3>For mass and screening</h3>
+  <p>Ficus and dense medium foliage, used to hide what you would rather guests did not look at. Generator cables, service doors and the back of a temporary structure all disappear behind a run of matched plants.</p>
+
+  <h3>For colour</h3>
+  <p>Seasonal flowering plants where the date falls in the right months, and coloured foliage such as croton where it does not. We are straightforward about this. Plants do not read the run sheet, and no supplier can promise a specific flower in full bloom on an exact date. Where an exact colour is critical, we build it into the planter and the foliage instead.</p>
+
+  <h4>Planters matter more than people expect</h4>
+  <p>The pot is visible at eye level all evening while the plant is often seen against a crowd. Matched planters in a finish that suits the palette lift a plant list more cheaply than upgrading every plant would.</p>
+</section>
+
+<section>
+  <h2>Booking, timing and what we need from you</h2>
+  <ol class="steps">
+    <li>
+      <h3>Tell us the date first</h3>
+      <p>Even before the plant list is settled. Holding a date costs you nothing and peak wedding season stock gets committed early.</p>
+    </li>
+    <li>
+      <h3>Share the venue and the layout</h3>
+      <p>Venue name, access details and your decorator's layout if there is one. Photographs of the space are enough to start.</p>
+    </li>
+    <li>
+      <h3>Approve the plant list and quote</h3>
+      <p>A list by position with the hire charge, delivery, placement and removal included in a single figure.</p>
+    </li>
+    <li>
+      <h3>Setup on the day</h3>
+      <p>We arrive in the slot the venue allows and place everything to the agreed layout, then step out of your decorator's way.</p>
+    </li>
+    <li>
+      <h3>Removal afterwards</h3>
+      <p>Collection at the agreed time, including late night after a wedding, which is normal for us and carries no premium.</p>
+    </li>
+  </ol>
+
+  <h3>How much notice we need</h3>
+  <p>Two to three weeks is comfortable through peak wedding season from November to February. Outside that window a week is usually plenty, and smaller orders can often be managed at a day or two of notice. If your requirement is urgent, call rather than email.</p>
+</section>
+
+<section>
+  <h2>Costs, damage and the practical details</h2>
+  <p>Hire is charged per plant per day and varies mainly with plant size and planter finish. There is a practical minimum order, because sending a vehicle and a crew across the NCR for three plants does not work, though if we already have a delivery going to the same area on your date we can usually add a small requirement to it.</p>
+  <p>Some scuffing at a busy event is expected and never charged. Plants broken, knocked over and left, or removed from the venue are charged at replacement value, and this is set out on the rental note before the event rather than raised afterwards.</p>
+  <p>If you decide after the event that the plants should stay, say so. We adjust the hire charge against a purchase price rather than charging you twice for the same plant. For larger permanent requirements, our <a href="#page-services-bulk-wholesale-plants-delhi-ncr">wholesale supply</a> is the better route.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>How far in advance should I book plants for a wedding?</summary>
+      <div class="answer-body">
+      <p>Two to three weeks is comfortable during peak wedding season from November to February, when good stock in large sizes gets committed early.</p>
+      <p>Outside that window a week is usually plenty, and we can often manage smaller orders at a day or two of notice. If your date is fixed, book early and adjust the plant list later. Holding the date costs you nothing.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What does event plant rental cost?</summary>
+      <div class="answer-body">
+      <p>Pricing is per plant per day, and it varies mainly with the size of the plant and the finish of the planter. A run of medium foliage plants along a walkway sits at one end. Tall specimen palms in decorative planters for a stage sit at the other.</p>
+      <p>Delivery, placement and removal are quoted as a single line so there is no separate labour charge appearing later.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you set up and remove the plants yourselves?</summary>
+      <div class="answer-body">
+      <p>Yes, our team handles both. We arrive at the slot the venue gives us, place the plants to the layout agreed with your decorator, and come back after the event to collect.</p>
+      <p>Late night removal after a wedding is normal for us and does not carry a premium.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can you match a specific colour theme?</summary>
+      <div class="answer-body">
+      <p>Within reason. Foliage gives you the greens, and seasonal flowering plants add colour if the date falls in the right months. Planters give you the most control, since those can be selected or wrapped to suit the palette.</p>
+      <p>What we cannot do is promise a particular flower in full bloom on an exact date. Plants do not read the run sheet. Where an exact colour is critical, we plan the planter and the foliage around it instead.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Which plants are used most for stage and entrance decor?</summary>
+      <div class="answer-body">
+      <p>Areca palm and raphis palm for height, ficus for mass, and dracaena for structure. Along walkways and around seating, dense medium foliage in matched planters reads better than a mixture of species.</p>
+      <p>For entrances, large plants in pairs still do more work than any amount of scattered small ones.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you supply plants for exhibitions and trade shows?</summary>
+      <div class="answer-body">
+      <p>Regularly, and exhibition halls have their own rules. We work to the venue build up and break down slots, carry the plants through service entrances, and keep the stand clear of soil and water.</p>
+      <p>For multi day exhibitions we can come mid run to water and tidy, which matters by day three in a hot hall.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What if a plant is damaged during the event?</summary>
+      <div class="answer-body">
+      <p>Some scuffing at a busy event is expected and we do not charge for it. Plants that are broken, knocked over and left, or removed from the venue are charged at replacement value.</p>
+      <p>This is set out plainly on the rental note before the event rather than raised afterwards.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can we hire plants for a photo or film shoot?</summary>
+      <div class="answer-body">
+      <p>Yes, and shoots are a common booking. Hire is usually by the day, we can deliver early for a set build, and we are used to working around a crew rather than through one.</p>
+      <p>Tell us what the camera needs to see. A plant that reads well on screen is not always the healthiest one in the nursery.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Is there a minimum order for event plant rental?</summary>
+      <div class="answer-body">
+      <p>There is a practical minimum, because sending a vehicle and a team across the NCR for three plants does not work. In practice most bookings are well above it.</p>
+      <p>If your requirement is small, ask anyway. If we already have a delivery going to the same area on that date we can usually add it.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can we buy the plants instead of returning them?</summary>
+      <div class="answer-body">
+      <p>Often, yes, and it is worth asking. Clients sometimes decide after the event that the reception plants should stay. We will adjust the hire charge against a purchase price rather than charging you twice for the same plant.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Hire period</dt>
+      <dd>From one day upward</dd>
+      <dt>Included</dt>
+      <dd>Delivery, placement and removal</dd>
+      <dt>Notice preferred</dt>
+      <dd>2 to 3 weeks in wedding season</dd>
+      <dt>Short notice</dt>
+      <dd>Often possible, call to check</dd>
+      <dt>Coverage</dt>
+      <dd>Venues across Delhi NCR</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+      <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+      <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Book plants for your date</h2>
+      <p>Give us the venue, the date and the look you are after. We will send a plant list and a figure that includes bringing everything in and taking it out again.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-terrace-and-balcony-garden-design">
+  <div class="preview-label">/services/terrace-and-balcony-garden-design/<span>Terrace Garden Setup and Balcony Garden Design in Delhi NCR</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Terrace and balcony gardens</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Terrace and balcony garden design in Delhi NCR</h1>
+    <p class="lede">The two questions nobody asks early enough are how much weight the slab can carry and where the water will go. We start with those, then design the garden you actually wanted.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>Terrace and balcony garden setup covers the design, waterproofing check, drainage planning, planters and planting for a usable rooftop or balcony garden. Online Plants Cart works across Delhi, Gurugram and Noida on spaces from a small apartment balcony to a full villa terrace, including kitchen gardens. Load bearing capacity and roof waterproofing are assessed before any design is finalised.</p>
+</div>
+
+<section>
+  <h2>The three checks that come before the design</h2>
+  <p>A terrace garden that goes wrong rarely goes wrong because of the plants. It goes wrong because water sat somewhere it should not have, or because the slab was carrying more than anyone calculated. These checks take a morning and they save a great deal.</p>
+
+  <h3>Waterproofing</h3>
+  <p>We look for existing damp patches on the ceiling below and at the condition of the current treatment. If the terrace already has sound waterproofing and no history of seepage, we work on top of it. If there is any sign of a problem, it gets fixed first.</p>
+  <h4>Why the order matters</h4>
+  <p>Retrofitting waterproofing under an established terrace garden means dismantling all of it. Doing it before is a scheduled job. Doing it after is a demolition.</p>
+
+  <h3>Drainage</h3>
+  <p>Where does the water go in a heavy monsoon shower, and does anything in the new layout block that path. Standing water is what damages roofs and breeds mosquitoes, and both problems are designed out rather than treated later.</p>
+
+  <h3>Load</h3>
+  <p>Wet soil is heavy, and it is heaviest exactly when the slab is already dealing with rain. We keep the weight over beams and columns rather than mid span, use lightweight growing medium instead of garden soil, and prefer fibre and FRP planters to concrete. Where a client wants mature trees or a water feature, we ask for a structural opinion before designing around them.</p>
+</section>
+
+<section>
+  <h2>Designing a terrace you will actually use</h2>
+  <p>The most common regret we hear is a terrace filled edge to edge with planting and nowhere comfortable to sit. Green space is only worth the money if someone spends time in it.</p>
+
+  <h3>Leave room for people</h3>
+  <p>We start by marking where seating goes and how people move through the space, then plant around it. It produces a smaller plant list and a much better terrace.</p>
+
+  <h3>Containers, raised beds or a mix</h3>
+  <p>Containers are flexible, easy to move and simple to drain, and they suit rented properties and anyone who might change their mind. Raised beds hold more soil, support larger plants and look more permanent, and they need a proper root barrier and drainage layer beneath them. Most terraces we build use both.</p>
+
+  <h3>Shade and screening</h3>
+  <p>A Delhi terrace in May is unusable without shade, and shade is what makes the difference between a garden you look at and one you sit in. Pergolas, shade netting over a section, and tall planting on the western edge all work. So does simply accepting that summer afternoons are indoors and designing for mornings and evenings.</p>
+
+  <h4>Wind on high floors</h4>
+  <p>Terraces above the eighth floor or so get wind that flattens tall plants and dries containers out fast. Lower, denser planting and heavier planters handle it. Trellis screening on the exposed side helps more than people expect.</p>
+</section>
+
+<section>
+  <h2>Plants for a Delhi NCR terrace or balcony</h2>
+  <p>Which direction the space faces decides more than any other factor. Get this right and most other choices become easy.</p>
+
+  <h3>Full sun, west or south facing</h3>
+  <p>Bougainvillea, adenium, portulaca, hardy succulents, curry leaf, lemon grass and hibiscus. These handle the heat that flattens ordinary decorative foliage through May and June.</p>
+
+  <h3>Partial sun, east facing</h3>
+  <p>The easiest position to plant. Most flowering and foliage plants do well, including jasmine, ixora, and a wide range of seasonal colour.</p>
+
+  <h3>Shade, north facing or covered</h3>
+  <p>Ferns, aglaonema, syngonium, money plant, peace lily and snake plant. A shaded balcony is not a limitation, it is simply a different plant list, and often a lower maintenance one.</p>
+
+  <h3>Terrace kitchen gardens</h3>
+  <p>Tomato, chilli, spinach, methi, coriander, brinjal and beans all crop well in containers here. Winter is the productive season in NCR and summer output drops sharply, so most terrace kitchen gardens run hard from October to March and tick over with herbs under a shade net through the hot months.</p>
+
+  <h4>Container depth for vegetables</h4>
+  <p>Leafy greens manage in six to eight inches of depth. Tomatoes, brinjal and anything root heavy want twelve or more. Trying to grow the second group in the first group's container is the usual reason a terrace vegetable patch disappoints.</p>
+</section>
+
+<section>
+  <h2>Watering without being tied to the terrace</h2>
+  <p>A drip line on a simple timer solves watering for most terraces and is worth installing even when someone is normally home, because it waters at the right time of day rather than whenever you remember. Self watering planters are a reasonable alternative on balconies where running a line is not practical.</p>
+  <p>Containers dry out far faster than ground beds, especially in wind and sun. A terrace garden without a watering plan is a terrace garden with a two week failure point built into it.</p>
+</section>
+
+<section>
+  <h2>What happens after setup</h2>
+  <p>A balcony is often finished in a day or two. A full terrace with planters, planting and a watering line usually runs three to ten days on site, longer where decking or carpentry is involved, and waterproofing work adds its own curing time before we can start.</p>
+  <p>We hand over a written care plan for your specific plants. If you would rather not manage it yourself, our <a href="#page-services-plant-maintenance-services">maintenance contracts</a> cover terraces and balconies monthly or quarterly. For work at ground level, see <a href="#page-services-landscaping-and-garden-design">landscaping and garden design</a>, and for planting a wall rather than a floor, see <a href="#page-services-vertical-garden-and-green-wall">vertical gardens</a>.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>Can a terrace garden damage the roof?</summary>
+      <div class="answer-body">
+      <p>It can, and this is the risk worth taking seriously. Damage comes from standing water sitting on the slab, from roots finding their way into cracks, and from soil held directly against the roof surface.</p>
+      <p>None of it happens in a properly built terrace garden. Containers sit on feet so water drains beneath them, raised beds have a root barrier and a drainage layer, and the existing waterproofing is checked before anything goes up. We will not start a terrace project without that check.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do I need to waterproof my terrace first?</summary>
+      <div class="answer-body">
+      <p>If the terrace already has sound waterproofing and no history of seepage, usually not. If there is any damp patch on the ceiling below, fix it before the garden, not after.</p>
+      <p>Retrofitting waterproofing under an established terrace garden means dismantling the whole thing, which is a far more expensive conversation than doing it in the right order.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much weight can a terrace hold?</summary>
+      <div class="answer-body">
+      <p>A standard residential slab in NCR is generally designed for a live load that comfortably takes a container garden, but that is a general statement and not a substitute for advice on your building.</p>
+      <p>The practical approach is to keep heavy elements over beams and columns rather than mid span, use lightweight growing medium instead of garden soil, and choose fibre or FRP planters over concrete. Where a client wants large trees or a water feature, we ask for a structural opinion first.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Which plants suit a Delhi balcony in summer?</summary>
+      <div class="answer-body">
+      <p>For a balcony taking direct afternoon sun through May and June, look at bougainvillea, adenium, portulaca, hardy succulents, curry leaf and lemon grass. They handle heat that flattens most decorative foliage.</p>
+      <p>A north facing or shaded balcony is an entirely different brief and takes ferns, aglaonema, syngonium and money plant instead. Matching plants to the direction the balcony faces matters more than any other single decision.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can I grow vegetables on my terrace in Delhi NCR?</summary>
+      <div class="answer-body">
+      <p>Yes, and a terrace kitchen garden is one of the more rewarding things to set up here. Tomatoes, chillies, spinach, methi, coriander, brinjal and beans all do well in containers through the cooler months.</p>
+      <p>Winter is the productive season in NCR. Summer output drops sharply and most people keep the beds going with herbs and a shade net until October.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much does a terrace garden cost to set up?</summary>
+      <div class="answer-body">
+      <p>It depends far more on the hard elements than on the plants. Decking, pergolas, seating, lighting and a water feature move the number a great deal. A container garden with good planters and a simple watering line is a much smaller commitment.</p>
+      <p>We usually quote in two parts so you can see the difference clearly and decide where to spend.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What about watering when we travel?</summary>
+      <div class="answer-body">
+      <p>A drip line on a timer solves it for most terraces and is worth installing even if someone is normally around. Self watering planters are a reasonable option for balconies where plumbing is not practical.</p>
+      <p>The one thing we advise against is asking a neighbour to water by eye for two weeks in June. It rarely ends well for the plants.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Will a terrace garden attract mosquitoes?</summary>
+      <div class="answer-body">
+      <p>Only if there is standing water, which a well drained garden does not have. Saucers left permanently full under pots are the usual culprit, along with blocked drainage channels.</p>
+      <p>We design terraces to drain freely and recommend against decorative standing water in NCR unless it is moving or stocked with fish.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How long does a terrace or balcony setup take?</summary>
+      <div class="answer-body">
+      <p>A balcony is often finished in a day or two. A full terrace with planters, planting and a watering line usually runs three to ten days on site, longer if there is decking or carpentry involved.</p>
+      <p>Waterproofing work, if it is needed, is done first and adds its own curing time before we can start.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you maintain the garden afterwards?</summary>
+      <div class="answer-body">
+      <p>We offer monthly and quarterly maintenance for terraces and balconies, and many clients take it for the first year at least while the planting establishes.</p>
+      <p>If you would rather look after it yourself, we hand over a written care plan for your specific plants and stay reachable on the phone when something looks wrong.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Spaces covered</dt>
+      <dd>Balconies, terraces, rooftops, courtyards</dd>
+      <dt>Checked first</dt>
+      <dd>Waterproofing, drainage, load capacity</dd>
+      <dt>Options</dt>
+      <dd>Container gardens, raised beds, kitchen gardens</dd>
+      <dt>Typical setup</dt>
+      <dd>3 to 10 days on site</dd>
+      <dt>Best months</dt>
+      <dd>October to March for planting</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+      <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+      <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Turn the terrace into somewhere you sit</h2>
+      <p>Send photographs and rough dimensions. We will tell you what the space can hold, what it needs first, and what it will cost to get there.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+<div class="preview-page" id="page-services-vertical-garden-and-green-wall">
+  <div class="preview-label">/services/vertical-garden-and-green-wall/<span>Vertical Garden and Green Wall in Delhi NCR | Online Plants Cart</span></div>
+
+
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#page-home">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>Online Plants Cart<small>Plants and green spaces, Delhi NCR</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#page-home">Home</a>
+      <a href="#page-services">Services</a>
+      <a href="#page-about">About</a>
+      <a href="#page-contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#page-home">Home</a></li>
+        <li><a href="#page-services">Services</a></li>
+        <li aria-current="page">Vertical gardens and green walls</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">Service</p>
+    <h1>Vertical gardens and green walls in Delhi NCR</h1>
+    <p class="lede">A green wall is the most photographed thing in most receptions and the most neglected thing six months later. We build ours so that the watering, the drainage and the access for maintenance are settled before the first plant goes in.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#page-contact">Get a free quote</a>
+      <a class="btn btn-secondary" href="tel:+918700301784">Call +91 87003 01784</a>
+    </div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap service-layout">
+    <div class="prose">
+<div class="answer">
+  <p class="eyebrow">In short</p>
+  <p>A vertical garden is a wall planted with living plants held in a modular panel or felt pocket system, fed by a drip irrigation line and drained at the base. Online Plants Cart designs, installs and maintains both live and artificial green walls across Delhi NCR. Live walls need irrigation and scheduled upkeep. Artificial walls need neither and suit dark or unreachable positions where a living wall would fail.</p>
+</div>
+
+<section>
+  <h2>How a green wall is actually built</h2>
+  <p>A vertical garden is a system, not a decoration, and understanding the layers explains most of what goes right and wrong with them.</p>
+
+  <h3>The frame and the gap behind it</h3>
+  <p>A metal or treated batten frame is fixed to the wall so the planting sits a few inches clear of the building surface. That gap is not a detail. It keeps air moving, keeps the wall dry, and is the difference between a green wall and a damp problem.</p>
+
+  <h3>The waterproof backing</h3>
+  <p>A sealed backing board sits between the planting and the building. Every drop of water that leaves the system is directed downward into a collection channel rather than into the plaster.</p>
+
+  <h3>The planting layer</h3>
+  <p>Either modular panels holding individual pots, or a felt pocket system where plants root into a fabric medium. Panels are easier to service plant by plant. Felt gives a denser, more continuous surface. We choose between them based on how the wall will be reached for maintenance.</p>
+
+  <h3>Irrigation and drainage</h3>
+  <p>A drip line runs along the top and feeds down by gravity on a timer, with a channel at the base catching runoff. Many walls run on a recirculating tank, which cuts water use and removes the need for a permanent plumbing connection.</p>
+
+  <h4>Lighting, where daylight is short</h4>
+  <p>An interior wall with no natural light needs grow lights on a timer. There is no plant selection that avoids this. Where a client would rather not run lighting, we recommend an artificial wall and say so directly.</p>
+</section>
+
+<section>
+  <h2>Live, artificial or moss</h2>
+  <p>These are three different products that happen to look similar in a photograph. Choosing the wrong one is the most common and most expensive mistake in this category.</p>
+
+  <h3>Live green walls</h3>
+  <p>Right where there is reasonable daylight or a budget for lighting, a water point within reach, and someone accountable for upkeep. A living wall changes through the year, softens sound noticeably in a hard surfaced reception, and reads as genuinely alive in a way nothing else matches.</p>
+
+  <h3>Artificial green walls</h3>
+  <p>Right for dark corridors, high atrium walls that need scaffolding to reach, exterior positions in harsh western sun, and any site where maintenance will realistically not happen. A good artificial wall kept clean looks far better than a live wall that has been allowed to die, and we would rather install the honest option.</p>
+
+  <h3>Preserved moss walls</h3>
+  <p>No water, no light, no maintenance beyond keeping them dry and dust free. Excellent in meeting rooms, lift lobbies and interior walls with no services. Keep them out of direct sun and away from humid areas such as an open kitchen, where preserved moss loses its texture over time.</p>
+
+  <h4>Mixing the three</h4>
+  <p>On large walls we sometimes combine them, using live planting at the reachable lower section and artificial or moss above where access is difficult. Done carefully it reads as one wall and it stays looking right.</p>
+</section>
+
+<section>
+  <h2>Plants that work on a green wall in this climate</h2>
+
+  <h3>Indoor walls</h3>
+  <p>Syngonium, philodendron, money plant, peperomia, ferns and aglaonema. These knit together into a continuous surface rather than sitting as separate plants, which is what makes a wall read as a wall.</p>
+
+  <h3>Outdoor walls</h3>
+  <p>An exterior wall in Delhi NCR has to survive a 45 degree May and a cold January on the same face. That rules out most of the delicate foliage clients ask for. Hardy species, succulents and tough ground cover types are what actually last, and the palette is more restrained as a result.</p>
+
+  <h4>Planting density</h4>
+  <p>Walls are planted densely from the start, because a sparse wall never fills in the way clients imagine. It is cheaper to plant it full than to spend a year adding plants into gaps.</p>
+</section>
+
+<section>
+  <h2>Where green walls go</h2>
+  <p>Office receptions and lobbies, restaurant and cafe feature walls, hotel arrival areas, retail interiors, apartment balconies, boundary and compound walls, and facades where a building needs softening. In homes, the most common request is a balcony wall, where a vertical garden gives you planting without losing the floor space.</p>
+</section>
+
+<section>
+  <h2>Maintenance is part of the installation</h2>
+  <p>A living wall needs a visit every two to four weeks to check irrigation, clear blocked emitters, trim growth, feed the plants and replace individual plants that have not taken.</p>
+  <p>The irrigation is the part that fails quietly. One blocked emitter kills a patch of the wall weeks before it becomes obvious from the floor, and by then the replanting is much larger. This is why we quote the <a href="#page-services-plant-maintenance-services">maintenance contract</a> alongside the installation rather than offering it afterwards as an extra.</p>
+  <p>If you are also planting the rest of the space, our <a href="#page-services-office-plants-on-rent">office plant rental</a> and <a href="#page-services-landscaping-and-garden-design">landscaping service</a> are usually quoted together with the wall so there is one team and one schedule.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What is a vertical garden and how does it work?</summary>
+      <div class="answer-body">
+      <p>It is a wall of plants grown in a system fixed to a vertical surface rather than in the ground. Plants sit in modular panels or felt pockets holding a lightweight growing medium. A drip irrigation line runs along the top and feeds down by gravity, and a channel at the base collects the runoff.</p>
+      <p>The frame is held off the wall on a batten so air moves behind it and the building surface stays dry.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much does a vertical garden cost per square foot in India?</summary>
+      <div class="answer-body">
+      <p>Live walls carry a much higher cost than artificial ones, and the gap widens once you include the irrigation and the maintenance contract that a live wall genuinely requires.</p>
+      <p>The variables that move the price most are the system type, plant density, whether grow lights are needed, and how difficult the wall is to reach. We quote per wall after seeing a photograph and the dimensions.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Should I choose a live or an artificial green wall?</summary>
+      <div class="answer-body">
+      <p>Choose live where there is reasonable daylight, a water point nearby, and a budget for ongoing upkeep. It changes with the seasons, softens sound and genuinely feels alive.</p>
+      <p>Choose artificial for dark corridors, high atrium walls that need scaffolding to reach, exterior positions in harsh sun, and anywhere nobody will take responsibility for maintenance. A well made artificial wall that stays clean looks far better than a live wall that has been left to die.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Which plants work best on a green wall in the Delhi climate?</summary>
+      <div class="answer-body">
+      <p>For indoor walls, syngonium, philodendron, money plant, ferns, peperomia and aglaonema hold up well and knit together into a full surface.</p>
+      <p>Outdoor walls in Delhi have to survive both a 45 degree May and a cold January, which rules out most of the delicate foliage people ask for. Hardy species and succulents suit outdoor positions far better.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do vertical gardens damage the wall behind them?</summary>
+      <div class="answer-body">
+      <p>Not when they are built correctly. The frame stands off the wall surface, a waterproof backing board sits between the planting and the building, and all runoff is captured at the base rather than allowed to soak in.</p>
+      <p>Damage happens on walls where a system has been fixed flat against plaster with no barrier and no drainage. That is a construction failure, not a property of green walls.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How much water does a living wall need?</summary>
+      <div class="answer-body">
+      <p>Less than most people expect, because drip irrigation delivers it precisely rather than flooding. A timer runs short cycles a few times a day, and the schedule shifts by season, more in summer and considerably less in winter.</p>
+      <p>Many walls can be run on a recirculating tank, which reduces consumption further and removes the need for a permanent plumbing connection.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can a vertical garden work indoors without natural light?</summary>
+      <div class="answer-body">
+      <p>Only with supplementary lighting. Plants on an interior wall with no daylight will thin out within a few months no matter how well they were chosen.</p>
+      <p>We install grow lights on a timer where the position justifies it. Where the client would rather not run lights, we recommend an artificial wall and say so plainly.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How long does installation take?</summary>
+      <div class="answer-body">
+      <p>A standard office reception wall is usually installed within two to four days on site once the panels and plants are ready, with a little longer where irrigation needs a new water point or an electrical connection for lighting.</p>
+      <p>Larger facade projects run to a few weeks and are planned around your site access rather than ours.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What maintenance does a green wall need?</summary>
+      <div class="answer-body">
+      <p>A live wall needs a visit every two to four weeks to check irrigation, clear emitters, trim growth, feed the plants and replace individual plants that have not taken.</p>
+      <p>The irrigation is the part that fails silently. A blocked emitter kills a patch of the wall weeks before anyone notices from the ground, which is why we treat the maintenance contract as part of the installation rather than an upsell afterwards.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Do you make moss walls?</summary>
+      <div class="answer-body">
+      <p>Yes. Preserved moss walls need no water, no light and no maintenance beyond keeping them dry and dust free, which makes them useful in meeting rooms and lift lobbies.</p>
+      <p>They should be kept out of direct sun and away from humid areas such as an open kitchen or a bathroom wall, where preserved moss loses its texture over time.</p>
+      </div>
+    </details>
+  </div>
+</section>
+    </div>
+    <aside class="rail" aria-label="Service summary">
+  <div class="rail-card">
+    <h2>Service at a glance</h2>
+    <dl class="facts">
+      <dt>Types offered</dt>
+      <dd>Live, artificial and moss walls</dd>
+      <dt>Systems</dt>
+      <dd>Modular panel, felt pocket, planter box</dd>
+      <dt>Irrigation</dt>
+      <dd>Drip line with timer on all live walls</dd>
+      <dt>Indoor light</dt>
+      <dd>Grow lights where daylight is short</dd>
+      <dt>Upkeep</dt>
+      <dd>Maintenance contract advised on live walls</dd>
+    </dl>
+  </div>
+  <div class="rail-card">
+    <h2>Related services</h2>
+    <ul class="rail-links">
+      <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+      <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+      <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+    </ul>
+  </div>
+  <div class="rail-card">
+    <h2>Talk to us</h2>
+    <p>Tell us the site, the quantity and the timeline. Most quotes go out the same working day.</p>
+    <p><a href="tel:+918700301784"><strong>+91 87003 01784</strong></a><br>
+    <a href="https://wa.me/918700301784">WhatsApp</a> &middot; <a href="mailto:REPLACE@onlineplantscart.in">Email</a></p>
+    <p class="updated">Monday to Saturday, 9 am to 7 pm</p>
+  </div>
+    </aside>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Send us the wall</h2>
+      <p>A photograph, the height and width, and a note on how much daylight it gets. That is enough for us to tell you whether it should be live or artificial, and what it will cost.</p>
+      <div class="actions">
+  <a class="btn btn-accent" href="tel:+918700301784">Call +91 87003 01784</a>
+  <a class="btn btn-secondary" href="https://wa.me/918700301784">Message on WhatsApp</a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Online Plants Cart</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#page-services-bulk-wholesale-plants-delhi-ncr">Wholesale and bulk plants</a></li>
+          <li><a href="#page-services-office-plants-on-rent">Office plants on rent</a></li>
+          <li><a href="#page-services-landscaping-and-garden-design">Landscaping and garden design</a></li>
+          <li><a href="#page-services-plant-maintenance-services">Plant maintenance</a></li>
+          <li><a href="#page-services-vertical-garden-and-green-wall">Vertical gardens and green walls</a></li>
+          <li><a href="#page-services-terrace-and-balcony-garden-design">Terrace and balcony gardens</a></li>
+          <li><a href="#page-services-plants-on-rent-for-events">Plants on rent for events</a></li>
+          <li><a href="#page-services-corporate-plant-gifting">Corporate plant gifting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#page-home">Home</a></li>
+          <li><a href="#page-services">All services</a></li>
+          <li><a href="#page-about">About us</a></li>
+          <li><a href="#page-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:+918700301784">+91 87003 01784</a></li>
+          <li><a href="https://wa.me/918700301784">WhatsApp us</a></li>
+          <li><a href="mailto:REPLACE@onlineplantscart.in">REPLACE@onlineplantscart.in</a></li>
+          <li>Monday to Saturday, 9 am to 7 pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Online Plants Cart. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>

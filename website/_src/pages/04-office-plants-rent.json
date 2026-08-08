@@ -1,0 +1,113 @@
+{
+  "slug": "services/office-plants-on-rent",
+  "file": "office-plants-rent",
+  "type": "service",
+  "nav_label": "Office plants on rent",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.9",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Office Plants on Rent in Gurgaon, Delhi and Noida | Online Plants Cart",
+  "description": "Rent indoor plants for your office with watering, pruning and free replacement included. Monthly plans for Gurgaon, Delhi, Noida and the wider NCR.",
+
+  "h1": "Office plants on rent in Gurgaon, Delhi and Noida",
+  "lede": "You get the greenery. We get the responsibility. One monthly figure covers the plants, the pots, the visits and the replacement of anything that stops looking its best.",
+
+  "service_name": "Office plant rental with maintenance",
+  "service_type": "Indoor plant rental, office plant hire and upkeep",
+  "audience": "Corporate offices, co working spaces, clinics, showrooms, hotels",
+
+  "answer": "Office plants on rent means you pay a fixed monthly charge instead of buying plants outright. Online Plants Cart supplies the plants and planters, sends a trained gardener on a scheduled visit to water, clean and prune them, and swaps out any plant that fades, at no extra cost. Plans run across Gurgaon, Delhi, Noida, Ghaziabad and Faridabad, and there is no purchase cost at the start.",
+
+  "facts": {
+    "How it works": "Fixed monthly rental, nothing to buy",
+    "Included": "Plants, planters, visits, replacement",
+    "Visit schedule": "Weekly or fortnightly, your choice",
+    "Typical contract": "6 or 12 months",
+    "Coverage": "Gurgaon, Delhi, Noida and wider NCR"
+  },
+
+  "related": [
+    "services/plant-maintenance-services",
+    "services/vertical-garden-and-green-wall",
+    "services/plants-on-rent-for-events"
+  ],
+
+  "cta_heading": "Get a monthly rental figure for your office",
+  "cta_text": "Send us your floor area or a few photographs of the space. We will come back with a plant plan and one monthly number that covers everything.",
+
+  "faqs": [
+    {
+      "q": "What is included in the monthly office plant rental?",
+      "a": [
+        "The plants, the planters, delivery, placement, and a scheduled visit by our gardener for watering, cleaning, pruning and pest checks. If a plant stops looking healthy, we replace it during that visit and you pay nothing extra.",
+        "There is no separate maintenance bill. One number covers the lot."
+      ]
+    },
+    {
+      "q": "Is renting cheaper than buying office plants?",
+      "a": [
+        "Over a two year horizon, buying is usually cheaper on paper. Renting wins when you count the things the paper leaves out: the plants that die because nobody was sure whose job it was to water them, the pots that no longer match after a refit, and the admin time spent arranging replacements.",
+        "Renting also moves the cost from capital expenditure to a monthly operating expense, which many finance teams prefer."
+      ]
+    },
+    {
+      "q": "How many plants does an office actually need?",
+      "a": [
+        "As a rough starting point, one medium plant for every three to four workstations, plus larger floor plants at reception, in meeting rooms and at the ends of long corridors.",
+        "But the useful answer comes from the floor plan. Light is the real constraint, not area. A deep floor plate with few windows will take fewer plants than its size suggests, and forcing more in just gives you plants that slowly decline."
+      ]
+    },
+    {
+      "q": "Which plants work best in an air conditioned office?",
+      "a": [
+        "Snake plant, ZZ plant, aglaonema, money plant, philodendron and areca palm handle continuous air conditioning and low natural light better than almost anything else. Peace lily works well too and has the advantage of visibly drooping when thirsty, which makes it a useful indicator plant.",
+        "We avoid recommending anything that needs direct sun or high humidity for a standard office cabin, however good it looks in the catalogue."
+      ]
+    },
+    {
+      "q": "How often does your gardener visit?",
+      "a": [
+        "Weekly or fortnightly, depending on the plan you choose and how the plants are doing. Newly installed plants settle better with weekly visits for the first month, after which many offices move to fortnightly.",
+        "Visits are scheduled outside your peak hours wherever possible, so nobody is working around a watering can during a client meeting."
+      ]
+    },
+    {
+      "q": "What is the minimum contract period?",
+      "a": [
+        "Six months is the usual minimum, and twelve months carries a better monthly rate. Shorter terms are possible for temporary offices and project sites, priced a little higher because the logistics cost the same whether the plants stay six weeks or six months."
+      ]
+    },
+    {
+      "q": "Do you provide the pots, or do we?",
+      "a": [
+        "We provide them as part of the rental, and you choose the finish from our range so the planters suit your interiors rather than fighting them.",
+        "If your architect has already specified planters, we are happy to work with those instead. In that case the rental drops slightly, and we take no responsibility for drainage problems caused by planters without proper holes."
+      ]
+    },
+    {
+      "q": "What if a plant dies?",
+      "a": [
+        "We replace it, free, as part of the contract. That is the point of renting rather than buying.",
+        "The one exception is damage from something outside normal office use, such as a plant knocked over during a move or used as an ashtray. Even then we usually just replace it and mention it once."
+      ]
+    },
+    {
+      "q": "Can we rent plants for a short term project office?",
+      "a": [
+        "Yes. Project offices, site offices and temporary floors are common requests, and we handle both the installation and the removal at the end.",
+        "For anything under a month, look at our event plant rental instead. It is built for short durations and priced for them."
+      ]
+    },
+    {
+      "q": "Do office plants really improve air quality?",
+      "a": [
+        "Modestly, and less dramatically than most marketing suggests. The often quoted NASA study was run in sealed chambers, and you would need a very large number of plants to match the effect of a decent ventilation system in a real office.",
+        "What the research does support more strongly is the effect on people. Employees in offices with plants report better concentration and lower stress, and that is usually the reason worth spending on."
+      ]
+    }
+  ]
+}

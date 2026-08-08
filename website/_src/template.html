@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#17452c">
+
+<meta property="og:type" content="{{OG_TYPE}}">
+<meta property="og:site_name" content="{{SITE_NAME}}">
+<meta property="og:title" content="{{OG_TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{OG_TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2317452c'/><path d='M8 24C8 14 14 8 24 8c0 10-6 16-16 16z' fill='%23d9a213'/></svg>">
+
+<script type="application/ld+json">
+{{JSONLD}}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="leaf" aria-hidden="true"></span>
+      <span>{{SITE_NAME}}<small>{{SITE_TAGLINE}}</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+{{NAV}}
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{{MAIN}}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>{{SITE_NAME}}</h2>
+        <p>Nursery fresh plants, wholesale supply and green space services for homes, offices and projects across Delhi NCR.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+{{FOOTER_SERVICES}}
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">All services</a></li>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="tel:{{PHONE}}">{{PHONE_DISPLAY}}</a></li>
+          <li><a href="https://wa.me/{{WHATSAPP}}">WhatsApp us</a></li>
+          <li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+          <li>{{HOURS}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; {{YEAR}} {{SITE_NAME}}. All rights reserved.</span>
+      <span>Serving Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

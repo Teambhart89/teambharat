@@ -1,0 +1,113 @@
+{
+  "slug": "services/landscaping-and-garden-design",
+  "file": "landscaping",
+  "type": "service",
+  "nav_label": "Landscaping and garden design",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.9",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Landscaping Services in Delhi NCR | Garden Design | Online Plants Cart",
+  "description": "Landscaping and garden design for villas, societies, offices and project sites across Delhi, Gurugram and Noida. Design, soil work, planting and handover.",
+
+  "h1": "Landscaping and garden design across Delhi NCR",
+  "lede": "From a courtyard behind a villa to the common greens of a whole housing society. We design it, prepare the ground properly, plant it with stock from our own nursery, and stay on to see it establish.",
+
+  "service_name": "Landscaping and garden design",
+  "service_type": "Landscape design, soil preparation, planting and garden development",
+  "audience": "Homeowners, housing societies, builders, corporate campuses, hotels",
+
+  "answer": "Online Plants Cart designs and builds gardens across Delhi NCR for villas, housing societies, corporate campuses and hotels. A project runs through five stages: site visit and soil assessment, design and planting plan, ground preparation, planting, and a settling in period before handover. Because the plants come from our own nursery, the design is drawn around stock we know performs in the Delhi climate.",
+
+  "facts": {
+    "Project sizes": "From 200 square feet to full society greens",
+    "Typical timeline": "2 to 6 weeks on site",
+    "Includes": "Design, soil work, planting, irrigation advice",
+    "Best season": "October to March for most planting",
+    "After handover": "Optional maintenance contract"
+  },
+
+  "related": [
+    "services/bulk-wholesale-plants-delhi-ncr",
+    "services/terrace-and-balcony-garden-design",
+    "services/plant-maintenance-services"
+  ],
+
+  "cta_heading": "Start with a site visit",
+  "cta_text": "Send us the address and a few photographs. We will tell you what the space can realistically hold, and roughly what it will cost, before anyone commits to a design.",
+
+  "faqs": [
+    {
+      "q": "What does a landscaping project actually involve?",
+      "a": [
+        "Five stages. A site visit where we look at light, drainage and soil. A design with a planting plan and a written quote. Ground preparation, which is where most of the unseen work happens. Planting. Then a settling in period of four to six weeks where we come back to correct anything that is struggling.",
+        "The design stage is where you should push back hardest. Changes cost nothing on paper and a great deal once the ground is open."
+      ]
+    },
+    {
+      "q": "How much does landscaping cost in Gurugram or Delhi?",
+      "a": [
+        "It varies too widely for a single figure to be honest. A simple planting refresh on an existing bed is a fraction of the cost of a garden that needs levelling, soil replacement, drainage and irrigation.",
+        "What we can tell you is where the money goes. On most projects, ground preparation and hard elements account for more than the plants do. Anyone quoting you a low number without seeing the soil is quoting for plants and will find the rest later."
+      ]
+    },
+    {
+      "q": "When is the best time to start a garden in Delhi NCR?",
+      "a": [
+        "October through March is the strongest window. The heat has broken, roots establish before summer arrives, and the survival rate on new planting is far higher.",
+        "Work can be done in other months. Summer planting needs shade netting and much more watering, and monsoon planting needs the drainage sorted first. Both are possible, both cost a little more in care."
+      ]
+    },
+    {
+      "q": "Do you handle the soil and drainage, or only the plants?",
+      "a": [
+        "Both. Skipping the soil is the single most common reason a garden looks tired within a year. Delhi NCR soil is often heavy, compacted and low on organic matter, and a great deal of it around new construction is builder debris with topsoil scattered on it.",
+        "We test what is there, remove what cannot be improved, and build up a proper planting medium before anything goes in the ground."
+      ]
+    },
+    {
+      "q": "Can you design a low maintenance garden?",
+      "a": [
+        "Yes, and it is worth being clear about what low maintenance means. It does not mean no gardener. It means choosing species suited to the climate, grouping plants by water need, using ground cover instead of large lawn areas, and avoiding anything that needs constant clipping to look right.",
+        "Lawns are the biggest maintenance cost in most Delhi gardens. Reducing the lawn is usually the single most effective change we can suggest."
+      ]
+    },
+    {
+      "q": "Do you work on housing society and RWA projects?",
+      "a": [
+        "Regularly. Society work has its own rhythm, with committee approvals, resident expectations and phased budgets, and we plan for that rather than being surprised by it.",
+        "We can quote the whole scheme and execute it in phases across financial years, which is usually easier to get approved than one large number."
+      ]
+    },
+    {
+      "q": "How long does a garden take to look finished?",
+      "a": [
+        "The structure looks right on handover day. The garden looks like the drawing after one full growing season, roughly eight to twelve months.",
+        "Anyone promising an instantly mature garden is either using very large specimen plants, which is expensive and legitimate, or overplanting, which looks wonderful for a year and then becomes a thinning job."
+      ]
+    },
+    {
+      "q": "Do you install irrigation systems?",
+      "a": [
+        "We plan the layout and install drip and sprinkler systems for beds and lawns where the project justifies it. For smaller gardens we often advise against automation and suggest a simple hose plan instead, because a system nobody maintains fails worse than no system at all."
+      ]
+    },
+    {
+      "q": "Who looks after the garden after handover?",
+      "a": [
+        "Your gardener, if you have one, and we will brief them properly before we leave. If you do not, our maintenance service picks it up on a monthly or quarterly contract.",
+        "The first year matters most. A garden that gets the right care through its first summer will forgive a lot afterwards."
+      ]
+    },
+    {
+      "q": "Can you work with an architect or interior designer we have already appointed?",
+      "a": [
+        "Yes, and it usually goes well. Architects tend to hand us a layout and a mood, and we bring the horticulture, which species will actually survive in that corner and how large it will be in three years.",
+        "The earlier we join, the better. Being brought in after the paving is laid limits what the planting can do."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "services/bulk-wholesale-plants-delhi-ncr",
+  "file": "bulk-wholesale",
+  "type": "service",
+  "nav_label": "Wholesale and bulk plants",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.9",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Wholesale Plants in Delhi NCR | Bulk Plant Supplier | Online Plants Cart",
+  "description": "Buy wholesale plants in Delhi NCR from 25 plants upward. Bulk supply for landscapers, offices, builders and resellers, with GST billing and NCR wide delivery.",
+
+  "h1": "Wholesale plants in Delhi NCR, supplied in bulk from our own nursery",
+  "lede": "If you need more than twenty five plants at once, you should not be paying retail. We sell at grower rates, deliver across the National Capital Region, and bill everything on a proper GST invoice.",
+
+  "service_name": "Wholesale and bulk plant supply",
+  "service_type": "Wholesale plant supply and bulk nursery orders",
+  "audience": "Landscapers, builders, corporate offices, hotels, schools, resellers",
+
+  "answer": "Online Plants Cart supplies plants at wholesale rates across Delhi NCR, starting at a minimum order of twenty five plants. Regular buyers include landscapers, builders, corporate offices, hotels, schools and retail nurseries. Every order is billed with a GST invoice, stocked varieties are dispatched within 24 to 72 hours, and delivery covers Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.",
+
+  "facts": {
+    "Minimum order": "25 plants",
+    "Dispatch time": "24 to 72 hours for stocked varieties",
+    "Delivery": "Free across Delhi NCR, pan India on request",
+    "Billing": "GST invoice on every order",
+    "Replacement": "Transit damage replaced within 7 days"
+  },
+
+  "related": [
+    "services/landscaping-and-garden-design",
+    "services/corporate-plant-gifting",
+    "services/plant-maintenance-services"
+  ],
+
+  "cta_heading": "Get wholesale rates on your next order",
+  "cta_text": "Send us the plant list, the quantity and the delivery pin code. If you are not sure what to order, tell us the site and we will build the list for you.",
+
+  "faqs": [
+    {
+      "q": "What is the minimum quantity for a wholesale plant order?",
+      "a": [
+        "Wholesale pricing starts at twenty five plants in a single order. You do not need twenty five of the same variety. The slab is worked out on the total quantity, so a mixed order of ten money plants, ten snake plants and five palms qualifies just as well.",
+        "Below twenty five plants we are happy to supply you, but at our normal retail rates."
+      ]
+    },
+    {
+      "q": "How much lower are wholesale rates compared to retail?",
+      "a": [
+        "It depends on the variety, the pot and the quantity, but most buyers see somewhere between ten and twenty five percent off the listed retail price, with larger project orders quoted separately. Species that we grow in volume ourselves carry the deepest discount. Imported or slow growing varieties carry the least.",
+        "The honest answer is that we quote per order rather than publish one fixed percentage, because pretending otherwise would mean padding the base price first."
+      ]
+    },
+    {
+      "q": "How quickly can you deliver a bulk order in Delhi NCR?",
+      "a": [
+        "Stocked varieties are usually dispatched within 24 to 72 hours of order confirmation and reach anywhere in the NCR the same or next day.",
+        "Large project orders of five hundred plants or more, or orders that need a specific size we have to grow on, generally take five to seven working days. Those can be delivered in phases so your site is not holding stock it cannot plant yet."
+      ]
+    },
+    {
+      "q": "Do you supply to landscapers, contractors and other nurseries?",
+      "a": [
+        "Yes, and they make up a good share of what we send out every week. Trade buyers get a standing rate list rather than a fresh quote each time, so you can price your own client work without waiting on us.",
+        "If you buy regularly, ask about a running account. It saves a payment cycle on every order."
+      ]
+    },
+    {
+      "q": "Can I mix different plants and pot sizes in one order?",
+      "a": [
+        "Yes. Mixing is normal and it does not cost you the discount. Most office and society orders are a blend of indoor foliage, a few statement plants for reception areas and a run of outdoor stock for the entrance.",
+        "The only thing worth grouping is delivery timing. Tender indoor plants and heavy outdoor stock travel better on separate trips if the quantity is large."
+      ]
+    },
+    {
+      "q": "Do you provide a GST invoice?",
+      "a": [
+        "Every order is billed on a proper GST tax invoice, so procurement teams can claim input credit and close their paperwork without chasing us. Purchase order numbers and cost centre references can be printed on the invoice if your finance team needs them."
+      ]
+    },
+    {
+      "q": "What happens if plants arrive damaged?",
+      "a": [
+        "Send us photographs within seven days of delivery and we replace transit damaged plants at no cost. Consignments are packed with root ball protection and staking, so this stays rare, but long summer trips and rough roads do occasionally take a toll.",
+        "Damage caused by the site after delivery, such as a plant left in direct afternoon sun for a week without water, is not covered. We will still tell you how to save it."
+      ]
+    },
+    {
+      "q": "Do you deliver wholesale plants outside Delhi NCR?",
+      "a": [
+        "Yes, for orders of around two hundred plants and above we ship pan India by surface transport. Freight is charged at actuals and quoted before you confirm, so there is no surprise at the end.",
+        "For smaller quantities outside the NCR the freight usually costs more than the discount saves, and we will tell you that rather than take the order."
+      ]
+    },
+    {
+      "q": "Can I visit the nursery and select plants myself?",
+      "a": [
+        "You are welcome to. Large buyers often want to see the actual stock before committing, especially for feature plants going into a reception or a lobby. Call ahead so we know you are coming and can have the relevant sections ready.",
+        "If a visit is not practical, we will send photographs of the exact plants before dispatch."
+      ]
+    },
+    {
+      "q": "What are the payment terms on a large order?",
+      "a": [
+        "Standard bulk orders are confirmed with an advance, with the balance settled before or on delivery. We accept UPI, bank transfer and cheque.",
+        "Registered companies buying regularly can request credit terms against a purchase order. That is agreed case by case, usually after the first two or three orders have gone through cleanly."
+      ]
+    }
+  ]
+}

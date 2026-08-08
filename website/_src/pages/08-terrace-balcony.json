@@ -1,0 +1,114 @@
+{
+  "slug": "services/terrace-and-balcony-garden-design",
+  "file": "terrace-balcony",
+  "type": "service",
+  "nav_label": "Terrace and balcony gardens",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.8",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Terrace Garden Setup and Balcony Garden Design in Delhi NCR",
+  "description": "Terrace, rooftop and balcony garden setup in Delhi, Gurugram and Noida. Waterproofing checks, load planning, planters, kitchen gardens and seasonal care.",
+
+  "h1": "Terrace and balcony garden design in Delhi NCR",
+  "lede": "The two questions nobody asks early enough are how much weight the slab can carry and where the water will go. We start with those, then design the garden you actually wanted.",
+
+  "service_name": "Terrace, rooftop and balcony garden setup",
+  "service_type": "Rooftop and balcony garden design, planting and kitchen gardens",
+  "audience": "Homeowners, apartment residents, villa owners, restaurants",
+
+  "answer": "Terrace and balcony garden setup covers the design, waterproofing check, drainage planning, planters and planting for a usable rooftop or balcony garden. Online Plants Cart works across Delhi, Gurugram and Noida on spaces from a small apartment balcony to a full villa terrace, including kitchen gardens. Load bearing capacity and roof waterproofing are assessed before any design is finalised.",
+
+  "facts": {
+    "Spaces covered": "Balconies, terraces, rooftops, courtyards",
+    "Checked first": "Waterproofing, drainage, load capacity",
+    "Options": "Container gardens, raised beds, kitchen gardens",
+    "Typical setup": "3 to 10 days on site",
+    "Best months": "October to March for planting"
+  },
+
+  "related": [
+    "services/landscaping-and-garden-design",
+    "services/plant-maintenance-services",
+    "services/bulk-wholesale-plants-delhi-ncr"
+  ],
+
+  "cta_heading": "Turn the terrace into somewhere you sit",
+  "cta_text": "Send photographs and rough dimensions. We will tell you what the space can hold, what it needs first, and what it will cost to get there.",
+
+  "faqs": [
+    {
+      "q": "Can a terrace garden damage the roof?",
+      "a": [
+        "It can, and this is the risk worth taking seriously. Damage comes from standing water sitting on the slab, from roots finding their way into cracks, and from soil held directly against the roof surface.",
+        "None of it happens in a properly built terrace garden. Containers sit on feet so water drains beneath them, raised beds have a root barrier and a drainage layer, and the existing waterproofing is checked before anything goes up. We will not start a terrace project without that check."
+      ]
+    },
+    {
+      "q": "Do I need to waterproof my terrace first?",
+      "a": [
+        "If the terrace already has sound waterproofing and no history of seepage, usually not. If there is any damp patch on the ceiling below, fix it before the garden, not after.",
+        "Retrofitting waterproofing under an established terrace garden means dismantling the whole thing, which is a far more expensive conversation than doing it in the right order."
+      ]
+    },
+    {
+      "q": "How much weight can a terrace hold?",
+      "a": [
+        "A standard residential slab in NCR is generally designed for a live load that comfortably takes a container garden, but that is a general statement and not a substitute for advice on your building.",
+        "The practical approach is to keep heavy elements over beams and columns rather than mid span, use lightweight growing medium instead of garden soil, and choose fibre or FRP planters over concrete. Where a client wants large trees or a water feature, we ask for a structural opinion first."
+      ]
+    },
+    {
+      "q": "Which plants suit a Delhi balcony in summer?",
+      "a": [
+        "For a balcony taking direct afternoon sun through May and June, look at bougainvillea, adenium, portulaca, hardy succulents, curry leaf and lemon grass. They handle heat that flattens most decorative foliage.",
+        "A north facing or shaded balcony is an entirely different brief and takes ferns, aglaonema, syngonium and money plant instead. Matching plants to the direction the balcony faces matters more than any other single decision."
+      ]
+    },
+    {
+      "q": "Can I grow vegetables on my terrace in Delhi NCR?",
+      "a": [
+        "Yes, and a terrace kitchen garden is one of the more rewarding things to set up here. Tomatoes, chillies, spinach, methi, coriander, brinjal and beans all do well in containers through the cooler months.",
+        "Winter is the productive season in NCR. Summer output drops sharply and most people keep the beds going with herbs and a shade net until October."
+      ]
+    },
+    {
+      "q": "How much does a terrace garden cost to set up?",
+      "a": [
+        "It depends far more on the hard elements than on the plants. Decking, pergolas, seating, lighting and a water feature move the number a great deal. A container garden with good planters and a simple watering line is a much smaller commitment.",
+        "We usually quote in two parts so you can see the difference clearly and decide where to spend."
+      ]
+    },
+    {
+      "q": "What about watering when we travel?",
+      "a": [
+        "A drip line on a timer solves it for most terraces and is worth installing even if someone is normally around. Self watering planters are a reasonable option for balconies where plumbing is not practical.",
+        "The one thing we advise against is asking a neighbour to water by eye for two weeks in June. It rarely ends well for the plants."
+      ]
+    },
+    {
+      "q": "Will a terrace garden attract mosquitoes?",
+      "a": [
+        "Only if there is standing water, which a well drained garden does not have. Saucers left permanently full under pots are the usual culprit, along with blocked drainage channels.",
+        "We design terraces to drain freely and recommend against decorative standing water in NCR unless it is moving or stocked with fish."
+      ]
+    },
+    {
+      "q": "How long does a terrace or balcony setup take?",
+      "a": [
+        "A balcony is often finished in a day or two. A full terrace with planters, planting and a watering line usually runs three to ten days on site, longer if there is decking or carpentry involved.",
+        "Waterproofing work, if it is needed, is done first and adds its own curing time before we can start."
+      ]
+    },
+    {
+      "q": "Do you maintain the garden afterwards?",
+      "a": [
+        "We offer monthly and quarterly maintenance for terraces and balconies, and many clients take it for the first year at least while the planting establishes.",
+        "If you would rather look after it yourself, we hand over a written care plan for your specific plants and stay reachable on the phone when something looks wrong."
+      ]
+    }
+  ]
+}

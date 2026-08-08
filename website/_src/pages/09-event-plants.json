@@ -1,0 +1,113 @@
+{
+  "slug": "services/plants-on-rent-for-events",
+  "file": "event-plants",
+  "type": "service",
+  "nav_label": "Plants on rent for events",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.8",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Plants on Rent for Events and Weddings in Delhi NCR | Online Plants Cart",
+  "description": "Rent plants for weddings, exhibitions, launches and shoots across Delhi NCR. Delivery, on site placement and removal handled by our team, same day options available.",
+
+  "h1": "Plants on rent for weddings, exhibitions and events",
+  "lede": "You need the venue to look established, not decorated. We bring grown plants in finished planters, place them, and take them away when the last guest has gone.",
+
+  "service_name": "Event and wedding plant rental",
+  "service_type": "Short term plant hire for events, weddings and exhibitions",
+  "audience": "Event planners, wedding decorators, exhibition organisers, production teams",
+
+  "answer": "Event plant rental is short term hire of grown plants and planters for weddings, exhibitions, product launches, corporate events and shoots. Online Plants Cart delivers, places and removes the plants across Delhi NCR, with hire periods from a single day upward. Booking two to three weeks ahead is advised during wedding season, though same day supply is often possible for smaller quantities.",
+
+  "facts": {
+    "Hire period": "From one day upward",
+    "Included": "Delivery, placement and removal",
+    "Notice preferred": "2 to 3 weeks in wedding season",
+    "Short notice": "Often possible, call to check",
+    "Coverage": "Venues across Delhi NCR"
+  },
+
+  "related": [
+    "services/office-plants-on-rent",
+    "services/corporate-plant-gifting",
+    "services/bulk-wholesale-plants-delhi-ncr"
+  ],
+
+  "cta_heading": "Book plants for your date",
+  "cta_text": "Give us the venue, the date and the look you are after. We will send a plant list and a figure that includes bringing everything in and taking it out again.",
+
+  "faqs": [
+    {
+      "q": "How far in advance should I book plants for a wedding?",
+      "a": [
+        "Two to three weeks is comfortable during peak wedding season from November to February, when good stock in large sizes gets committed early.",
+        "Outside that window a week is usually plenty, and we can often manage smaller orders at a day or two of notice. If your date is fixed, book early and adjust the plant list later. Holding the date costs you nothing."
+      ]
+    },
+    {
+      "q": "What does event plant rental cost?",
+      "a": [
+        "Pricing is per plant per day, and it varies mainly with the size of the plant and the finish of the planter. A run of medium foliage plants along a walkway sits at one end. Tall specimen palms in decorative planters for a stage sit at the other.",
+        "Delivery, placement and removal are quoted as a single line so there is no separate labour charge appearing later."
+      ]
+    },
+    {
+      "q": "Do you set up and remove the plants yourselves?",
+      "a": [
+        "Yes, our team handles both. We arrive at the slot the venue gives us, place the plants to the layout agreed with your decorator, and come back after the event to collect.",
+        "Late night removal after a wedding is normal for us and does not carry a premium."
+      ]
+    },
+    {
+      "q": "Can you match a specific colour theme?",
+      "a": [
+        "Within reason. Foliage gives you the greens, and seasonal flowering plants add colour if the date falls in the right months. Planters give you the most control, since those can be selected or wrapped to suit the palette.",
+        "What we cannot do is promise a particular flower in full bloom on an exact date. Plants do not read the run sheet. Where an exact colour is critical, we plan the planter and the foliage around it instead."
+      ]
+    },
+    {
+      "q": "Which plants are used most for stage and entrance decor?",
+      "a": [
+        "Areca palm and raphis palm for height, ficus for mass, and dracaena for structure. Along walkways and around seating, dense medium foliage in matched planters reads better than a mixture of species.",
+        "For entrances, large plants in pairs still do more work than any amount of scattered small ones."
+      ]
+    },
+    {
+      "q": "Do you supply plants for exhibitions and trade shows?",
+      "a": [
+        "Regularly, and exhibition halls have their own rules. We work to the venue build up and break down slots, carry the plants through service entrances, and keep the stand clear of soil and water.",
+        "For multi day exhibitions we can come mid run to water and tidy, which matters by day three in a hot hall."
+      ]
+    },
+    {
+      "q": "What if a plant is damaged during the event?",
+      "a": [
+        "Some scuffing at a busy event is expected and we do not charge for it. Plants that are broken, knocked over and left, or removed from the venue are charged at replacement value.",
+        "This is set out plainly on the rental note before the event rather than raised afterwards."
+      ]
+    },
+    {
+      "q": "Can we hire plants for a photo or film shoot?",
+      "a": [
+        "Yes, and shoots are a common booking. Hire is usually by the day, we can deliver early for a set build, and we are used to working around a crew rather than through one.",
+        "Tell us what the camera needs to see. A plant that reads well on screen is not always the healthiest one in the nursery."
+      ]
+    },
+    {
+      "q": "Is there a minimum order for event plant rental?",
+      "a": [
+        "There is a practical minimum, because sending a vehicle and a team across the NCR for three plants does not work. In practice most bookings are well above it.",
+        "If your requirement is small, ask anyway. If we already have a delivery going to the same area on that date we can usually add it."
+      ]
+    },
+    {
+      "q": "Can we buy the plants instead of returning them?",
+      "a": [
+        "Often, yes, and it is worth asking. Clients sometimes decide after the event that the reception plants should stay. We will adjust the hire charge against a purchase price rather than charging you twice for the same plant."
+      ]
+    }
+  ]
+}

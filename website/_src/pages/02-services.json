@@ -1,0 +1,21 @@
+{
+  "slug": "services",
+  "file": "services",
+  "type": "page",
+  "nav_label": "Services",
+  "in_nav": true,
+  "changefreq": "monthly",
+  "priority": "0.9",
+  "eyebrow": "What we do",
+
+  "breadcrumb": [["Home", ""]],
+
+  "title": "Plant and Garden Services in Delhi NCR | Online Plants Cart",
+  "description": "Eight plant services across Delhi NCR: wholesale supply, office plant rental, landscaping, maintenance, vertical gardens, terrace gardens, event rental and gifting.",
+
+  "h1": "Our plant and garden services",
+  "lede": "Eight services, one team, one phone number. Most clients start with one of them and add a second within the year, because plants that arrive well need to be looked after well.",
+
+  "cta_heading": "Not sure which service you need?",
+  "cta_text": "Describe the space and we will tell you honestly what it needs, including when the answer is fewer plants than you had in mind."
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "contact",
+  "file": "contact",
+  "type": "page",
+  "nav_label": "Contact",
+  "in_nav": true,
+  "changefreq": "yearly",
+  "priority": "0.7",
+  "eyebrow": "Get in touch",
+
+  "breadcrumb": [["Home", ""]],
+
+  "title": "Contact Online Plants Cart | Plant Supply and Services, Delhi NCR",
+  "description": "Call +91 87003 01784 or message on WhatsApp for wholesale plants, office plant rental, landscaping and maintenance across Delhi, Gurugram and Noida.",
+
+  "h1": "Talk to us about your space",
+  "lede": "One number, one team. Tell us what you need and roughly when, and you will get a real answer rather than a callback promise.",
+
+  "cta_heading": "Prefer to just call?",
+  "cta_text": "That is usually the fastest route. We are on the phone Monday to Saturday and answer WhatsApp through the day."
+}

@@ -1,0 +1,112 @@
+{
+  "slug": "services/plant-maintenance-services",
+  "file": "plant-maintenance",
+  "type": "service",
+  "nav_label": "Plant maintenance",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.85",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Plant Maintenance Services in Delhi NCR | Garden AMC | Online Plants Cart",
+  "description": "Monthly and annual plant maintenance for offices, homes and societies in Delhi, Gurugram and Noida. Watering, pruning, pest control and replacement cover.",
+
+  "h1": "Plant maintenance services and garden AMC in Delhi NCR",
+  "lede": "Most plants do not die of neglect all at once. They fade over a few quiet months while everyone assumes somebody else is watering them. A maintenance contract is simply the decision to make it somebody in particular.",
+
+  "service_name": "Plant and garden maintenance contracts",
+  "service_type": "Annual maintenance contract for plants, gardens and green spaces",
+  "audience": "Offices, housing societies, villas, hotels, institutions",
+
+  "answer": "A plant maintenance contract from Online Plants Cart puts a trained gardener on your site on a fixed schedule. Each visit covers watering, pruning, cleaning of leaves, soil health, pest and disease checks, and seasonal feeding. Contracts run monthly, quarterly or annually across Delhi, Gurugram, Noida and the wider NCR, and most include replacement of plants that fail while under our care.",
+
+  "facts": {
+    "Contract options": "Monthly, quarterly or annual",
+    "Visit frequency": "Weekly, fortnightly or monthly",
+    "Each visit covers": "Water, prune, clean, feed, pest check",
+    "Replacement": "Included on most annual contracts",
+    "Reporting": "Written note after every visit"
+  },
+
+  "related": [
+    "services/office-plants-on-rent",
+    "services/landscaping-and-garden-design",
+    "services/vertical-garden-and-green-wall"
+  ],
+
+  "cta_heading": "Put your plants on a schedule",
+  "cta_text": "Tell us roughly how many plants you have and where they are. We will suggest a visit frequency and quote a monthly figure.",
+
+  "faqs": [
+    {
+      "q": "What does a plant maintenance contract cover?",
+      "a": [
+        "Watering to the right depth rather than a daily splash, pruning and shaping, cleaning dust off leaves so they can actually photosynthesise, checking soil condition, seasonal feeding, and catching pests and disease early.",
+        "You also get a short written note after each visit saying what was done and what needs watching. It is the part clients say they value most, because it turns plant care into something you can actually see happening."
+      ]
+    },
+    {
+      "q": "How often should office plants be watered?",
+      "a": [
+        "Less often than most people think, and more thoroughly when you do. For typical indoor office plants in Delhi NCR, once a week in winter and twice a week through peak summer suits the majority of species.",
+        "Overwatering kills far more office plants than drought. If the top two inches of soil are still damp, the plant does not need water yet, whatever the schedule on the wall says."
+      ]
+    },
+    {
+      "q": "What is the difference between an AMC and paying per visit?",
+      "a": [
+        "An annual maintenance contract fixes the price, guarantees the schedule and usually includes replacement of plants that fail while we are looking after them. Per visit work costs less on any single visit and includes none of that.",
+        "Per visit suits a garden that already has a regular gardener and needs occasional expert attention. An AMC suits anywhere that has nobody responsible day to day."
+      ]
+    },
+    {
+      "q": "How much does monthly garden maintenance cost?",
+      "a": [
+        "It scales with area, plant count and visit frequency rather than following a fixed rate. A small office with twenty indoor plants on a fortnightly visit sits at one end. A society with lawns, hedges and seasonal beds needing twice weekly attention sits far at the other.",
+        "We quote after seeing the site, because quoting before seeing it means either overcharging you or discovering the real scope later and asking for more."
+      ]
+    },
+    {
+      "q": "Do you replace plants that die under contract?",
+      "a": [
+        "On annual contracts, yes, replacement is included for plants that fail through normal causes while under our care. That is the whole logic of the arrangement. If we are responsible for the health of the plant, we should carry the cost when it does not survive.",
+        "Losses from causes outside our control, such as construction dust, a burst pipe or a plant moved into a dark store room, are charged at cost."
+      ]
+    },
+    {
+      "q": "Can you maintain plants you did not supply?",
+      "a": [
+        "Yes, and about half our maintenance clients came to us that way. We start with an audit that tells you honestly which plants are worth saving, which are in the wrong place and should be moved, and which are already too far gone.",
+        "Expect the first two or three months to look like slow progress. Recovering a neglected planting takes longer than starting fresh."
+      ]
+    },
+    {
+      "q": "Will the same gardener come every time?",
+      "a": [
+        "We keep the same person on a site wherever we can, because someone who knows your plants spots a problem weeks before a stranger would. Leave and rotation mean it cannot be an absolute promise, so every site has written notes that travel with the job."
+      ]
+    },
+    {
+      "q": "What happens to plants during peak summer in Delhi?",
+      "a": [
+        "May and June are the hardest months here and the schedule changes to suit. Watering frequency goes up, feeding is reduced because plants under heat stress cannot use it well, exposed plants get shade netting, and pruning is kept light.",
+        "We usually move outdoor sites to early morning visits through summer. Watering at midday in a Delhi May does more harm than good."
+      ]
+    },
+    {
+      "q": "Do you handle pest control on plants?",
+      "a": [
+        "Yes, as part of every visit. Mealybug, spider mite, scale and fungal spotting are the common ones in NCR offices and we treat them at the first sign rather than after they have spread.",
+        "We use the mildest effective treatment first, which in an occupied office usually means a soap based spray and manual removal rather than a strong chemical."
+      ]
+    },
+    {
+      "q": "Can we start with a one time visit before committing?",
+      "a": [
+        "Certainly. A single audit and clean up visit is a sensible way to see how we work, and it gives you a written assessment of your plants that is useful even if you go no further with us."
+      ]
+    }
+  ]
+}

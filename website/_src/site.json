@@ -1,0 +1,31 @@
+{
+  "name": "Online Plants Cart",
+  "tagline": "Plants and green spaces, Delhi NCR",
+  "base": "https://onlineplantscart.in",
+
+  "_comment_contact": "REPLACE the street, postal code and email with your real details. Keep them identical here, in the footer and on your Google Business Profile.",
+  "phone": "+918700301784",
+  "phone_display": "+91 87003 01784",
+  "whatsapp": "918700301784",
+  "email": "REPLACE@onlineplantscart.in",
+  "street": "REPLACE with your nursery or office address",
+  "locality": "New Delhi",
+  "region": "Delhi",
+  "postal_code": "REPLACE",
+  "price_range": "₹₹",
+
+  "hours": "Monday to Saturday, 9 am to 7 pm",
+  "opens": "09:00",
+  "closes": "19:00",
+
+  "cities": [
+    "Delhi",
+    "Gurugram",
+    "Noida",
+    "Greater Noida",
+    "Ghaziabad",
+    "Faridabad"
+  ],
+
+  "updated": "2026-08-08"
+}

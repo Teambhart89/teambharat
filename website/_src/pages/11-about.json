@@ -1,0 +1,21 @@
+{
+  "slug": "about",
+  "file": "about",
+  "type": "page",
+  "nav_label": "About",
+  "in_nav": true,
+  "changefreq": "yearly",
+  "priority": "0.6",
+  "eyebrow": "Who we are",
+
+  "breadcrumb": [["Home", ""]],
+
+  "title": "About Online Plants Cart | Plant Nursery and Green Services, Delhi NCR",
+  "description": "Online Plants Cart supplies plants in bulk and looks after the spaces they go into, working with offices, societies, builders and homeowners across Delhi NCR.",
+
+  "h1": "We would rather sell you fewer plants that live",
+  "lede": "Online Plants Cart grew out of nursery supply and moved into services for a simple reason. We kept delivering healthy plants to places that had no plan for keeping them healthy.",
+
+  "cta_heading": "Come and see the stock",
+  "cta_text": "You are welcome at the nursery. Call ahead so someone is free to walk you through it properly."
+}

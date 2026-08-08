@@ -1,0 +1,114 @@
+{
+  "slug": "services/vertical-garden-and-green-wall",
+  "file": "vertical-garden",
+  "type": "service",
+  "nav_label": "Vertical gardens and green walls",
+  "in_nav": false,
+  "changefreq": "monthly",
+  "priority": "0.85",
+  "eyebrow": "Service",
+
+  "breadcrumb": [["Home", ""], ["Services", "services"]],
+
+  "title": "Vertical Garden and Green Wall in Delhi NCR | Online Plants Cart",
+  "description": "Live and artificial vertical gardens for offices, receptions and facades in Delhi, Gurugram and Noida. Design, irrigation, installation and upkeep in one contract.",
+
+  "h1": "Vertical gardens and green walls in Delhi NCR",
+  "lede": "A green wall is the most photographed thing in most receptions and the most neglected thing six months later. We build ours so that the watering, the drainage and the access for maintenance are settled before the first plant goes in.",
+
+  "service_name": "Vertical garden and green wall installation",
+  "service_type": "Living wall design, installation, irrigation and maintenance",
+  "audience": "Corporate offices, hotels, retail, restaurants, homeowners",
+
+  "answer": "A vertical garden is a wall planted with living plants held in a modular panel or felt pocket system, fed by a drip irrigation line and drained at the base. Online Plants Cart designs, installs and maintains both live and artificial green walls across Delhi NCR. Live walls need irrigation and scheduled upkeep. Artificial walls need neither and suit dark or unreachable positions where a living wall would fail.",
+
+  "facts": {
+    "Types offered": "Live, artificial and moss walls",
+    "Systems": "Modular panel, felt pocket, planter box",
+    "Irrigation": "Drip line with timer on all live walls",
+    "Indoor light": "Grow lights where daylight is short",
+    "Upkeep": "Maintenance contract advised on live walls"
+  },
+
+  "related": [
+    "services/plant-maintenance-services",
+    "services/office-plants-on-rent",
+    "services/landscaping-and-garden-design"
+  ],
+
+  "cta_heading": "Send us the wall",
+  "cta_text": "A photograph, the height and width, and a note on how much daylight it gets. That is enough for us to tell you whether it should be live or artificial, and what it will cost.",
+
+  "faqs": [
+    {
+      "q": "What is a vertical garden and how does it work?",
+      "a": [
+        "It is a wall of plants grown in a system fixed to a vertical surface rather than in the ground. Plants sit in modular panels or felt pockets holding a lightweight growing medium. A drip irrigation line runs along the top and feeds down by gravity, and a channel at the base collects the runoff.",
+        "The frame is held off the wall on a batten so air moves behind it and the building surface stays dry."
+      ]
+    },
+    {
+      "q": "How much does a vertical garden cost per square foot in India?",
+      "a": [
+        "Live walls carry a much higher cost than artificial ones, and the gap widens once you include the irrigation and the maintenance contract that a live wall genuinely requires.",
+        "The variables that move the price most are the system type, plant density, whether grow lights are needed, and how difficult the wall is to reach. We quote per wall after seeing a photograph and the dimensions."
+      ]
+    },
+    {
+      "q": "Should I choose a live or an artificial green wall?",
+      "a": [
+        "Choose live where there is reasonable daylight, a water point nearby, and a budget for ongoing upkeep. It changes with the seasons, softens sound and genuinely feels alive.",
+        "Choose artificial for dark corridors, high atrium walls that need scaffolding to reach, exterior positions in harsh sun, and anywhere nobody will take responsibility for maintenance. A well made artificial wall that stays clean looks far better than a live wall that has been left to die."
+      ]
+    },
+    {
+      "q": "Which plants work best on a green wall in the Delhi climate?",
+      "a": [
+        "For indoor walls, syngonium, philodendron, money plant, ferns, peperomia and aglaonema hold up well and knit together into a full surface.",
+        "Outdoor walls in Delhi have to survive both a 45 degree May and a cold January, which rules out most of the delicate foliage people ask for. Hardy species and succulents suit outdoor positions far better."
+      ]
+    },
+    {
+      "q": "Do vertical gardens damage the wall behind them?",
+      "a": [
+        "Not when they are built correctly. The frame stands off the wall surface, a waterproof backing board sits between the planting and the building, and all runoff is captured at the base rather than allowed to soak in.",
+        "Damage happens on walls where a system has been fixed flat against plaster with no barrier and no drainage. That is a construction failure, not a property of green walls."
+      ]
+    },
+    {
+      "q": "How much water does a living wall need?",
+      "a": [
+        "Less than most people expect, because drip irrigation delivers it precisely rather than flooding. A timer runs short cycles a few times a day, and the schedule shifts by season, more in summer and considerably less in winter.",
+        "Many walls can be run on a recirculating tank, which reduces consumption further and removes the need for a permanent plumbing connection."
+      ]
+    },
+    {
+      "q": "Can a vertical garden work indoors without natural light?",
+      "a": [
+        "Only with supplementary lighting. Plants on an interior wall with no daylight will thin out within a few months no matter how well they were chosen.",
+        "We install grow lights on a timer where the position justifies it. Where the client would rather not run lights, we recommend an artificial wall and say so plainly."
+      ]
+    },
+    {
+      "q": "How long does installation take?",
+      "a": [
+        "A standard office reception wall is usually installed within two to four days on site once the panels and plants are ready, with a little longer where irrigation needs a new water point or an electrical connection for lighting.",
+        "Larger facade projects run to a few weeks and are planned around your site access rather than ours."
+      ]
+    },
+    {
+      "q": "What maintenance does a green wall need?",
+      "a": [
+        "A live wall needs a visit every two to four weeks to check irrigation, clear emitters, trim growth, feed the plants and replace individual plants that have not taken.",
+        "The irrigation is the part that fails silently. A blocked emitter kills a patch of the wall weeks before anyone notices from the ground, which is why we treat the maintenance contract as part of the installation rather than an upsell afterwards."
+      ]
+    },
+    {
+      "q": "Do you make moss walls?",
+      "a": [
+        "Yes. Preserved moss walls need no water, no light and no maintenance beyond keeping them dry and dust free, which makes them useful in meeting rooms and lift lobbies.",
+        "They should be kept out of direct sun and away from humid areas such as an open kitchen or a bathroom wall, where preserved moss loses its texture over time."
+      ]
+    }
+  ]
+}
