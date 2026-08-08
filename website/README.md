@@ -92,6 +92,32 @@ Run it after every content change. It fails the build if any of these break.
 
 ---
 
+## The design
+
+A landing page treatment rather than a document. Deep forest bands alternate with white so the page has a rhythm as you scroll, and each band does one job: hero, numbers, services, proof, process, pricing, coverage, close.
+
+**Colour.** Forest `#08211a` for dark grounds, a living green `#2fa968` for accents and links, and gold `#f2c230` as the single bold accent reserved for primary buttons, big numerals and the phone number. Neutrals carry a slight green bias so they sit with the brand rather than looking borrowed.
+
+**Type.** No webfonts, so nothing to download and nothing to block the render. Headings are the system sans at heavy weights with tight tracking, and the one flourish is an italic Georgia phrase set inside each headline, which is what gives the page its voice. Anything wrapped in `<span class="accent">` gets that treatment.
+
+**Graphics.** The leaf shapes in the hero, the visual blocks and the accent markers are all a single CSS shape (`border-radius: 0 100% 0 100%`), the same form as the logo mark. That means zero image requests, and the whole site is a few hundred kilobytes. Both `.visual` blocks on the home page are marked with a comment and are meant to be replaced with real photographs of your nursery and your projects as soon as you have them.
+
+**Motion.** A short stagger on hero load and lift on card hover. Everything is switched off under `prefers-reduced-motion`.
+
+### Checking the design after a change
+
+Chromium is useful for catching what a code review misses. Two bugs in this build were found this way and would not have been visible in the markup: a heading sitting flush against its paragraph, and an invisible button label where a light section rule beat the dark surface it sat on.
+
+```bash
+python3 -m http.server 8099 --directory dist &
+CHROME=$(ls -d /opt/pw-browsers/chromium-*/chrome-linux/chrome | head -1)
+"$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars \
+  --virtual-time-budget=4000 --window-size=1400,4600 \
+  --screenshot=home.png http://localhost:8099/
+```
+
+The `--virtual-time-budget` matters. Without it the screenshot fires before the hero load animation finishes and you photograph a half faded page.
+
 ## SEO built into the pages
 
 **Technical.** Unique title, meta description and canonical per page. Open Graph and Twitter card tags. `sitemap.xml` and `robots.txt` generated at build time. Semantic HTML with one H1 and a clean heading outline. A skip link, visible keyboard focus, and `prefers-reduced-motion` support. No external requests at all, which means nothing to block the render and no third party fonts to wait on.

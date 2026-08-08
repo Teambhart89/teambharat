@@ -86,22 +86,61 @@ def render_breadcrumb(page: dict) -> str:
     return "\n".join(parts)
 
 
-def render_actions(site: dict, style: str = "hero") -> str:
+def render_actions(site: dict, page: dict | None = None, style: str = "hero") -> str:
     wa = site["whatsapp"]
     tel = site["phone"]
+    primary = (page or {}).get("cta_label", "Get a free quote")
     if style == "hero":
         return (
             '<div class="actions">\n'
-            f'  <a class="btn btn-primary" href="/contact/">Get a free quote</a>\n'
+            f'  <a class="btn btn-primary" href="/contact/">{esc(primary)}</a>\n'
             f'  <a class="btn btn-secondary" href="tel:{tel}">Call {esc(site["phone_display"])}</a>\n'
             "</div>"
         )
     return (
         '<div class="actions">\n'
-        f'  <a class="btn btn-accent" href="tel:{tel}">Call {esc(site["phone_display"])}</a>\n'
+        f'  <a class="btn btn-primary" href="tel:{tel}">Call {esc(site["phone_display"])}</a>\n'
         f'  <a class="btn btn-secondary" href="https://wa.me/{wa}">Message on WhatsApp</a>\n'
         "</div>"
     )
+
+
+def render_leaf_field() -> str:
+    """Decorative foliage behind the hero, drawn entirely in CSS."""
+    return (
+        '<div class="leaf-field" aria-hidden="true">'
+        + "<i></i>" * 5
+        + "</div>"
+    )
+
+
+def render_hero_panel(page: dict, site: dict) -> str:
+    facts = page.get("facts")
+    if not facts:
+        return ""
+    rows = "\n".join(
+        f"        <li><b>{esc(k)}</b><span>{v}</span></li>" for k, v in facts.items()
+    )
+    default = "Service at a glance" if page.get("type") == "service" else "At a glance"
+    title = page.get("panel_title", default)
+    return (
+        '    <aside class="hero-panel">\n'
+        f"      <h2>{esc(title)}</h2>\n"
+        '      <ul class="panel-list">\n'
+        f"{rows}\n"
+        "      </ul>\n"
+        f'      <a class="panel-phone" href="tel:{site["phone"]}">{esc(site["phone_display"])}</a>\n'
+        f'      <p style="margin:0.4rem 0 0;font-size:0.8125rem">{esc(site["hours"])}</p>\n'
+        "    </aside>"
+    )
+
+
+def render_hero_trust(page: dict) -> str:
+    items = page.get("trust")
+    if not items:
+        return ""
+    spans = "\n".join(f"        <span>{esc(item)}</span>" for item in items)
+    return f'      <div class="hero-trust">\n{spans}\n      </div>'
 
 
 def render_faq(faqs: list[dict]) -> str:
@@ -128,21 +167,9 @@ def render_faq(faqs: list[dict]) -> str:
 
 
 def render_rail(page: dict, pages: list[dict], site: dict) -> str:
+    """The facts now live in the hero panel, so the rail carries navigation
+    and contact only. Repeating them in both places would be noise."""
     cards = []
-
-    facts = page.get("facts")
-    if facts:
-        rows = "\n".join(
-            f"      <dt>{esc(k)}</dt>\n      <dd>{v}</dd>" for k, v in facts.items()
-        )
-        cards.append(
-            "  <div class=\"rail-card\">\n"
-            "    <h2>Service at a glance</h2>\n"
-            "    <dl class=\"facts\">\n"
-            f"{rows}\n"
-            "    </dl>\n"
-            "  </div>"
-        )
 
     related = page.get("related") or []
     if related:
@@ -187,7 +214,7 @@ def render_cta(site: dict, page: dict) -> str:
         '    <div class="cta-band">\n'
         f"      <h2>{heading}</h2>\n"
         f"      <p>{text}</p>\n"
-        f"      {render_actions(site, 'cta')}\n"
+        f"      {render_actions(site, page, 'cta')}\n"
         "    </div>\n"
         "  </div>\n"
         "</section>"
@@ -196,18 +223,41 @@ def render_cta(site: dict, page: dict) -> str:
 
 def render_main(page: dict, body: str, pages: list[dict], site: dict) -> str:
     ptype = page.get("type", "page")
-    hero_class = "hero hero-home" if ptype == "home" else "hero"
+    if ptype == "home":
+        hero_class = "hero hero-home"
+    elif ptype == "service":
+        hero_class = "hero hero-service"
+    else:
+        hero_class = "hero"
 
-    hero_bits = [f'<div class="{hero_class}">', '  <div class="wrap">']
+    narrow = " wrap-narrow" if ptype == "service" else ""
+    panel = render_hero_panel(page, site)
+    inner_class = f"wrap{narrow} hero-inner has-panel" if panel else f"wrap{narrow} hero-inner"
+
+    copy_bits = []
     crumb = render_breadcrumb(page)
     if crumb:
-        hero_bits.append("    " + crumb.replace("\n", "\n    "))
+        copy_bits.append("      " + crumb.replace("\n", "\n      "))
     if page.get("eyebrow"):
-        hero_bits.append(f'    <p class="eyebrow">{esc(page["eyebrow"])}</p>')
-    hero_bits.append(f'    <h1>{page["h1"]}</h1>')
+        copy_bits.append(f'      <p class="eyebrow">{esc(page["eyebrow"])}</p>')
+    copy_bits.append(f'      <h1>{page["h1"]}</h1>')
     if page.get("lede"):
-        hero_bits.append(f'    <p class="lede">{page["lede"]}</p>')
-    hero_bits.append("    " + render_actions(site).replace("\n", "\n    "))
+        copy_bits.append(f'      <p class="lede">{page["lede"]}</p>')
+    copy_bits.append("      " + render_actions(site, page).replace("\n", "\n      "))
+    trust = render_hero_trust(page)
+    if trust:
+        copy_bits.append(trust)
+
+    hero_bits = [
+        f'<div class="{hero_class}">',
+        "  " + render_leaf_field(),
+        f'  <div class="{inner_class}">',
+        '    <div class="hero-copy">',
+        "\n".join(copy_bits),
+        "    </div>",
+    ]
+    if panel:
+        hero_bits.append(panel)
     hero_bits.append("  </div>")
     hero_bits.append("</div>")
     hero = "\n".join(hero_bits)
@@ -228,7 +278,7 @@ def render_main(page: dict, body: str, pages: list[dict], site: dict) -> str:
         main = (
             f"{hero}\n\n"
             '<section class="tight">\n'
-            '  <div class="wrap service-layout">\n'
+            '  <div class="wrap wrap-narrow service-layout">\n'
             '    <div class="prose">\n'
             f"{inner}\n"
             "    </div>\n"
