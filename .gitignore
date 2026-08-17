@@ -6,3 +6,6 @@ output/
 reports/
 .venv/
 venv/
+reports/
+__pycache__/
+*.pyc
