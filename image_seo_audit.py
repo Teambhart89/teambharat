@@ -253,6 +253,49 @@ AUTOSCROLL_JS = """async () => {
 }"""
 
 
+def find_chromium():
+    """Locate a usable Chromium binary.
+
+    Playwright pins an exact build number, so a preinstalled browser in the image
+    often does not match what the Python package expects. Prefer an explicit
+    CHROMIUM_PATH, then scan the browsers directory, then fall back to whatever
+    Playwright resolves on its own.
+    """
+    explicit = os.environ.get("CHROMIUM_PATH")
+    if explicit and os.path.exists(explicit):
+        return explicit
+
+    roots = [os.environ.get("PLAYWRIGHT_BROWSERS_PATH") or "/opt/pw-browsers",
+             os.path.expanduser("~/.cache/ms-playwright")]
+    candidates = []
+    for root in roots:
+        if not os.path.isdir(root):
+            continue
+        for entry in sorted(os.listdir(root), reverse=True):
+            if not entry.startswith("chromium"):
+                continue
+            for relative in ("chrome-linux/chrome",
+                             "chrome-linux/headless_shell",
+                             "chrome-headless-shell-linux64/chrome-headless-shell",
+                             "Chromium.app/Contents/MacOS/Chromium"):
+                path = os.path.join(root, entry, relative)
+                if os.path.exists(path):
+                    candidates.append(path)
+
+    # Full Chromium before headless shell - it renders layout more faithfully.
+    candidates.sort(key=lambda p: ("headless" in p, p))
+    for path in candidates:
+        if os.access(path, os.X_OK):
+            return path
+
+    system_chromium = ["/usr/bin/chromium", "/usr/bin/chromium-browser",
+                       "/usr/bin/google-chrome"]
+    for path in system_chromium:
+        if os.path.exists(path) and os.access(path, os.X_OK):
+            return path
+    return None
+
+
 class BrowserRenderer:
     """Headless Chromium renderer for JS-built pages.
 
@@ -278,10 +321,19 @@ class BrowserRenderer:
             )
         self._playwright = sync_playwright().start()
         launch_kwargs = {"headless": True, "args": ["--disable-dev-shm-usage"]}
-        executable = os.environ.get("CHROMIUM_PATH")
+        executable = find_chromium()
         if executable:
             launch_kwargs["executable_path"] = executable
-        self._browser = self._playwright.chromium.launch(**launch_kwargs)
+            if self.verbose:
+                print(f"  using browser: {executable}", flush=True)
+        try:
+            self._browser = self._playwright.chromium.launch(**launch_kwargs)
+        except Exception as exc:
+            raise SystemExit(
+                f"Could not launch Chromium: {str(exc)[:200]}\n"
+                "Install a matching browser with:  playwright install chromium\n"
+                "or point CHROMIUM_PATH at an existing Chromium binary."
+            )
         self._context = self._browser.new_context(
             user_agent=USER_AGENT, viewport=VIEWPORT,
             ignore_https_errors=False, locale="en-US")
