@@ -207,6 +207,121 @@ def human_bytes(num):
 # Crawling
 # --------------------------------------------------------------------------
 
+VIEWPORT = {"width": 1366, "height": 900}
+
+# Runs in the page after render: reports what the browser actually resolved and
+# laid out, which beats every static heuristic for LCP and sizing checks.
+IMAGE_PROBE_JS = """() => {
+  const out = [];
+  document.querySelectorAll('img').forEach((img, index) => {
+    const rect = img.getBoundingClientRect();
+    out.push({
+      index: index,
+      src: img.getAttribute('src') || '',
+      currentSrc: img.currentSrc || img.src || '',
+      alt: img.getAttribute('alt'),
+      hasAlt: img.hasAttribute('alt'),
+      naturalWidth: img.naturalWidth,
+      naturalHeight: img.naturalHeight,
+      clientWidth: Math.round(rect.width),
+      clientHeight: Math.round(rect.height),
+      docTop: Math.round(rect.top + window.scrollY),
+      loading: img.getAttribute('loading') || '',
+      fetchpriority: img.getAttribute('fetchpriority') || '',
+      hasSrcset: !!(img.getAttribute('srcset') || img.getAttribute('data-srcset')),
+      complete: img.complete,
+      hidden: rect.width === 0 && rect.height === 0
+    });
+  });
+  return out;
+}"""
+
+AUTOSCROLL_JS = """async () => {
+  await new Promise(resolve => {
+    let total = 0;
+    const step = 600;
+    const timer = setInterval(() => {
+      window.scrollBy(0, step);
+      total += step;
+      if (total >= document.body.scrollHeight || total > 40000) {
+        clearInterval(timer);
+        window.scrollTo(0, 0);
+        resolve();
+      }
+    }, 120);
+  });
+}"""
+
+
+class BrowserRenderer:
+    """Headless Chromium renderer for JS-built pages.
+
+    Static HTML misses anything a framework paints client-side, so this loads the
+    page, scrolls it to trigger lazy-loading, then returns the settled DOM plus
+    per-image runtime measurements.
+    """
+
+    def __init__(self, timeout=30000, verbose=True):
+        self.timeout = timeout
+        self.verbose = verbose
+        self._playwright = None
+        self._browser = None
+        self._context = None
+
+    def __enter__(self):
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            raise SystemExit(
+                "--render needs Playwright. Install it with:\n"
+                "    pip install playwright && playwright install chromium"
+            )
+        self._playwright = sync_playwright().start()
+        launch_kwargs = {"headless": True, "args": ["--disable-dev-shm-usage"]}
+        executable = os.environ.get("CHROMIUM_PATH")
+        if executable:
+            launch_kwargs["executable_path"] = executable
+        self._browser = self._playwright.chromium.launch(**launch_kwargs)
+        self._context = self._browser.new_context(
+            user_agent=USER_AGENT, viewport=VIEWPORT,
+            ignore_https_errors=False, locale="en-US")
+        return self
+
+    def __exit__(self, *exc_info):
+        for closer in (self._context, self._browser):
+            try:
+                if closer:
+                    closer.close()
+            except Exception:
+                pass
+        if self._playwright:
+            try:
+                self._playwright.stop()
+            except Exception:
+                pass
+
+    def render(self, url):
+        """Return (final_url, html, probes). Raises on navigation failure."""
+        page = self._context.new_page()
+        try:
+            response = page.goto(url, wait_until="domcontentloaded", timeout=self.timeout)
+            if response is not None and response.status >= 400:
+                raise ValueError(f"HTTP {response.status}")
+            try:
+                page.wait_for_load_state("networkidle", timeout=self.timeout // 2)
+            except Exception:
+                pass  # a page with polling never goes idle; carry on with what loaded
+            page.evaluate(AUTOSCROLL_JS)
+            try:
+                page.wait_for_load_state("networkidle", timeout=8000)
+            except Exception:
+                pass
+            probes = page.evaluate(IMAGE_PROBE_JS)
+            return page.url.split("#")[0], page.content(), probes
+        finally:
+            page.close()
+
+
 class Crawler:
     def __init__(self, base_url, max_pages=200, delay=0.4, timeout=20, verbose=True):
         self.base_url = base_url.rstrip("/") + "/"
@@ -222,6 +337,7 @@ class Crawler:
             "Accept-Language": "en-US,en;q=0.9",
         })
         self.pages = {}       # url -> html
+        self.probes = {}      # url -> per-image runtime measurements (render mode)
         self.failed = {}      # url -> reason
 
     def log(self, message):
@@ -278,8 +394,9 @@ class Crawler:
 
         return list(dict.fromkeys(found))
 
-    def crawl(self):
-        self.log(f"Discovering URLs for {self.base_url}")
+    def crawl(self, renderer=None):
+        self.log(f"Discovering URLs for {self.base_url}"
+                 + (" (JS rendering enabled)" if renderer else ""))
         queue = self.sitemap_urls()
         if queue:
             self.log(f"  {len(queue)} URLs from sitemaps")
@@ -296,19 +413,24 @@ class Crawler:
             if re.search(r"\.(pdf|zip|jpg|jpeg|png|gif|webp|svg|css|js|mp4|xml|json)$", urlsplit(url).path, re.I):
                 continue
             try:
-                response = self.get(url)
-            except (requests.RequestException, ValueError) as exc:
+                if renderer is not None:
+                    final_url, html, probes = renderer.render(url)
+                    self.probes[final_url] = probes
+                else:
+                    response = self.get(url)
+                    final_url, html = response.url.split("#")[0], response.text
+            except (requests.RequestException, ValueError, Exception) as exc:
                 self.failed[url] = str(exc)[:200]
                 self.log(f"  [skip] {url} - {str(exc)[:80]}")
                 continue
 
-            final_url = response.url.split("#")[0]
-            self.pages[final_url] = response.text
+            self.pages[final_url] = html
             seen.add(final_url)
-            self.log(f"  [{len(self.pages):>4}/{self.max_pages}] {final_url}")
+            rendered_note = f" ({len(self.probes.get(final_url, []))} imgs)" if renderer else ""
+            self.log(f"  [{len(self.pages):>4}/{self.max_pages}] {final_url}{rendered_note}")
 
             # Follow internal links so a missing/partial sitemap still gets covered.
-            soup = BeautifulSoup(response.text, "lxml")
+            soup = BeautifulSoup(html, "lxml")
             for anchor in soup.find_all("a", href=True):
                 link = urljoin(final_url, anchor["href"]).split("#")[0]
                 if self.same_site(link) and link not in seen and link not in queue:
@@ -317,6 +439,38 @@ class Crawler:
             time.sleep(self.delay)
 
         return self.pages
+
+
+def attach_runtime(records, probes, page_url):
+    """Match browser measurements onto the parsed records.
+
+    Matching is by resolved URL first (currentSrc is what the browser actually
+    fetched after srcset selection), then by document order for anything left.
+    """
+    if not probes:
+        return
+
+    by_url = {}
+    for probe in probes:
+        for key in ("currentSrc", "src"):
+            value = probe.get(key)
+            if value and not value.startswith("data:"):
+                by_url.setdefault(urljoin(page_url, value), probe)
+
+    unmatched = list(probes)
+    img_records = [r for r in records if r["source_kind"] == "img"]
+
+    for record in img_records:
+        probe = by_url.get(record["image_url"])
+        if probe is not None:
+            record["runtime"] = probe
+            if probe in unmatched:
+                unmatched.remove(probe)
+
+    # Fall back to document order for records whose URL the browser rewrote.
+    leftovers = [r for r in img_records if "runtime" not in r]
+    for record, probe in zip(leftovers, unmatched):
+        record["runtime"] = probe
 
 
 def load_local_pages(html_dir):
@@ -740,9 +894,22 @@ def suggest_filename(record, keywords, slug_override=None):
 # Issue detection
 # --------------------------------------------------------------------------
 
+def is_above_fold(record):
+    """True if the image sits in the first viewport.
+
+    Uses the browser's laid-out position when available; otherwise falls back to
+    document order, which is only a rough proxy.
+    """
+    runtime = record.get("runtime")
+    if runtime and runtime.get("docTop") is not None:
+        return runtime["docTop"] < VIEWPORT["height"]
+    return record["position"] <= ABOVE_FOLD_COUNT
+
+
 def audit_image(record, asset, page_meta):
     """Score one image against every check; returns issues + severity."""
     issues = []
+    runtime = record.get("runtime") or {}
     alt = record["alt"]
     alt_present = record["alt_present"]
     filename = url_filename(record["image_url"])
@@ -846,7 +1013,8 @@ def audit_image(record, asset, page_meta):
         if not record["width_attr"] or not record["height_attr"]:
             issues.append(("Medium", "Missing width/height attributes",
                            "Without intrinsic dimensions the browser cannot reserve space - causes CLS."))
-        if record["position"] <= ABOVE_FOLD_COUNT:
+        above_fold = is_above_fold(record)
+        if above_fold:
             if record["loading"] == "lazy":
                 issues.append(("High", "Above-fold image is lazy-loaded",
                                "Lazy-loading the LCP image delays it measurably. Use loading=\"eager\"."))
@@ -861,12 +1029,27 @@ def audit_image(record, asset, page_meta):
             issues.append(("Low", "No responsive srcset",
                            "Serve a srcset/sizes set so mobile does not download the desktop asset."))
 
-    width, height = asset.get("width"), asset.get("height")
-    if width and record["width_attr"].isdigit():
-        declared = int(record["width_attr"])
-        if declared and width > declared * 2:
-            issues.append(("High", "Oversized for display",
-                           f"Intrinsic {width}px vs displayed {declared}px. Serve a resized file."))
+    width = asset.get("width") or runtime.get("naturalWidth") or None
+    height = asset.get("height") or runtime.get("naturalHeight") or None
+
+    # The rendered box is the truth; the width attribute is only a declaration.
+    displayed = runtime.get("clientWidth") or (
+        int(record["width_attr"]) if record["width_attr"].isdigit() else None)
+    if width and displayed and displayed > 0 and width > displayed * 2:
+        issues.append(("High", "Oversized for display",
+                       f"Intrinsic {width}px vs displayed {displayed}px. "
+                       f"Serve a file around {displayed * 2}px wide for retina."))
+
+    if runtime:
+        if runtime.get("hasAlt") is False and record["alt_present"]:
+            issues.append(("Medium", "Alt removed at runtime",
+                           "The alt attribute is in the HTML but missing after JS runs."))
+        if runtime.get("complete") is False:
+            issues.append(("High", "Image did not finish loading",
+                           "The browser never completed this image - check the URL and CORS."))
+        if runtime.get("naturalWidth") == 0 and not runtime.get("hidden"):
+            issues.append(("Critical", "Image failed to render",
+                           "Zero intrinsic width after load - the source is broken or blocked."))
     if width and height and width * height > 4_000_000 and ext not in VECTOR_FORMATS:
         issues.append(("Medium", "Very large dimensions",
                        f"{width}x{height}px. Resize to the largest size actually rendered."))
@@ -1002,16 +1185,17 @@ def build_workbook(results, pages, site_url, out_path, crawl_stats):
         "Page URL", "Page Title", "Page Type", "Category", "Image URL", "Filename",
         "Format", "Source", "Position", "Alt Status", "Current Alt Text", "Alt Length",
         "Title Attr", "Width Attr", "Height Attr", "Intrinsic W", "Intrinsic H",
-        "File Size", "HTTP", "Loading", "Responsive srcset", "Severity",
-        "Issue Count", "Issues Found",
+        "Displayed W", "Above Fold", "File Size", "HTTP", "Loading",
+        "Responsive srcset", "Severity", "Issue Count", "Issues Found",
     ]
     widths = [42, 30, 12, 24, 52, 28, 9, 12, 9, 13, 40, 10, 22, 11, 11, 11, 11,
-              11, 8, 10, 16, 11, 8, 60]
+              12, 11, 11, 8, 10, 16, 11, 8, 60]
     rows = []
     for record in sorted(results, key=lambda r: (SEVERITY_ORDER[r["audit"]["severity"]],
                                                  r["page_url"], r["position"])):
         audit = record["audit"]
         asset = record["asset"]
+        runtime = record.get("runtime") or {}
         rows.append([
             record["page_url"], record["page_title"], record["page_type"],
             record["category"], record["image_url"], url_filename(record["image_url"]),
@@ -1019,7 +1203,10 @@ def build_workbook(results, pages, site_url, out_path, crawl_stats):
             record["position"], audit["alt_status"], record["alt"],
             len(record["alt"]) if record["alt"] else 0, record["title_attr"],
             record["width_attr"], record["height_attr"],
-            asset.get("width") or "", asset.get("height") or "",
+            asset.get("width") or runtime.get("naturalWidth") or "",
+            asset.get("height") or runtime.get("naturalHeight") or "",
+            runtime.get("clientWidth", ""),
+            ("Yes" if is_above_fold(record) else "No") if runtime else "",
             human_bytes(asset.get("bytes")), asset.get("status", ""),
             record["loading"] or ("js-lazy" if record["is_lazy_attr"] else "eager (default)"),
             "Yes" if record["has_srcset"] else "No",
@@ -1027,7 +1214,7 @@ def build_workbook(results, pages, site_url, out_path, crawl_stats):
             " | ".join(f"[{s}] {n}" for s, n, _ in audit["issues"]),
         ])
     style_sheet(inventory, headers, widths)
-    write_rows(inventory, rows, wrap_columns=(11, 24), severity_column=22)
+    write_rows(inventory, rows, wrap_columns=(11, 26), severity_column=24)
 
     # ---- Sheet 3: Missing / weak alt + suggestions ---------------------
     alt_sheet = workbook.create_sheet("3. Alt Tag Fix List")
@@ -1205,12 +1392,15 @@ def build_workbook(results, pages, site_url, out_path, crawl_stats):
 # --------------------------------------------------------------------------
 
 def run_audit(site_url, max_pages, out_path, html_dir=None, inspect_assets=True,
-              delay=0.4, verbose=True):
+              delay=0.4, verbose=True, render=False):
     crawler = Crawler(site_url, max_pages=max_pages, delay=delay, verbose=verbose)
 
     if html_dir:
         pages = load_local_pages(html_dir)
         print(f"Loaded {len(pages)} local HTML files from {html_dir}")
+    elif render:
+        with BrowserRenderer(verbose=verbose) as renderer:
+            pages = crawler.crawl(renderer=renderer)
     else:
         pages = crawler.crawl()
 
@@ -1226,7 +1416,9 @@ def run_audit(site_url, max_pages, out_path, html_dir=None, inspect_assets=True,
     print(f"\nAnalysing images across {len(pages)} pages...")
     for page_url, html in pages.items():
         soup, page_meta = extract_page_meta(page_url, html)
-        for record in extract_images(page_url, soup, page_meta):
+        page_records = extract_images(page_url, soup, page_meta)
+        attach_runtime(page_records, crawler.probes.get(page_url), page_url)
+        for record in page_records:
             asset = inspector.inspect(record["image_url"])
             record["asset"] = asset
             record["audit"] = audit_image(record, asset, page_meta)
@@ -1275,6 +1467,9 @@ def main():
     parser.add_argument("--out", default=None, help="Output .xlsx path")
     parser.add_argument("--html-dir", default=None,
                         help="Audit saved .html files from this directory instead of crawling")
+    parser.add_argument("--render", action="store_true",
+                        help="Render each page in headless Chromium first - needed for sites "
+                             "that build image grids in JavaScript. Slower but far more accurate.")
     parser.add_argument("--no-asset-check", action="store_true",
                         help="Skip fetching images (faster, no file size or dimension data)")
     parser.add_argument("--delay", type=float, default=0.4, help="Seconds between page requests")
@@ -1289,7 +1484,7 @@ def main():
 
     run_audit(args.url, args.max_pages, out_path, html_dir=args.html_dir,
               inspect_assets=not args.no_asset_check, delay=args.delay,
-              verbose=not args.quiet)
+              verbose=not args.quiet, render=args.render)
 
 
 if __name__ == "__main__":

@@ -50,6 +50,10 @@ pip install -r requirements.txt
 # Crawl a live site
 python image_seo_audit.py https://example.com/
 
+# Render each page in headless Chromium first - required for JS-built image grids
+playwright install chromium
+python image_seo_audit.py https://example.com/ --render
+
 # Larger crawl, explicit output path
 python image_seo_audit.py https://example.com/ --max-pages 500 --out reports/audit.xlsx
 
@@ -57,8 +61,31 @@ python image_seo_audit.py https://example.com/ --max-pages 500 --out reports/aud
 python image_seo_audit.py https://example.com/ --html-dir ./saved_pages
 ```
 
-Options: `--max-pages` (default 200), `--out`, `--html-dir`, `--no-asset-check`
-(skip downloading images, so no file-size or dimension data), `--delay`, `--quiet`.
+Options: `--max-pages` (default 200), `--out`, `--html-dir`, `--render`,
+`--no-asset-check` (skip downloading images, so no file-size or dimension data),
+`--delay`, `--quiet`.
+
+### `--render` mode
+
+Without it the crawler only sees the HTML the server sends, so anything a
+framework paints client-side is invisible. Against a test page with a
+JS-built grid, the static crawl found 1 of 3 homepage images; `--render` found
+all 3.
+
+Rendering loads each page in headless Chromium, waits for the network to settle,
+auto-scrolls to trigger lazy-loading, then measures every image in place. That
+replaces three static guesses with real data:
+
+- **Above-the-fold** is the image's laid-out position, not its document order,
+  so the LCP and lazy-loading checks stop misfiring on sticky headers
+- **Displayed width** is the rendered box, so "oversized for display" compares
+  against what the browser actually painted
+- **Load failures** surface images that resolve but never decode
+
+It also adds runtime-only checks: alt attributes stripped by JS, images that
+never finish loading, and images with zero intrinsic width after load.
+
+Set `CHROMIUM_PATH` if you need to point at a specific Chromium binary.
 
 Reports are written to `reports/` as timestamped `.xlsx` files.
 
@@ -88,7 +115,7 @@ Each image is checked for:
 | Sheet | Contents |
 | --- | --- |
 | 1. Summary | Scope, alt-text health, severity breakdown, top issues by volume |
-| 2. All Images | Full inventory: page, category, image URL, alt, dimensions, size, issues |
+| 2. All Images | Full inventory: page, category, image URL, alt, dimensions, displayed size, above-fold, weight, issues |
 | 3. Alt Tag Fix List | Priority-sorted images needing alt work, with suggested alt text |
 | 4. All Alt Tags | Suggested alt text and a ready-to-paste `<img>` tag for every image |
 | 5. Technical Issues | One row per non-alt issue with the recommended fix |
